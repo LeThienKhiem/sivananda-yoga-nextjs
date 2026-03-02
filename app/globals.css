@@ -12,6 +12,19 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --animate-zoom-out: zoom-out 4s ease-out forwards;
+
+  @keyframes zoom-out {
+    0% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
