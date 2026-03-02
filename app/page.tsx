@@ -230,6 +230,99 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Featured courses */}
+        <section id="courses" className="bg-[#fcfaf5] py-20">
+          <div className="mx-auto max-w-[1440px] px-4 lg:px-8">
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl font-bold text-[#1e5c2b]">
+                FEATURED COURSES
+              </h2>
+              <p className="mt-3 text-gray-600">Explore our most popular programs at the resort.</p>
+              <div className="mx-auto mt-4 w-24 h-0.5 bg-[#1e5c2b]/60" aria-hidden />
+            </div>
+
+            <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {/* Course 1: Yoga Vacation */}
+              <article className="flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white shadow-sm transition-shadow hover:shadow-xl">
+                <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b"
+                    alt="Yoga practice at the resort"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 480px"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-xl font-bold uppercase tracking-wide text-[#1e5c2b]">Yoga Vacation</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-700 lg:text-base">
+                    The Yoga Vacation program is designed to help you recharge your energy, reduce stress and maintain health and wellness. You will enjoy the benefits of yoga practice, healthy vegetarian meals, and the peaceful environment of the resort.
+                  </p>
+                  <Link
+                    href="/yoga-vacation"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-[#1e5c2b] transition-colors hover:text-[#d85513]"
+                  >
+                    VIEW DETAILS
+                    <span aria-hidden>→</span>
+                  </Link>
+                </div>
+              </article>
+
+              {/* Course 2: Teacher Training Course (TTC) */}
+              <article className="flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white shadow-sm transition-shadow hover:shadow-xl">
+                <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1545205597-3d9d02c29597"
+                    alt="Yoga teacher training"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 480px"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-xl font-bold uppercase tracking-wide text-[#1e5c2b]">Teacher Training Course</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-700 lg:text-base">
+                    The world-renowned Sivananda Yoga Teacher Training Course is a 4-week intensive program that provides a solid foundation for your own yoga practice and gives you the skills and confidence to teach yoga to others.
+                  </p>
+                  <Link
+                    href="/teacher-training-course"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-[#1e5c2b] transition-colors hover:text-[#d85513]"
+                  >
+                    VIEW DETAILS
+                    <span aria-hidden>→</span>
+                  </Link>
+                </div>
+              </article>
+
+              {/* Course 3: Ayurveda Wellness */}
+              <article className="flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white shadow-sm transition-shadow hover:shadow-xl">
+                <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1758274538676-87c2314bca60"
+                    alt="Ayurveda wellness"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 480px"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="text-xl font-bold uppercase tracking-wide text-[#1e5c2b]">Ayurveda Wellness</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-700 lg:text-base">
+                    Experience the ancient healing system of Ayurveda. Our programs include individual consultations, specialized treatments, and workshops designed to restore balance and vitality to your mind and body.
+                  </p>
+                  <Link
+                    href="/ayurveda-wellness"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-[#1e5c2b] transition-colors hover:text-[#d85513]"
+                  >
+                    VIEW DETAILS
+                    <span aria-hidden>→</span>
+                  </Link>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
         {/* Body content from seo-extracted.json */}
         <article className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
           {/* SEO: All semantic tags (h1–h4, p, ul, li, strong, a) preserved; Tailwind applied onto them via prose. Zero text modification. */}
