@@ -49,7 +49,7 @@ export default function TestimonialsCarousel2() {
   return (
     <section
       id="testimonials2"
-      className="relative overflow-hidden bg-[#f9f8f6] py-24"
+      className="relative overflow-hidden bg-[#f9f8f6] py-24 mb-0 border-none"
     >
       {/* Large decorative quote mark */}
       <div

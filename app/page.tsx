@@ -2,32 +2,17 @@ import fs from "fs";
 import path from "path";
 import Image from "next/image";
 import Link from "next/link";
-import parse, { type Element } from "html-react-parser";
 import Header from "@/components/Header";
 import AnimatedNumber from "@/components/AnimatedNumber";
 import PlaceCarousel from "@/components/PlaceCarousel";
 import EventsCarousel from "@/components/EventsCarousel";
 import TestimonialsCarousel2 from "@/components/TestimonialsCarousel2";
+import Footer from "@/components/Footer";
 
 const HERO_IMAGE_URL =
   "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d";
 
 const SEO_JSON_PATH = path.join(process.cwd(), "seo-extracted.json");
-
-const DIVI_CLASS_REGEX =
-  /^(et_pb_|et_builder_|et-l|et_animated|et_|clearfix|wp-image-\d+|alignnone|size-\w+|et-waypoint)/;
-
-function stripDiviClasses(html: string): string {
-  return html.replace(/\sclass="[^"]*"/g, (match) => {
-    const classAttr = match.slice(8, -1);
-    const kept = classAttr
-      .split(/\s+/)
-      .filter((t) => !DIVI_CLASS_REGEX.test(t.trim()))
-      .join(" ")
-      .trim();
-    return kept ? ` class="${kept}"` : "";
-  });
-}
 
 function extractMeta(headContent: string) {
   const titleMatch = headContent.match(/<title>([^<]*)<\/title>/i);
@@ -102,35 +87,6 @@ const jsonLd = {
 };
 
 export default function Home() {
-  const { bodyContent } = getSeoData();
-  const cleanedHtml = stripDiviClasses(bodyContent);
-
-  const parsed = parse(cleanedHtml, {
-    replace(domNode) {
-      const node = domNode as Element;
-      if (node.type === "tag" && node.name === "img") {
-        const src = node.attribs?.src ?? "";
-        const alt = node.attribs?.alt ?? "";
-        const w = node.attribs?.width;
-        const h = node.attribs?.height;
-        const width = w ? parseInt(w, 10) : 800;
-        const height = h ? parseInt(h, 10) : 500;
-        if (!src) return null;
-        return (
-          <Image
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-            className="rounded-xl object-cover shadow-md"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-          />
-        );
-      }
-      return undefined;
-    },
-  });
-
   return (
     <>
       <script
@@ -138,7 +94,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Header />
-      <main className="min-h-screen bg-[#faf9f7]">
+      <main className="min-h-screen bg-[#faf9f7] mb-0">
         {/* Hero Banner */}
         <section className="relative flex h-[85vh] min-h-[400px] flex-col items-center justify-center overflow-hidden px-4">
           <div className="absolute inset-0 h-full w-full animate-zoom-out">
@@ -644,56 +600,7 @@ export default function Home() {
         </section>
 
         <TestimonialsCarousel2 />
-
-        {/* Information section */}
-        <section
-          id="information"
-          className="flex flex-col items-center bg-[#FAF9F6] py-24 text-center"
-        >
-          <div className="flex flex-col items-center text-center">
-            <Image
-              src="https://zjffxjmsumxcdmqslmhw.supabase.co/storage/v1/object/public/Icon/True-World-Order-logo-transparent-300x278.png"
-              alt="True World Order logo"
-              width={160}
-              height={148}
-              className="w-32 h-auto md:w-40"
-            />
-            <p className="mt-4 font-serif text-lg italic text-green-800/80">
-              True World Order
-            </p>
-            <h2 className="mt-10 mb-6 font-serif text-2xl uppercase tracking-[0.2em] text-green-900 md:text-3xl">
-              SIVANANDA YOGA RESORT AND TRAINING CENTER
-            </h2>
-            <address className="not-italic font-serif text-lg leading-relaxed text-green-900 md:text-xl">
-              <p>K'lan Resort, Hoa Hong Street, Ward 4</p>
-              <p>by the Tuyen Lam Lake</p>
-              <p>Dalat, Vietnam</p>
-            </address>
-            <div className="my-8 h-px w-24 border-t border-green-900/20" />
-            <div className="font-sans text-base tracking-wide text-green-900">
-              <a
-                href="mailto:Vietnamyogaresort@sivananda.org"
-                className="hover:underline"
-              >
-                Vietnamyogaresort@sivananda.org
-              </a>
-              <a
-                href="tel:+842636501100"
-                className="mt-2 block hover:underline"
-              >
-                Telephone: (+84) 263 650 1100
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Body content from seo-extracted.json */}
-        <article className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-          {/* SEO: All semantic tags (h1–h4, p, ul, li, strong, a) preserved; Tailwind applied onto them via prose. Zero text modification. */}
-          <div className="homepage-content prose prose-lg max-w-none prose-headings:font-serif prose-headings:text-stone-800 prose-h1:text-3xl prose-h1:sm:text-4xl prose-h1:tracking-tight prose-h2:text-2xl prose-h2:sm:text-3xl prose-h2:mt-14 prose-h2:mb-6 prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4 prose-h4:text-lg prose-h4:mt-8 prose-h4:mb-3 prose-p:text-stone-700 prose-p:leading-relaxed prose-p:mb-4 prose-a:text-[#b85c38] prose-a:no-underline hover:prose-a:underline prose-strong:text-stone-800 prose-ul:my-6 prose-ul:text-stone-700 prose-li:my-1 prose-li:marker:text-[#598234] [&_img]:rounded-xl [&_img]:shadow-lg [&_img]:my-8 space-y-10">
-            {parsed}
-          </div>
-        </article>
+        <Footer />
       </main>
     </>
   );
