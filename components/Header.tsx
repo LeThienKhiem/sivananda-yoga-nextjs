@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { User, Menu, X } from "lucide-react";
+import { User, Menu, X, ChevronDown } from "lucide-react";
 
 const HEADER_BG = "bg-[#1e5c2b]";
 const ACTIVE_LINK = "text-[#d4e08b]";
@@ -135,6 +135,15 @@ function MegaMenuDropdown({ columns }: { columns: MegaMenuColumn[] }) {
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
+
+  const toggleMobileSubmenu = (menuName: string) =>
+    setActiveMobileSubmenu((prev) => (prev === menuName ? null : menuName));
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setActiveMobileSubmenu(null);
+  };
 
   return (
     <header
@@ -239,7 +248,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile nav panel - same dark green, white links (no mega menus) */}
+      {/* Mobile nav panel - expandable submenus */}
       {mobileMenuOpen && (
         <div
           className={`border-t border-[#1a5226] ${HEADER_BG} px-4 py-4 md:hidden`}
@@ -248,21 +257,72 @@ export default function Header() {
         >
           <nav className="flex flex-col gap-0.5">
             <ul className="flex flex-col gap-0.5">
-              {NAV_LINKS.map(({ href, label, active }) => (
-                <li key={href}>
-                  <Link
-                    href={href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`block rounded-lg px-3 py-2.5 text-sm font-medium uppercase tracking-wider transition-colors ${
-                      active
-                        ? `${ACTIVE_LINK} font-bold bg-white/10`
-                        : "text-white hover:bg-white/10"
-                    }`}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
+              {NAV_LINKS.map(({ href, label, active }) => {
+                const columns = MEGA_MENUS[label];
+                const hasDropdown = Boolean(columns?.length);
+
+                if (hasDropdown) {
+                  const isOpen = activeMobileSubmenu === label;
+                  return (
+                    <li key={href}>
+                      <button
+                        type="button"
+                        onClick={() => toggleMobileSubmenu(label)}
+                        className={`flex w-full items-center justify-between rounded-lg px-3 py-3 text-sm font-medium uppercase tracking-wider transition-colors ${
+                          active
+                            ? `${ACTIVE_LINK} font-bold bg-white/10`
+                            : "text-white hover:bg-white/10"
+                        }`}
+                        aria-expanded={isOpen}
+                        aria-controls={`mobile-submenu-${label.replace(/\s+/g, "-")}`}
+                      >
+                        {label}
+                        <ChevronDown
+                          className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                          aria-hidden
+                        />
+                      </button>
+                      {isOpen && (
+                        <div
+                          id={`mobile-submenu-${label.replace(/\s+/g, "-")}`}
+                          className="flex flex-col pl-4 mt-2 space-y-2 border-l-2 border-white/30"
+                        >
+                          {columns.map((col) =>
+                            col.links.map((link, index) => (
+                              <Link
+                                key={`${col.header}-${link.label}-${index}`}
+                                href={link.href}
+                                onClick={closeMobileMenu}
+                                className="block rounded-lg px-3 py-3 text-sm text-white/95 transition-colors hover:bg-white/10 hover:text-white"
+                              >
+                                {link.label}
+                              </Link>
+                            ))
+                          )}
+                        </div>
+                      )}
+                    </li>
+                  );
+                }
+
+                return (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      onClick={closeMobileMenu}
+                      className={`block rounded-lg px-3 py-3 text-sm font-medium uppercase tracking-wider transition-colors ${
+                        active
+                          ? `${ACTIVE_LINK} font-bold bg-white/10`
+                          : "text-white hover:bg-white/10"
+                      }`}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
         </div>

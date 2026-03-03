@@ -194,9 +194,9 @@ export default function Home() {
           <div className="mx-auto max-w-[1440px] px-4 lg:px-8">
             <div className="max-w-3xl text-left">
               <h2 className="text-3xl font-bold text-[#1e5c2b]">
-                FEATURED COURSES
+                Our Offerings
               </h2>
-              <p className="mt-3 text-gray-600">Explore our most popular programs at the resort.</p>
+              <p className="mt-3 text-gray-600">EXPLORE ANCIENT KNOWLEDGE</p>
               <div className="mt-4 w-24 h-0.5 bg-[#1e5c2b]/60" aria-hidden />
             </div>
 

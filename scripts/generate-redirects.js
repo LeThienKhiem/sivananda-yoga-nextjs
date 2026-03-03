@@ -52,9 +52,10 @@ function main() {
     const source = getPathname(url);
     const destination = getDestinationPath(source);
 
-    // Skip root (no redirect needed) and duplicate sources
+    // Skip root (no redirect needed), duplicate sources, and self-referential redirects
     if (source === '/' && destination === '/') continue;
     if (seenSources.has(source)) continue;
+    if (source === destination) continue; // Prevents ERR_TOO_MANY_REDIRECTS
     seenSources.add(source);
 
     redirects.push({

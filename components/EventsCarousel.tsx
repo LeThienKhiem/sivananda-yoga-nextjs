@@ -75,7 +75,15 @@ const EVENTS = [
 
 const spring = { type: "spring" as const, stiffness: 300, damping: 35 };
 
-export default function EventsCarousel() {
+export interface EventsCarouselProps {
+  title?: string;
+  subtitle?: string;
+}
+
+export default function EventsCarousel({
+  title = "Upcoming Events",
+  subtitle,
+}: EventsCarouselProps) {
   const x = useMotionValue(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const stripRef = useRef<HTMLDivElement>(null);
@@ -112,13 +120,20 @@ export default function EventsCarousel() {
   };
 
   return (
-    <section id="events" className="bg-[#fcfaf5] py-16 md:py-20">
+    <section id="events" className="bg-[#fcfaf5] pt-16 pb-0 md:pt-20 md:pb-0">
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         {/* Header: title left; View All + arrows right */}
         <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-          <h2 className="font-serif text-3xl font-bold text-[#598234]">
-            Upcoming Events
-          </h2>
+          <div>
+            <h2 className="font-serif text-3xl font-bold text-[#598234]">
+              {title}
+            </h2>
+            {subtitle && (
+              <p className="mt-1 text-center text-gray-600">
+                {subtitle}
+              </p>
+            )}
+          </div>
           <div className="flex items-center gap-2">
             <Link
               href="#"

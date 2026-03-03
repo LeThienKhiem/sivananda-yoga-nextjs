@@ -21,8 +21,8 @@ const FOOTER_LINK =
 export default function Footer() {
   return (
     <footer
-      className="relative w-full overflow-hidden bg-transparent leading-[0]"
-      style={{ margin: 0, padding: 0 }}
+      className="relative -mt-2 w-full overflow-hidden bg-transparent leading-[0]"
+      style={{ padding: 0 }}
     >
       <img
         src={BANNER_URL}
