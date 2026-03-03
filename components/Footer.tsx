@@ -8,6 +8,7 @@ import {
   Instagram,
   Youtube,
   Music,
+  Twitter,
 } from "lucide-react";
 
 const BANNER_URL =
@@ -20,18 +21,93 @@ const FOOTER_LINK =
 
 export default function Footer() {
   return (
-    <footer
-      className="relative -mt-2 w-full overflow-hidden bg-transparent leading-[0]"
-      style={{ padding: 0 }}
-    >
-      <img
-        src={BANNER_URL}
-        alt="Yoga Landscape"
-        className="block h-auto w-full m-0 p-0"
-      />
+    <footer className="relative w-full">
+      {/* Desktop: full-size image background - hidden on mobile. Wrapper eliminates img line-box gap */}
+      <div className="hidden md:block leading-[0]">
+        <img
+          src={BANNER_URL}
+          alt="Yoga Landscape"
+          className="block h-auto w-full m-0 p-0 align-bottom"
+        />
+      </div>
 
-      {/* Bottom-aligned overlay – content pushed to very bottom */}
-      <div className="absolute inset-0 z-10 flex w-full flex-col justify-end px-6 pb-8 md:px-12">
+      {/* Mobile-only: solid green layout */}
+      <div className="flex flex-col items-center gap-8 px-4 py-12 text-center text-white md:hidden bg-[#6B894E]">
+        <div className="flex items-center justify-center gap-4">
+          <Image
+            src={LOGO_URL}
+            alt="True World Order logo"
+            width={64}
+            height={59}
+            className="h-16 w-16 shrink-0 object-contain brightness-0 invert"
+          />
+          <h2 className="text-left font-serif text-xl font-bold leading-snug">
+            Sivananda Yoga Resort and
+            <br />
+            Training Center
+          </h2>
+        </div>
+
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex max-w-sm items-start justify-center gap-3 text-left">
+            <MapPin className="mt-1 h-6 w-6 shrink-0" />
+            <p>Hoa Hong Street Ward 4, Tuyen Lam Lake Da Lat, Vietnam</p>
+          </div>
+          <div className="flex items-center justify-center gap-3">
+            <Phone className="h-5 w-5" />
+            <a href="tel:+842636501100">02636501100</a>
+          </div>
+          <div className="flex items-center justify-center gap-3">
+            <Mail className="h-5 w-5" />
+            <a href="mailto:vietnamyogaresort@sivananda.org">
+              vietnamyogaresort@sivananda.org
+            </a>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center gap-6">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <Facebook className="h-6 w-6" />
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <Instagram className="h-6 w-6" />
+          </a>
+          <a
+            href="https://youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+            <Youtube className="h-6 w-6" />
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+          >
+            <Twitter className="h-6 w-6" />
+          </a>
+        </div>
+
+        <p className="px-4 mt-4 text-center text-sm leading-relaxed">
+          © Copyright 2025 Sivananda Yoga Resort and Training Center, Da Lat,
+          Vietnam
+        </p>
+      </div>
+
+      {/* Desktop: bottom-aligned overlay – hidden on mobile */}
+      <div className="absolute inset-0 z-10 hidden w-full flex-col justify-end px-6 pb-8 md:flex md:px-12">
         <div className="mx-auto w-full max-w-7xl">
           <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-4">
             {/* Column 1: Brand & Contact */}
