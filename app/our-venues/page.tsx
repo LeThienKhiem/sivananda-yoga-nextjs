@@ -76,28 +76,34 @@ export default function OurVenuesPage() {
       <Header />
 
       {/* 1. HERO BANNER */}
-      <section className="relative w-full h-[50vh] min-h-[400px] flex flex-col items-center justify-center text-center px-6">
-        <Image
-          src={HERO_IMG}
-          alt="Our Venues Hero"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="relative z-10 text-white max-w-4xl mt-16">
-          <p className="uppercase tracking-widest text-xs md:text-sm mb-4 font-semibold">
+      <section className="relative h-[50vh] min-h-[400px] md:h-[60vh] md:min-h-[500px] flex flex-col items-center justify-end text-center">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={HERO_IMG}
+            alt="Our Venues Hero"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
+
+        <div className="relative z-10 w-[90%] max-w-4xl px-8 py-10 md:py-14 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.08)] rounded-sm translate-y-1/2 text-center">
+          <p className="text-xs md:text-sm text-[#0B3B24] tracking-widest uppercase mb-4 font-bold opacity-80">
             Experience the tranquility and natural beauty of our yoga retreat center
           </p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#0B3B24] font-bold mb-6">
             Unleash the Beauty of Ashram
           </h1>
-          <p className="text-base md:text-lg opacity-90 max-w-2xl mx-auto">
+          <p className="text-[#4A4A4A] leading-relaxed md:text-lg max-w-2xl mx-auto font-medium">
             Discover the sacred spaces designed to support your spiritual journey, physical well-being, and mental peace.
           </p>
         </div>
       </section>
+
+      {/* Spacer to prevent overlap with the next section due to the translate-y */}
+      <div className="h-32 md:h-48 bg-transparent" />
 
       {/* 2. INTRO COLLAGE SECTION */}
       <section className="max-w-7xl mx-auto py-24 px-6">
@@ -179,25 +185,33 @@ export default function OurVenuesPage() {
         })}
       </section>
 
-      {/* 4. FULL WIDTH BREAK (MEALS IN NATURE) */}
-      <section className="relative w-full h-[50vh] min-h-[400px] flex items-center mt-12 mb-24">
-        <Image
-          src={BANNER_MEALS}
-          alt="Meals in nature"
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-          <div className="max-w-lg bg-[#FDFCF8]/95 backdrop-blur-md p-10 shadow-2xl rounded-sm">
-            <h2 className="text-3xl font-serif text-[#0B3B24] font-bold mb-4">
-              Enjoy your meals in nature
-            </h2>
-            <p className="text-[#4A4A4A] leading-relaxed">
-              Connect with the earth while nourishing your body. Our outdoor dining areas allow you to experience your sattvic meals surrounded by the vibrant energy and fresh air of the pine forest.
-            </p>
-          </div>
+      {/* 4. DINING IN HARMONY WITH NATURE */}
+      <section className="relative w-full min-h-[500px] md:min-h-[600px] flex items-stretch mb-24">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={BANNER_MEALS}
+            alt="Dining in Harmony with Nature"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+
+        <div className="relative z-10 w-full md:w-[50%] lg:w-[45%] bg-[#1A1A1A]/70 backdrop-blur-sm p-8 md:p-14 lg:p-20 flex flex-col justify-center text-white">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
+            Dining in Harmony with Nature
+          </h2>
+
+          <p className="text-white/90 text-sm md:text-base leading-relaxed mb-10">
+            Our dining area opens to peaceful views of the pine forest, with rustic picnic tables nestled in fresh air and birdsong. Meals are unhurried and nourishing—an invitation to slow down, be present, and return to the simple joy of eating in connection with nature&apos;s rhythm and care.
+          </p>
+
+          <Link
+            href="/accommodations"
+            className="border border-white/80 text-white hover:bg-white hover:text-[#0B3B24] px-8 py-3 rounded-sm font-bold tracking-widest text-sm uppercase transition-colors w-fit inline-block"
+          >
+            Book Your Stay
+          </Link>
         </div>
       </section>
 
