@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 const BANNER_URL =
-  "https://zjffxjmsumxcdmqslmhw.supabase.co/storage/v1/object/public/Icon/banner-yoga-footer.png";
+  "https://zjffxjmsumxcdmqslmhw.supabase.co/storage/v1/object/public/Icon/banner-footer-yoga-course.png";
 const LOGO_URL =
   "https://zjffxjmsumxcdmqslmhw.supabase.co/storage/v1/object/public/Icon/True-World-Order-logo-transparent-300x278.png";
 
@@ -22,16 +22,7 @@ const FOOTER_LINK =
 export default function Footer() {
   return (
     <footer className="relative w-full">
-      {/* Desktop: full-size image background - hidden on mobile. Wrapper eliminates img line-box gap */}
-      <div className="hidden md:block leading-[0]">
-        <img
-          src={BANNER_URL}
-          alt="Yoga Landscape"
-          className="block h-auto w-full m-0 p-0 align-bottom"
-        />
-      </div>
-
-      {/* Mobile-only: solid green layout */}
+      {/* Mobile-only: solid green layout – keep completely untouched */}
       <div className="flex flex-col items-center gap-8 px-4 py-12 text-center text-white md:hidden bg-[#6B894E]">
         <div className="flex items-center justify-center gap-4">
           <Image
@@ -106,58 +97,64 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* Desktop: bottom-aligned overlay – hidden on mobile */}
-      <div className="absolute inset-0 z-10 hidden w-full flex-col justify-end px-6 pb-8 md:flex md:px-12">
-        <div className="mx-auto w-full max-w-7xl">
-          <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-4">
+      {/* Desktop: natural full-size image, content overlay; no crop, no phantom line */}
+      <div className="hidden md:block relative w-full mt-auto">
+        <img
+          src={BANNER_URL}
+          className="w-full h-auto block m-0 p-0 align-bottom"
+          alt="Footer Background"
+        />
+        <div className="absolute inset-0 w-full h-full flex flex-col justify-end z-10 pointer-events-none">
+          <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 pb-4 lg:pb-8 pointer-events-auto">
+            <div className="grid grid-cols-1 gap-x-6 gap-y-4 lg:gap-x-8 lg:gap-y-8 md:grid-cols-4">
             {/* Column 1: Brand & Contact */}
             <div className="flex flex-col">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 lg:gap-3">
                 <Image
                   src={LOGO_URL}
                   alt="True World Order logo"
-                  width={56}
-                  height={52}
-                  className="h-14 w-14 shrink-0 object-contain brightness-0 invert"
+                  width={64}
+                  height={59}
+                  className="w-12 h-12 shrink-0 object-contain brightness-0 invert lg:w-16 lg:h-16"
                 />
-                <h3 className="whitespace-pre-line font-serif text-xl leading-tight text-white md:text-2xl">
-                  Sivananda Yoga Resort{"\n"}and Training Center
-                </h3>
-              </div>
-              <div className="mt-6 space-y-3">
-                <div className="flex gap-3">
-                  <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-white" />
-                  <span className="whitespace-pre-line text-sm leading-relaxed text-white">
-                    Hoa Hong Street{"\n"}Ward 4, Tuyen Lam Lake{"\n"}Da Lat, Vietnam
-                  </span>
+                  <h3 className="whitespace-pre-line font-serif text-sm leading-tight text-white lg:text-xl xl:text-2xl">
+                    Sivananda Yoga Resort{"\n"}and Training Center
+                  </h3>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 shrink-0 text-white" />
-                  <a href="tel:+842636501100" className={FOOTER_LINK}>
-                    02636501100
-                  </a>
+                <div className="mt-3 space-y-2 lg:mt-6 lg:space-y-3">
+                  <div className="flex gap-2 lg:gap-3">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
+                    <span className="whitespace-pre-line text-xs leading-relaxed text-white lg:text-sm">
+                      Hoa Hong Street{"\n"}Ward 4, Tuyen Lam Lake{"\n"}Da Lat, Vietnam
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 lg:gap-3">
+                    <Phone className="h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
+                    <a href="tel:+842636501100" className={`${FOOTER_LINK} text-xs lg:text-sm`}>
+                      02636501100
+                    </a>
+                  </div>
+                  <div className="flex items-center gap-2 lg:gap-3">
+                    <Mail className="h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
+                    <a
+                      href="mailto:vietnamyogaresort@sivananda.org"
+                      className={`${FOOTER_LINK} text-xs lg:text-sm`}
+                    >
+                      vietnamyogaresort@sivananda.org
+                    </a>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 shrink-0 text-white" />
-                  <a
-                    href="mailto:vietnamyogaresort@sivananda.org"
-                    className={FOOTER_LINK}
-                  >
-                    vietnamyogaresort@sivananda.org
-                  </a>
-                </div>
-              </div>
             </div>
 
             {/* Column 2: YOGA TEACHING */}
             <div>
-              <h4 className="mb-6 font-sans font-bold uppercase tracking-wide text-white">
+              <h4 className="mb-3 font-sans text-xs font-bold uppercase tracking-wide text-white lg:mb-6 lg:text-sm">
                 YOGA TEACHING
               </h4>
-              <nav className="flex flex-col space-y-4 text-sm md:text-base">
+              <nav className="flex flex-col space-y-2 lg:space-y-4 text-xs lg:text-sm">
                 <Link
                   href="/yoga-vacation"
-                  className={`${FOOTER_LINK} inline-block w-max rounded-sm border border-white/40 px-3 py-1.5`}
+                  className={`${FOOTER_LINK} inline-block w-max rounded-sm border border-white/40 px-2 py-1 lg:px-3 lg:py-1.5`}
                 >
                   Explore Yoga Vacation
                 </Link>
@@ -178,10 +175,10 @@ export default function Footer() {
 
             {/* Column 3: YOGA VACATION */}
             <div>
-              <h4 className="mb-6 font-sans font-bold uppercase tracking-wide text-white">
+              <h4 className="mb-3 font-sans text-xs font-bold uppercase tracking-wide text-white lg:mb-6 lg:text-sm">
                 YOGA VACATION
               </h4>
-              <nav className="flex flex-col space-y-4 text-sm md:text-base">
+              <nav className="flex flex-col space-y-2 lg:space-y-4 text-xs lg:text-sm">
                 <Link href="/guest-information" className={FOOTER_LINK}>
                   Registration & Arrival
                 </Link>
@@ -202,73 +199,74 @@ export default function Footer() {
 
             {/* Column 4: Links & Socials */}
             <div>
-              <nav className="mb-8 flex flex-col space-y-4">
+              <nav className="mb-4 flex flex-col space-y-2 lg:mb-8 lg:space-y-4 text-xs lg:text-sm">
                 <Link
                   href="/faqs"
-                  className={`${FOOTER_LINK} text-lg font-semibold text-white`}
+                  className={`${FOOTER_LINK} font-semibold text-white`}
                 >
                   FAQs
                 </Link>
                 <Link
                   href="/terms"
-                  className={`${FOOTER_LINK} text-lg font-semibold text-white`}
+                  className={`${FOOTER_LINK} font-semibold text-white`}
                 >
                   Terms & Policies
                 </Link>
                 <Link
                   href="/donation"
-                  className={`${FOOTER_LINK} text-lg font-semibold text-white`}
+                  className={`${FOOTER_LINK} font-semibold text-white`}
                 >
                   Donation
                 </Link>
               </nav>
-              <div className="flex gap-4">
+              <div className="flex gap-2 lg:gap-4">
                 <a
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/40 p-2 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="rounded-full border border-white/40 p-1.5 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:p-2"
                   aria-label="Facebook"
                 >
-                  <Facebook className="h-5 w-5" />
+                  <Facebook className="h-4 w-4 lg:h-5 lg:w-5" />
                 </a>
                 <a
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/40 p-2 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="rounded-full border border-white/40 p-1.5 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:p-2"
                   aria-label="Instagram"
                 >
-                  <Instagram className="h-5 w-5" />
+                  <Instagram className="h-4 w-4 lg:h-5 lg:w-5" />
                 </a>
                 <a
                   href="https://youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/40 p-2 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="rounded-full border border-white/40 p-1.5 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:p-2"
                   aria-label="YouTube"
                 >
-                  <Youtube className="h-5 w-5" />
+                  <Youtube className="h-4 w-4 lg:h-5 lg:w-5" />
                 </a>
                 <a
                   href="https://spotify.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/40 p-2 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="rounded-full border border-white/40 p-1.5 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:p-2"
                   aria-label="Spotify"
                 >
-                  <Music className="h-5 w-5" />
+                  <Music className="h-4 w-4 lg:h-5 lg:w-5" />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Copyright bar */}
-          <div className="mt-16 border-t border-white/10 pt-8">
-            <p className="text-center text-sm text-white">
-              © Copyright 2025 Sivananda Yoga Resort and Training Center, Da Lat,
-              Vietnam
-            </p>
+            {/* Copyright bar */}
+            <div className="mt-4 border-t border-white/10 pt-4 lg:mt-8 lg:pt-8">
+              <p className="text-center text-xs text-white lg:text-sm">
+                © Copyright 2025 Sivananda Yoga Resort and Training Center, Da Lat,
+                Vietnam
+              </p>
+            </div>
           </div>
         </div>
       </div>
