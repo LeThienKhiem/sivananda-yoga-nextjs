@@ -14,11 +14,13 @@ const nextConfig: NextConfig = {
     return legacyRedirects.filter((r) => r.source !== r.destination);
   },
   images: {
+    // Set to true only to debug "images not showing on Vercel" (bypasses optimization).
+    // unoptimized: true,
     remotePatterns: [
-      { protocol: "https", hostname: "sivanandayogavietnam.org", pathname: "/**" },
-      { protocol: "https", hostname: "sivanandavn2.wpengine.com", pathname: "/**" },
-      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
-      { protocol: "https", hostname: "zjffxjmsumxcdmqslmhw.supabase.co", pathname: "/**" },
+      { protocol: "https", hostname: "sivanandayogavietnam.org", port: "", pathname: "/**" },
+      { protocol: "https", hostname: "sivanandavn2.wpengine.com", port: "", pathname: "/**" },
+      { protocol: "https", hostname: "images.unsplash.com", port: "", pathname: "/**" },
+      { protocol: "https", hostname: "zjffxjmsumxcdmqslmhw.supabase.co", port: "", pathname: "/**" },
     ],
   },
 };
