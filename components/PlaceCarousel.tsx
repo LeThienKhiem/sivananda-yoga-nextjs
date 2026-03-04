@@ -85,7 +85,7 @@ export default function PlaceCarousel() {
             <div className="mt-8">
               <a
                 href="#"
-                className="inline-flex items-center justify-center rounded-lg border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-md transition hover:border-[#598234] hover:bg-[#598234]/90"
+                className="inline-flex items-center justify-center rounded-lg border border-white/30 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur-xl transition hover:border-[#598234] hover:bg-[#598234]/90"
               >
                 EXPLORE YOGA VACATION
               </a>

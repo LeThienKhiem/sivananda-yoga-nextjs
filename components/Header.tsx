@@ -16,8 +16,8 @@ const MEGA_MENUS: Record<string, MegaMenuColumn[]> = {
       links: [
         { label: "Yoga Vacation", href: "/yoga-vacation" },
         { label: "Sivananda Teaching", href: "/sivananda-teachings" },
-        { label: "5 points of Yoga", href: "/programs" },
-        { label: "4 paths of Yoga", href: "/programs" },
+        { label: "5 points of Yoga", href: "/5-points-of-yoga" },
+        { label: "4 paths of Yoga", href: "/4-paths-of-yoga" },
       ],
     },
     {
