@@ -143,34 +143,31 @@ export default function TeacherTrainingPage() {
 
         <EnrollTTCSection />
 
-        {/* Yoga Alliance Certified — bridge between Enroll and Why Choose */}
-        <section className="bg-[#FDFCF8] pt-24 pb-16 md:pb-24">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="bg-white/50 border border-gray-100 rounded-xl p-8 md:p-16 flex flex-col md:flex-row items-center gap-12 shadow-sm">
-              <div className="relative w-48 h-48 md:w-64 md:h-64 shrink-0 rounded-full bg-[#0B3B24]/5 border border-gray-200 flex items-center justify-center">
-                <span className="text-center font-serif text-[#0B3B24] text-sm md:text-base font-medium px-4">
-                  RYS 200
-                  <br />
-                  Yoga Alliance
-                </span>
-              </div>
-              <div className="flex-1 min-w-0">
-                <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] mb-2">
-                  Yoga Alliance Certified
-                </h2>
-                <p className="text-gray-500 uppercase tracking-wide text-sm mb-8">
-                  28-day Immersion Study - Graduate with Global Certification
-                </p>
-                <p className="text-gray-700 leading-relaxed text-lg">
-                  In the Sivananda Yoga Teacher Training you will deepen your
-                  practice and gain the skills needed to teach Yoga. After
-                  graduation participants will receive an certification from the
-                  International Sivananda Yoga Vedanta Centers that confirms that
-                  they have the knowledge and experience to teach Hatha Yoga, and
-                  which qualifies them to apply for Registered Yoga Teacher (200
-                  hour) status from the international Yoga Alliance
-                </p>
-              </div>
+        {/* YOGA ALLIANCE CERTIFIED SECTION */}
+        <section className="max-w-5xl mx-auto py-16 px-6">
+          <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            {/* Left: Certificate Image */}
+            <div className="w-48 h-48 md:w-56 md:h-56 shrink-0 relative flex items-center justify-center bg-gray-50/50 rounded-full overflow-hidden">
+              <Image
+                src="https://zjffxjmsumxcdmqslmhw.supabase.co/storage/v1/object/public/Icon/certificate.png"
+                alt="Yoga Alliance RYS 200 Certified"
+                fill
+                className="object-contain mix-blend-multiply p-4"
+                sizes="224px"
+              />
+            </div>
+
+            {/* Right: Text Content */}
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-3xl font-serif text-[#0B3B24] mb-2">
+                Yoga Alliance Certified
+              </h2>
+              <p className="text-sm text-gray-500 uppercase tracking-widest font-semibold mb-6">
+                28-DAY IMMERSION STUDY - GRADUATE WITH GLOBAL CERTIFICATION
+              </p>
+              <p className="text-[#4A4A4A] leading-relaxed">
+                In the Sivananda Yoga Teacher Training you will deepen your practice and gain the skills needed to teach Yoga. After graduation participants will receive a certification from the International Sivananda Yoga Vedanta Centers that confirms that they have the knowledge and experience to teach Hatha Yoga, and which qualifies them to apply for Registered Yoga Teacher (200 hour) status from the international Yoga Alliance.
+              </p>
             </div>
           </div>
         </section>
