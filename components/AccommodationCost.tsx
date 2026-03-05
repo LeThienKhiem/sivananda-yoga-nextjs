@@ -1,101 +1,136 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 const accommodations = [
   {
-    id: 0,
-    type: "Private Room",
-    capacity: "Single person",
-    price: "US$50",
-    image: "https://images.unsplash.com/photo-1510798831971-661eb04b3739",
-    description:
-      "Whether you come on your own or with family or friends, you'll enjoy simple accommodations in villa-style buildings that have several stand-alone rooms, each with its own bathroom. All accommodations are walking distance from the dining hall, yoga hall, and the rest of the ashram property. Please note that in the tradition of yoga ashrams, accommodations are comfortable, yet basic. Bedding and towels are provided; housekeeping services, air conditioning, and heaters are not.",
+    id: "private",
+    tabTitle: "Private Room",
+    tabSubtitle: "Single person",
+    image: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=1600",
+    price: "US$ 85",
+    description: [
+      "Whether you come on your own or with family or friends, you'll enjoy simple accommodations in villa-style buildings that have several stand-alone rooms, each with its own bathroom.",
+      "All accommodations are walking distance from the dining hall, yoga hall, and the rest of the ashram property and buildings.",
+      "Please note that in the tradition of yoga ashrams, accommodations are comfortable, yet basic. Bedding and towels are provided; housekeeping services, air conditioning, and heaters are not.",
+    ],
   },
   {
-    id: 1,
-    type: "Shared Room",
-    capacity: "For 2 people",
-    price: "US$35",
-    image: "https://images.unsplash.com/photo-1590490360182-c33d57733427",
-    description:
-      "Share your journey with a friend, partner, or a fellow yogi. Our double shared rooms offer a peaceful environment to rest and reflect after a day of practice. Each room features two comfortable single beds, simple furnishings, and an en-suite bathroom. Enjoy the shared energy while still having your personal space to unwind. Bedding and towels are provided.",
+    id: "shared-2",
+    tabTitle: "Shared Room",
+    tabSubtitle: "For 2 people",
+    image: "https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=1600",
+    price: "US$ 50",
+    description: [
+      "Share a peaceful space with a fellow practitioner. Our double rooms offer a harmonious balance of community and privacy, featuring comfortable beds and a shared en-suite bathroom.",
+      "All accommodations are walking distance from the dining hall, yoga hall, and the rest of the ashram property and buildings.",
+      "Please note that in the tradition of yoga ashrams, accommodations are comfortable, yet basic. Bedding and towels are provided; housekeeping services, air conditioning, and heaters are not.",
+    ],
   },
   {
-    id: 2,
-    type: "Shared Room",
-    capacity: "For 4 people",
-    price: "US$25",
-    image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5",
-    description:
-      "Experience the true ashram community spirit in our 4-person shared rooms. Perfect for budget-conscious travelers or those looking to connect deeply with like-minded individuals. The rooms are spacious, clean, and segregated by gender. Shared bathroom facilities are located conveniently nearby. Lockers are available for your valuables. Bedding is provided.",
+    id: "shared-4",
+    tabTitle: "Shared Room",
+    tabSubtitle: "For 4 people",
+    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1600",
+    price: "US$ 35",
+    description: [
+      "Experience authentic ashram living in our spacious 4-person shared rooms. Perfect for those who want to fully immerse themselves in the community aspect of the yoga lifestyle.",
+      "All accommodations are walking distance from the dining hall, yoga hall, and the rest of the ashram property and buildings.",
+      "Please note that in the tradition of yoga ashrams, accommodations are comfortable, yet basic. Bedding and towels are provided; housekeeping services, air conditioning, and heaters are not.",
+    ],
   },
 ];
 
 export default function AccommodationCost() {
-  const [activeTab, setActiveTab] = useState(0);
-  const current = accommodations[activeTab];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeAcc = accommodations[activeIndex];
 
   return (
-    <section className="py-24 px-6 bg-[#FDFCF8]">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-[#0B3B24] font-serif text-4xl md:text-5xl mb-2">
-          Accommodation & Cost
-        </h2>
-        <p className="text-gray-700 text-lg mb-12">Simple Living, High Thinking</p>
+    <section className="w-full bg-[#FDFCF8] px-6 py-24">
+      <div className="mx-auto max-w-6xl">
+        {/* Header */}
+        <div className="mb-10 text-center md:text-left">
+          <h2 className="mb-3 font-serif text-3xl font-bold text-[#0B3B24] md:text-4xl">
+            Accommodation & Cost
+          </h2>
+          <p className="font-medium italic text-[#4A4A4A]">
+            Simple Living, High Thinking
+          </p>
+        </div>
 
-        <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto min-h-[500px] shadow-sm">
-          {/* Left Column - Tabs */}
-          <div className="w-full md:w-64 flex flex-col z-20">
-            {accommodations.map((acc, index) => {
-              const isActive = activeTab === index;
-              return (
-                <button
-                  key={acc.id}
-                  type="button"
-                  onClick={() => setActiveTab(index)}
-                  className={`flex-1 flex flex-col justify-center px-8 py-6 cursor-pointer transition-all duration-300 relative text-left border-b border-white/20 min-h-[100px] md:min-h-0 ${
-                    isActive
-                      ? "bg-[#0B3B24] text-white shadow-[10px_0_15px_-3px_rgba(0,0,0,0.3)] md:scale-x-105 md:origin-left z-10"
-                      : "bg-[#4F6F1F] text-white/80 hover:bg-[#3D5A16] z-0"
+        {/* Tabs - horizontal scroll on mobile, flex on desktop */}
+        <div className="scrollbar-hide mb-8 flex flex-row gap-2 overflow-x-auto md:overflow-visible md:gap-4">
+          {accommodations.map((acc, index) => {
+            const isActive = activeIndex === index;
+            return (
+              <button
+                key={acc.id}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                className={`min-w-[140px] shrink-0 rounded-t-sm border-b-4 px-6 py-4 text-center transition-all duration-300 md:min-w-0 md:flex-1
+                  ${isActive
+                    ? "border-[#0B3B24] bg-[#F4F7F0] text-[#0B3B24]"
+                    : "border-gray-200 bg-white text-gray-500 shadow-sm hover:bg-gray-50 hover:shadow-md md:border-transparent"
                   }`}
-                >
-                  <span className="font-bold text-lg">{acc.type}</span>
-                  <span className="w-6 border-b border-white my-2 block" />
-                  <span className="font-light text-sm">{acc.capacity}</span>
-                </button>
-              );
-            })}
+              >
+                <div className="font-serif text-lg font-bold md:text-xl">{acc.tabTitle}</div>
+                <div className="mt-1 text-xs font-semibold uppercase tracking-wider opacity-80 md:text-sm">
+                  {acc.tabSubtitle}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Content Area */}
+        <div className="flex min-h-[500px] flex-col overflow-hidden rounded-sm bg-[#4F6F1F] shadow-2xl md:flex-row">
+          {/* Left: Image (Top on mobile) */}
+          <div className="relative aspect-[4/3] w-full md:w-[60%] md:aspect-auto">
+            <Image
+              src={activeAcc.image}
+              alt={activeAcc.tabTitle}
+              fill
+              className="object-cover transition-opacity duration-500"
+              sizes="(max-width: 768px) 100vw, 60vw"
+            />
           </div>
 
-          {/* Center Column - Image */}
-          <div className="flex-grow relative h-64 md:h-auto min-h-[256px] md:min-h-[500px] z-10 bg-gray-200">
-            <Image
-              src={current.image}
-              fill
-              className="object-cover"
-              alt={`${current.type} accommodation`}
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <div className="absolute bottom-0 right-0 bg-black/80 text-white p-6 min-w-[140px] text-center">
-              <p className="text-sm">Starting From</p>
-              <p className="text-3xl font-bold">{current.price}</p>
+          {/* Right: Description & Price (Bottom on mobile) */}
+          <div className="flex w-full flex-col justify-between p-8 text-white md:w-[40%] md:p-12">
+            <div className="mb-10 space-y-6 text-sm leading-relaxed text-white/90 md:text-base">
+              {activeAcc.description.map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
+
+            <div className="mt-auto flex flex-row items-center justify-between gap-4 border-t border-white/20 pt-6">
+              <div>
+                <p className="mb-1 text-xs uppercase tracking-widest text-white/70">
+                  Starting From
+                </p>
+                <p className="font-serif text-2xl font-bold md:text-3xl">
+                  {activeAcc.price}
+                </p>
+              </div>
+              <button
+                type="button"
+                className="shrink-0 rounded-sm bg-[#ED7D4D] px-6 py-3 text-xs font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600 md:px-8 md:py-4 md:text-sm"
+              >
+                Book Now
+              </button>
             </div>
           </div>
+        </div>
 
-          {/* Right Column - Text */}
-          <div className="w-full md:w-[350px] bg-[#4F6F1F] text-white p-10 flex flex-col justify-between z-10">
-            <p className="text-sm leading-relaxed whitespace-pre-line text-white/90">
-              {current.description}
-            </p>
-            <button
-              type="button"
-              className="mt-8 self-start bg-[#ED7D4D] text-white font-bold uppercase px-8 py-3 rounded-sm hover:bg-orange-600 transition-colors"
-            >
-              BOOK NOW
-            </button>
-          </div>
+        {/* Tab Indicators (Dots) for mobile */}
+        <div className="mt-8 flex justify-center gap-2 md:hidden">
+          {accommodations.map((_, index) => (
+            <div
+              key={index}
+              className={`h-2 w-2 rounded-full ${activeIndex === index ? "bg-[#0B3B24]" : "bg-gray-300"}`}
+            />
+          ))}
         </div>
       </div>
     </section>

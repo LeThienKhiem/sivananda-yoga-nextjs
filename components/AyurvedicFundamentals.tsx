@@ -61,7 +61,7 @@ const fundamentalData = [
     description:
       "Nasya is the administration of medicated oil through the nasal passages. As the nose is the gateway to the brain, this treatment is essential for clearing sinuses, improving respiratory health, and enhancing mental clarity and sensory function.",
     image:
-      "https://plus.unsplash.com/premium_photo-1682098137061-37ad1237ce57",
+      "https://images.unsplash.com/photo-1761839256951-10c4468c3621",
   },
 ];
 

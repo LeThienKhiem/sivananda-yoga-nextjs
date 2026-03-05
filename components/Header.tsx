@@ -37,7 +37,7 @@ const MEGA_MENUS: Record<string, MegaMenuColumn[]> = {
         { label: "TTC Program - 200 hours", href: "/yoga-teacher-training-course" },
         { label: "Advanced TTC Program - 300 hours", href: "/advanced-yoga-teacher-training-course" },
         { label: "Sadhana Intensive", href: "/sadhana-intensive" },
-        { label: "Vedanta Silence Meditation", href: "/programs" },
+        { label: "Vedanta Silence Meditation", href: "/vedanta-silence-meditation" },
         { label: "Other Courses for TTC", href: "/specialty-courses" },
       ],
     },
