@@ -8,7 +8,7 @@ import EventsCarousel from "@/components/EventsCarousel";
 import CoursePackageSection from "@/components/CoursePackageSection";
 import CurriculumSection from "@/components/CurriculumSection";
 import DailySchedule from "@/components/DailySchedule";
-import VideoTestimonials from "@/components/VideoTestimonials";
+import TTCTestimonials from "@/components/TTCTestimonials";
 import StudentFeedback from "@/components/StudentFeedback";
 import MainTeachers from "@/components/MainTeachers";
 import MessageFromTeachers from "@/components/MessageFromTeachers";
@@ -186,7 +186,7 @@ export default function TeacherTrainingPage() {
           <EventsCarousel title="Upcoming Events" />
         </section>
 
-        <VideoTestimonials />
+        <TTCTestimonials />
 
         <StudentFeedback />
 

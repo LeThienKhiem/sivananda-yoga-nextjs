@@ -21,6 +21,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "sivanandavn2.wpengine.com", port: "", pathname: "/**" },
       { protocol: "https", hostname: "images.unsplash.com", port: "", pathname: "/**" },
       { protocol: "https", hostname: "zjffxjmsumxcdmqslmhw.supabase.co", port: "", pathname: "/**" },
+      { protocol: "https", hostname: "znmazjqhyjxacqjjzsuh.supabase.co", port: "", pathname: "/**" },
     ],
   },
 };
