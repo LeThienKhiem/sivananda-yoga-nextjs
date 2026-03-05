@@ -26,7 +26,7 @@ const MEGA_MENUS: Record<string, MegaMenuColumn[]> = {
         { label: "Accommodation & Meal", href: "/accommodations" },
         { label: "Our Venue", href: "/our-venues" },
         { label: "Transportation & Arrival", href: "/guest-information" },
-        { label: "During Your Stay", href: "/guest-information" },
+        { label: "During Your Stay", href: "/during-your-stay" },
       ],
     },
   ],
