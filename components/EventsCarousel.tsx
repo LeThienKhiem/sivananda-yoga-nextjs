@@ -1,79 +1,57 @@
 "use client";
 
-import { useRef, useState, useLayoutEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
-import { motion, useMotionValue, animate } from "framer-motion";
+import {
+  Calendar,
+  MapPin,
+  ChevronLeft,
+  ChevronRight,
+  ArrowRight,
+} from "lucide-react";
 
-const CARD_WIDTH = 320;
-const GAP = 24;
-const CARD_STEP = CARD_WIDTH + GAP;
-
-const EVENTS = [
+const events = [
   {
-    title: "Teacher Training Course",
-    date: "September 11 – September 23, 2025",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b",
-    alt: "Yoga teacher training",
+    id: 1,
+    title: "Yoga Teacher Training Course (TTC)",
+    date: "15 Oct - 12 Nov, 2026",
+    location: "Sivananda Ashram, Dalat",
+    image: "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?q=80&w=800",
+    category: "Certification",
   },
   {
-    title: "Positive Thinking",
-    date: "October 2 – October 5, 2025",
-    image: "https://images.unsplash.com/photo-1772442363851-738a548f6c5c",
-    alt: "Meditation and positive thinking",
+    id: 2,
+    title: "Sadhana Intensive (SI)",
+    date: "20 Nov - 04 Dec, 2026",
+    location: "Sivananda Ashram, Dalat",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800",
+    category: "Advanced Practice",
   },
   {
-    title: "Sadhana Intensive",
-    date: "October 15 – October 22, 2025",
-    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597",
-    alt: "Sadhana practice",
+    id: 3,
+    title: "Ayurveda Wellness Retreat",
+    date: "10 Dec - 15 Dec, 2026",
+    location: "Sivananda Ashram, Dalat",
+    image: "https://images.unsplash.com/photo-1542273917363-3b1817f69a5d?q=80&w=800",
+    category: "Retreat",
   },
   {
-    title: "Silent Retreat",
-    date: "November 1 – November 5, 2025",
-    image: "https://images.unsplash.com/photo-1772379929979-483596bc399e",
-    alt: "Silent meditation retreat",
+    id: 4,
+    title: "Meditation & Silence Retreat",
+    date: "05 Jan - 12 Jan, 2027",
+    location: "Sivananda Ashram, Dalat",
+    image: "https://images.unsplash.com/photo-1508672019048-805c876b67e2?q=80&w=800",
+    category: "Spiritual",
   },
   {
-    title: "Ayurveda Workshop",
-    date: "November 12 – November 14, 2025",
-    image: "https://images.unsplash.com/photo-1591343395902-1adcb454c4e2",
-    alt: "Ayurveda and wellness",
-  },
-  {
-    title: "Advanced Asana",
-    date: "November 20 – November 24, 2025",
-    image: "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0",
-    alt: "Advanced yoga asana",
-  },
-  {
+    id: 5,
     title: "Kids Yoga Camp",
-    date: "December 5 – December 7, 2025",
-    image: "https://images.unsplash.com/photo-1770873263537-fbb8d39b6103",
-    alt: "Children yoga",
-  },
-  {
-    title: "Ayurveda Cooking",
-    date: "December 18 – December 20, 2025",
-    image: "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b",
-    alt: "Ayurvedic cooking",
-  },
-  {
-    title: "Restorative Yoga Weekend",
-    date: "January 9 – January 11, 2026",
-    image: "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0",
-    alt: "Restorative yoga",
-  },
-  {
-    title: "Kirtan & Bhakti Evening",
-    date: "January 25, 2026",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-    alt: "Kirtan and devotion",
+    date: "01 Jun - 07 Jun, 2027",
+    location: "Sivananda Ashram, Dalat",
+    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800",
+    category: "Youth",
   },
 ];
-
-const spring = { type: "spring" as const, stiffness: 300, damping: 35 };
 
 export interface EventsCarouselProps {
   title?: string;
@@ -84,134 +62,242 @@ export default function EventsCarousel({
   title = "Upcoming Events",
   subtitle,
 }: EventsCarouselProps) {
-  const x = useMotionValue(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const stripRef = useRef<HTMLDivElement>(null);
-  const [maxScroll, setMaxScroll] = useState(0);
+  const displaySubtitle = subtitle ?? "Join our transformational programs and retreats";
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  useLayoutEffect(() => {
-    if (!containerRef.current || !stripRef.current) return;
-    const max = Math.max(
-      0,
-      stripRef.current.scrollWidth - containerRef.current.clientWidth
-    );
-    setMaxScroll(max);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragRef = useRef({ startX: 0, scrollLeft: 0 });
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    setIsDragging(true);
+    dragRef.current = {
+      startX: e.pageX - scrollRef.current.offsetLeft,
+      scrollLeft: scrollRef.current.scrollLeft,
+    };
+    scrollRef.current.style.scrollSnapType = "none";
+    scrollRef.current.style.userSelect = "none";
+  };
+
+  const handleMouseLeaveOrUp = () => {
+    setIsDragging(false);
+    if (scrollRef.current) {
+      scrollRef.current.style.scrollSnapType = "x mandatory";
+      scrollRef.current.style.userSelect = "";
+    }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - dragRef.current.startX) * 2;
+    scrollRef.current.scrollLeft = dragRef.current.scrollLeft - walk;
+  };
+
+  // Detect which card is in the center of the screen
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+
+    const container = scrollRef.current;
+    const containerCenter = container.scrollLeft + container.clientWidth / 2;
+
+    let closestIndex = 0;
+    let minDistance = Infinity;
+
+    cardRefs.current.forEach((card, index) => {
+      if (!card) return;
+      const cardCenter = card.offsetLeft + card.clientWidth / 2;
+      const distance = Math.abs(containerCenter - cardCenter);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    setActiveIndex(closestIndex);
+  };
+
+  useEffect(() => {
+    const currentRef = scrollRef.current;
+    if (currentRef) {
+      currentRef.addEventListener("scroll", handleScroll, { passive: true });
+      handleScroll();
+
+      return () => currentRef.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
-  const snapTo = (targetPx: number) => {
-    const clamped = Math.min(maxScroll, Math.max(0, targetPx));
-    animate(x, -clamped, spring);
-  };
+  useEffect(() => {
+    if (!isDragging) return;
+    const handleGlobalMouseUp = () => handleMouseLeaveOrUp();
+    window.addEventListener("mouseup", handleGlobalMouseUp);
+    return () => window.removeEventListener("mouseup", handleGlobalMouseUp);
+  }, [isDragging]);
 
-  const scroll = (direction: "left" | "right") => {
-    const current = -x.get();
-    const next =
-      direction === "left"
-        ? Math.max(0, current - CARD_STEP)
-        : Math.min(maxScroll, current + CARD_STEP);
-    snapTo(next);
-  };
+  // Smooth scroll to a specific index
+  const scrollTo = (index: number) => {
+    if (!scrollRef.current || !cardRefs.current[index]) return;
+    const card = cardRefs.current[index];
+    const container = scrollRef.current;
 
-  const handleDragEnd = () => {
-    const current = -x.get();
-    const index = Math.round(current / CARD_STEP);
-    const target = index * CARD_STEP;
-    snapTo(target);
+    const scrollPosition =
+      card.offsetLeft - container.clientWidth / 2 + card.clientWidth / 2;
+
+    container.scrollTo({
+      left: scrollPosition,
+      behavior: "smooth",
+    });
   };
 
   return (
-    <section id="events" className="bg-[#fcfaf5] pt-16 pb-0 md:pt-20 md:pb-0">
-      <div className="mx-auto max-w-7xl px-4 md:px-6">
-        {/* Header: title left; View All + arrows right */}
-        <div className="mb-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-          <div>
-            <h2 className="font-serif text-3xl font-bold text-[#598234]">
-              {title}
-            </h2>
-            {subtitle && (
-              <p className="mt-1 text-center text-gray-600">
-                {subtitle}
-              </p>
-            )}
-          </div>
-          <div className="flex items-center gap-2">
-            <Link
-              href="#"
-              className="rounded border-2 border-[#598234] bg-transparent px-5 py-2.5 font-semibold text-[#598234] transition hover:bg-[#598234]/10"
-            >
-              View All
-            </Link>
-            <button
-              type="button"
-              onClick={() => scroll("left")}
-              aria-label="Scroll events left"
-              className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-stone-300 bg-transparent text-stone-600 transition hover:border-stone-400 hover:bg-stone-100"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              type="button"
-              onClick={() => scroll("right")}
-              aria-label="Scroll events right"
-              className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 border-stone-300 bg-transparent text-stone-600 transition hover:border-stone-400 hover:bg-stone-100"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
+    <section id="events" className="w-full overflow-hidden bg-[#FDFCF8] py-24">
+      <div className="mx-auto mb-12 flex max-w-7xl flex-col px-6 md:flex-row md:items-end md:justify-between md:gap-6">
+        <div>
+          <h2 className="mb-4 font-serif text-3xl font-bold text-[#0B3B24] md:text-5xl">
+            {title}
+          </h2>
+          <p className="text-lg font-medium text-[#4A4A4A]">
+            {displaySubtitle}
+          </p>
         </div>
+      </div>
 
-        {/* Carousel: overflow hidden, inner strip draggable with spring snap */}
-        <div ref={containerRef} className="overflow-hidden">
-          <motion.div
-            ref={stripRef}
-            className="flex cursor-grab gap-6 py-2 pl-2 pr-2 md:pl-4 md:pr-4 active:cursor-grabbing"
-            style={{ x }}
-            drag="x"
-            dragConstraints={{ left: -maxScroll, right: 0 }}
-            dragElastic={0.1}
-            onDragStart={() => {
-              if (stripRef.current) stripRef.current.style.cursor = "grabbing";
-            }}
-            onDragEnd={() => {
-              handleDragEnd();
-              if (stripRef.current) stripRef.current.style.cursor = "grab";
-            }}
-          >
-            {EVENTS.map((event) => (
-              <article
-                key={event.title + event.date}
-                className="w-[300px] flex-shrink-0 rounded-2xl bg-white shadow-md md:w-[320px]"
+      {/* Coverflow Slider Container with Absolute Arrows */}
+      <div className="group relative w-full">
+        {/* Left Arrow (Absolute) */}
+        <button
+          type="button"
+          onClick={() => activeIndex > 0 && scrollTo(activeIndex - 1)}
+          className={`absolute left-4 top-1/2 z-30 hidden h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full border bg-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.1)] backdrop-blur-sm transition-all duration-300 md:flex lg:left-12 ${
+            activeIndex === 0
+              ? "pointer-events-none opacity-0"
+              : "border-[#0B3B24] text-[#0B3B24] opacity-0 group-hover:opacity-100 hover:scale-110 hover:bg-[#0B3B24] hover:text-white"
+          }`}
+          aria-label="Previous event"
+        >
+          <ChevronLeft size={28} />
+        </button>
+
+        {/* Right Arrow (Absolute) */}
+        <button
+          type="button"
+          onClick={() =>
+            activeIndex < events.length - 1 && scrollTo(activeIndex + 1)
+          }
+          className={`absolute right-4 top-1/2 z-30 hidden h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full border bg-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.1)] backdrop-blur-sm transition-all duration-300 md:flex lg:right-12 ${
+            activeIndex === events.length - 1
+              ? "pointer-events-none opacity-0"
+              : "border-[#0B3B24] text-[#0B3B24] opacity-0 group-hover:opacity-100 hover:scale-110 hover:bg-[#0B3B24] hover:text-white"
+          }`}
+          aria-label="Next event"
+        >
+          <ChevronRight size={28} />
+        </button>
+
+        <div
+          ref={scrollRef}
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeaveOrUp}
+          onMouseUp={handleMouseLeaveOrUp}
+          onMouseMove={handleMouseMove}
+          className={`flex min-h-[550px] items-center overflow-x-auto touch-pan-x snap-x snap-mandatory px-[calc(50%-140px)] [&::-webkit-scrollbar]:hidden md:px-[calc(50%-200px)] [-ms-overflow-style:none] [scrollbar-width:none] ${
+            isDragging ? "cursor-grabbing" : "cursor-grab"
+          }`}
+        >
+          {events.map((event, index) => {
+            const isActive = activeIndex === index;
+            return (
+              <div
+                key={event.id}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
+                onClick={() => !isDragging && scrollTo(index)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") scrollTo(index);
+                }}
+                className={`mx-2 shrink-0 w-[280px] snap-center origin-center transition-all duration-500 ease-out md:mx-4 md:w-[400px] ${
+                  isActive ? "z-20 scale-100 opacity-100" : "z-10 scale-[0.85] opacity-40 hover:opacity-70"
+                }`}
               >
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-t-2xl">
-                  <Image
-                    src={event.image}
-                    alt={event.alt}
-                    fill
-                    className="object-cover"
-                    sizes="320px"
-                  />
-                </div>
-                <div className="relative flex flex-col px-5 pb-5 pt-4">
-                  <p className="text-left text-sm text-gray-500">
-                    {event.date}
-                  </p>
-                  <h3 className="mt-2 text-left font-bold text-stone-800">
-                    {event.title}
-                  </h3>
-                  <div className="mt-4 flex justify-end">
-                    <Link
-                      href="#"
-                      aria-label={`View ${event.title}`}
-                      className="flex h-10 w-10 items-center justify-center rounded-full bg-[#b85c38] text-white shadow transition hover:bg-[#a04d2e]"
+                {/* Event Card */}
+                <div
+                  className={`flex h-full flex-col overflow-hidden rounded-2xl border bg-white transition-all duration-500 pointer-events-none md:pointer-events-auto ${
+                    isActive ? "border-2 border-[#0B3B24]/30" : "border-gray-200"
+                  }`}
+                >
+                  {/* Image */}
+                  <div className="relative aspect-[4/3] w-full">
+                    <Image
+                      src={event.image}
+                      alt={event.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 280px, 400px"
+                      draggable={false}
+                    />
+                    <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#0B3B24] backdrop-blur-sm">
+                      {event.category}
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex flex-grow flex-col p-6 md:p-8">
+                    <h3 className="mb-6 line-clamp-2 font-serif text-xl font-bold leading-tight text-[#0B3B24] md:text-2xl">
+                      {event.title}
+                    </h3>
+
+                    <div className="mt-auto space-y-3">
+                      <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
+                        <Calendar className="h-4 w-4 shrink-0 text-[#ED7D4D]" />
+                        <span className="font-medium">{event.date}</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
+                        <MapPin className="h-4 w-4 shrink-0 text-[#ED7D4D]" />
+                        <span>{event.location}</span>
+                      </div>
+                    </div>
+
+                    <div
+                      className={`mt-8 overflow-hidden transition-all duration-500 ${
+                        isActive ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
+                      }`}
                     >
-                      <ArrowRight className="h-5 w-5" />
-                    </Link>
+                      <button
+                        type="button"
+                        className="group flex w-full items-center justify-center gap-2 rounded-md bg-[#F4F7F0] py-3 text-sm font-bold uppercase tracking-widest text-[#0B3B24] transition-colors hover:bg-[#ED7D4D] hover:text-white"
+                      >
+                        View Details
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </article>
-            ))}
-          </motion.div>
+              </div>
+            );
+          })}
         </div>
+      </div>
+
+      {/* Mobile Pagination Dots */}
+      <div className="mt-8 flex justify-center gap-2 md:hidden">
+        {events.map((_, idx) => (
+          <button
+            key={idx}
+            type="button"
+            onClick={() => scrollTo(idx)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              activeIndex === idx ? "w-8 bg-[#0B3B24]" : "w-2 bg-gray-300"
+            }`}
+            aria-label={`Go to event ${idx + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

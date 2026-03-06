@@ -45,7 +45,7 @@ const MEGA_MENUS: Record<string, MegaMenuColumn[]> = {
       header: "HEALTH EDUCATOR TRAINING (SYHET)",
       links: [
         { label: "About SYHET Program", href: "/sivananda-yoga-health-educator-training" },
-        { label: "SYHET Practicuum", href: "/syhet-landing-page" },
+        { label: "SYHET Practicuum", href: "/syhet-practicuum" },
         { label: "Courses", href: "/sivananda-yoga-health-educator-training" },
       ],
     },
@@ -60,7 +60,7 @@ const MEGA_MENUS: Record<string, MegaMenuColumn[]> = {
     {
       header: "AYURVEDA COURSE",
       links: [
-        { label: "100 Foundation Ayurveda", href: "/programs" },
+        { label: "100 Foundation Ayurveda", href: "/100-foundation-ayurveda" },
         { label: "Detoxification", href: "/programs" },
       ],
     },
