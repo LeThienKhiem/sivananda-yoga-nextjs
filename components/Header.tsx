@@ -47,7 +47,7 @@ const MEGA_MENUS: Record<string, MegaMenuColumn[]> = {
       links: [
         { label: "About SYHET Program", href: "/sivananda-yoga-health-educator-training" },
         { label: "SYHET Practicuum", href: "/syhet-practicuum" },
-        { label: "Courses", href: "/sivananda-yoga-health-educator-training" },
+        { label: "Courses", href: "/syhet-courses" },
       ],
     },
   ],

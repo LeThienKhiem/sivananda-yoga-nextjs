@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { supabase } from '@/utils/supabase';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
@@ -9,74 +10,37 @@ import Link from 'next/link';
 
 const HERO_IMAGE = "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=2000";
 
-// --- MOCK DATA MATCHING DATABASE SCHEMA ---
-const mockCourses = [
-  {
-    id: '1',
-    title: 'Teacher Training Course 200 hours Certificate',
-    image_url: 'https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?q=80&w=800',
-    category: ['Teacher Training', 'Upcoming'],
-    pricing: 'Paid',
-    price_display: 'FROM $1450',
-    course_type: 'Offline',
-    languages: ['English', 'Vietnamese'],
-    date_display: 'JUNE 12 - JULY 11',
-    location: 'Sivananda Yoga Resort and Training Center DaLat',
-    registration_link: 'https://sivanandayogavietnam.secure.retreat.guru/program/vacation/?form=1&lang=en',
-    is_active: true
-  },
-  {
-    id: '2',
-    title: 'Advanced Pranayama & Vedanta Retreat',
-    image_url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800',
-    category: ['Yoga Vacation', 'Upcoming'],
-    pricing: 'Paid',
-    price_display: 'FROM $80',
-    course_type: 'Offline and Online',
-    languages: ['English'],
-    date_display: 'JUNE 12 - JULY 11',
-    location: 'Online',
-    registration_link: '#',
-    is_active: true
-  },
-  {
-    id: '3',
-    title: 'Satsang: The Power of Chanting',
-    image_url: 'https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=800',
-    category: ['Workshop'],
-    pricing: 'Free',
-    price_display: 'FREE',
-    course_type: 'Online',
-    languages: ['Vietnamese', 'English'],
-    date_display: 'TUESDAY, JUNE 29 | 08:00 PM',
-    location: 'Online',
-    registration_link: '#',
-    is_active: true
-  },
-  {
-    id: '4',
-    title: 'Ayurveda Foundation 100 Hours',
-    image_url: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800',
-    category: ['Ayurveda', 'Holistic Health'],
-    pricing: 'Paid',
-    price_display: 'FROM $100',
-    course_type: 'Offline',
-    languages: ['English', 'Chinese'],
-    date_display: 'MONDAY, JUNE 05 | 08:00 PM',
-    location: 'Sivananda Yoga Resort and Training Center DaLat',
-    registration_link: '#',
-    is_active: true
-  }
-];
-
 export default function CoursesPage() {
-  // Simple state to toggle filter sections (UI only for now)
+  const [courses, setCourses] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Simple state to toggle filter sections (UI only)
   const [filtersOpen, setFiltersOpen] = useState({
     category: true,
     pricing: true,
     type: true,
     language: true
   });
+
+  useEffect(() => {
+    fetchCourses();
+  }, []);
+
+  const fetchCourses = async () => {
+    setLoading(true);
+    const { data, error } = await supabase
+      .from('courses')
+      .select('*')
+      .eq('is_active', true) // Only fetch active courses
+      .order('created_at', { ascending: false });
+    
+    if (error) {
+      console.error("Error fetching courses:", error);
+    } else {
+      setCourses(data || []);
+    }
+    setLoading(false);
+  };
 
   const toggleFilter = (section: keyof typeof filtersOpen) => {
     setFiltersOpen(prev => ({ ...prev, [section]: !prev[section] }));
@@ -214,56 +178,68 @@ export default function CoursesPage() {
           <h2 className="text-sm font-bold uppercase tracking-widest text-[#0B3B24] mb-6">Upcoming Courses</h2>
           
           <div className="space-y-6">
-            {mockCourses.map((course, idx) => (
-              <div key={course.id} className="bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row overflow-hidden group hover:shadow-md transition-shadow">
-                
-                {/* Course Image */}
-                <div className="relative w-full md:w-[35%] lg:w-[40%] aspect-video md:aspect-auto min-h-[220px] overflow-hidden">
-                  <Image 
-                    src={course.image_url} 
-                    alt={course.title} 
-                    fill 
-                    className="object-cover group-hover:scale-105 transition-transform duration-700" 
-                  />
-                  {/* Favorite Icon */}
-                  <button className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 transition-colors shadow-sm">
-                    <Heart size={16} className={idx === 1 ? 'fill-red-500 text-red-500' : ''} />
-                  </button>
-                </div>
-
-                {/* Course Details */}
-                <div className="p-6 md:p-8 flex flex-col flex-1 justify-center">
-                  <p className="text-xs font-bold text-[#A3B827] uppercase tracking-widest mb-2">
-                    {course.price_display}
-                  </p>
-                  
-                  <h3 className="text-xl md:text-2xl font-serif text-[#0B3B24] font-bold mb-6 line-clamp-2">
-                    {course.title}
-                  </h3>
-                  
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
-                      <Calendar className="w-4 h-4 text-[#4F6F1F] flex-shrink-0" />
-                      <span className="font-medium">{course.date_display}</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
-                      <MapPin className="w-4 h-4 text-[#4F6F1F] flex-shrink-0" />
-                      <span>{course.location}</span>
-                    </div>
-                  </div>
-
-                  {/* Register Button/Link */}
-                  <div className="mt-auto flex justify-end">
-                    <Link href={course.registration_link}>
-                      <button className="bg-transparent border border-[#0B3B24] text-[#0B3B24] hover:bg-[#0B3B24] hover:text-white px-6 py-2 rounded font-bold text-xs tracking-widest uppercase transition-all">
-                        Register Now
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-
+            {loading ? (
+              <div className="py-20 flex justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#ED7D4D]"></div>
               </div>
-            ))}
+            ) : courses.length === 0 ? (
+              <div className="py-20 text-center text-gray-500 bg-white rounded-xl border border-gray-100">
+                No courses available at the moment.
+              </div>
+            ) : (
+              courses.map((course, idx) => (
+                <div key={course.id} className="bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row overflow-hidden group hover:shadow-md transition-shadow">
+                  
+                  {/* Course Image */}
+                  <div className="relative w-full md:w-[35%] lg:w-[40%] aspect-video md:aspect-auto min-h-[220px] overflow-hidden bg-gray-100">
+                    {course.image_url && (
+                      <Image 
+                        src={course.image_url} 
+                        alt={course.title} 
+                        fill 
+                        className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                      />
+                    )}
+                    {/* Favorite Icon */}
+                    <button className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 transition-colors shadow-sm">
+                      <Heart size={16} className={idx === 1 ? 'fill-red-500 text-red-500' : ''} />
+                    </button>
+                  </div>
+
+                  {/* Course Details */}
+                  <div className="p-6 md:p-8 flex flex-col flex-1 justify-center">
+                    <p className="text-xs font-bold text-[#A3B827] uppercase tracking-widest mb-2">
+                      {course.price_display}
+                    </p>
+                    
+                    <h3 className="text-xl md:text-2xl font-serif text-[#0B3B24] font-bold mb-6 line-clamp-2">
+                      {course.title}
+                    </h3>
+                    
+                    <div className="space-y-3 mb-6">
+                      <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
+                        <Calendar className="w-4 h-4 text-[#4F6F1F] flex-shrink-0" />
+                        <span className="font-medium">{course.date_display}</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
+                        <MapPin className="w-4 h-4 text-[#4F6F1F] flex-shrink-0" />
+                        <span>{course.location}</span>
+                      </div>
+                    </div>
+
+                    {/* Register Button/Link */}
+                    <div className="mt-auto flex justify-end">
+                      <Link href={course.registration_link || '#'}>
+                        <button className="bg-transparent border border-[#0B3B24] text-[#0B3B24] hover:bg-[#0B3B24] hover:text-white px-6 py-2 rounded font-bold text-xs tracking-widest uppercase transition-all">
+                          Register Now
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+
+                </div>
+              ))
+            )}
           </div>
         </div>
 

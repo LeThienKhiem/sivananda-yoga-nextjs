@@ -9,7 +9,7 @@ import TestimonialsCarousel2 from "@/components/TestimonialsCarousel2";
 import Footer from "@/components/Footer";
 
 const HERO_IMAGE_URL =
-  "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner_hero_yoga_mainpage.jpg";
 
 const SEO_JSON_PATH = path.join(process.cwd(), "seo-extracted.json");
 
