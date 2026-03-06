@@ -8,6 +8,19 @@ import { Plus, Edit, Trash2, Image as ImageIcon, Loader2, Video, Eye, FileEdit, 
 const PREVIEW_PROSE_CLASS =
   "max-w-none [&_h1]:text-3xl [&_h1]:font-serif [&_h1]:font-bold [&_h1]:text-[#0B3B24] [&_h1]:mb-4 [&_h2]:text-2xl [&_h2]:font-serif [&_h2]:font-bold [&_h2]:text-[#0B3B24] [&_h2]:mt-6 [&_h2]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-4 [&_li]:mb-1 [&_li]:text-gray-700 [&_strong]:font-bold [&_strong]:text-gray-900 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-[#4A4A4A] [&_p]:mb-4";
 
+/** Convert text (e.g. Vietnamese) to a URL-safe slug */
+function slugify(str: string): string {
+  return str
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[đĐ]/g, "d")
+    .replace(/([^0-9a-z-\s])/g, "")
+    .replace(/(\s+)/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export default function AdminBlogPage() {
   const [blogs, setBlogs] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -19,6 +32,7 @@ export default function AdminBlogPage() {
   const [formData, setFormData] = useState({
     id: "",
     title: "",
+    slug: "",
     category: "YOGA LIFE STYLE",
     header_image: "",
     content_1: "",
@@ -63,7 +77,14 @@ export default function AdminBlogPage() {
     const target = e.target as HTMLInputElement;
     const value =
       target.type === "checkbox" ? target.checked : target.value;
-    setFormData({ ...formData, [target.name]: value });
+    setFormData((prev) => {
+      const next = { ...prev, [target.name]: value };
+      // Auto-generate slug from title when creating a new post
+      if (target.name === "title" && !prev.id && typeof value === "string") {
+        next.slug = slugify(value);
+      }
+      return next;
+    });
   };
 
   const handleImageRemove = (fieldName: string) => {
@@ -130,6 +151,7 @@ export default function AdminBlogPage() {
     setFormData({
       ...blog,
       title: blog.title ?? "",
+      slug: blog.slug ?? "",
       category: blog.category ?? "YOGA LIFE STYLE",
       header_image: blog.header_image ?? "",
       content_1: blog.content_1 ?? "",
@@ -156,6 +178,7 @@ export default function AdminBlogPage() {
     setFormData({
       id: "",
       title: "",
+      slug: "",
       category: "YOGA LIFE STYLE",
       header_image: "",
       content_1: "",
@@ -263,6 +286,19 @@ export default function AdminBlogPage() {
                         </option>
                       ))}
                     </select>
+                  </div>
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium mb-1">
+                      URL Slug (SEO-friendly link)
+                    </label>
+                    <input
+                      type="text"
+                      name="slug"
+                      value={formData.slug}
+                      onChange={handleInputChange}
+                      placeholder="auto-generated-from-title"
+                      className="w-full p-2 border rounded focus:ring-2 focus:ring-[#ED7D4D] outline-none"
+                    />
                   </div>
                   <div className="md:col-span-2">
                     <label className="block text-sm font-medium mb-1">

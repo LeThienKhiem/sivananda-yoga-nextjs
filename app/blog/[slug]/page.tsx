@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
@@ -38,25 +38,29 @@ function getYoutubeVideoId(url: string): string | null {
 
 export default function BlogPostPage() {
   const params = useParams();
-  const router = useRouter();
-  const id = params.id as string;
+  const slug = params.slug as string;
   const [blog, setBlog] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (id) fetchBlog();
-  }, [id]);
+    if (slug) fetchBlogDetail(slug);
+  }, [slug]);
 
-  const fetchBlog = async () => {
+  const fetchBlogDetail = async (slugOrId: string) => {
     setLoading(true);
+
+    // Regex to check if the param is a valid UUID
+    const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(slugOrId);
+
     const { data, error } = await supabase
       .from("blogs")
       .select("*")
-      .eq("id", id)
+      .eq(isUUID ? "id" : "slug", slugOrId)
       .eq("is_published", true)
       .single();
 
-    if (error || !data) {
+    if (error) {
+      console.error("Error fetching blog detail:", error);
       setBlog(null);
     } else {
       setBlog(data);
@@ -158,21 +162,27 @@ export default function BlogPostPage() {
           {blog.title}
         </h1>
 
-        {/* Content Part 1 */}
+        {/* Content 1 */}
         {blog.content_1 && (
-          <div className="prose prose-lg max-w-none mb-10">
-            <p className="text-[#4A4A4A] leading-relaxed whitespace-pre-wrap">
-              {blog.content_1}
-            </p>
-          </div>
+          <div
+            className="max-w-none text-[#4A4A4A] mb-12 font-serif leading-relaxed text-lg md:text-xl
+                [&>h2]:text-2xl [&>h2]:md:text-3xl [&>h2]:font-bold [&>h2]:text-[#0B3B24] [&>h2]:mt-10 [&>h2]:mb-4
+                [&>h3]:text-xl [&>h3]:md:text-2xl [&>h3]:font-bold [&>h3]:text-[#0B3B24] [&>h3]:mt-8 [&>h3]:mb-3
+                [&>p]:mb-6 [&>p]:text-justify md:[&>p]:text-left
+                [&>ul]:list-disc [&>ul]:pl-6 md:[&>ul]:pl-8 [&>ul]:mb-6 [&>ul>li]:mb-2
+                [&>ol]:list-decimal [&>ol]:pl-6 md:[&>ol]:pl-8 [&>ol]:mb-6 [&>ol>li]:mb-2
+                [&>strong]:font-bold [&>strong]:text-[#0B3B24]
+                [&>blockquote]:border-l-4 [&>blockquote]:border-[#ED7D4D] [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:my-6"
+            dangerouslySetInnerHTML={{ __html: blog.content_1 }}
+          />
         )}
 
         {/* Middle Image */}
         {blog.middle_image && (
-          <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden my-10 shadow-md">
+          <div className="mb-12 relative w-full aspect-video rounded-xl overflow-hidden shadow-md">
             <Image
               src={blog.middle_image}
-              alt=""
+              alt="Middle section image"
               fill
               className="object-cover"
               sizes="(max-width: 896px) 100vw, 896px"
@@ -180,13 +190,19 @@ export default function BlogPostPage() {
           </div>
         )}
 
-        {/* Content Part 2 */}
+        {/* Content 2 */}
         {blog.content_2 && (
-          <div className="prose prose-lg max-w-none mb-10">
-            <p className="text-[#4A4A4A] leading-relaxed whitespace-pre-wrap">
-              {blog.content_2}
-            </p>
-          </div>
+          <div
+            className="max-w-none text-[#4A4A4A] mb-12 font-serif leading-relaxed text-lg md:text-xl
+                [&>h2]:text-2xl [&>h2]:md:text-3xl [&>h2]:font-bold [&>h2]:text-[#0B3B24] [&>h2]:mt-10 [&>h2]:mb-4
+                [&>h3]:text-xl [&>h3]:md:text-2xl [&>h3]:font-bold [&>h3]:text-[#0B3B24] [&>h3]:mt-8 [&>h3]:mb-3
+                [&>p]:mb-6 [&>p]:text-justify md:[&>p]:text-left
+                [&>ul]:list-disc [&>ul]:pl-6 md:[&>ul]:pl-8 [&>ul]:mb-6 [&>ul>li]:mb-2
+                [&>ol]:list-decimal [&>ol]:pl-6 md:[&>ol]:pl-8 [&>ol]:mb-6 [&>ol>li]:mb-2
+                [&>strong]:font-bold [&>strong]:text-[#0B3B24]
+                [&>blockquote]:border-l-4 [&>blockquote]:border-[#ED7D4D] [&>blockquote]:pl-4 [&>blockquote]:italic [&>blockquote]:text-gray-600 [&>blockquote]:my-6"
+            dangerouslySetInnerHTML={{ __html: blog.content_2 }}
+          />
         )}
 
         {/* Footer Image */}

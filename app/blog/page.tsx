@@ -1,23 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Image from "next/image";
-import Link from "next/link";
-import { supabase } from "@/utils/supabase";
+import React, { useState, useEffect } from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Image from 'next/image';
+import Link from 'next/link';
+import { supabase } from '@/utils/supabase';
 
-const categories = [
-  "YOGA LIFE STYLE",
-  "AYURVEDA",
-  "MEDITATION",
-  "HEALTH & DIET",
-];
+const categories = ["YOGA LIFE STYLE", "AYURVEDA", "MEDITATION", "HEALTH & DIET"];
 
-const PLACEHOLDER_HEADER =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600";
-const PLACEHOLDER_GRID =
-  "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800";
+const PLACEHOLDER_IMAGE = "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600";
+const HERO_IMAGE = "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=2000";
 
 export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState("YOGA LIFE STYLE");
@@ -31,11 +24,11 @@ export default function BlogPage() {
   const fetchBlogs = async () => {
     setLoading(true);
     const { data, error } = await supabase
-      .from("blogs")
-      .select("*")
-      .eq("is_published", true)
-      .order("created_at", { ascending: false });
-
+      .from('blogs')
+      .select('*')
+      .eq('is_published', true)
+      .order('created_at', { ascending: false });
+    
     if (error) {
       console.error("Error fetching blogs:", error);
     } else {
@@ -44,9 +37,25 @@ export default function BlogPage() {
     setLoading(false);
   };
 
-  const filteredBlogs = blogs.filter((blog) => blog.category === activeCategory);
+  // Filter blogs based on the selected category
+  const filteredBlogs = blogs.filter(blog => blog.category === activeCategory);
+  
+  // The newest post in the category becomes the featured post
   const featuredPost = filteredBlogs.length > 0 ? filteredBlogs[0] : null;
+  
+  // The rest go into the grid
   const gridPosts = filteredBlogs.slice(1);
+
+  // Helper to strip HTML tags for clean text excerpts
+  const stripHtml = (htmlStr: string) => {
+    if (!htmlStr) return '';
+    return htmlStr.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ').trim();
+  };
+
+  // Helper to get the first available image from the post
+  const getPostImage = (post: any) => {
+    return post.header_image || post.middle_image || post.footer_image || PLACEHOLDER_IMAGE;
+  };
 
   return (
     <main className="min-h-screen bg-[#FDFCF8] flex flex-col">
@@ -55,16 +64,16 @@ export default function BlogPage() {
       {/* 1. HERO BANNER */}
       <section className="relative w-full flex flex-col mt-16 md:mt-0">
         <div className="relative w-full h-[40vh] min-h-[300px] md:h-[50vh] md:min-h-[400px] z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=2000"
+          <Image 
+            src={HERO_IMAGE}
             alt="Yoga Blog"
             fill
             className="object-cover"
             priority
-            sizes="100vw"
           />
         </div>
-
+        
+        {/* Seamless Overlapping Content Box */}
         <div className="relative z-10 w-[95%] max-w-4xl mx-auto bg-[#FDFCF8] px-6 pt-10 pb-6 md:pt-12 md:pb-8 text-center -mt-16 md:-mt-20">
           <p className="text-base md:text-lg text-gray-600 font-medium mb-2 md:mb-3">
             Learn The Ancient Wisdom of Healthy Living
@@ -80,13 +89,11 @@ export default function BlogPage() {
         <div className="max-w-4xl mx-auto px-6 py-4">
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
             {categories.map((cat) => (
-              <button
+              <button 
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={`text-sm md:text-base font-bold tracking-widest uppercase transition-colors ${
-                  activeCategory === cat
-                    ? "text-[#0B3B24]"
-                    : "text-[#4F6F1F] hover:text-[#0B3B24] opacity-80"
+                  activeCategory === cat ? 'text-[#0B3B24]' : 'text-[#4F6F1F] hover:text-[#0B3B24] opacity-80'
                 }`}
               >
                 {cat}
@@ -103,12 +110,7 @@ export default function BlogPage() {
         </h2>
         <div className="w-12 h-[3px] bg-[#ED7D4D] mx-auto mb-8"></div>
         <p className="text-[#4A4A4A] leading-relaxed text-sm md:text-base max-w-3xl mx-auto">
-          Providing retreats for international yoga vacationers and locals alike,
-          our Asia ashrams and centers&apos; energy are pure, positive, and as
-          you will gleam from the images below, have a strength beyond measure.
-          They are not to be missed. We invite everyone to visit and to deepen
-          their Sadhana in this wonderful space, together in our shared
-          tradition.
+          Providing retreats for international yoga vacationers and locals alike, our Asia ashrams and centers' energy are pure, positive, and as you will gleam from the images below, have a strength beyond measure. They are not to be missed. We invite everyone to visit and to deepen their Sadhana in this wonderful space, together in our shared tradition.
         </p>
       </section>
 
@@ -127,41 +129,37 @@ export default function BlogPage() {
           {featuredPost && (
             <section className="max-w-6xl mx-auto px-6 mb-24">
               <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
+                {/* Left: Text */}
                 <div className="w-full md:w-1/2 space-y-6">
                   <h3 className="text-3xl md:text-4xl font-serif text-[#0B3B24] leading-tight">
                     {featuredPost.title}
                   </h3>
+                  {/* Clean text excerpt */}
                   <p className="text-[#4A4A4A] leading-relaxed text-sm md:text-base line-clamp-4">
-                    {featuredPost.content_1}
+                    {stripHtml(featuredPost.content_1)}
                   </p>
                   <div className="flex items-center gap-6 text-xs font-medium text-gray-500">
-                    <span className="text-[#84cc16] font-semibold">
-                      {featuredPost.category}
-                    </span>
-                    <span>
-                      {new Date(featuredPost.created_at).toLocaleDateString(
-                        "vi-VN"
-                      )}
-                    </span>
+                    <span className="text-[#84cc16] font-semibold">{featuredPost.category}</span>
+                    <span>{new Date(featuredPost.created_at).toLocaleDateString('vi-VN')}</span>
                   </div>
-                  <Link href={`/blog/${featuredPost.id}`}>
-                    <span className="inline-block bg-[#ED7D4D] text-white px-8 py-3 rounded-sm font-bold tracking-widest text-xs uppercase hover:bg-orange-600 transition-colors shadow-sm mt-4 cursor-pointer">
+                  <Link href={`/blog/${featuredPost.slug || featuredPost.id}`}>
+                    <button className="bg-[#ED7D4D] text-white px-8 py-3 rounded-sm font-bold tracking-widest text-xs uppercase hover:bg-orange-600 transition-colors shadow-sm mt-4">
                       Read More
-                    </span>
+                    </button>
                   </Link>
                 </div>
+                {/* Right: Image */}
                 <div className="w-full md:w-1/2">
-                  <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-lg">
-                    <Image
-                      src={
-                        featuredPost.header_image || PLACEHOLDER_HEADER
-                      }
-                      alt={featuredPost.title}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-700"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
+                  <Link href={`/blog/${featuredPost.slug || featuredPost.id}`}>
+                    <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-lg cursor-pointer group">
+                      <Image 
+                        src={getPostImage(featuredPost)} 
+                        alt={featuredPost.title} 
+                        fill 
+                        className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                      />
+                    </div>
+                  </Link>
                 </div>
               </div>
             </section>
@@ -172,39 +170,34 @@ export default function BlogPage() {
             <section className="max-w-6xl mx-auto px-6 pb-20">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {gridPosts.map((post) => (
-                  <Link
-                    href={`/blog/${post.id}`}
-                    key={post.id}
-                    className="bg-white rounded-md overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 flex flex-col group cursor-pointer hover:shadow-xl transition-shadow"
-                  >
+                  <Link href={`/blog/${post.slug || post.id}`} key={post.id} className="bg-white rounded-md overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-gray-100 flex flex-col group cursor-pointer hover:shadow-xl transition-shadow">
+                    {/* Image */}
                     <div className="relative w-full aspect-[4/3] overflow-hidden">
-                      <Image
-                        src={post.header_image || PLACEHOLDER_GRID}
-                        alt={post.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      <Image 
+                        src={getPostImage(post)} 
+                        alt={post.title} 
+                        fill 
+                        className="object-cover group-hover:scale-105 transition-transform duration-700" 
                       />
                     </div>
+                    {/* Content */}
                     <div className="p-6 md:p-8 flex flex-col flex-grow">
+                      {/* Tags */}
                       <div className="flex gap-3 mb-3 text-xs font-semibold text-[#84cc16]">
                         <span>{post.category}</span>
                       </div>
+                      {/* Title */}
                       <h4 className="text-xl font-serif text-[#0B3B24] font-medium mb-3 group-hover:text-[#ED7D4D] transition-colors line-clamp-2">
                         {post.title}
                       </h4>
+                      {/* Clean text excerpt */}
                       <p className="text-[#4A4A4A] text-sm leading-relaxed flex-grow mb-6 line-clamp-3">
-                        {post.content_1}
+                        {stripHtml(post.content_1)}
                       </p>
+                      {/* Footer (Date & Author) */}
                       <div className="flex justify-between items-center text-xs text-gray-400 font-medium pt-4 border-t border-gray-100 mt-auto">
-                        <span>
-                          {new Date(post.created_at).toLocaleDateString(
-                            "vi-VN"
-                          )}
-                        </span>
-                        <span>
-                          {post.author_name ? `By ${post.author_name}` : ""}
-                        </span>
+                        <span>{new Date(post.created_at).toLocaleDateString('vi-VN')}</span>
+                        <span>{post.author_name ? `By ${post.author_name}` : ''}</span>
                       </div>
                     </div>
                   </Link>
