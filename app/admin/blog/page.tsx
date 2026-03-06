@@ -4,46 +4,9 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "@/utils/supabase";
 import { Plus, Edit, Trash2, Image as ImageIcon, Loader2, Video, Eye, FileEdit, X } from "lucide-react";
 
-/** Parse content with # H1, ## H2, **bold** and render as styled elements */
-function renderWithBold(text: string) {
-  const parts = text.split(/(\*\*.+?\*\*)/g);
-  return parts.map((part, j) =>
-    part.startsWith("**") && part.endsWith("**") ? (
-      <strong key={j} className="font-semibold text-[#0B3B24]">
-        {part.slice(2, -2)}
-      </strong>
-    ) : (
-      part
-    )
-  );
-}
-
-function renderStyledContent(text: string) {
-  if (!text || typeof text !== "string") return null;
-  return text.split("\n").map((line, i) => {
-    const trimmed = line.trim();
-    if (trimmed.startsWith("## ")) {
-      return (
-        <h2 key={i} className="text-2xl font-bold font-serif text-[#0B3B24] mb-3 mt-6">
-          {renderWithBold(trimmed.slice(3))}
-        </h2>
-      );
-    }
-    if (trimmed.startsWith("# ")) {
-      return (
-        <h1 key={i} className="text-3xl font-bold font-serif text-[#0B3B24] mb-4 mt-8">
-          {renderWithBold(trimmed.slice(2))}
-        </h1>
-      );
-    }
-    if (!trimmed) return <div key={i} className="h-4" />;
-    return (
-      <p key={i} className="text-base leading-relaxed text-[#4A4A4A] mb-4">
-        {renderWithBold(trimmed)}
-      </p>
-    );
-  });
-}
+/** Prose wrapper class for HTML content - styles h1, h2, ul, li, strong, p */
+const PREVIEW_PROSE_CLASS =
+  "max-w-none [&_h1]:text-3xl [&_h1]:font-serif [&_h1]:font-bold [&_h1]:text-[#0B3B24] [&_h1]:mb-4 [&_h2]:text-2xl [&_h2]:font-serif [&_h2]:font-bold [&_h2]:text-[#0B3B24] [&_h2]:mt-6 [&_h2]:mb-3 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-4 [&_li]:mb-1 [&_li]:text-gray-700 [&_strong]:font-bold [&_strong]:text-gray-900 [&_p]:text-base [&_p]:leading-relaxed [&_p]:text-[#4A4A4A] [&_p]:mb-4";
 
 export default function AdminBlogPage() {
   const [blogs, setBlogs] = useState<any[]>([]);
@@ -227,7 +190,7 @@ export default function AdminBlogPage() {
         </div>
 
         {isEditing ? (
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Mobile Preview Toggle */}
             <div className="flex lg:hidden gap-2 p-2 bg-white rounded-lg border border-gray-200">
               <button
@@ -378,14 +341,14 @@ export default function AdminBlogPage() {
                 {/* Content 1 */}
                 <div>
                   <label className="block text-sm font-medium mb-1">
-                    Content Part 1 (Markdown / Text)
+                    Content Part 1 (HTML: &lt;h2&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;strong&gt;, etc.)
                   </label>
                   <textarea
                     name="content_1"
                     value={formData.content_1}
                     onChange={handleInputChange}
                     rows={12}
-                    className="w-full p-3 border rounded focus:ring-2 focus:ring-[#ED7D4D] outline-none"
+                    className="w-full p-3 border rounded focus:ring-2 focus:ring-[#ED7D4D] outline-none font-mono text-sm"
                   />
                 </div>
 
@@ -428,14 +391,14 @@ export default function AdminBlogPage() {
                 {/* Content 2 */}
                 <div>
                   <label className="block text-sm font-medium mb-1">
-                    Content Part 2 (Markdown / Text)
+                    Content Part 2 (HTML: &lt;h2&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;strong&gt;, etc.)
                   </label>
                   <textarea
                     name="content_2"
                     value={formData.content_2}
                     onChange={handleInputChange}
                     rows={12}
-                    className="w-full p-3 border rounded focus:ring-2 focus:ring-[#ED7D4D] outline-none"
+                    className="w-full p-3 border rounded focus:ring-2 focus:ring-[#ED7D4D] outline-none font-mono text-sm"
                   />
                 </div>
 
@@ -567,7 +530,7 @@ export default function AdminBlogPage() {
 
             {/* Right Column: Live Preview */}
             <div
-              className={`w-full lg:w-1/2 xl:w-[45%] shrink-0 ${
+              className={`lg:col-span-1 ${
                 previewMode === "editor" ? "hidden lg:block" : ""
               }`}
             >
@@ -596,28 +559,46 @@ export default function AdminBlogPage() {
                     alt="Header"
                     className="w-full h-48 object-cover rounded-lg mb-6"
                   />
-                ) : null}
-
-                <div className="prose prose-slate max-w-none">
-                  <div className="space-y-2">
-                    {renderStyledContent(formData.content_1 || "")}
+                ) : (
+                  <div className="w-full h-48 bg-gray-100 rounded-lg mb-6 flex items-center justify-center text-gray-400 text-sm border border-dashed border-gray-300">
+                    No header image
                   </div>
-                  {formData.middle_image && (
+                )}
+
+                <div className={`prose prose-slate ${PREVIEW_PROSE_CLASS}`}>
+                  <div
+                    className="mb-6"
+                    dangerouslySetInnerHTML={{
+                      __html: formData.content_1 || "",
+                    }}
+                  />
+                  {formData.middle_image ? (
                     <img
                       src={formData.middle_image}
                       alt=""
                       className="my-6 rounded-lg w-full object-cover max-h-64"
                     />
+                  ) : (
+                    <div className="my-6 h-32 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-xs border border-dashed border-gray-300">
+                      No middle image
+                    </div>
                   )}
-                  <div className="space-y-2">
-                    {renderStyledContent(formData.content_2 || "")}
-                  </div>
-                  {formData.footer_image && (
+                  <div
+                    className="mt-6"
+                    dangerouslySetInnerHTML={{
+                      __html: formData.content_2 || "",
+                    }}
+                  />
+                  {formData.footer_image ? (
                     <img
                       src={formData.footer_image}
                       alt=""
                       className="my-6 rounded-lg w-full object-cover max-h-64"
                     />
+                  ) : (
+                    <div className="my-6 h-32 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-xs border border-dashed border-gray-300">
+                      No footer image
+                    </div>
                   )}
                 </div>
 
