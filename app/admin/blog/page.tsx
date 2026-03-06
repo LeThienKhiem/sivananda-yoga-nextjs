@@ -682,11 +682,13 @@ export default function AdminBlogPage() {
                         <span className="inline-flex items-center gap-1.5">
                           {blog.title}
                           {blog.youtube_link && (
-                            <Video
-                              size={14}
-                              className="text-red-600 shrink-0"
-                              title="Has YouTube video"
-                            />
+                            <span title="Has YouTube video" className="inline-flex">
+                              <Video
+                                size={14}
+                                className="text-red-600 shrink-0"
+                                aria-hidden
+                              />
+                            </span>
                           )}
                         </span>
                       </td>
