@@ -97,12 +97,12 @@ export default function Home() {
         {/* Hero Banner */}
         <section className="relative flex h-[85vh] min-h-[400px] flex-col items-center justify-center overflow-hidden px-4">
           <div className="absolute inset-0 h-full w-full animate-zoom-out">
-            <Image
+        <Image
               src={HERO_IMAGE_URL}
               alt="Yoga retreat nature scene"
               fill
               className="object-cover"
-              priority
+          priority
               sizes="100vw"
             />
           </div>
@@ -113,7 +113,7 @@ export default function Home() {
           <div className="relative z-20 flex max-w-4xl flex-col items-center justify-center text-center">
             <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
               Health is Wealth, Peace of Mind is Happiness. Yoga shows the way
-            </h1>
+          </h1>
             <p className="mt-4 text-xl text-white/95 italic md:text-2xl">
               —Swami Vishnudevananda
             </p>
@@ -335,8 +335,8 @@ export default function Home() {
                   </h3>
                   <p className="text-sm font-light opacity-95 drop-shadow-sm md:text-base">
                     Improve the way you work
-                  </p>
-                </div>
+          </p>
+        </div>
               </Link>
             </div>
           </div>
@@ -697,7 +697,7 @@ export default function Home() {
                 </>
               );
             })()}
-          </div>
+        </div>
         </section>
 
         <TestimonialsCarousel2 />
