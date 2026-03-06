@@ -65,7 +65,7 @@ export default function CurriculumSection() {
       <h2 className="text-4xl md:text-5xl font-serif text-[#0B3B24] text-center mb-2">
         Curriculum
       </h2>
-      <p className="text-lg text-gray-600 text-center mb-12">
+      <p className="text-xl text-gray-600 text-center mb-12">
         Rooted in Tradition, Designed for Transformation
       </p>
 
@@ -79,7 +79,7 @@ export default function CurriculumSection() {
                 key={item.id}
                 type="button"
                 onClick={() => setActiveTab(index)}
-                className={`flex-1 flex items-center px-6 py-5 cursor-pointer transition-colors border-b border-white/20 text-left font-bold text-sm md:text-base min-h-[60px] ${
+                className={`flex-1 flex items-center px-6 py-5 cursor-pointer transition-colors border-b border-white/20 text-left font-bold text-base md:text-lg min-h-[60px] ${
                   isActive
                     ? "bg-[#0B3B24] text-white shadow-md z-10"
                     : "bg-[#4F6F1F] text-white/90 hover:bg-[#3D5A16]"
@@ -104,7 +104,7 @@ export default function CurriculumSection() {
 
         {/* Right Column - Content */}
         <div className="w-full md:w-[350px] lg:w-[400px] bg-[#4F6F1F] text-white p-8 md:p-10 flex flex-col justify-between z-10">
-          <div className="text-sm md:text-base leading-relaxed whitespace-pre-line text-white/95">
+          <div className="text-base md:text-lg leading-relaxed whitespace-pre-line text-white/95">
             {current.content}
           </div>
           <Link

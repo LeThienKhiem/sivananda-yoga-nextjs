@@ -39,7 +39,7 @@ export default function FaqAccordion() {
         <h2 className="mb-4 text-center font-serif text-4xl font-bold text-[#1e5c2b]">
           General Questions
         </h2>
-        <p className="mb-16 text-center text-lg text-gray-600">
+        <p className="mb-16 text-center text-xl text-gray-600">
           Everything you need to know before your stay
           <br />
           at the Sivananda Yoga Vietnam Resort & Training Center.
@@ -58,7 +58,7 @@ export default function FaqAccordion() {
                   aria-controls={`faq-answer-${index}`}
                   id={`faq-question-${index}`}
                 >
-                  <span className="font-bold text-lg text-gray-900 pr-4">
+                  <span className="font-bold text-xl text-gray-900 pr-4">
                     {item.q}
                   </span>
                   <div

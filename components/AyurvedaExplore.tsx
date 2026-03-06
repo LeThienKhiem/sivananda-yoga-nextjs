@@ -30,7 +30,7 @@ export default function AyurvedaExplore() {
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
               <div className="absolute inset-0 bg-black/40 p-6 md:p-8 flex flex-col justify-center">
-                <p className="text-white text-sm md:text-base leading-relaxed">
+                <p className="text-white text-base md:text-lg leading-relaxed">
                   At the Yoga Resort, an abundance of natural energies infuses
                   our lives with prana (life force) — the trees, birds, ponds,
                   gardens, forest, sky, butterflies, stars — every living thing
@@ -85,7 +85,7 @@ export default function AyurvedaExplore() {
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
               <div className="absolute inset-0 bg-black/40 p-6 md:p-8 flex flex-col justify-center">
-                <p className="text-white text-sm md:text-base leading-relaxed">
+                <p className="text-white text-base md:text-lg leading-relaxed">
                   As daily rhythms and routines are foundational to Ayurveda, we
                   encourage anyone interested in Ayurveda to come for our Yoga
                   Vacation Program and benefit from the combination of the

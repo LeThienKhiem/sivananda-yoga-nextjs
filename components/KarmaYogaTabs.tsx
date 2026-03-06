@@ -124,7 +124,7 @@ export default function KarmaYogaTabs() {
               <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-4">
                 {activeTab.title}
               </h3>
-              <p className="text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+              <p className="text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                 {activeTab.content}
               </p>
             </div>

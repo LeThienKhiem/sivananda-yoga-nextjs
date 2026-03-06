@@ -146,7 +146,7 @@ export default function AccommodationsPage() {
         <div className="absolute inset-0 bg-white/40 backdrop-blur-[1px]" />
 
         <div className="relative z-10 max-w-3xl px-6 py-12 bg-white/90 shadow-xl rounded-sm mt-20 backdrop-blur-sm">
-          <p className="text-sm md:text-base text-gray-600 tracking-widest uppercase mb-4 font-medium">
+          <p className="text-base md:text-lg text-gray-600 tracking-widest uppercase mb-4 font-medium">
             Enjoy a relaxing stay at our Yoga Resort in Dalat
           </p>
           <h1 className="text-4xl md:text-6xl font-serif text-[#0B3B24] font-bold mb-6">
@@ -170,18 +170,18 @@ export default function AccommodationsPage() {
           <div className="w-full lg:w-1/2">
             <div className="bg-[#FEF5E7] p-8 md:p-12 shadow-lg rounded-sm">
               <h2 className="text-3xl font-serif text-[#0B3B24] font-bold mb-2 uppercase">{rooms[0].name}</h2>
-              <p className="text-[#ED7D4D] font-medium tracking-wider uppercase text-sm mb-6">{rooms[0].type}</p>
+              <p className="text-[#ED7D4D] font-medium tracking-wider uppercase text-base mb-6">{rooms[0].type}</p>
 
               <div className="mb-8 space-y-4">
                 <h4 className="font-bold text-[#0B3B24]">Overview</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{rooms[0].overview}</p>
+                <p className="text-gray-600 text-base leading-relaxed">{rooms[0].overview}</p>
               </div>
 
               <div className="mb-10">
                 <h4 className="font-bold text-[#0B3B24] mb-4">Amenities</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {rooms[0].amenities.map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-sm text-gray-700">
+                    <div key={i} className="flex items-center gap-3 text-base text-gray-700">
                       <span className="text-[#0B3B24]">{item.icon}</span>
                       {item.label}
                     </div>
@@ -190,8 +190,8 @@ export default function AccommodationsPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-gray-200 gap-4">
-                <p className="text-lg font-serif font-bold text-[#0B3B24]">{rooms[0].price}</p>
-                <button type="button" className="bg-[#ED7D4D] text-white px-8 py-3 font-bold text-sm tracking-widest uppercase rounded-sm hover:bg-orange-600 transition-colors w-full sm:w-auto text-center shadow-md">
+                <p className="text-xl font-serif font-bold text-[#0B3B24]">{rooms[0].price}</p>
+                <button type="button" className="bg-[#ED7D4D] text-white px-8 py-3 font-bold text-base tracking-widest uppercase rounded-sm hover:bg-orange-600 transition-colors w-full sm:w-auto text-center shadow-md">
                   Book Now
                 </button>
               </div>
@@ -204,18 +204,18 @@ export default function AccommodationsPage() {
           <div className="w-full lg:w-1/2">
             <div className="bg-[#FEF5E7] p-8 md:p-12 shadow-lg rounded-sm">
               <h2 className="text-3xl font-serif text-[#0B3B24] font-bold mb-2 uppercase">{rooms[1].name}</h2>
-              <p className="text-[#ED7D4D] font-medium tracking-wider uppercase text-sm mb-6">{rooms[1].type}</p>
+              <p className="text-[#ED7D4D] font-medium tracking-wider uppercase text-base mb-6">{rooms[1].type}</p>
 
               <div className="mb-8 space-y-4">
                 <h4 className="font-bold text-[#0B3B24]">Overview</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">{rooms[1].overview}</p>
+                <p className="text-gray-600 text-base leading-relaxed">{rooms[1].overview}</p>
               </div>
 
               <div className="mb-10">
                 <h4 className="font-bold text-[#0B3B24] mb-4">Amenities</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {rooms[1].amenities.map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-sm text-gray-700">
+                    <div key={i} className="flex items-center gap-3 text-base text-gray-700">
                       <span className="text-[#0B3B24]">{item.icon}</span>
                       {item.label}
                     </div>
@@ -224,8 +224,8 @@ export default function AccommodationsPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-gray-200 gap-4">
-                <p className="text-lg font-serif font-bold text-[#0B3B24]">{rooms[1].price}</p>
-                <button type="button" className="bg-[#ED7D4D] text-white px-8 py-3 font-bold text-sm tracking-widest uppercase rounded-sm hover:bg-orange-600 transition-colors w-full sm:w-auto text-center shadow-md">
+                <p className="text-xl font-serif font-bold text-[#0B3B24]">{rooms[1].price}</p>
+                <button type="button" className="bg-[#ED7D4D] text-white px-8 py-3 font-bold text-base tracking-widest uppercase rounded-sm hover:bg-orange-600 transition-colors w-full sm:w-auto text-center shadow-md">
                   Book Now
                 </button>
               </div>
@@ -274,7 +274,7 @@ export default function AccommodationsPage() {
                 <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-4 leading-tight">
                   {meal.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                <p className="text-gray-600 leading-relaxed text-base md:text-lg">
                   {meal.desc}
                 </p>
               </div>
@@ -312,12 +312,12 @@ export default function AccommodationsPage() {
               <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-4">
                 Ayurveda
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-6">
+              <p className="text-gray-600 text-base leading-relaxed mb-6">
                 The ancient science of life. We offer basic Ayurvedic
                 consultations and integrate its principles into our daily meals
                 to ensure optimal digestion and health according to your dosha.
               </p>
-              <span className="text-[#ED7D4D] text-xs font-bold uppercase tracking-widest cursor-pointer hover:underline">
+              <span className="text-[#ED7D4D] text-base font-bold uppercase tracking-widest cursor-pointer hover:underline">
                 Learn More
               </span>
             </div>

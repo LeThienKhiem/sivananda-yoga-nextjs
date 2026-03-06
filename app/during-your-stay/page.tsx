@@ -72,7 +72,7 @@ export default function DuringYourStayPage() {
 
         {/* Overlapping Content Box (translate-y-1/2 pushes it 50% outside the bottom edge) */}
         <div className="relative z-10 w-[90%] max-w-4xl px-8 py-10 md:py-14 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.08)] rounded-sm translate-y-1/2 text-center">
-          <p className="text-xs md:text-sm text-[#0B3B24] tracking-widest uppercase mb-4 font-bold opacity-80">
+          <p className="text-base md:text-base text-[#0B3B24] tracking-widest uppercase mb-4 font-bold opacity-80">
             Experience your best at Sivananda Yoga Resort Centre
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#0B3B24] font-bold">
@@ -150,7 +150,7 @@ export default function DuringYourStayPage() {
                 <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-6">
                   In Yoga Class
                 </h3>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                   <p>
                     Sivananda Yoga is a classical, holistic approach to Hatha Yoga that stretches and tones the whole body.
                   </p>
@@ -177,11 +177,11 @@ export default function DuringYourStayPage() {
 
             {/* Overlapping Green Box */}
             <div className="absolute top-[22%] md:top-[25%] left-1/2 z-20 w-[90%] md:w-[420px] bg-[#4F6F1F] text-white p-8 md:p-10 shadow-2xl rounded-sm transform -translate-x-1/2 -translate-y-1/2 hidden md:block">
-              <h4 className="font-bold text-xl mb-4">
+              <h4 className="font-bold text-2xl mb-4">
                 Rooted in an authentic <span className="italic">Yoga Lineage</span>,
               </h4>
               <div className="border-l-[3px] border-white/60 pl-5">
-                <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                <p className="text-white/90 text-base md:text-lg leading-relaxed">
                   The general philosophy of this system of teaching is promoting self awareness, gentleness, and balance between effort and relaxation.
                 </p>
               </div>
@@ -193,7 +193,7 @@ export default function DuringYourStayPage() {
                 <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-6">
                   Respect Your Body Limitations
                 </h3>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                   <p>
                     Yoga is not a competition. Listen to your body and respect its limits. Do not force or push yourself into any posture.
                   </p>
@@ -227,7 +227,7 @@ export default function DuringYourStayPage() {
                 <p className="italic text-gray-500 mb-4 font-serif">
                   Association with the wise
                 </p>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                   <p>
                     Satsang is the heart of the ashram experience. It means &quot;association with the truth&quot; or &quot;company of the wise.&quot;
                   </p>
@@ -258,7 +258,7 @@ export default function DuringYourStayPage() {
                 <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-6">
                   Organic Vegetarian Meals
                 </h3>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                   <p>
                     We serve two delicious, wholesome vegetarian meals daily at 10:00 am and 6:00 pm. The diet is based on Ayurvedic principles, designed to be easily digestible and highly nutritious.
                   </p>
@@ -298,7 +298,7 @@ export default function DuringYourStayPage() {
               {guidelines.map((text, idx) => (
                 <li
                   key={idx}
-                  className="flex items-start gap-4 text-[#4A4A4A] text-sm md:text-base"
+                  className="flex items-start gap-4 text-[#4A4A4A] text-base md:text-lg"
                 >
                   <Check className="w-5 h-5 text-[#4F6F1F] flex-shrink-0 mt-0.5" />
                   <span>{text}</span>
@@ -306,10 +306,10 @@ export default function DuringYourStayPage() {
               ))}
             </ul>
 
-            <h3 className="text-xl font-serif text-[#0B3B24] font-bold mb-4">
+            <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-4">
               Payment Policy
             </h3>
-            <p className="text-[#4A4A4A] text-sm md:text-base leading-relaxed">
+            <p className="text-[#4A4A4A] text-base md:text-lg leading-relaxed">
               Full payment is required upon registration to secure your booking. Payments are non-refundable but may be transferred to another program within one year, provided cancellation is made at least 48 hours prior to arrival. We accept bank transfers, credit cards, and cash (VND/USD).
             </p>
           </div>
@@ -326,20 +326,20 @@ export default function DuringYourStayPage() {
 
         <div className="space-y-12 pl-6 md:pl-10 border-l border-gray-200">
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-[#0B3B24]">Contact Us</h3>
+            <h3 className="text-2xl font-bold text-[#0B3B24]">Contact Us</h3>
             <p className="text-[#4A4A4A]">
               Have a question about registering our programs and retreats... please contact us or send a message to the bottom of this page or call <strong>(+84) 263 650 1100</strong>.
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-[#E5F5C8] hover:bg-[#d4e8aa] text-[#0B3B24] font-bold text-sm tracking-widest uppercase px-8 py-3 rounded-sm transition-colors shadow-sm mt-2"
+              className="inline-block bg-[#E5F5C8] hover:bg-[#d4e8aa] text-[#0B3B24] font-bold text-base tracking-widest uppercase px-8 py-3 rounded-sm transition-colors shadow-sm mt-2"
             >
               Contact Us
             </Link>
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-[#0B3B24]">
+            <h3 className="text-2xl font-bold text-[#0B3B24]">
               Frequently Asked Questions
             </h3>
             <p className="text-[#4A4A4A]">
@@ -347,7 +347,7 @@ export default function DuringYourStayPage() {
             </p>
             <Link
               href="/frequently-asked-questions"
-              className="inline-block bg-[#E5F5C8] hover:bg-[#d4e8aa] text-[#0B3B24] font-bold text-sm tracking-widest uppercase px-8 py-3 rounded-sm transition-colors shadow-sm mt-2"
+              className="inline-block bg-[#E5F5C8] hover:bg-[#d4e8aa] text-[#0B3B24] font-bold text-base tracking-widest uppercase px-8 py-3 rounded-sm transition-colors shadow-sm mt-2"
             >
               Read FAQs
             </Link>

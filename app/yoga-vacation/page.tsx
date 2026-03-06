@@ -49,7 +49,7 @@ export default function YogaVacationPage() {
             <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-semibold mb-8 leading-tight">
               Find Your Inner Peace in Da Lat
             </h1>
-            <p className="text-white text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+            <p className="text-white text-xl md:text-2xl leading-relaxed mb-10 max-w-xl">
               A Yoga Vacation at the Sivananda Resort
               <br />
               connects you with inner peace and
@@ -185,7 +185,7 @@ export default function YogaVacationPage() {
             <blockquote className="text-2xl md:text-3xl lg:text-4xl font-serif font-medium leading-relaxed mb-6">
               Health is wealth, Peace of mind is happiness, Yoga shows the way.
             </blockquote>
-            <p className="text-lg md:text-xl font-light tracking-wide">
+            <p className="text-xl md:text-2xl font-light tracking-wide">
               — Swami Vishnudevananda
             </p>
           </div>
@@ -199,10 +199,10 @@ export default function YogaVacationPage() {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
             <div className="flex flex-col gap-12 md:gap-20">
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Learn and practice
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-lg">
+                <p className="text-gray-600 leading-relaxed text-xl">
                   as you engage in daily meditation, Sivananda Yoga classes with
                   daily wisdom and well-being workshops designed to bring your
                   mind and body into harmony — All will provide skills for you to

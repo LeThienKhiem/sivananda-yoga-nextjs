@@ -53,7 +53,7 @@ export default function FaqDuringStay() {
         <h2 className="mb-4 text-center font-serif text-4xl font-bold text-[#1e5c2b]">
           During Your Stay
         </h2>
-        <p className="mb-16 text-center text-lg text-gray-600">
+        <p className="mb-16 text-center text-xl text-gray-600">
           Preparing for Your Ashram Experience
         </p>
 
@@ -70,7 +70,7 @@ export default function FaqDuringStay() {
                   aria-controls={`during-stay-answer-${index}`}
                   id={`during-stay-question-${index}`}
                 >
-                  <span className="pr-4 font-bold text-lg text-gray-900">
+                  <span className="pr-4 font-bold text-xl text-gray-900">
                     {item.q}
                   </span>
                   <div

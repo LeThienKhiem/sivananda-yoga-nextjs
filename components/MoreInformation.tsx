@@ -12,7 +12,7 @@ export default function MoreInformation() {
       <div className="space-y-12 border-l border-gray-200 pl-6 md:pl-10">
         {/* Contact Us */}
         <div className="space-y-4">
-          <h3 className="text-xl font-bold text-[#0B3B24]">Contact Us</h3>
+          <h3 className="text-2xl font-bold text-[#0B3B24]">Contact Us</h3>
           <p className="text-[#4A4A4A]">
             Have a question about registering our programs and retreats... please
             contact us or send a message to the bottom of this page or call{" "}
@@ -20,7 +20,7 @@ export default function MoreInformation() {
           </p>
           <Link
             href="/contact"
-            className="mt-2 inline-block rounded-sm bg-[#E5F5C8] px-8 py-3 text-sm font-bold uppercase tracking-widest text-[#0B3B24] shadow-sm transition-colors hover:bg-[#d4e8aa]"
+            className="mt-2 inline-block rounded-sm bg-[#E5F5C8] px-8 py-3 text-base font-bold uppercase tracking-widest text-[#0B3B24] shadow-sm transition-colors hover:bg-[#d4e8aa]"
           >
             Contact Us
           </Link>
@@ -28,7 +28,7 @@ export default function MoreInformation() {
 
         {/* FAQs */}
         <div className="space-y-4">
-          <h3 className="text-xl font-bold text-[#0B3B24]">
+          <h3 className="text-2xl font-bold text-[#0B3B24]">
             Frequently Asked Questions
           </h3>
           <p className="text-[#4A4A4A]">
@@ -36,7 +36,7 @@ export default function MoreInformation() {
           </p>
           <Link
             href="/frequently-asked-questions"
-            className="mt-2 inline-block rounded-sm bg-[#E5F5C8] px-8 py-3 text-sm font-bold uppercase tracking-widest text-[#0B3B24] shadow-sm transition-colors hover:bg-[#d4e8aa]"
+            className="mt-2 inline-block rounded-sm bg-[#E5F5C8] px-8 py-3 text-base font-bold uppercase tracking-widest text-[#0B3B24] shadow-sm transition-colors hover:bg-[#d4e8aa]"
           >
             Read FAQs
           </Link>

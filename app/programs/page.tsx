@@ -27,7 +27,7 @@ export default function ProgramsPage() {
 
         {/* Overlapping White Box */}
         <div className="relative z-10 bg-white w-[90%] max-w-4xl py-10 md:py-14 px-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] text-center -mb-16 md:-mb-20">
-          <h2 className="text-[#0B3B24] text-xl md:text-2xl mb-3 font-medium">
+          <h2 className="text-[#0B3B24] text-2xl md:text-2xl mb-3 font-medium">
             Learn The Ancient Wisdom of Healthy Living
           </h2>
           <h1 className="text-[#0B3B24] font-serif text-4xl md:text-5xl lg:text-6xl font-bold">

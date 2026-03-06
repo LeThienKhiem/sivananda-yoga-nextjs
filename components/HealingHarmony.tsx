@@ -43,7 +43,7 @@ export default function HealingHarmony() {
             <h3 className="text-2xl lg:text-3xl font-serif text-[#0B3B24] mb-4 font-bold">
               Healing in Harmony with Nature
             </h3>
-            <p className="text-gray-600 text-sm lg:text-base leading-relaxed">
+            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
               The science of Ayurveda emerged from in-depth study of the natural
               world, from the elements which create everything to the rhythms of
               the days and seasons. It is an approach to life in harmony with

@@ -22,7 +22,7 @@ export default function ClassicalYogaPurpose() {
             <p className="text-gray-500 italic mb-6">
               Timeless Wisdom for Modern Life&apos;s Challenges
             </p>
-            <p className="text-[#0B3B24] text-sm leading-relaxed max-w-md">
+            <p className="text-[#0B3B24] text-base leading-relaxed max-w-md">
               Classical Yoga is a systematic and complete system of self development handed down by a lineage of teachers. It was not created by any one individual. Classical Yoga is universal and not sectarian, and can be practiced by all. It is a complete system in itself, with many different facets. It is a systematic approach, practiced over a long time, and not a quick fix. The goal is peace and well-being. Its teaching needs to be selfless, to ensure the purity of the teaching.
             </p>
           </div>
@@ -68,7 +68,7 @@ export default function ClassicalYogaPurpose() {
             <p className="text-gray-500 italic mb-6">
               Evolving Through Life with Balance, Growth, and Inner Fulfillment
             </p>
-            <p className="text-[#0B3B24] text-sm leading-relaxed max-w-md">
+            <p className="text-[#0B3B24] text-base leading-relaxed max-w-md">
               We practice Yoga in order to evolve and succeed in life. Yoga is not separate from life. It is possible to integrate the practices in our daily routine using the <strong>5 Points of Yoga</strong>, no matter our conditions in life (rich or poor, single or with family duties, old or young, healthy or ill), because everyone has potential for growth and everyone wants to evolve.
             </p>
           </div>

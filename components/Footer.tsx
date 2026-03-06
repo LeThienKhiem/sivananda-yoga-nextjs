@@ -32,7 +32,7 @@ export default function Footer() {
             height={59}
             className="h-16 w-16 shrink-0 object-contain brightness-0 invert"
           />
-          <h2 className="text-left font-serif text-xl font-bold leading-snug">
+          <h2 className="text-left font-serif text-2xl font-bold leading-snug">
             Sivananda Yoga Resort and
             <br />
             Training Center
@@ -91,7 +91,7 @@ export default function Footer() {
           </a>
         </div>
 
-        <p className="px-4 mt-4 text-center text-sm leading-relaxed">
+        <p className="px-4 mt-4 text-center text-base leading-relaxed">
           © Copyright 2025 Sivananda Yoga Resort and Training Center, Da Lat,
           Vietnam
         </p>
@@ -117,20 +117,20 @@ export default function Footer() {
                   height={59}
                   className="w-12 h-12 shrink-0 object-contain brightness-0 invert lg:w-16 lg:h-16"
                 />
-                  <h3 className="whitespace-pre-line font-serif text-sm leading-tight text-white lg:text-xl xl:text-2xl">
+                  <h3 className="whitespace-pre-line font-serif text-base leading-tight text-white lg:text-2xl xl:text-2xl">
                     Sivananda Yoga Resort{"\n"}and Training Center
                   </h3>
                 </div>
                 <div className="mt-3 space-y-2 lg:mt-6 lg:space-y-3">
                   <div className="flex gap-2 lg:gap-3">
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
-                    <span className="whitespace-pre-line text-xs leading-relaxed text-white lg:text-sm">
+                    <span className="whitespace-pre-line text-base leading-relaxed text-white lg:text-base">
                       Hoa Hong Street{"\n"}Ward 4, Tuyen Lam Lake{"\n"}Da Lat, Vietnam
                     </span>
                   </div>
                   <div className="flex items-center gap-2 lg:gap-3">
                     <Phone className="h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
-                    <a href="tel:+842636501100" className={`${FOOTER_LINK} text-xs lg:text-sm`}>
+                    <a href="tel:+842636501100" className={`${FOOTER_LINK} text-base lg:text-base`}>
                       02636501100
                     </a>
                   </div>
@@ -138,7 +138,7 @@ export default function Footer() {
                     <Mail className="h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
                     <a
                       href="mailto:vietnamyogaresort@sivananda.org"
-                      className={`${FOOTER_LINK} text-xs lg:text-sm`}
+                      className={`${FOOTER_LINK} text-base lg:text-base`}
                     >
                       vietnamyogaresort@sivananda.org
                     </a>
@@ -148,10 +148,10 @@ export default function Footer() {
 
             {/* Column 2: YOGA TEACHING */}
             <div>
-              <h4 className="mb-3 font-sans text-xs font-bold uppercase tracking-wide text-white lg:mb-6 lg:text-sm">
+              <h4 className="mb-3 font-sans text-base font-bold uppercase tracking-wide text-white lg:mb-6 lg:text-base">
                 YOGA TEACHING
               </h4>
-              <nav className="flex flex-col space-y-2 lg:space-y-4 text-xs lg:text-sm">
+              <nav className="flex flex-col space-y-2 lg:space-y-4 text-base lg:text-base">
                 <Link
                   href="/yoga-vacation"
                   className={`${FOOTER_LINK} inline-block w-max rounded-sm border border-white/40 px-2 py-1 lg:px-3 lg:py-1.5`}
@@ -175,10 +175,10 @@ export default function Footer() {
 
             {/* Column 3: YOGA VACATION */}
             <div>
-              <h4 className="mb-3 font-sans text-xs font-bold uppercase tracking-wide text-white lg:mb-6 lg:text-sm">
+              <h4 className="mb-3 font-sans text-base font-bold uppercase tracking-wide text-white lg:mb-6 lg:text-base">
                 YOGA VACATION
               </h4>
-              <nav className="flex flex-col space-y-2 lg:space-y-4 text-xs lg:text-sm">
+              <nav className="flex flex-col space-y-2 lg:space-y-4 text-base lg:text-base">
                 <Link href="/guest-information" className={FOOTER_LINK}>
                   Registration & Arrival
                 </Link>
@@ -199,7 +199,7 @@ export default function Footer() {
 
             {/* Column 4: Links & Socials */}
             <div>
-              <nav className="mb-4 flex flex-col space-y-2 lg:mb-8 lg:space-y-4 text-xs lg:text-sm">
+              <nav className="mb-4 flex flex-col space-y-2 lg:mb-8 lg:space-y-4 text-base lg:text-base">
                 <Link
                   href="/faqs"
                   className={`${FOOTER_LINK} font-semibold text-white`}
@@ -262,7 +262,7 @@ export default function Footer() {
 
             {/* Copyright bar */}
             <div className="mt-4 border-t border-white/10 pt-4 lg:mt-8 lg:pt-8">
-              <p className="text-center text-xs text-white lg:text-sm">
+              <p className="text-center text-base text-white lg:text-base">
                 © Copyright 2025 Sivananda Yoga Resort and Training Center, Da Lat,
                 Vietnam
               </p>

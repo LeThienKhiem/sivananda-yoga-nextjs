@@ -72,14 +72,14 @@ export default function FourPathsOfYogaPage() {
 
         {/* Overlapping Content Box */}
         <div className="relative z-10 bg-white p-8 md:p-16 shadow-2xl max-w-4xl text-center rounded-sm -mb-24 md:-mb-32 mx-4">
-          <p className="text-[#0B3B24] uppercase tracking-widest text-sm mb-4 font-medium">
+          <p className="text-[#0B3B24] uppercase tracking-widest text-base mb-4 font-medium">
             Ancient Wisdom for Modern Life
           </p>
           <h1 className="text-[#0B3B24] font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             The 4 Paths of Yoga
           </h1>
           <div className="w-20 h-1 bg-[#ED7D4D] mx-auto mb-8" />
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-serif italic">
+          <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-serif italic">
             Karma, Bhakti, Raja, Jnana — Four distinct paths to unify body, mind, and spirit.
           </p>
         </div>
@@ -97,10 +97,10 @@ export default function FourPathsOfYogaPage() {
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0B3B24] mb-6">
                 The Four Paths of Yoga: A Complete Synthesis for Inner Peace
               </h2>
-              <p className="text-base text-[#4A4A4A] leading-relaxed mb-4">
+              <p className="text-lg text-[#4A4A4A] leading-relaxed mb-4">
                 What kind of Yoga does Swami Sivananda teach? Swami Sivananda teaches the synthesis of yoga. He promotes complete yoga life by combining the practice of Karma Yoga (selfless service), Bhakti Yoga (devotion), Hatha Yoga and Raja Yoga (systematic control of body, breath, and mind, culminating in meditation), and, last but not least, Jnana Yoga (or Vedanta philosophy), which is the philosophical teachings of the True Nature of the Self and of the Universe.
               </p>
-              <p className="text-base text-[#4A4A4A] leading-relaxed">
+              <p className="text-lg text-[#4A4A4A] leading-relaxed">
                 His teaching is summarized in his most well known slogan: &quot;Serve, Love, Give, Purify, Meditate, Realize&quot;. The tenets and practices of these 4 paths of Yoga are further explained in subsequent sections. It is important to remember however that all the paths lead ultimately to the same destination: ultimate peace and health.
               </p>
             </div>
@@ -131,10 +131,10 @@ export default function FourPathsOfYogaPage() {
               <h3 className="text-2xl font-serif font-bold text-[#0B3B24]">
                 Karma Yoga
               </h3>
-              <p className="text-sm text-gray-500 mb-4 uppercase tracking-wider">
+              <p className="text-base text-gray-500 mb-4 uppercase tracking-wider">
                 Path of Selfless service
               </p>
-              <p className="text-sm text-[#4A4A4A] leading-relaxed flex-grow">
+              <p className="text-base text-[#4A4A4A] leading-relaxed flex-grow">
                 Karma Yoga – the Yoga of action – is the path chosen primarily by those of an outgoing nature. It purifies the heart by teaching you to act selflessly, without thought of gain or reward. By detaching yourself from the fruits of your actions and offering them up to the welfare of others, you learn to sublimate the ego.
               </p>
             </article>
@@ -153,10 +153,10 @@ export default function FourPathsOfYogaPage() {
               <h3 className="text-2xl font-serif font-bold text-[#0B3B24]">
                 Bhakti Yoga
               </h3>
-              <p className="text-sm text-gray-500 mb-4 uppercase tracking-wider">
+              <p className="text-base text-gray-500 mb-4 uppercase tracking-wider">
                 Path of Devotion
               </p>
-              <p className="text-sm text-[#4A4A4A] leading-relaxed flex-grow">
+              <p className="text-base text-[#4A4A4A] leading-relaxed flex-grow">
                 Bhakti Yoga is the path of devotion, which appeals particularly to those of an emotional nature. Bhakti Yogis are motivated chiefly by the power of Love and sees the Universe as the embodiment of Love.
               </p>
             </article>
@@ -175,10 +175,10 @@ export default function FourPathsOfYogaPage() {
               <h3 className="text-2xl font-serif font-bold text-[#0B3B24]">
                 Raja Yoga
               </h3>
-              <p className="text-sm text-gray-500 mb-4 uppercase tracking-wider">
+              <p className="text-base text-gray-500 mb-4 uppercase tracking-wider">
                 Path of Mind control
               </p>
-              <p className="text-sm text-[#4A4A4A] leading-relaxed flex-grow">
+              <p className="text-base text-[#4A4A4A] leading-relaxed flex-grow">
                 Raja Yoga is the science of physical and mental control. It offers a comprehensive method for controlling the waves of thought by tuning our mental and physical energy into pure energy.
               </p>
             </article>
@@ -197,10 +197,10 @@ export default function FourPathsOfYogaPage() {
               <h3 className="text-2xl font-serif font-bold text-[#0B3B24]">
                 Jnana Yoga
               </h3>
-              <p className="text-sm text-gray-500 mb-4 uppercase tracking-wider">
+              <p className="text-base text-gray-500 mb-4 uppercase tracking-wider">
                 Path of Knowledge
               </p>
-              <p className="text-sm text-[#4A4A4A] leading-relaxed flex-grow">
+              <p className="text-base text-[#4A4A4A] leading-relaxed flex-grow">
                 Jnana Yoga – the Yoga of Knowledge and wisdom – is the most difficult path, requiring tremendous strength of will and of intellect. Taking the philosophy of Vedanta, the Jnana Yogi uses his intellect to enquire into his own nature, dissolving the veils of ignorance and illusion.
               </p>
             </article>
@@ -225,15 +225,15 @@ export default function FourPathsOfYogaPage() {
           <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] mb-8">
             KARMA YOGA – Path of Devotion
           </h2>
-          <p className="text-lg md:text-xl font-serif text-gray-800 mb-6">
+          <p className="text-xl md:text-2xl font-serif text-gray-800 mb-6">
             &quot;The first step in the spiritual path is the selfless service to Humanity&quot;
           </p>
-          <p className="text-sm md:text-base text-gray-600 mb-10">
+          <p className="text-base md:text-lg text-gray-600 mb-10">
             – Swami Sivananda in &quot;Sivananda Upanishad&quot;
           </p>
           <button
             type="button"
-            className="inline-block px-8 py-3 bg-[#FDFCF8]/80 text-[#ED7D4D] border border-[#ED7D4D]/30 font-bold text-sm tracking-wider uppercase rounded-sm hover:bg-[#ED7D4D] hover:text-white transition-colors cursor-pointer backdrop-blur-sm"
+            className="inline-block px-8 py-3 bg-[#FDFCF8]/80 text-[#ED7D4D] border border-[#ED7D4D]/30 font-bold text-base tracking-wider uppercase rounded-sm hover:bg-[#ED7D4D] hover:text-white transition-colors cursor-pointer backdrop-blur-sm"
           >
             KARMA YOGA PATH
           </button>
@@ -272,11 +272,11 @@ export default function FourPathsOfYogaPage() {
 
           {/* Part 2: 3 Kinds of Karma — Overlapping box */}
           <div className="relative z-20 bg-[#4F6F1F] text-white p-8 md:p-12 max-w-md shadow-2xl md:-mt-32 md:-mb-16 md:ml-24 mx-auto mt-8 mb-8 rounded-sm">
-            <h3 className="text-xl font-serif mb-4">3 Kinds of Karma</h3>
-            <p className="text-white/90 leading-relaxed mb-4 text-sm md:text-base">
+            <h3 className="text-2xl font-serif mb-4">3 Kinds of Karma</h3>
+            <p className="text-white/90 leading-relaxed mb-4 text-base md:text-lg">
               There are three kinds of karma: past karma, present karma and future karma.
             </p>
-            <p className="text-white/90 leading-relaxed text-sm md:text-base">
+            <p className="text-white/90 leading-relaxed text-base md:text-lg">
               They are inter-related. The present karma is the result of the past karma, and our reaction to the present karma will determine our future karma.
             </p>
           </div>
@@ -330,17 +330,17 @@ export default function FourPathsOfYogaPage() {
             Bhakti Yoga – Path of Devotion
           </h2>
 
-          <p className="text-lg md:text-xl text-[#0B3B24] leading-relaxed mb-6 font-medium px-4">
+          <p className="text-xl md:text-2xl text-[#0B3B24] leading-relaxed mb-6 font-medium px-4">
             &quot;Love is divine. Love is nectar. Love is the greatest power on earth. Love alone can transform the world. Love alone can bring peace on this earth. Love alone can conquer hearts of others.&quot;
           </p>
 
-          <p className="text-sm md:text-base text-[#0B3B24] mb-12 opacity-80 font-medium">
+          <p className="text-base md:text-lg text-[#0B3B24] mb-12 opacity-80 font-medium">
             – Swami Sivananda in &quot;Bliss Divine&quot;
           </p>
 
           <button
             type="button"
-            className="bg-white/80 hover:bg-white text-[#ED7D4D] border border-white/50 px-8 py-3 rounded-sm font-semibold tracking-widest text-sm uppercase transition-all shadow-sm"
+            className="bg-white/80 hover:bg-white text-[#ED7D4D] border border-white/50 px-8 py-3 rounded-sm font-semibold tracking-widest text-base uppercase transition-all shadow-sm"
           >
             Karma Yoga Path
           </button>
@@ -409,12 +409,12 @@ export default function FourPathsOfYogaPage() {
             <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] mb-6 font-bold">
               Satsanga – Community, Friendship, and Respect
             </h2>
-            <p className="text-lg text-[#4A4A4A] leading-relaxed mb-10">
+            <p className="text-xl text-[#4A4A4A] leading-relaxed mb-10">
               Yoga encourages pure love and respect to others. The yoga resort provides an opportunity to develop good relationships with others as well as to develop love and support in selfless relationships.
             </p>
             <Link
               href="/yoga-vacation"
-              className="inline-block bg-[#ED7D4D] text-white px-10 py-4 rounded-sm font-bold tracking-widest text-sm uppercase hover:bg-orange-600 transition-colors shadow-md"
+              className="inline-block bg-[#ED7D4D] text-white px-10 py-4 rounded-sm font-bold tracking-widest text-base uppercase hover:bg-orange-600 transition-colors shadow-md"
             >
               EXPLORE YOGA VACATION
             </Link>
@@ -439,17 +439,17 @@ export default function FourPathsOfYogaPage() {
             Raja Yoga – Path of Mind Control
           </h2>
 
-          <p className="text-lg md:text-xl text-[#4A4A4A] italic mb-6 font-medium max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-[#4A4A4A] italic mb-6 font-medium max-w-2xl mx-auto">
             &quot;Raja Yoga is the royal road to freedom and bliss&quot;
           </p>
 
-          <p className="text-sm md:text-base text-[#4A4A4A] mb-12 opacity-80 font-medium">
+          <p className="text-base md:text-lg text-[#4A4A4A] mb-12 opacity-80 font-medium">
             – Swami Sivananda
           </p>
 
           <button
             type="button"
-            className="bg-white hover:bg-[#FDFCF8] text-[#ED7D4D] border border-[#ED7D4D]/20 px-10 py-4 rounded-sm font-semibold tracking-widest text-sm uppercase transition-all shadow-[0_4px_14px_0_rgba(237,125,77,0.1)] hover:shadow-[0_6px_20px_rgba(237,125,77,0.15)]"
+            className="bg-white hover:bg-[#FDFCF8] text-[#ED7D4D] border border-[#ED7D4D]/20 px-10 py-4 rounded-sm font-semibold tracking-widest text-base uppercase transition-all shadow-[0_4px_14px_0_rgba(237,125,77,0.1)] hover:shadow-[0_6px_20px_rgba(237,125,77,0.15)]"
           >
             EXPLORE YOGA PROGRAM
           </button>
@@ -539,7 +539,7 @@ export default function FourPathsOfYogaPage() {
             Ashtanga Yoga – The 8 Limbs
           </h2>
 
-          <div className="space-y-5 text-white/90 text-sm md:text-base font-light">
+          <div className="space-y-5 text-white/90 text-base md:text-lg font-light">
             <p><span className="font-semibold">#1 Yamas</span> – The restrictions, what not to do</p>
             <p><span className="font-semibold">#2 Niyamas</span> – The observances, what to do</p>
             <p><span className="font-semibold">#3 Asana</span> – Steady pose</p>
@@ -570,17 +570,17 @@ export default function FourPathsOfYogaPage() {
             Jnana Yoga – Path of Knowledge
           </h2>
 
-          <p className="text-lg md:text-xl text-[#0B3B24] leading-relaxed mb-6 font-medium px-4">
+          <p className="text-xl md:text-2xl text-[#0B3B24] leading-relaxed mb-6 font-medium px-4">
             &quot;Solve first the, &quot;Who am I?&quot; problem. All other problems will be automatically solved.&quot;
           </p>
 
-          <p className="text-sm md:text-base text-[#0B3B24] mb-12 opacity-80 font-medium">
+          <p className="text-base md:text-lg text-[#0B3B24] mb-12 opacity-80 font-medium">
             – Swami Sivananda in &quot;Sivananda Upanishad&quot;
           </p>
 
           <button
             type="button"
-            className="bg-white/95 hover:bg-white text-[#ED7D4D] border border-[#ED7D4D]/20 px-10 py-4 rounded-sm font-semibold tracking-widest text-sm uppercase transition-all shadow-[0_4px_14px_0_rgba(237,125,77,0.1)] hover:shadow-[0_6px_20px_rgba(237,125,77,0.15)]"
+            className="bg-white/95 hover:bg-white text-[#ED7D4D] border border-[#ED7D4D]/20 px-10 py-4 rounded-sm font-semibold tracking-widest text-base uppercase transition-all shadow-[0_4px_14px_0_rgba(237,125,77,0.1)] hover:shadow-[0_6px_20px_rgba(237,125,77,0.15)]"
           >
             EXPLORE YOGA PROGRAM
           </button>

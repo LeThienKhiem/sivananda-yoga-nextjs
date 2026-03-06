@@ -9,7 +9,7 @@ export default function CourseCurriculum() {
           </h2>
 
           {/* Main List */}
-          <ul className="mb-12 space-y-5 text-sm text-[#4A4A4A] md:text-base">
+          <ul className="mb-12 space-y-5 text-base text-[#4A4A4A] md:text-lg">
             <li className="flex items-start gap-4">
               <div className="mt-0.5 h-5 w-5 flex-shrink-0 rounded-full border-2 border-[#0B3B24]" />
               <span>Concentrated periods of pranayama practice of progressive intensity under supervisor within 14 days</span>
@@ -43,7 +43,7 @@ export default function CourseCurriculum() {
           {/* Important Note */}
           <div className="space-y-4">
             <h4 className="font-medium text-gray-500">Important Note</h4>
-            <ul className="space-y-3 text-sm text-[#4A4A4A] md:text-base">
+            <ul className="space-y-3 text-base text-[#4A4A4A] md:text-lg">
               <li className="flex items-start gap-3">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="mt-1 h-4 w-4 flex-shrink-0 text-[#0B3B24]"><path d="M8 5v14l11-7z" /></svg>
                 <span>Successful completion of the Sivananda Yoga Teachers&apos; Training Course is a prerequisite for all participants</span>
@@ -59,10 +59,10 @@ export default function CourseCurriculum() {
         {/* Right Column: Pricing Card */}
         <div className="w-full lg:w-[40%]">
           <div className="rounded-sm border border-gray-100 bg-white p-8 shadow-[0_10px_40px_rgba(0,0,0,0.06)] md:p-10 lg:sticky lg:top-24">
-            <h3 className="mb-2 text-xs font-bold uppercase tracking-widest text-[#0B3B24] md:text-sm">Program Cost</h3>
-            <p className="mb-8 text-[11px] text-gray-400 md:text-xs">*** incl. accommodation, meals and study materials</p>
+            <h3 className="mb-2 text-base font-bold uppercase tracking-widest text-[#0B3B24] md:text-base">Program Cost</h3>
+            <p className="mb-8 text-base text-gray-400 md:text-base">*** incl. accommodation, meals and study materials</p>
 
-            <div className="space-y-6 text-sm font-medium text-[#4A4A4A] md:text-base">
+            <div className="space-y-6 text-base font-medium text-[#4A4A4A] md:text-lg">
               <div className="flex items-center justify-between border-b border-gray-100 pb-4">
                 <span>Single Room</span>
                 <span className="font-bold text-[#0B3B24]">US$ 3,850</span>

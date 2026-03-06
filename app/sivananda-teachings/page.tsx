@@ -32,7 +32,7 @@ export default function SivanandaTeachingsPage() {
             sizes="100vw"
           />
           <div className="relative z-10 bg-white w-[90%] max-w-5xl py-12 md:py-16 px-6 shadow-md text-center -mb-12 md:-mb-16 border-b border-gray-100">
-            <p className="text-[#0B3B24] text-xl md:text-2xl mb-4 font-medium">
+            <p className="text-[#0B3B24] text-2xl md:text-2xl mb-4 font-medium">
               Sivananda Yoga Teaching
             </p>
             <h1 className="text-[#0B3B24] font-serif text-4xl md:text-6xl font-bold tracking-tight">

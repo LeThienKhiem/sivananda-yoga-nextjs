@@ -81,7 +81,7 @@ export default function DailySchedule() {
                   <span className="text-[#ED7D4D] font-medium w-20 shrink-0">
                     {item.time}
                   </span>
-                  <span className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#4F6F1F] transition-colors">
+                  <span className="text-xl md:text-2xl font-bold text-gray-800 group-hover:text-[#4F6F1F] transition-colors">
                     {item.title}
                   </span>
                 </div>

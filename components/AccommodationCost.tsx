@@ -74,8 +74,8 @@ export default function AccommodationCost() {
                     : "border-gray-200 bg-white text-gray-500 shadow-sm hover:bg-gray-50 hover:shadow-md md:border-transparent"
                   }`}
               >
-                <div className="font-serif text-lg font-bold md:text-xl">{acc.tabTitle}</div>
-                <div className="mt-1 text-xs font-semibold uppercase tracking-wider opacity-80 md:text-sm">
+                <div className="font-serif text-xl font-bold md:text-2xl">{acc.tabTitle}</div>
+                <div className="mt-1 text-base font-semibold uppercase tracking-wider opacity-80 md:text-base">
                   {acc.tabSubtitle}
                 </div>
               </button>
@@ -98,7 +98,7 @@ export default function AccommodationCost() {
 
           {/* Right: Description & Price (Bottom on mobile) */}
           <div className="flex w-full flex-col justify-between p-8 text-white md:w-[40%] md:p-12">
-            <div className="mb-10 space-y-6 text-sm leading-relaxed text-white/90 md:text-base">
+            <div className="mb-10 space-y-6 text-base leading-relaxed text-white/90 md:text-lg">
               {activeAcc.description.map((paragraph, i) => (
                 <p key={i}>{paragraph}</p>
               ))}
@@ -106,7 +106,7 @@ export default function AccommodationCost() {
 
             <div className="mt-auto flex flex-row items-center justify-between gap-4 border-t border-white/20 pt-6">
               <div>
-                <p className="mb-1 text-xs uppercase tracking-widest text-white/70">
+                <p className="mb-1 text-base uppercase tracking-widest text-white/70">
                   Starting From
                 </p>
                 <p className="font-serif text-2xl font-bold md:text-3xl">
@@ -115,7 +115,7 @@ export default function AccommodationCost() {
               </div>
               <button
                 type="button"
-                className="shrink-0 rounded-sm bg-[#ED7D4D] px-6 py-3 text-xs font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600 md:px-8 md:py-4 md:text-sm"
+                className="shrink-0 rounded-sm bg-[#ED7D4D] px-6 py-3 text-base font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600 md:px-8 md:py-4 md:text-base"
               >
                 Book Now
               </button>

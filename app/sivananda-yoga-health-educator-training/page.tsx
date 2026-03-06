@@ -194,7 +194,7 @@ function AccordionItem({
       >
         <div className="flex items-center gap-4">
           <CheckCircle2 className="w-5 h-5 text-[#4F6F1F] flex-shrink-0" />
-          <h4 className="font-bold text-[#0B3B24] text-sm md:text-base">
+          <h4 className="font-bold text-[#0B3B24] text-base md:text-lg">
             {title}
           </h4>
         </div>
@@ -215,7 +215,7 @@ function AccordionItem({
             {items.map((item, idx) => (
               <li
                 key={idx}
-                className="text-[#4A4A4A] text-sm flex items-center gap-2"
+                className="text-[#4A4A4A] text-base flex items-center gap-2"
               >
                 <span className="w-1.5 h-1.5 rounded-full border border-gray-400"></span>
                 {item}
@@ -255,7 +255,7 @@ export default function SYHETPage() {
 
         {/* Seamless Overlapping Content Box (No Shadow, blends with background) */}
         <div className="relative z-10 w-[95%] max-w-6xl mx-auto bg-[#FDFCF8] px-6 pt-10 pb-6 md:pt-14 md:pb-10 text-center -mt-16 md:-mt-24">
-          <p className="text-base md:text-lg text-slate-600 font-medium mb-2 md:mb-4">
+          <p className="text-lg md:text-xl text-slate-600 font-medium mb-2 md:mb-4">
             Empower Healing through Yoga Therapeutic Practice
           </p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#0B3B24] font-bold">
@@ -274,11 +274,11 @@ export default function SYHETPage() {
                 <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] font-bold mb-2">
                   Become a Health Educator
                 </h2>
-                <h3 className="text-lg md:text-xl text-gray-500 font-medium">
+                <h3 className="text-xl md:text-2xl text-gray-500 font-medium">
                   With 800-hour Professional Yoga Health Training
                 </h3>
               </div>
-              <div className="space-y-6 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+              <div className="space-y-6 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                 <p>
                   Over the course of this 800-hour professional yoga health training, the student becomes versed in the therapeutic application of the Five Points of Yoga and the Four Paths of Yoga.
                 </p>
@@ -306,7 +306,7 @@ export default function SYHETPage() {
               <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] font-bold mb-4">
                 Yoga Therapeutic Approach
               </h2>
-              <div className="space-y-6 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+              <div className="space-y-6 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                 <p>
                   Practical tools, foundational concepts and philosophical knowledge are gained to create the framework for more advanced study as one progresses through the program. Emphasis is placed on understanding the subtler aspects of the causes of disease and stress in the individual.
                 </p>
@@ -353,7 +353,7 @@ export default function SYHETPage() {
           </h2>
 
           {/* Description */}
-          <p className="text-[#4A4A4A] leading-relaxed text-sm md:text-base max-w-3xl">
+          <p className="text-[#4A4A4A] leading-relaxed text-base md:text-lg max-w-3xl">
             SYHET is fully accredited by the International Association of Yoga Therapists (IAYT),
             meeting rigorous educational and ethical standards. Upon completion, graduates are
             eligible to <a href="#" className="text-[#5B95A6] hover:underline font-medium">apply for the C-IAYT certification</a>,
@@ -374,7 +374,7 @@ export default function SYHETPage() {
             <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] mb-4">
               Program Overview
             </h2>
-            <p className="text-[#4A4A4A] md:text-lg font-light max-w-2xl mx-auto">
+            <p className="text-[#4A4A4A] md:text-xl font-light max-w-2xl mx-auto">
               800-hour, 2-year yoga therapy program combining residential retreats, distance learning, and supervised practicum with expert mentorship for certification.
             </p>
           </div>
@@ -398,7 +398,7 @@ export default function SYHETPage() {
                         <h3 className="text-2xl md:text-3xl font-serif text-[#0B3B24] mb-4">
                           {item.title}
                         </h3>
-                        <p className="text-[#4A4A4A] text-sm md:text-base font-light whitespace-pre-line">
+                        <p className="text-[#4A4A4A] text-base md:text-lg font-light whitespace-pre-line">
                           {item.description}
                         </p>
                       </div>
@@ -427,24 +427,24 @@ export default function SYHETPage() {
                         </div>
                         <h4 className="text-2xl md:text-3xl font-serif text-[#0B3B24] mb-1">
                           {moduleItem.module}{" "}
-                          <span className="text-sm md:text-base text-gray-500 font-sans font-normal ml-1">
+                          <span className="text-base md:text-lg text-gray-500 font-sans font-normal ml-1">
                             {moduleItem.duration}
                           </span>
                         </h4>
                         {moduleItem.month && (
-                          <h5 className="text-lg md:text-xl font-bold text-[#0B3B24] mb-3 mt-4">
+                          <h5 className="text-xl md:text-2xl font-bold text-[#0B3B24] mb-3 mt-4">
                             {moduleItem.month}
                           </h5>
                         )}
-                        <p className="text-[#4A4A4A] font-medium text-sm md:text-base leading-relaxed mb-4 max-w-sm whitespace-pre-line">
+                        <p className="text-[#4A4A4A] font-medium text-base md:text-lg leading-relaxed mb-4 max-w-sm whitespace-pre-line">
                           {moduleItem.title}
                         </p>
                         {moduleItem.description && (
-                          <p className="text-gray-500 text-sm leading-relaxed max-w-sm mb-4">
+                          <p className="text-gray-500 text-base leading-relaxed max-w-sm mb-4">
                             {moduleItem.description}
                           </p>
                         )}
-                        <button type="button" className="text-xs font-bold uppercase tracking-widest text-[#0B3B24] flex items-center gap-1 hover:text-[#ED7D4D] transition-colors">
+                        <button type="button" className="text-base font-bold uppercase tracking-widest text-[#0B3B24] flex items-center gap-1 hover:text-[#ED7D4D] transition-colors">
                           Detail{" "}
                           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
@@ -464,24 +464,24 @@ export default function SYHETPage() {
                         </div>
                         <h4 className="text-2xl md:text-3xl font-serif text-[#0B3B24] mb-1">
                           {moduleItem.module}{" "}
-                          <span className="text-sm md:text-base text-gray-500 font-sans font-normal ml-1">
+                          <span className="text-base md:text-lg text-gray-500 font-sans font-normal ml-1">
                             {moduleItem.duration}
                           </span>
                         </h4>
                         {moduleItem.month && (
-                          <h5 className="text-lg md:text-xl font-bold text-[#0B3B24] mb-3 mt-4">
+                          <h5 className="text-xl md:text-2xl font-bold text-[#0B3B24] mb-3 mt-4">
                             {moduleItem.month}
                           </h5>
                         )}
-                        <p className="text-[#4A4A4A] font-medium text-sm md:text-base leading-relaxed mb-4 max-w-sm whitespace-pre-line">
+                        <p className="text-[#4A4A4A] font-medium text-base md:text-lg leading-relaxed mb-4 max-w-sm whitespace-pre-line">
                           {moduleItem.title}
                         </p>
                         {moduleItem.description && (
-                          <p className="text-gray-500 text-sm leading-relaxed max-w-sm mb-4">
+                          <p className="text-gray-500 text-base leading-relaxed max-w-sm mb-4">
                             {moduleItem.description}
                           </p>
                         )}
-                        <button type="button" className="text-xs font-bold uppercase tracking-widest text-[#0B3B24] flex items-center gap-1 hover:text-[#ED7D4D] transition-colors">
+                        <button type="button" className="text-base font-bold uppercase tracking-widest text-[#0B3B24] flex items-center gap-1 hover:text-[#ED7D4D] transition-colors">
                           Detail{" "}
                           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
@@ -518,7 +518,7 @@ export default function SYHETPage() {
             <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] mb-4">
               Therapeutic Application of Yoga
             </h2>
-            <p className="text-[#4A4A4A] text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#4A4A4A] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
               The Sivananda Yoga Health Educator is trained to empower participants in their own Self-healing through practices that have positive effects on the following health conditions:
             </p>
           </div>
@@ -574,7 +574,7 @@ export default function SYHETPage() {
             </svg>
 
             {/* Pyramid Text Stack */}
-            <div className="relative z-10 flex flex-col items-center space-y-3 md:space-y-4 text-[#4A4A4A] font-medium text-sm md:text-base tracking-wide w-full">
+            <div className="relative z-10 flex flex-col items-center space-y-3 md:space-y-4 text-[#4A4A4A] font-medium text-base md:text-lg tracking-wide w-full">
               {beneficiaries.map((role, idx) => (
                 <div
                   key={idx}
@@ -584,9 +584,9 @@ export default function SYHETPage() {
                 </div>
               ))}
 
-              <div className="pt-2 text-xl tracking-widest opacity-50">...</div>
+              <div className="pt-2 text-2xl tracking-widest opacity-50">...</div>
 
-              <div className="pt-2 pb-2 text-sm md:text-base italic text-[#4A4A4A] font-serif text-center w-full px-4">
+              <div className="pt-2 pb-2 text-base md:text-lg italic text-[#4A4A4A] font-serif text-center w-full px-4">
                 And those with a true passion for health and well-being
               </div>
             </div>
@@ -607,11 +607,11 @@ export default function SYHETPage() {
               <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] font-bold mb-6">
                 Tuition
               </h2>
-              <h3 className="text-xl text-gray-600 font-medium mb-6">
+              <h3 className="text-2xl text-gray-600 font-medium mb-6">
                 2-Year Program Tuition
               </h3>
 
-              <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base mb-8">
+              <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg mb-8">
                 <p>
                   For 2026-2028, the full tuition for the Sivananda Yoga Health Educator Training is starting from $10,000 with additional fees for residential option.
                 </p>
@@ -629,7 +629,7 @@ export default function SYHETPage() {
                   Tuition with Residential Options
                 </h4>
 
-                <div className="space-y-6 text-[#4A4A4A] font-medium text-sm md:text-base mb-8">
+                <div className="space-y-6 text-[#4A4A4A] font-medium text-base md:text-lg mb-8">
                   <div className="flex justify-between items-center border-b border-gray-50 pb-4">
                     <span>Single Room</span>
                     <span className="text-[#0B3B24] font-bold">$12,983</span>
@@ -644,7 +644,7 @@ export default function SYHETPage() {
                   </div>
                 </div>
 
-                <p className="text-xs text-gray-500 leading-relaxed">
+                <p className="text-base text-gray-500 leading-relaxed">
                   ***Deposit 1000$ is required on application date and must pay in full before the start of the first Module.
                 </p>
               </div>
@@ -655,11 +655,11 @@ export default function SYHETPage() {
               <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] font-bold mb-6">
                 Studying Affordably
               </h2>
-              <h3 className="text-lg text-gray-600 font-medium mb-8">
+              <h3 className="text-xl text-gray-600 font-medium mb-8">
                 Financial Aid Opportunities for your education
               </h3>
 
-              <ul className="space-y-6 text-[#4A4A4A] text-sm md:text-base leading-relaxed">
+              <ul className="space-y-6 text-[#4A4A4A] text-base md:text-lg leading-relaxed">
                 <li className="flex items-start gap-3">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 text-[#0B3B24] mt-0.5 flex-shrink-0" aria-hidden>
                     <path d="M9 5l7 7-7 7" />
@@ -691,38 +691,38 @@ export default function SYHETPage() {
                 {/* Module 1 */}
                 <div>
                   <h4 className="font-bold text-[#0B3B24] mb-1">Module 1: January 8 – 24, 2026</h4>
-                  <p className="text-sm text-[#4A4A4A]">Yoga and the Mind, Psychology and Mental Health</p>
+                  <p className="text-base text-[#4A4A4A]">Yoga and the Mind, Psychology and Mental Health</p>
                 </div>
 
                 {/* Module 2 */}
                 <div>
                   <h4 className="font-bold text-[#0B3B24] mb-1">Module 2: April 14 – 30, 2026</h4>
-                  <p className="text-sm text-[#4A4A4A]">Ayurveda and Healing; Disease Process, Management and Prevention</p>
+                  <p className="text-base text-[#4A4A4A]">Ayurveda and Healing; Disease Process, Management and Prevention</p>
                 </div>
 
                 {/* Module 3 */}
                 <div>
                   <h4 className="font-bold text-[#0B3B24] mb-1">Module 3: October 1 – 17, 2026</h4>
-                  <p className="text-sm text-[#4A4A4A]">Yoga Health Techniques: Therapeutic Application of Asana, Pranayama, and Relaxation</p>
+                  <p className="text-base text-[#4A4A4A]">Yoga Health Techniques: Therapeutic Application of Asana, Pranayama, and Relaxation</p>
                 </div>
 
                 {/* Module 4 */}
                 <div>
                   <h4 className="font-bold text-[#0B3B24] mb-1">Module 4: Distance Learning</h4>
-                  <p className="text-sm text-[#4A4A4A]">Online Anatomy, Physiology and Pathology/ Biomedical Foundations</p>
+                  <p className="text-base text-[#4A4A4A]">Online Anatomy, Physiology and Pathology/ Biomedical Foundations</p>
                 </div>
 
                 {/* Practicum */}
                 <div>
                   <h4 className="font-bold text-[#0B3B24] mb-1">Practicum</h4>
-                  <p className="text-sm text-[#4A4A4A] mb-2">Applied knowledge and techniques to educate individuals and groups under the guidance of a mentor in a medical clinic or yoga center.</p>
-                  <p className="text-xs text-gray-500 italic underline decoration-gray-300">There will be a final exam at the end of the course</p>
+                  <p className="text-base text-[#4A4A4A] mb-2">Applied knowledge and techniques to educate individuals and groups under the guidance of a mentor in a medical clinic or yoga center.</p>
+                  <p className="text-base text-gray-500 italic underline decoration-gray-300">There will be a final exam at the end of the course</p>
                 </div>
               </div>
 
               <div className="border-t border-gray-200 pt-8">
                 <h4 className="font-bold text-[#0B3B24] mb-4">*** Important Requirement</h4>
-                <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                <p className="text-base text-[#4A4A4A] leading-relaxed">
                   The completion of an approved 200-hour Yoga Teacher Training Course is a per-requisite for the Sivananda Yoga Health Educator Training (SYHET)
                 </p>
               </div>

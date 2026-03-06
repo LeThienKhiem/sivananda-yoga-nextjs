@@ -46,13 +46,13 @@ export default function OurTeachersPage() {
 
       {/* 2. INTRO SECTION */}
       <section className="max-w-4xl mx-auto text-center py-20 px-6">
-        <h3 className="text-sm md:text-base text-gray-500 tracking-widest uppercase mb-4 font-semibold">
+        <h3 className="text-base md:text-lg text-gray-500 tracking-widest uppercase mb-4 font-semibold">
           International Teachers & Dedicated Staffs
         </h3>
         <h1 className="text-4xl md:text-5xl font-serif text-[#0B3B24] font-bold mb-8">
           Our Team
         </h1>
-        <p className="text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+        <p className="text-[#4A4A4A] leading-relaxed text-base md:text-lg">
           Our team of international teachers and dedicated staff at Sivananda Yoga Dalat Resort & Training Center, as well as our centers across Vietnam, is committed to carrying forward the authentic lineage of classical yoga. With deep knowledge, compassion, and a spirit of selfless service, they are here to guide your journey of self-discovery, healing, and transformation.
         </p>
       </section>
@@ -66,7 +66,7 @@ export default function OurTeachersPage() {
           <h2 className="text-3xl font-serif text-[#0B3B24] font-bold mb-2">
             Senior Staffs
           </h2>
-          <p className="text-gray-500 text-sm italic">
+          <p className="text-gray-500 text-base italic">
             Sivananda Yoga Dalat Resort & Training Center
           </p>
         </div>
@@ -83,10 +83,10 @@ export default function OurTeachersPage() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-              <h3 className="text-xl font-serif text-[#0B3B24] font-bold mb-1">
+              <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-1">
                 {staff.name}
               </h3>
-              <p className="text-xs text-gray-500 uppercase tracking-wide font-semibold">
+              <p className="text-base text-gray-500 uppercase tracking-wide font-semibold">
                 {staff.role}
               </p>
             </div>
@@ -108,7 +108,7 @@ export default function OurTeachersPage() {
           </div>
 
           <div className="w-full md:w-[60%] flex flex-col items-center md:items-start border-t md:border-t-0 md:border-l border-[#0B3B24]/20 pt-8 md:pt-0 md:pl-12">
-            <p className="text-[#4A4A4A] text-sm md:text-base leading-relaxed mb-8 text-center md:text-left">
+            <p className="text-[#4A4A4A] text-base md:text-lg leading-relaxed mb-8 text-center md:text-left">
               Your donation supports our mission of spreading classical yoga, health and inner peace. By contributing, you help fund teacher training programs, outreach, ashram maintenance, and scholarship programs. Every offering makes an impact on healing and spiritual growth, empowering individuals and communities to live a life of peace and well-being.{" "}
               <Link href="/about" className="font-semibold underline cursor-pointer">
                 Learn more
@@ -116,7 +116,7 @@ export default function OurTeachersPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-[#E5F5C8] hover:bg-[#d4e8aa] text-[#0B3B24] px-10 py-3 font-bold tracking-widest text-sm uppercase transition-colors shadow-sm rounded-sm"
+              className="inline-block bg-[#E5F5C8] hover:bg-[#d4e8aa] text-[#0B3B24] px-10 py-3 font-bold tracking-widest text-base uppercase transition-colors shadow-sm rounded-sm"
             >
               Donate
             </Link>

@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import AnimatedNumber from "@/components/AnimatedNumber";
-import PlaceCarousel from "@/components/PlaceCarousel";
 import EventsCarousel from "@/components/EventsCarousel";
 import TestimonialsCarousel2 from "@/components/TestimonialsCarousel2";
 import Footer from "@/components/Footer";
@@ -115,10 +114,10 @@ export default function Home() {
             <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
               Health is Wealth, Peace of Mind is Happiness. Yoga shows the way
             </h1>
-            <p className="mt-4 text-lg text-white/95 italic md:text-xl">
+            <p className="mt-4 text-xl text-white/95 italic md:text-2xl">
               —Swami Vishnudevananda
             </p>
-            <p className="mt-8 text-base font-medium text-white md:text-lg">
+            <p className="mt-8 text-lg font-medium text-white md:text-xl">
               New to our resort and program?
             </p>
             <Link
@@ -140,10 +139,10 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-[#1e5c2b] md:text-4xl">
                 Sivananda Yoga Resort and Training Center
               </h2>
-              <h3 className="mt-2 mb-6 text-sm font-medium uppercase tracking-widest text-gray-500">
+              <h3 className="mt-2 mb-6 text-base font-medium uppercase tracking-widest text-gray-500">
                 DA LAT, VIETNAM
               </h3>
-              <p className="text-lg leading-relaxed text-gray-700">
+              <p className="text-xl leading-relaxed text-gray-700">
                 Established in the beautiful town of Da Lat, Vietnam, a 35 minute flight from Ho Chi Minh City, Sivananda Yoga Resort and Training Center is a peaceful oasis where people from all over the world come together to practice yoga, meditation and discover their true self.
               </p>
             </div>
@@ -153,7 +152,7 @@ export default function Home() {
                 <p className="text-5xl font-extrabold text-[#d85513] lg:text-6xl">
                   <AnimatedNumber value={52000} />
                 </p>
-                <p className="mt-4 text-lg font-medium text-gray-800 lg:text-xl">Yoga Teachers Trained since 1969</p>
+                <p className="mt-4 text-xl font-medium text-gray-800 lg:text-2xl">Yoga Teachers Trained since 1969</p>
               </div>
 
               <div className="flex h-full flex-col items-center justify-center text-center rounded-xl bg-[#d85513] p-8">
@@ -166,7 +165,7 @@ export default function Home() {
                 />
                 <p className="text-2xl font-bold text-white mt-4 mb-3 lg:text-3xl">Mission Statement</p>
                 <div className="w-16 h-[2px] bg-white/60 mb-4" aria-hidden />
-                <p className="text-white/95 text-center text-sm italic leading-relaxed max-w-[90%] px-4 lg:text-base">
+                <p className="text-white/95 text-center text-base italic leading-relaxed max-w-[90%] px-4 lg:text-lg">
                   Practicing and teaching the ancient yogic knowledge of Health, Peace, Unity in diversity, and Self-realization.
                 </p>
               </div>
@@ -189,142 +188,156 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured courses */}
-        <section id="courses" className="bg-[#f9f7f2] py-20">
-          <div className="mx-auto max-w-[1440px] px-4 lg:px-8">
-            <div className="max-w-3xl text-left">
-              <h2 className="text-3xl font-bold text-[#1e5c2b]">
-                Our Offerings
+        {/* OUR OFFERINGS SECTION */}
+        <section id="courses" className="w-full bg-[#FDFCF8] px-6 py-24">
+          <div className="mx-auto max-w-6xl">
+            {/* Header */}
+            <div className="mb-16 text-center">
+              <h2 className="font-serif text-2xl font-bold text-[#0B3B24] md:text-3xl">
+                There are many ways to learn, train, and experience yoga and
+                health with us.
               </h2>
-              <p className="mt-3 text-gray-600">EXPLORE ANCIENT KNOWLEDGE</p>
-              <div className="mt-4 w-24 h-0.5 bg-[#1e5c2b]/60" aria-hidden />
             </div>
 
-            <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {/* Course 1: Yoga Teacher Training */}
-              <article className="flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white shadow-sm transition-shadow hover:shadow-xl">
-                <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1545205597-3d9d02c29597"
-                    alt="Yoga teacher training"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 480px"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6 text-left">
-                  <h2 className="text-xl font-bold uppercase tracking-wide text-[#1e5c2b]">Yoga Teacher Training</h2>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-700 lg:text-base">
-                    Have a powerful, personal experience and learn to transmit the knowledge of Yoga to others. This is an internationally recognized certification and is accepted by the worldwide Yoga Alliance.
+            {/* 6-Card Grid */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+              {/* Card 1: Yoga Vacation */}
+              <Link
+                href="/yoga-vacation"
+                className="group relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-md md:h-[300px]"
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800"
+                  alt="Yoga Vacation"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/50" />
+                <div className="relative z-10 p-6 text-center text-white transition-transform duration-500 group-hover:-translate-y-2">
+                  <h3 className="mb-2 font-serif text-xl font-bold uppercase tracking-wide drop-shadow-md md:text-2xl">
+                    Yoga Vacation
+                  </h3>
+                  <p className="text-sm font-light opacity-95 drop-shadow-sm md:text-base">
+                    Find your inner peace in Da Lat
                   </p>
-                  <Link
-                    href="/yoga-teacher-training"
-                    className="mt-auto inline-block w-fit rounded-lg border border-stone-300/60 bg-white/70 px-5 py-2.5 text-left text-sm font-semibold uppercase tracking-wider text-[#1e5c2b] shadow-sm backdrop-blur-md transition-all hover:border-[#1e5c2b]/40 hover:bg-white/90 hover:shadow-md"
-                  >
-                    LEARN MORE
-                  </Link>
                 </div>
-              </article>
+              </Link>
 
-              {/* Course 2: Yoga for All Levels */}
-              <article className="flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white shadow-sm transition-shadow hover:shadow-xl">
-                <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b"
-                    alt="Yoga for all levels"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 480px"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6 text-left">
-                  <h2 className="text-xl font-bold uppercase tracking-wide text-[#1e5c2b]">Yoga for All Levels</h2>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-700 lg:text-base">
-                    Yoga for All Levels courses seek to empower individuals with classic Yoga tools and Self-knowledge to promote integral health, reduce stress, restore balance and regain a sense of purpose in one's life.
+              {/* Card 2: Teacher Training */}
+              <Link
+                href="/yoga-teacher-training-course"
+                className="group relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-md md:h-[300px]"
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800"
+                  alt="Teacher Training"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/50" />
+                <div className="relative z-10 p-6 text-center text-white transition-transform duration-500 group-hover:-translate-y-2">
+                  <h3 className="mb-2 font-serif text-xl font-bold uppercase tracking-wide drop-shadow-md md:text-2xl">
+                    Teacher Training
+                  </h3>
+                  <p className="text-sm font-light opacity-95 drop-shadow-sm md:text-base">
+                    Gain professional education and certification
                   </p>
-                  <Link
-                    href="/yoga-for-all-levels"
-                    className="mt-auto inline-block w-fit rounded-lg border border-stone-300/60 bg-white/70 px-5 py-2.5 text-left text-sm font-semibold uppercase tracking-wider text-[#1e5c2b] shadow-sm backdrop-blur-md transition-all hover:border-[#1e5c2b]/40 hover:bg-white/90 hover:shadow-md"
-                  >
-                    LEARN MORE
-                  </Link>
                 </div>
-              </article>
+              </Link>
 
-              {/* Course 3: Yoga Health Retreats */}
-              <article className="flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white shadow-sm transition-shadow hover:shadow-xl">
-                <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1758274538676-87c2314bca60"
-                    alt="Yoga health retreat"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 480px"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6 text-left">
-                  <h2 className="text-xl font-bold uppercase tracking-wide text-[#1e5c2b]">Yoga Health Retreats</h2>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-700 lg:text-base">
-                    Experience the benefits of a daily practice of Yoga techniques and get back your positive health. Health is in your hands.
+              {/* Card 3: Ayurveda */}
+              <Link
+                href="/programs"
+                className="group relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-md md:h-[300px]"
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1576091160550-2173ff9e5fe3?q=80&w=800"
+                  alt="Ayurveda"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/50" />
+                <div className="relative z-10 p-6 text-center text-white transition-transform duration-500 group-hover:-translate-y-2">
+                  <h3 className="mb-2 font-serif text-xl font-bold uppercase tracking-wide drop-shadow-md md:text-2xl">
+                    Ayurveda
+                  </h3>
+                  <p className="text-sm font-light opacity-95 drop-shadow-sm md:text-base">
+                    Restore your natural balance
                   </p>
-                  <Link
-                    href="/yoga-health-retreats"
-                    className="mt-auto inline-block w-fit rounded-lg border border-stone-300/60 bg-white/70 px-5 py-2.5 text-left text-sm font-semibold uppercase tracking-wider text-[#1e5c2b] shadow-sm backdrop-blur-md transition-all hover:border-[#1e5c2b]/40 hover:bg-white/90 hover:shadow-md"
-                  >
-                    LEARN MORE
-                  </Link>
                 </div>
-              </article>
+              </Link>
 
-              {/* Course 4: Dalat Ashram Health House */}
-              <article className="flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white shadow-sm transition-shadow hover:shadow-xl">
-                <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1576091160550-2173dba999ef"
-                    alt="Wellness center"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 480px"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6 text-left">
-                  <h2 className="text-xl font-bold uppercase tracking-wide text-[#1e5c2b]">Dalat Ashram Health House</h2>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-700 lg:text-base">
-                    Our Health Education Center serve all people who are looking for yoga for holistic health and peace of mind.
+              {/* Card 4: Yoga for Holistic Health */}
+              <Link
+                href="/syhet-practicuum"
+                className="group relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-md md:h-[300px]"
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800"
+                  alt="Yoga for Holistic Health"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/50" />
+                <div className="relative z-10 p-6 text-center text-white transition-transform duration-500 group-hover:-translate-y-2">
+                  <h3 className="mb-2 font-serif text-xl font-bold uppercase tracking-wide drop-shadow-md md:text-2xl">
+                    Yoga for Holistic Health
+                  </h3>
+                  <p className="text-sm font-light opacity-95 drop-shadow-sm md:text-base">
+                    Learn healing practices for addressing disease
                   </p>
-                  <Link
-                    href="/dalat-ashram-health-house"
-                    className="mt-auto inline-block w-fit rounded-lg border border-stone-300/60 bg-white/70 px-5 py-2.5 text-left text-sm font-semibold uppercase tracking-wider text-[#1e5c2b] shadow-sm backdrop-blur-md transition-all hover:border-[#1e5c2b]/40 hover:bg-white/90 hover:shadow-md"
-                  >
-                    LEARN MORE
-                  </Link>
                 </div>
-              </article>
+              </Link>
 
-              {/* Course 5: Yoga Vacation (extended stay) */}
-              <article className="flex flex-col overflow-hidden rounded-xl border border-stone-200/80 bg-white shadow-sm transition-shadow hover:shadow-xl">
-                <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1625846082756-6807d6131684"
-                    alt="Yoga retreat in nature"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 480px"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6 text-left">
-                  <h2 className="text-xl font-bold uppercase tracking-wide text-[#1e5c2b]">Yoga Vacation</h2>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-700 lg:text-base">
-                    Reconnect with healthy, balanced living and develop a spiritual and positive vision of life. Come for a stay of minimum 3 nights, or spend a couple of weeks with us. Our volunteer staff is always happy to welcome you and share their enthusiasm with you.
+              {/* Card 5: Short Course */}
+              <Link
+                href="/specialty-courses"
+                className="group relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-md md:h-[300px]"
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=800"
+                  alt="Short Course"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/50" />
+                <div className="relative z-10 p-6 text-center text-white transition-transform duration-500 group-hover:-translate-y-2">
+                  <h3 className="mb-2 font-serif text-xl font-bold uppercase tracking-wide drop-shadow-md md:text-2xl">
+                    Short Course
+                  </h3>
+                  <p className="text-sm font-light opacity-95 drop-shadow-sm md:text-base">
+                    Enjoy a focused learning experience
                   </p>
-                  <Link
-                    href="/yoga-vacation"
-                    className="mt-auto inline-block w-fit rounded-lg border border-stone-300/60 bg-white/70 px-5 py-2.5 text-left text-sm font-semibold uppercase tracking-wider text-[#1e5c2b] shadow-sm backdrop-blur-md transition-all hover:border-[#1e5c2b]/40 hover:bg-white/90 hover:shadow-md"
-                  >
-                    LEARN MORE
-                  </Link>
                 </div>
-              </article>
+              </Link>
+
+              {/* Card 6: Corporate Training */}
+              <Link
+                href="/contact"
+                className="group relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-md md:h-[300px]"
+              >
+                <Image
+                  src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=800"
+                  alt="Corporate Training"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/50" />
+                <div className="relative z-10 p-6 text-center text-white transition-transform duration-500 group-hover:-translate-y-2">
+                  <h3 className="mb-2 font-serif text-xl font-bold uppercase tracking-wide drop-shadow-md md:text-2xl">
+                    Corporate Training
+                  </h3>
+                  <p className="text-sm font-light opacity-95 drop-shadow-sm md:text-base">
+                    Improve the way you work
+                  </p>
+                </div>
+              </Link>
             </div>
           </div>
         </section>
@@ -349,7 +362,7 @@ export default function Home() {
             <blockquote className="font-serif text-2xl italic leading-relaxed text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] md:text-3xl lg:text-4xl">
               Kindle the light of love in the heart and radiate love and light to one and all
             </blockquote>
-            <cite className="mt-6 block font-serif text-lg not-italic text-white/95 md:text-xl">
+            <cite className="mt-6 block font-serif text-xl not-italic text-white/95 md:text-2xl">
               – Swami Sivananda
             </cite>
           </div>
@@ -361,7 +374,7 @@ export default function Home() {
             {/* Text side – 40% width on desktop; quote-style border on paragraphs only; stack above images on mobile */}
             <div>
               <h2 className="font-serif text-4xl font-bold tracking-tight text-[#598234] lg:text-5xl">Our Lineage</h2>
-              <h3 className="mt-2 mb-6 font-semibold text-xl text-stone-600">From Himalayas to Vietnam</h3>
+              <h3 className="mt-2 mb-6 font-semibold text-2xl text-stone-600">From Himalayas to Vietnam</h3>
               <div className="border-l-4 border-[#598234] pl-6 lg:pl-8">
                 <p className="mb-4 text-stone-700 leading-relaxed">
                   The International Sivananda Yoga Vedanta Centres, founded by Swami Vishnudevananda in 1959 under the guidance of his guru, the Indian saint Swami Sivananda, has grown to more than 30 global locations, including 11 ashrams. Recognized for authentic yoga teachings, it has trained more than 52,000 teachers and offers diverse programs, including personal growth through residential Karma Yoga service.
@@ -419,7 +432,95 @@ export default function Home() {
           </div>
         </section>
 
-        <PlaceCarousel />
+        {/* THE PERFECT PLACE SECTION - EXPANDING ACCORDION */}
+        <section id="place" className="w-full bg-[#FDFCF8] flex flex-col">
+          {/* Section Header */}
+          <div className="text-center py-16 px-6">
+            <h2 className="text-3xl md:text-5xl font-serif text-[#0B3B24] font-bold">
+              The Perfect Place to Learn and Relax
+            </h2>
+          </div>
+
+          {/* Expanding Accordion Container */}
+          <div className="flex flex-col md:flex-row w-full h-[800px] md:h-[600px] overflow-hidden">
+            
+            {/* Column 1: Tranquil Nature */}
+            <div className="group relative flex-1 md:hover:flex-[2_2_0%] transition-all duration-700 ease-in-out cursor-pointer border-b md:border-b-0 md:border-r border-white/40 overflow-hidden">
+              <Image 
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600" 
+                alt="Tranquil Nature" 
+                fill 
+                className="object-cover transition-transform duration-1000 group-hover:scale-105" 
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              {/* White Filter Overlay */}
+              <div className="absolute inset-0 bg-[#FDFCF8]/85 transition-colors duration-700 group-hover:bg-[#FDFCF8]/40" />
+              
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#0B3B24] transition-all duration-700 drop-shadow-sm group-hover:-translate-y-2">
+                  Tranquil Nature
+                </h3>
+                <div className="overflow-hidden transition-all duration-700 max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100">
+                  <p className="text-[#0B3B24] text-sm md:text-base font-medium max-w-sm mx-auto mt-2 leading-relaxed bg-[#FDFCF8]/60 p-4 rounded-xl backdrop-blur-sm">
+                    Surrounded by lush pine forests and the serene Tuyen Lam Lake, our ashram provides the ideal environment to disconnect from daily stress and reconnect with yourself.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Column 2: Authentic Teachings */}
+            <div className="group relative flex-1 md:hover:flex-[2_2_0%] transition-all duration-700 ease-in-out cursor-pointer border-b md:border-b-0 md:border-r border-white/40 overflow-hidden">
+              <Image 
+                src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=1600" 
+                alt="Authentic Teachings" 
+                fill 
+                className="object-cover transition-transform duration-1000 group-hover:scale-105" 
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              {/* White Filter Overlay */}
+              <div className="absolute inset-0 bg-[#FDFCF8]/85 transition-colors duration-700 group-hover:bg-[#FDFCF8]/40" />
+              
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#0B3B24] transition-all duration-700 drop-shadow-sm group-hover:-translate-y-2">
+                  Authentic Teachings
+                </h3>
+                <div className="overflow-hidden transition-all duration-700 max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100">
+                  <p className="text-[#0B3B24] text-sm md:text-base font-medium max-w-sm mx-auto mt-2 leading-relaxed bg-[#FDFCF8]/60 p-4 rounded-xl backdrop-blur-sm">
+                    Learn classical Sivananda Yoga directly from experienced senior teachers, rooted in a pure and ancient lineage of self-realization.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Column 3: Holistic Healing */}
+            <div className="group relative flex-1 md:hover:flex-[2_2_0%] transition-all duration-700 ease-in-out cursor-pointer overflow-hidden">
+              <Image 
+                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1600" 
+                alt="Holistic Healing" 
+                fill 
+                className="object-cover transition-transform duration-1000 group-hover:scale-105" 
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+              {/* White Filter Overlay */}
+              <div className="absolute inset-0 bg-[#FDFCF8]/85 transition-colors duration-700 group-hover:bg-[#FDFCF8]/40" />
+              
+              {/* Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-[#0B3B24] transition-all duration-700 drop-shadow-sm group-hover:-translate-y-2">
+                  Holistic Healing
+                </h3>
+                <div className="overflow-hidden transition-all duration-700 max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100">
+                  <p className="text-[#0B3B24] text-sm md:text-base font-medium max-w-sm mx-auto mt-2 leading-relaxed bg-[#FDFCF8]/60 p-4 rounded-xl backdrop-blur-sm">
+                    Rejuvenate your body and mind through Ayurveda, mindful living, deep relaxation techniques, and a balanced vegetarian diet.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
 
         <EventsCarousel />
 
@@ -562,17 +663,17 @@ export default function Home() {
                         </div>
                         <div className="p-6">
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="text-xs font-semibold uppercase tracking-wide text-[#1e5c2b]">
+                            <span className="text-base font-semibold uppercase tracking-wide text-[#1e5c2b]">
                               {post.category}
                             </span>
-                            <span className="text-xs text-gray-500">
+                            <span className="text-base text-gray-500">
                               {post.date}
                             </span>
                           </div>
-                          <h3 className="mt-3 mb-2 text-xl font-bold text-stone-800">
+                          <h3 className="mt-3 mb-2 text-2xl font-bold text-stone-800">
                             {post.title}
                           </h3>
-                          <p className="text-sm text-gray-600 line-clamp-3">
+                          <p className="text-base text-gray-600 line-clamp-3">
                             {post.excerpt}
                           </p>
                           <Link

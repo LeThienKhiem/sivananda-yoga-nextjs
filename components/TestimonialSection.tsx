@@ -51,10 +51,10 @@ export default function TestimonialSection() {
           <h2 className="text-4xl lg:text-5xl font-serif mb-2">
             One-Month Residency Program
           </h2>
-          <p className="text-xl font-light mb-8 opacity-90">
+          <p className="text-2xl font-light mb-8 opacity-90">
             Yoga Lifestyle Immersion
           </p>
-          <div className="max-w-3xl border-l-2 border-white/50 pl-6 text-base lg:text-lg leading-relaxed italic">
+          <div className="max-w-3xl border-l-2 border-white/50 pl-6 text-lg lg:text-xl leading-relaxed italic">
             The residential program provides you with a full immersion in the
             yoga lifestyle. In addition to accommodations at the Resort, you
             participate in all programs and classes…
@@ -66,8 +66,8 @@ export default function TestimonialSection() {
       <div className="relative lg:absolute lg:top-[350px] lg:left-24 xl:left-32 w-[90%] md:w-[500px] mx-auto lg:mx-0 -mt-24 lg:mt-0 bg-[#4F6F1F] text-white p-10 shadow-2xl z-20">
         <Quote className="w-10 h-10 text-white/30 mb-4 fill-current" />
         <h3 className="text-2xl font-serif mb-6">Testimonials</h3>
-        <p className="text-lg leading-relaxed mb-8">{current.quote}</p>
-        <p className="font-mono text-sm uppercase tracking-wider opacity-80">
+        <p className="text-xl leading-relaxed mb-8">{current.quote}</p>
+        <p className="font-mono text-base uppercase tracking-wider opacity-80">
           — {current.author}
         </p>
       </div>
@@ -99,7 +99,7 @@ export default function TestimonialSection() {
           >
             REGISTER NOW
           </Link>
-          <p className="text-gray-700 text-lg">
+          <p className="text-gray-700 text-xl">
             Have Questions?{" "}
             <Link
               href="/contact"

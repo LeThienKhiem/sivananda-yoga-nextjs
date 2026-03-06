@@ -85,7 +85,7 @@ export default function AyurvedaArticles() {
           </h2>
           <Link
             href="#"
-            className="bg-[#FDF9EB] text-[#8C9A5B] px-6 py-2 rounded-md text-sm font-medium border border-[#E5DFCC] hover:bg-[#F2ECD8] transition-colors shrink-0"
+            className="bg-[#FDF9EB] text-[#8C9A5B] px-6 py-2 rounded-md text-base font-medium border border-[#E5DFCC] hover:bg-[#F2ECD8] transition-colors shrink-0"
           >
             View All
           </Link>
@@ -113,7 +113,7 @@ export default function AyurvedaArticles() {
                     />
                   </div>
                   <div className="p-6 flex flex-col h-[200px]">
-                    <h3 className="text-xl font-serif text-[#0B3B24] leading-snug flex-grow mb-4">
+                    <h3 className="text-2xl font-serif text-[#0B3B24] leading-snug flex-grow mb-4">
                       {article.title}
                     </h3>
                     <div className="flex items-center justify-between mt-auto">
@@ -134,7 +134,7 @@ export default function AyurvedaArticles() {
                             </div>
                           ))}
                         </div>
-                        <span className="text-gray-400 text-xs ml-3 truncate">
+                        <span className="text-gray-400 text-base ml-3 truncate">
                           {article.views}
                         </span>
                       </div>

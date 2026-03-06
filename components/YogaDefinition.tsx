@@ -46,7 +46,7 @@ export default function YogaDefinition() {
           {definitions.map((text, i) => (
             <div key={i} className="flex items-start gap-4 mb-4">
               <CheckCircle2 className="w-5 h-5 mt-1 shrink-0 opacity-80" />
-              <span className="text-sm md:text-lg font-light tracking-wide opacity-90">
+              <span className="text-base md:text-xl font-light tracking-wide opacity-90">
                 {text}
               </span>
             </div>

@@ -18,16 +18,16 @@ export default function EnrollTTCSection() {
       </div>
       <div className="flex-1 min-h-[280px]" aria-hidden />
       <div className="relative md:absolute md:right-0 md:top-0 md:bottom-0 w-full md:w-[50%] lg:w-[45%] bg-black/60 md:bg-black/70 backdrop-blur-sm z-10 flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24 text-white mt-auto md:mt-0">
-        <p className="text-base md:text-lg leading-relaxed mb-6 font-light text-white/95">
+        <p className="text-lg md:text-xl leading-relaxed mb-6 font-light text-white/95">
           Located at the Sivananda Yoga Dalat Resort and Training Center, the
           course unfolds in a serene mountain sanctuary near Hồ Tuyền Lâm Lake,
           surrounded by pine forests, fresh air, and natural silence.
         </p>
-        <p className="text-base md:text-lg leading-relaxed mb-6 font-light text-white/95">
+        <p className="text-lg md:text-xl leading-relaxed mb-6 font-light text-white/95">
           This tranquil ashram setting nurtures deep learning, self-inquiry, and
           inner renewal.
         </p>
-        <p className="text-base md:text-lg leading-relaxed mb-6 font-light text-white/95">
+        <p className="text-lg md:text-xl leading-relaxed mb-6 font-light text-white/95">
           By completing the course, students become part of a living tradition
           rooted in the authentic lineage of Swami Sivananda and Swami
           Vishnudevananda, joining a global community dedicated to spreading the

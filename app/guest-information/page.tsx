@@ -40,7 +40,7 @@ export default function GuestInformationPage() {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           {/* Left Column - Contact Info */}
           <div className="w-full lg:w-1/2 space-y-6">
-            <h3 className="text-xl font-bold text-[#0B3B24]">
+            <h3 className="text-2xl font-bold text-[#0B3B24]">
               Sivananda Yoga Resort and Training Center – The Ashram
             </h3>
 
@@ -163,7 +163,7 @@ export default function GuestInformationPage() {
             <h2 className="text-3xl font-serif text-[#0B3B24] font-bold">
               Helpful Reminder
             </h2>
-            <h3 className="text-lg italic text-gray-500">
+            <h3 className="text-xl italic text-gray-500">
               Satsang, Study and Quiet Hours
             </h3>
             <p className="text-[#4A4A4A] leading-relaxed">
@@ -211,7 +211,7 @@ export default function GuestInformationPage() {
             <h2 className="text-3xl font-serif text-[#0B3B24] font-bold">
               Practices of Mindful Living
             </h2>
-            <h3 className="text-lg italic text-gray-500">Ashram etiquette</h3>
+            <h3 className="text-xl italic text-gray-500">Ashram etiquette</h3>
             <p className="text-[#4A4A4A] leading-relaxed">
               As a yoga ashram, we promote a pure and sattvic lifestyle.
               Therefore, meat, fish, eggs, alcohol, tobacco, and drugs are
@@ -241,7 +241,7 @@ export default function GuestInformationPage() {
         <div className="space-y-12 pl-6 md:pl-10 border-l border-gray-200">
           {/* Contact Us */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-[#0B3B24]">Contact Us</h3>
+            <h3 className="text-2xl font-bold text-[#0B3B24]">Contact Us</h3>
             <p className="text-[#4A4A4A]">
               Have a question about registering our programs and retreats...
               please contact us or send a message to the bottom of this page or
@@ -249,7 +249,7 @@ export default function GuestInformationPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-[#E5F5C8] hover:bg-[#d4e8aa] text-[#0B3B24] font-bold text-sm tracking-widest uppercase px-8 py-3 rounded-sm transition-colors shadow-sm mt-2"
+              className="inline-block bg-[#E5F5C8] hover:bg-[#d4e8aa] text-[#0B3B24] font-bold text-base tracking-widest uppercase px-8 py-3 rounded-sm transition-colors shadow-sm mt-2"
             >
               Contact Us
             </Link>
@@ -257,7 +257,7 @@ export default function GuestInformationPage() {
 
           {/* FAQs */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-[#0B3B24]">
+            <h3 className="text-2xl font-bold text-[#0B3B24]">
               Frequently Asked Questions
             </h3>
             <p className="text-[#4A4A4A]">
@@ -265,7 +265,7 @@ export default function GuestInformationPage() {
             </p>
             <Link
               href="/frequently-asked-questions"
-              className="inline-block bg-[#E5F5C8] hover:bg-[#d4e8aa] text-[#0B3B24] font-bold text-sm tracking-widest uppercase px-8 py-3 rounded-sm transition-colors shadow-sm mt-2"
+              className="inline-block bg-[#E5F5C8] hover:bg-[#d4e8aa] text-[#0B3B24] font-bold text-base tracking-widest uppercase px-8 py-3 rounded-sm transition-colors shadow-sm mt-2"
             >
               Read FAQs
             </Link>

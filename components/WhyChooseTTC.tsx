@@ -24,10 +24,10 @@ export default function WhyChooseTTC() {
       {/* Right Column: Text Content - White Background */}
       <div className="w-full md:w-1/2 bg-white flex flex-col justify-center px-8 py-16 md:px-16 lg:px-24">
         <div>
-          <h3 className="text-xl md:text-2xl font-serif text-[#0B3B24] mb-3">
+          <h3 className="text-2xl md:text-2xl font-serif text-[#0B3B24] mb-3">
             A Legacy Rooted in Authenticity
           </h3>
-          <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-10">
+          <p className="text-gray-600 leading-relaxed text-lg md:text-xl mb-10">
             For over 50 years, the Sivananda Yoga Vedanta organization has been at
             the heart of classical yoga education worldwide. Founded by Swami
             Vishnudevananda — a direct disciple of Swami Sivananda, a great sage
@@ -37,10 +37,10 @@ export default function WhyChooseTTC() {
           </p>
         </div>
         <div>
-          <h3 className="text-xl md:text-2xl font-serif text-[#0B3B24] mb-3">
+          <h3 className="text-2xl md:text-2xl font-serif text-[#0B3B24] mb-3">
             Transformative, Not Just Informative
           </h3>
-          <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-10">
+          <p className="text-gray-600 leading-relaxed text-lg md:text-xl mb-10">
             Our training goes beyond technical skills. It&apos;s a full immersion
             into the yogic lifestyle, combining practice, philosophy, community,
             and discipline. Students often say the inner growth they experience is
@@ -48,10 +48,10 @@ export default function WhyChooseTTC() {
           </p>
         </div>
         <div>
-          <h3 className="text-xl md:text-2xl font-serif text-[#0B3B24] mb-3">
+          <h3 className="text-2xl md:text-2xl font-serif text-[#0B3B24] mb-3">
             Global Recognition & Certification
           </h3>
-          <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-10">
+          <p className="text-gray-600 leading-relaxed text-lg md:text-xl mb-10">
             Over 52,000 graduates have earned their certification through the
             Sivananda TTC, making it one of the most trusted and widely
             recognized programs. Upon completion, you&apos;ll receive a Yoga
@@ -59,10 +59,10 @@ export default function WhyChooseTTC() {
           </p>
         </div>
         <div>
-          <h3 className="text-xl md:text-2xl font-serif text-[#0B3B24] mb-3">
+          <h3 className="text-2xl md:text-2xl font-serif text-[#0B3B24] mb-3">
             A Living Gurukula Experience
           </h3>
-          <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-10 last:mb-0">
+          <p className="text-gray-600 leading-relaxed text-lg md:text-xl mb-10 last:mb-0">
             Unlike weekend or online courses, the Sivananda TTC is a true live-in
             experience. You&apos;ll stay in the serene Sivananda Ashram in Dalat,
             Vietnam, surrounded by mountains, Ho Tuyền Lâm lake, pine forests, and

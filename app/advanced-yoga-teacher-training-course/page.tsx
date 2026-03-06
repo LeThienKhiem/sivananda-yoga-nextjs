@@ -49,7 +49,7 @@ export default function AdvancedTeacherTrainingPage() {
             />
           </div>
           <div className="relative z-10 bg-white w-[90%] max-w-5xl py-12 md:py-16 px-6 shadow-xl text-center -mb-20">
-            <p className="text-gray-500 uppercase tracking-[0.2em] text-sm md:text-lg mb-4 font-light">
+            <p className="text-gray-500 uppercase tracking-[0.2em] text-base md:text-xl mb-4 font-light">
               Deepen Your Teaching
             </p>
             <h1 className="text-[#0B3B24] font-serif text-3xl md:text-5xl lg:text-6xl font-medium">
@@ -63,7 +63,7 @@ export default function AdvancedTeacherTrainingPage() {
           <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
             {/* Left: Text Content */}
             <div className="w-full md:w-1/2">
-              <p className="text-[#4A4A4A] leading-relaxed text-base md:text-lg">
+              <p className="text-[#4A4A4A] leading-relaxed text-lg md:text-xl">
                 The Sivananda Advanced Yoga Teacher Training Course is a 4-week immersion for serious students of yoga to take their knowledge and practice to deeper levels, fostering a profound understanding of sadhana and spiritual life. This 500-hour certification course allows graduates from the Sivananda Yoga TTC to deepen their training and practice through in-depth study of Vedanta philosophy and the Yoga Sutras of Patanjali Maharishi; daily practice of advanced hatha yoga techniques, including asana variations and advanced pranayama; study of Karma Yoga and Bhakti Yoga; anatomy and physiology of the nervous system; and an introduction to the Sanskrit language.
               </p>
             </div>
@@ -104,7 +104,7 @@ export default function AdvancedTeacherTrainingPage() {
               <h2 className="text-3xl font-serif text-[#0B3B24] mb-2">
                 Yoga Alliance Certified
               </h2>
-              <p className="text-sm text-gray-500 uppercase tracking-widest font-semibold mb-6">
+              <p className="text-base text-gray-500 uppercase tracking-widest font-semibold mb-6">
                 4-WEEK IMMERSION STUDY - GRADUATE WITH GLOBAL CERTIFICATION
               </p>
               <p className="text-[#4A4A4A] leading-relaxed">
@@ -143,7 +143,7 @@ export default function AdvancedTeacherTrainingPage() {
               <h2 className="text-3xl md:text-5xl font-serif text-[#0B3B24] font-bold mb-4">
                 Benefits of ATTC
               </h2>
-              <p className="text-[#4A4A4A] text-base md:text-lg font-medium">
+              <p className="text-[#4A4A4A] text-lg md:text-xl font-medium">
                 Advance Your Training. Reconnect with the Tradition
               </p>
             </div>
@@ -152,7 +152,7 @@ export default function AdvancedTeacherTrainingPage() {
             <div className="relative w-full min-h-[550px] flex flex-col md:block items-center gap-12">
               {/* Center Button */}
               <div className="md:absolute md:top-[20%] md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-30 order-last md:order-none mt-8 md:mt-0">
-                <button className="bg-[#ED7D4D] text-white px-10 py-4 rounded-sm font-bold tracking-widest text-sm uppercase hover:bg-orange-600 transition-colors shadow-[0_10px_30px_rgba(237,125,77,0.3)]">
+                <button className="bg-[#ED7D4D] text-white px-10 py-4 rounded-sm font-bold tracking-widest text-base uppercase hover:bg-orange-600 transition-colors shadow-[0_10px_30px_rgba(237,125,77,0.3)]">
                   Enroll Now
                 </button>
               </div>
@@ -168,8 +168,8 @@ export default function AdvancedTeacherTrainingPage() {
                     <path d="M12 13l4 8" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-[#0B3B24] mb-3">Deepen Your Practice</h3>
-                <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                <h3 className="text-2xl font-bold text-[#0B3B24] mb-3">Deepen Your Practice</h3>
+                <p className="text-base text-[#4A4A4A] leading-relaxed">
                   Master advanced asanas and pranayama techniques to strengthen your personal practice.
                 </p>
               </div>
@@ -185,8 +185,8 @@ export default function AdvancedTeacherTrainingPage() {
                     <path d="M7 11l5-4 5 4" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-[#0B3B24] mb-3">Reunite with Tradition</h3>
-                <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                <h3 className="text-2xl font-bold text-[#0B3B24] mb-3">Reunite with Tradition</h3>
+                <p className="text-base text-[#4A4A4A] leading-relaxed">
                   Reconnect with the Sivananda lineage, senior teachers, and a vibrant global yoga community.
                 </p>
               </div>
@@ -196,8 +196,8 @@ export default function AdvancedTeacherTrainingPage() {
                 <div className="w-24 h-24 rounded-full bg-[#FEF5E7] flex items-center justify-center mb-6 shadow-sm">
                   <GraduationCap className="w-10 h-10 text-[#1a1a1a]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0B3B24] mb-3">Expand Your Knowledge</h3>
-                <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                <h3 className="text-2xl font-bold text-[#0B3B24] mb-3">Expand Your Knowledge</h3>
+                <p className="text-base text-[#4A4A4A] leading-relaxed">
                   Dive into the depths of Vedanta philosophy and the Yoga Sutras for a richer understanding of the yogic path.
                 </p>
               </div>
@@ -207,8 +207,8 @@ export default function AdvancedTeacherTrainingPage() {
                 <div className="w-24 h-24 rounded-full bg-[#FEF5E7] flex items-center justify-center mb-6 shadow-sm">
                   <Globe className="w-10 h-10 text-[#1a1a1a]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0B3B24] mb-3">International Certificate</h3>
-                <p className="text-sm text-[#4A4A4A] leading-relaxed">
+                <h3 className="text-2xl font-bold text-[#0B3B24] mb-3">International Certificate</h3>
+                <p className="text-base text-[#4A4A4A] leading-relaxed">
                   Become a certified 500-hour Yoga Instructor, globally respected and recognized.
                 </p>
               </div>
@@ -266,7 +266,7 @@ export default function AdvancedTeacherTrainingPage() {
                 What Includes in the Package
               </h2>
 
-              <ul className="space-y-6 mb-12 text-[#4A4A4A] text-base md:text-lg">
+              <ul className="space-y-6 mb-12 text-[#4A4A4A] text-lg md:text-xl">
                 <li className="flex items-center gap-4">
                   <div className="w-5 h-5 rounded-full border-2 border-[#0B3B24] flex-shrink-0" />
                   <span>Accommodation for [28] nights and Tuition</span>
@@ -287,7 +287,7 @@ export default function AdvancedTeacherTrainingPage() {
 
               <div className="space-y-4">
                 <h4 className="text-gray-500 font-medium">Important Note</h4>
-                <ul className="space-y-3 text-[#4A4A4A] text-sm md:text-base">
+                <ul className="space-y-3 text-[#4A4A4A] text-base md:text-lg">
                   <li className="flex items-start gap-3">
                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#0B3B24] mt-1 flex-shrink-0">
                       <path d="M8 5v14l11-7z" />
@@ -307,10 +307,10 @@ export default function AdvancedTeacherTrainingPage() {
             {/* Right Column: Pricing Card */}
             <div className="w-full lg:w-[40%]">
               <div className="bg-white p-8 md:p-10 rounded-sm shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-gray-100 lg:sticky lg:top-24">
-                <h3 className="text-xs md:text-sm font-bold text-[#0B3B24] uppercase tracking-widest mb-2">Program Cost</h3>
-                <p className="text-[11px] md:text-xs text-gray-400 mb-8">*** incl. Deposit US$ 250 (due at time of registration)</p>
+                <h3 className="text-base md:text-base font-bold text-[#0B3B24] uppercase tracking-widest mb-2">Program Cost</h3>
+                <p className="text-base md:text-base text-gray-400 mb-8">*** incl. Deposit US$ 250 (due at time of registration)</p>
 
-                <div className="space-y-6 text-[#4A4A4A] font-medium text-sm md:text-base">
+                <div className="space-y-6 text-[#4A4A4A] font-medium text-base md:text-lg">
                   <div className="flex justify-between items-center border-b border-gray-100 pb-4">
                     <span>Single Room</span>
                     <span className="text-[#0B3B24] font-bold">US$ 3,850</span>
@@ -346,18 +346,18 @@ export default function AdvancedTeacherTrainingPage() {
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#0B3B24] font-bold mb-4">
               The Upcoming [Course] in Dalat, Vietnam
             </h2>
-            <p className="text-lg md:text-xl text-[#0B3B24] font-bold mb-10">
+            <p className="text-xl md:text-2xl text-[#0B3B24] font-bold mb-10">
               Date Month Year
             </p>
 
             <p className="text-[#4A4A4A] italic mb-2 font-medium">
               &quot;Quote&quot;
             </p>
-            <p className="text-xs md:text-sm text-[#4A4A4A] mb-12">
+            <p className="text-base md:text-base text-[#4A4A4A] mb-12">
               – Swami Sivananda in &quot;Sivananda Upanishad&quot;
             </p>
 
-            <button className="bg-[#ED7D4D] text-white px-10 py-4 rounded-sm font-bold tracking-widest text-sm uppercase hover:bg-orange-600 transition-colors shadow-lg">
+            <button className="bg-[#ED7D4D] text-white px-10 py-4 rounded-sm font-bold tracking-widest text-base uppercase hover:bg-orange-600 transition-colors shadow-lg">
               Register Now
             </button>
           </div>
@@ -370,7 +370,7 @@ export default function AdvancedTeacherTrainingPage() {
               <h2 className="text-3xl md:text-5xl font-serif text-[#0B3B24] font-bold mb-6">
                 Curriculum
               </h2>
-              <p className="text-[#4A4A4A] leading-relaxed md:text-lg">
+              <p className="text-[#4A4A4A] leading-relaxed md:text-xl">
                 The ATTC curriculum deepens your yoga journey with advanced asana training, extended pranayama, in-depth Vedanta and Raja Yoga study, Sanskrit writing and mantra pronunciation, and detailed anatomy. It also explores Bhakti and Karma Yoga, cultivating a holistic understanding of yoga as a path of physical mastery, mental clarity, and spiritual growth.
               </p>
             </div>
@@ -391,7 +391,7 @@ export default function AdvancedTeacherTrainingPage() {
                 <div className="w-full md:w-[65%] bg-[#FEF5E7] z-0 p-8 md:p-12 lg:p-16 md:pl-24 lg:pl-32 md:-ml-16 lg:-ml-24 mt-[-2rem] md:mt-0 rounded-sm">
                   <h3 className="text-2xl md:text-3xl font-serif text-[#0B3B24] font-bold mb-1">Asana</h3>
                   <h4 className="text-[#0B3B24] font-bold mb-6">The Foundational Poses</h4>
-                  <div className="text-[#4A4A4A] space-y-2 text-sm md:text-base leading-relaxed">
+                  <div className="text-[#4A4A4A] space-y-2 text-base md:text-lg leading-relaxed">
                     <p className="mb-4">Daily in-depth practice and teaching instruction with personal corrections include</p>
                     <p>- Deepening the practice of the twelve basic asanas</p>
                     <p>- Training in classical advanced variations</p>
@@ -416,7 +416,7 @@ export default function AdvancedTeacherTrainingPage() {
                 <div className="w-full md:w-[65%] bg-[#FEF5E7] z-0 p-8 md:p-12 lg:p-16 md:pr-24 lg:pr-32 md:-mr-16 lg:-mr-24 mt-[-2rem] md:mt-0 rounded-sm">
                   <h3 className="text-2xl md:text-3xl font-serif text-[#0B3B24] font-bold mb-1">Pranayama</h3>
                   <h4 className="text-[#0B3B24] font-bold mb-6">Control of Prana</h4>
-                  <div className="text-[#4A4A4A] space-y-2 text-sm md:text-base leading-relaxed">
+                  <div className="text-[#4A4A4A] space-y-2 text-base md:text-lg leading-relaxed">
                     <p>- Extended practice of Anuloma Viloma</p>
                     <p>- Practice of advanced Pranayamas</p>
                     <p>- Application and understanding of the Bandhas</p>
@@ -447,7 +447,7 @@ export default function AdvancedTeacherTrainingPage() {
                 <div className="w-full md:w-[65%] bg-[#FEF5E7] z-0 p-8 md:p-12 lg:p-16 md:pl-24 lg:pl-32 md:-ml-16 lg:-ml-24 mt-[-2rem] md:mt-0 rounded-sm">
                   <h3 className="text-2xl md:text-3xl font-serif text-[#0B3B24] font-bold mb-1">Vedanta</h3>
                   <h4 className="text-[#0B3B24] font-bold mb-6">The Ultimate Philosophy</h4>
-                  <div className="text-[#4A4A4A] space-y-2 text-sm md:text-base leading-relaxed">
+                  <div className="text-[#4A4A4A] space-y-2 text-base md:text-lg leading-relaxed">
                     <p className="mb-4">Overview of India&apos;s philosophical school</p>
                     <p>- Use of analogies to approach Supreme Reality</p>
                     <p>- Study of Vedantic meditation techniques</p>
@@ -472,7 +472,7 @@ export default function AdvancedTeacherTrainingPage() {
                 <div className="w-full md:w-[65%] bg-[#FEF5E7] z-0 p-8 md:p-12 lg:p-16 md:pr-24 lg:pr-32 md:-mr-16 lg:-mr-24 mt-[-2rem] md:mt-0 rounded-sm">
                   <h3 className="text-2xl md:text-3xl font-serif text-[#0B3B24] font-bold mb-1">Sanskrit</h3>
                   <h4 className="text-[#0B3B24] font-bold mb-6">The Language of High Vibration</h4>
-                  <div className="text-[#4A4A4A] space-y-2 text-sm md:text-base leading-relaxed">
+                  <div className="text-[#4A4A4A] space-y-2 text-base md:text-lg leading-relaxed">
                     <p>- Learning the Devanagari script and Sanskrit alphabet</p>
                     <p>- Accurate pronunciation and writing of mantras and hymns</p>
                   </div>
@@ -494,7 +494,7 @@ export default function AdvancedTeacherTrainingPage() {
                 </div>
                 <div className="w-full md:w-[65%] bg-[#FEF5E7] z-0 p-8 md:p-12 lg:p-16 md:pl-24 lg:pl-32 md:-ml-16 lg:-ml-24 mt-[-2rem] md:mt-0 rounded-sm">
                   <h3 className="text-2xl md:text-3xl font-serif text-[#0B3B24] font-bold mb-6">Advanced Anatomy & Physiology</h3>
-                  <div className="text-[#4A4A4A] space-y-2 text-sm md:text-base leading-relaxed">
+                  <div className="text-[#4A4A4A] space-y-2 text-base md:text-lg leading-relaxed">
                     <p>- Study of cells, nervous system, and endocrine glands</p>
                     <p>- Their connection to asana, pranayama, and meditation practices</p>
                   </div>
@@ -516,20 +516,20 @@ export default function AdvancedTeacherTrainingPage() {
                 </div>
                 <div className="w-full md:w-[65%] bg-[#FEF5E7] z-0 p-8 md:p-12 lg:p-16 md:pr-24 lg:pr-32 md:-mr-16 lg:-mr-24 mt-[-2rem] md:mt-0 rounded-sm">
                   <h3 className="text-2xl md:text-3xl font-serif text-[#0B3B24] font-bold mb-6">Raja Yoga, Bhakti Yoga & Karma Yoga</h3>
-                  <div className="text-[#4A4A4A] space-y-6 text-sm md:text-base leading-relaxed">
+                  <div className="text-[#4A4A4A] space-y-6 text-base md:text-lg leading-relaxed">
                     <div>
-                      <h4 className="text-[#0B3B24] font-bold uppercase tracking-wide text-sm mb-2">Raja Yoga</h4>
+                      <h4 className="text-[#0B3B24] font-bold uppercase tracking-wide text-base mb-2">Raja Yoga</h4>
                       <p>- Comprehensive study of Patanjali&apos;s Yoga Sutras</p>
                       <p>- Understanding the mind and its control</p>
                       <p>- In-depth exploration of the eight limbs of Raja Yoga</p>
                     </div>
                     <div>
-                      <h4 className="text-[#0B3B24] font-bold uppercase tracking-wide text-sm mb-2">Bhakti Yoga</h4>
+                      <h4 className="text-[#0B3B24] font-bold uppercase tracking-wide text-base mb-2">Bhakti Yoga</h4>
                       <p>- The nine forms of devotion</p>
                       <p>- Exploration of the five devotional attitudes</p>
                     </div>
                     <div>
-                      <h4 className="text-[#0B3B24] font-bold uppercase tracking-wide text-sm mb-2">Karma Yoga</h4>
+                      <h4 className="text-[#0B3B24] font-bold uppercase tracking-wide text-base mb-2">Karma Yoga</h4>
                       <p>- Understanding selfless service as the foundation of sadhana</p>
                       <p>- Cultivating purity of heart and mind through action</p>
                     </div>

@@ -49,7 +49,7 @@ export default function SeniorTeachers() {
         <h2 className="text-3xl font-serif text-[#0B3B24] font-bold mb-2">
           Senior Teachers
         </h2>
-        <p className="text-gray-500 text-sm italic">
+        <p className="text-gray-500 text-base italic">
           Sivananda Yoga Dalat Resort & Training Center
         </p>
       </div>
@@ -66,13 +66,13 @@ export default function SeniorTeachers() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <h3 className="text-xl font-serif text-[#0B3B24] font-bold mb-1">
+            <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-1">
               {teacher.name}
             </h3>
-            <p className="text-xs text-gray-500 uppercase tracking-wide mb-4 font-semibold h-8">
+            <p className="text-base text-gray-500 uppercase tracking-wide mb-4 font-semibold h-8">
               {teacher.role}
             </p>
-            <p className="text-[#4A4A4A] text-sm leading-relaxed">{teacher.bio}</p>
+            <p className="text-[#4A4A4A] text-base leading-relaxed">{teacher.bio}</p>
           </div>
         ))}
       </div>

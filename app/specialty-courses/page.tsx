@@ -88,7 +88,7 @@ export default function SpecialtyCoursesPage() {
 
         {/* Seamless Overlapping Content Box (No Shadow, blends with background) */}
         <div className="relative z-10 mx-auto w-[95%] max-w-5xl -mt-16 bg-[#FDFCF8] px-6 pt-10 pb-6 text-center md:-mt-24 md:pt-14 md:pb-10">
-          <p className="mb-3 text-base font-medium text-gray-500 md:mb-4 md:text-lg">
+          <p className="mb-3 text-lg font-medium text-gray-500 md:mb-4 md:text-xl">
             Deepen Your Practice, Expand Your Impact
           </p>
           <h1 className="mb-10 font-serif text-3xl font-bold text-[#0B3B24] md:mb-16 md:text-5xl lg:text-6xl">
@@ -96,7 +96,7 @@ export default function SpecialtyCoursesPage() {
           </h1>
 
           {/* Intro Text with left border */}
-          <div className="mx-auto max-w-3xl border-l-[3px] border-gray-300 pl-6 text-left text-sm leading-relaxed text-[#4A4A4A] md:pl-8 md:text-base">
+          <div className="mx-auto max-w-3xl border-l-[3px] border-gray-300 pl-6 text-left text-base leading-relaxed text-[#4A4A4A] md:pl-8 md:text-lg">
             <p>
               After completing the TTC, students can continue their journey through
               advanced training courses designed to deepen understanding and expand
@@ -130,10 +130,10 @@ export default function SpecialtyCoursesPage() {
               <h3 className="mb-1 font-serif text-2xl font-medium text-[#0B3B24] transition-colors group-hover:text-[#ED7D4D]">
                 {course.title}
               </h3>
-              <p className="mb-4 text-sm font-medium text-gray-500">
+              <p className="mb-4 text-base font-medium text-gray-500">
                 {course.subtitle}
               </p>
-              <p className="text-sm leading-relaxed text-[#4A4A4A]">
+              <p className="text-base leading-relaxed text-[#4A4A4A]">
                 {course.description}
               </p>
             </div>
@@ -161,10 +161,10 @@ export default function SpecialtyCoursesPage() {
               <h3 className="mb-1 font-serif text-2xl font-medium text-[#0B3B24] transition-colors group-hover:text-[#ED7D4D]">
                 {course.title}
               </h3>
-              <p className="mb-4 text-sm font-medium text-gray-500">
+              <p className="mb-4 text-base font-medium text-gray-500">
                 {course.subtitle}
               </p>
-              <p className="text-sm leading-relaxed text-[#4A4A4A]">
+              <p className="text-base leading-relaxed text-[#4A4A4A]">
                 {course.description}
               </p>
             </div>
@@ -203,7 +203,7 @@ export default function SpecialtyCoursesPage() {
             Kindle the light of love in the heart and radiate love and light to
             one and all
           </h2>
-          <p className="text-sm tracking-widest opacity-90 drop-shadow-sm md:text-base">
+          <p className="text-base tracking-widest opacity-90 drop-shadow-sm md:text-lg">
             —Swami Vishnudevananda
           </p>
         </div>

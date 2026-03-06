@@ -69,11 +69,11 @@ export default function TestimonialsCarousel2() {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="text-center"
           >
-            <blockquote className="font-serif text-xl italic leading-relaxed text-stone-700 md:text-2xl">
+            <blockquote className="font-serif text-2xl italic leading-relaxed text-stone-700 md:text-2xl">
               {current.quote}
             </blockquote>
-            <p className="mt-8 text-lg font-bold text-[#1e5c2b]">{current.name}</p>
-            <p className="mt-2 text-sm uppercase tracking-wider text-gray-500">
+            <p className="mt-8 text-xl font-bold text-[#1e5c2b]">{current.name}</p>
+            <p className="mt-2 text-base uppercase tracking-wider text-gray-500">
               {current.details}
             </p>
           </motion.div>

@@ -123,7 +123,7 @@ export default function AyurvedicFundamentals() {
               <h3 className="text-2xl font-serif text-[#0B3B24] mb-4">
                 {item.title}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-base leading-relaxed">
                 {item.description}
               </p>
             </div>

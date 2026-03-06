@@ -28,7 +28,7 @@ export default function VedantaSilenceMeditationPage() {
 
         {/* Seamless Overlapping Content Box (No Shadow, blends with background) */}
         <div className="relative z-10 mx-auto w-[95%] max-w-5xl -mt-16 bg-[#FDFCF8] px-6 pt-10 pb-6 text-center md:-mt-24 md:pt-14 md:pb-10">
-          <p className="mb-2 text-base font-medium text-gray-600 md:mb-4 md:text-lg">
+          <p className="mb-2 text-lg font-medium text-gray-600 md:mb-4 md:text-xl">
             Advance Pranayama Practice
           </p>
           <h1 className="font-serif text-3xl font-bold text-[#0B3B24] md:text-5xl lg:text-6xl">
@@ -47,7 +47,7 @@ export default function VedantaSilenceMeditationPage() {
                 Ancient Indian Philosophy
               </h2>
 
-              <div className="space-y-4 text-sm leading-relaxed text-[#4A4A4A] md:text-base">
+              <div className="space-y-4 text-base leading-relaxed text-[#4A4A4A] md:text-lg">
                 <p>
                   The Sadhana Intensive is a transformative two-week program created
                   by Swami Vishnudevananda, inspired by his own period of deep Hatha
@@ -67,7 +67,7 @@ export default function VedantaSilenceMeditationPage() {
               <div className="pt-4">
                 <button
                   type="button"
-                  className="rounded-sm bg-[#ED7D4D] px-10 py-4 text-sm font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600"
+                  className="rounded-sm bg-[#ED7D4D] px-10 py-4 text-base font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600"
                 >
                   Enroll Now
                 </button>

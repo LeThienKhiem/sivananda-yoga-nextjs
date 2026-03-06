@@ -63,7 +63,7 @@ export default function MainTeachers() {
         <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] mb-3">
           Main Teachers
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 text-xl">
           Sivananda Yoga Dalat Resort & Training Center
         </p>
       </div>
@@ -83,9 +83,9 @@ export default function MainTeachers() {
             <h3 className="text-2xl font-serif text-[#0B3B24] mb-2">
               {teacher.name}
             </h3>
-            <p className="text-gray-600 italic text-sm mb-3">{teacher.role}</p>
+            <p className="text-gray-600 italic text-base mb-3">{teacher.role}</p>
             {teacher.description ? (
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-500 text-base leading-relaxed">
                 {teacher.description}
               </p>
             ) : null}

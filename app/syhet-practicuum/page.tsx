@@ -28,7 +28,7 @@ export default function SyhetPracticuumPage() {
 
         {/* Seamless Overlapping Content Box (No Shadow, blends with background) */}
         <div className="relative z-10 mx-auto w-[95%] max-w-5xl -mt-16 bg-[#FDFCF8] px-6 pt-10 pb-6 text-center md:-mt-24 md:pt-14 md:pb-10">
-          <p className="mb-2 text-base font-medium text-gray-600 md:mb-4 md:text-lg">
+          <p className="mb-2 text-lg font-medium text-gray-600 md:mb-4 md:text-xl">
             Chương Trình Cố Vấn Sức Khỏe Phục Hồi Tự Nhiên
           </p>
           <h1 className="font-serif text-3xl font-bold text-[#0B3B24] md:text-5xl lg:text-6xl">
@@ -42,12 +42,12 @@ export default function SyhetPracticuumPage() {
         {/* Top Row: Text Left, Image Right */}
         <div className="flex flex-col items-center gap-12 md:flex-row lg:gap-20">
           <div className="w-full space-y-8 md:w-1/2">
-            <p className="text-base leading-relaxed text-[#4A4A4A] md:text-lg">
+            <p className="text-lg leading-relaxed text-[#4A4A4A] md:text-xl">
               Chương trình <strong>&quot;Cố vấn Sức Khỏe Phục Hồi Tự Nhiên theo Yoga&quot;</strong> là chuỗi các <strong>khóa học kéo dài từ 3 đến 5 ngày</strong>, được giảng dạy bởi các giáo viên đang trong quá trình đào tạo chương trình Giáo Viên Cố Vấn Sức Khỏe Phục Hồi Tự Nhiên - SYHET 800 giờ. Đây là chương trình ứng dụng yoga cổ điển nhằm <strong>cải thiện các bệnh lý cụ thể</strong> và <strong>tăng cường sức khỏe toàn diện</strong> - thể chất, tinh thần và tâm linh.
             </p>
             <button
               type="button"
-              className="rounded-sm bg-[#ED7D4D] px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600"
+              className="rounded-sm bg-[#ED7D4D] px-8 py-3.5 text-base font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600"
             >
               Khóa Học Sắp Tới
             </button>
@@ -66,7 +66,7 @@ export default function SyhetPracticuumPage() {
 
         {/* Middle Overlap: Green Box */}
         <div className="relative z-20 mx-auto mb-12 mt-12 max-w-3xl rounded-sm bg-[#4F6F1F] p-8 text-white shadow-2xl md:-mb-24 md:-mt-24 md:p-12 lg:p-16">
-          <p className="font-medium leading-relaxed text-white/95 text-justify text-sm md:text-left md:text-base">
+          <p className="font-medium leading-relaxed text-white/95 text-justify text-base md:text-left md:text-lg">
             Mỗi giáo viên đều là người sống và thực hành theo lối sống Yoga cổ điển, có sự hiểu biết sâu sắc về bản thân, nhận diện được điểm mạnh - điểm yếu, và kết nối sâu sắc với sự cân bằng và khỏe mạnh từ bên trong. Từ nền tảng trải nghiệm cá nhân đó, giáo viên sẽ giảng dạy, khuyến khích và hỗ trợ học viên thực hành Yoga một cách đều đặn, thông qua việc điều chỉnh và gợi ý những phương pháp thực hành đơn giản, dễ áp dụng, phù hợp với thể trạng và hoàn cảnh sống riêng biệt của từng học viên ở mỗi thời điểm.
           </p>
         </div>
@@ -75,13 +75,13 @@ export default function SyhetPracticuumPage() {
         <div className="flex flex-col items-center gap-12 md:flex-row-reverse lg:gap-20">
           <div className="w-full space-y-8 md:w-1/2">
             <div className="border-l-[3px] border-gray-300 pl-6 md:pl-8">
-              <p className="text-base leading-relaxed text-[#4A4A4A] md:text-lg">
+              <p className="text-lg leading-relaxed text-[#4A4A4A] md:text-xl">
                 <strong>Thông qua sự đồng hành đầy thấu hiểu và kết nối</strong>, học viên được hướng dẫn thực hành 5 điểm Yoga (thể dục đúng, hít thở đúng, thư giãn đúng, dinh dưỡng đúng, tư duy tích cực và thiền định), kết hợp cùng các phương pháp sống lành mạnh theo truyền thống Yoga và Ayurveda. Chương trình không chỉ giúp làm dịu các cơn đau về thể chất và tinh thần, mà còn từng bước hình thành một lối sống tích cực, khỏe mạnh và đầy yêu thương.
               </p>
             </div>
             <button
               type="button"
-              className="ml-6 rounded-sm bg-[#ED7D4D] px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600 md:ml-8"
+              className="ml-6 rounded-sm bg-[#ED7D4D] px-8 py-3.5 text-base font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600 md:ml-8"
             >
               Khóa Học Sắp Tới
             </button>
@@ -119,7 +119,7 @@ export default function SyhetPracticuumPage() {
           <h2 className="mb-6 font-serif text-3xl font-medium leading-tight drop-shadow-md md:text-4xl lg:text-5xl">
             Món Quà Từ Trái Tim – Hỗ Trợ 50% Chi Phí
           </h2>
-          <p className="mx-auto max-w-3xl text-sm leading-relaxed opacity-95 drop-shadow-sm text-justify md:text-center md:text-base">
+          <p className="mx-auto max-w-3xl text-base leading-relaxed opacity-95 drop-shadow-sm text-justify md:text-center md:text-lg">
             Vì một cộng đồng khỏe mạnh và gắn kết hơn, chương trình &quot;Cố vấn Sức Khỏe Phục Hồi Tự Nhiên theo Yoga&quot; hiện đang được hỗ trợ 50% chi phí tham dự. Đây là một nỗ lực nhằm tạo điều kiện cho nhiều người hơn có cơ hội tiếp cận phương pháp chăm sóc sức khỏe toàn diện, dựa trên nền tảng Yoga và Ayurveda cổ điển.
           </p>
         </div>
@@ -133,7 +133,7 @@ export default function SyhetPracticuumPage() {
             <h2 className="mb-4 font-serif text-3xl font-bold text-[#0B3B24] md:text-5xl">
               Nội dung tổng quan của các khoá học
             </h2>
-            <p className="font-serif text-lg font-medium italic text-[#4A4A4A] md:text-xl">
+            <p className="font-serif text-xl font-medium italic text-[#4A4A4A] md:text-2xl">
               Tư vấn cá nhân – Thực hành thiết thực – Chuyển hóa từ bên trong
             </p>
           </div>
@@ -143,7 +143,7 @@ export default function SyhetPracticuumPage() {
             {/* Item 1 */}
             <div className="flex items-center gap-4 rounded-lg border border-white/50 bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] md:p-8">
               <CheckCircle2 className="h-6 w-6 flex-shrink-0 text-[#4F6F1F] md:h-7 md:w-7" />
-              <p className="text-base font-medium text-[#4A4A4A] md:text-lg">
+              <p className="text-lg font-medium text-[#4A4A4A] md:text-xl">
                 Tư vấn sức khoẻ toàn diện 1 kèm 1 trong suốt trước, trong, sau khoá học
               </p>
             </div>
@@ -151,7 +151,7 @@ export default function SyhetPracticuumPage() {
             {/* Item 2 */}
             <div className="flex items-center gap-4 rounded-lg border border-white/50 bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] md:p-8">
               <CheckCircle2 className="h-6 w-6 flex-shrink-0 text-[#4F6F1F] md:h-7 md:w-7" />
-              <p className="text-base font-medium text-[#4A4A4A] md:text-lg">
+              <p className="text-lg font-medium text-[#4A4A4A] md:text-xl">
                 Thực hành phương pháp cổ điển ứng dụng cho từng chứng bệnh cụ thể
               </p>
             </div>
@@ -159,7 +159,7 @@ export default function SyhetPracticuumPage() {
             {/* Item 3 */}
             <div className="flex items-center gap-4 rounded-lg border border-white/50 bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] md:p-8">
               <CheckCircle2 className="h-6 w-6 flex-shrink-0 text-[#4F6F1F] md:h-7 md:w-7" />
-              <p className="text-base font-medium text-[#4A4A4A] md:text-lg">
+              <p className="text-lg font-medium text-[#4A4A4A] md:text-xl">
                 Tìm hiểu nguồn gốc thật sự của bệnh tật theo góc nhìn hiện đại và cổ điển
               </p>
             </div>
@@ -167,7 +167,7 @@ export default function SyhetPracticuumPage() {
             {/* Item 4 */}
             <div className="flex items-center gap-4 rounded-lg border border-white/50 bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] md:p-8">
               <CheckCircle2 className="h-6 w-6 flex-shrink-0 text-[#4F6F1F] md:h-7 md:w-7" />
-              <p className="text-base font-medium text-[#4A4A4A] md:text-lg">
+              <p className="text-lg font-medium text-[#4A4A4A] md:text-xl">
                 Triết lý yoga cổ điển và ứng dụng, xây dựng lối sống lành mạnh, kết nối yêu thương
               </p>
             </div>

@@ -11,13 +11,13 @@ export default function AyurvedaIntro() {
         {/* Left Column — Text */}
         <div className="w-full lg:w-1/2">
           <div className="border-l-[3px] border-[#4A6741] pl-6 md:pl-8 space-y-6">
-            <p className="text-[#0B3B24] text-lg md:text-xl leading-relaxed font-medium">
+            <p className="text-[#0B3B24] text-xl md:text-2xl leading-relaxed font-medium">
               Ayurveda is the traditional medical system from India. Meaning the
               &quot;science of life,&quot; Ayurveda has been practiced for more
               than 5,000 years and, like yoga, it is holistic — addressing body,
               mind, and spirituality.
             </p>
-            <p className="text-[#0B3B24] text-lg md:text-xl leading-relaxed font-medium">
+            <p className="text-[#0B3B24] text-xl md:text-2xl leading-relaxed font-medium">
               In addition to its treatments and remedies, Ayurveda provides
               guidance on lifestyle, diet, and mindful practices to prevent
               disease or to restore balance when diseases occur. In this way, it

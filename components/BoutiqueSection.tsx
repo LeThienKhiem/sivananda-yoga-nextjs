@@ -18,7 +18,7 @@ export default function BoutiqueSection() {
             <p className="text-2xl md:text-3xl font-serif text-[#0B3B24] mb-8">
               — We&apos;ve got you covered!
             </p>
-            <p className="text-gray-600 leading-relaxed text-lg max-w-md">
+            <p className="text-gray-600 leading-relaxed text-xl max-w-md">
               Located in the Main Hall, our small, well-stocked boutique offers an
               array of products — snacks (chocolate, ice cream, nuts, and more),
               books (yoga books, notebooks), clothes (socks, pants, hoodies, tee

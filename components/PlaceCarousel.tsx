@@ -75,10 +75,10 @@ export default function PlaceCarousel() {
               THE PERFECT PLACE TO LEARN AND RELAX
             </h2>
             <div className="mt-6 space-y-4 text-white/95">
-              <p className="text-lg leading-relaxed">
+              <p className="text-xl leading-relaxed">
                 Nestled by Hồ Tuyền Lâm (Tuyen Lam Lake), our center offers a serene setting where the still waters and mountain air create an ideal environment for deepening your practice and finding inner calm.
               </p>
-              <p className="text-lg leading-relaxed">
+              <p className="text-xl leading-relaxed">
                 Surrounded by the pine forests of Dalat, you can unwind in nature, join morning meditation by the lake, and experience the quiet beauty that makes this place perfect for learning and relaxation.
               </p>
             </div>
@@ -91,7 +91,7 @@ export default function PlaceCarousel() {
               </a>
             </div>
           </div>
-          <p className="text-sm italic text-white/80">
+          <p className="text-base italic text-white/80">
             *subject to weather condition
           </p>
         </div>

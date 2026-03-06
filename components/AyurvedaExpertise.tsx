@@ -32,7 +32,7 @@ export default function AyurvedaExpertise() {
           Our Expertise
         </h2>
         <div className="border-l border-gray-300 pl-6 md:pl-8 max-w-3xl">
-          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+          <p className="text-gray-600 text-base md:text-lg leading-relaxed">
             The Yoga Resort has benefited from the expertise of the doctors at
             Vaidyagrama, an Ayurvedic center in India, to develop our Ayurveda
             courses. Their Ayurvedic doctors (vaidyas) visit the Resort to
@@ -63,7 +63,7 @@ export default function AyurvedaExpertise() {
               <h3 className="text-2xl font-serif text-[#0B3B24] mb-4 font-bold">
                 {card.title}
               </h3>
-              <div className="text-gray-600 text-sm leading-relaxed whitespace-pre-line mb-8 flex-grow">
+              <div className="text-gray-600 text-base leading-relaxed whitespace-pre-line mb-8 flex-grow">
                 {card.description}
               </div>
               <a

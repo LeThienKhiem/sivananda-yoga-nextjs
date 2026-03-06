@@ -15,7 +15,7 @@ export default function ContactUs() {
             <h3 className="mb-8 font-serif text-3xl font-bold text-[#1e5c2b] lg:text-4xl">
               Contact us
             </h3>
-            <p className="mb-6 text-lg font-medium text-[#1e5c2b]">
+            <p className="mb-6 text-xl font-medium text-[#1e5c2b]">
               Sivananda Yoga Resort and Training Center - The Ashram
             </p>
 
@@ -96,7 +96,7 @@ export default function ContactUs() {
                 rows={5}
                 className="mb-2 h-32 w-full resize-none border border-green-800/40 bg-transparent p-4 text-gray-700 placeholder:text-gray-400 focus:border-green-800 focus:outline-none"
               />
-              <p className="mb-6 text-sm text-gray-500">
+              <p className="mb-6 text-base text-gray-500">
                 *Compulsory information
               </p>
               <div className="flex justify-end">

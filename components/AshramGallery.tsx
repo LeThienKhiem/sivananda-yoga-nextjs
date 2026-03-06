@@ -73,7 +73,7 @@ export default function AshramGallery() {
         <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] text-center mb-4">
           Explore the Beauty of the Ashram
         </h2>
-        <p className="text-gray-500 text-lg text-center mb-16">
+        <p className="text-gray-500 text-xl text-center mb-16">
           A serene sanctuary in Dalat, Vietnam, dedicated to peace, practice,
           and self-discovery.
         </p>

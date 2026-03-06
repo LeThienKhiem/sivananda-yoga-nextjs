@@ -55,11 +55,11 @@ export default function AboutPage() {
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 drop-shadow-sm">
             Our Lineage
           </h2>
-          <h3 className="text-xl md:text-2xl font-bold mb-10 text-blue-50 drop-shadow-sm">
+          <h3 className="text-2xl md:text-2xl font-bold mb-10 text-blue-50 drop-shadow-sm">
             From India to Vietnam
           </h3>
 
-          <div className="space-y-6 text-white/95 leading-relaxed text-sm md:text-base font-light pr-0 md:pr-8">
+          <div className="space-y-6 text-white/95 leading-relaxed text-base md:text-lg font-light pr-0 md:pr-8">
             <p>
               The International Sivananda Yoga Vedanta Centres, founded by Swami Vishnudevananda under the guidance of Swami Sivananda, has grown since 1959 to nearly 60 global locations. Recognized for authentic yoga teachings, it has trained over 50,000 teachers and offers diverse programs, including personal growth through Karma Yoga service.
             </p>
@@ -93,12 +93,12 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] uppercase tracking-wide">
                 Swami Sivananda
               </h2>
-              <p className="text-lg md:text-xl font-bold text-[#0B3B24] mt-2">
+              <p className="text-xl md:text-2xl font-bold text-[#0B3B24] mt-2">
                 (1887–1963)
               </p>
             </div>
 
-            <div className="text-[#4A4A4A] leading-relaxed space-y-6 text-sm md:text-base">
+            <div className="text-[#4A4A4A] leading-relaxed space-y-6 text-base md:text-lg">
               <p>
                 Swami Sivananda was a passionate medical doctor who left his profession to become a monk and a &quot;doctor of the soul.&quot; Realizing that physical medicine alone could not relieve suffering, he embarked on a spiritual quest, practicing deep meditation and austerities in the Himalayas. He later founded the Sivananda Ashram in 1932 and the Divine Life Society in 1936.
               </p>
@@ -146,7 +146,7 @@ export default function AboutPage() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 leading-tight drop-shadow-md">
             &quot;Serve, Love, Give, Purify, Meditate, Realize.&quot;
           </h2>
-          <p className="text-base md:text-lg tracking-widest font-medium opacity-90 drop-shadow-sm">
+          <p className="text-lg md:text-xl tracking-widest font-medium opacity-90 drop-shadow-sm">
             -Swami Sivananda-
           </p>
         </div>
@@ -166,10 +166,10 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-serif text-[#0B3B24] font-bold">
                   A Soul Born for Service
                 </h3>
-                <h4 className="text-lg font-bold text-[#0B3B24] mb-4">
+                <h4 className="text-xl font-bold text-[#0B3B24] mb-4">
                   Rooted in Tradition, Guided by Duty
                 </h4>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                   <p>
                     Born in South India, Swami Sivananda was instilled with a deep sense of duty and compassion from an early age. His upbringing in a family of traditional scholars laid the foundation for his future spiritual journey.
                   </p>
@@ -199,7 +199,7 @@ export default function AboutPage() {
                   <br />
                   and a &quot;doctor&quot; of the soul
                 </h3>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                   <p>
                     After a successful career as a medical doctor in Malaysia, serving the poor and the sick, he felt a deeper calling. He realized that physical medicine alone could not cure the ultimate suffering of humanity.
                   </p>
@@ -229,7 +229,7 @@ export default function AboutPage() {
                   <br />
                   Serving in Action
                 </h3>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                   <p>
                     In Rishikesh, Swami Sivananda perfectly balanced the life of deep meditation with selfless service. He established a small charitable dispensary to continue serving the sick pilgrims and sadhus in the region.
                   </p>
@@ -257,10 +257,10 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-serif text-[#0B3B24] font-bold">
                   From the Himalayas to Humanity
                 </h3>
-                <h4 className="text-lg font-bold text-[#0B3B24] mb-4">
+                <h4 className="text-xl font-bold text-[#0B3B24] mb-4">
                   ... A Sanctuary of Divine Life Emerges
                 </h4>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                   <p>
                     To disseminate his teachings systematically, Swami Sivananda founded the Divine Life Society in 1936 and the Sivananda Ashram. His ashram became a beacon of light, attracting seekers from all over the world.
                   </p>
@@ -300,7 +300,7 @@ export default function AboutPage() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto space-y-6 text-[#4A4A4A] text-sm md:text-base leading-relaxed text-justify md:text-left font-medium">
+        <div className="relative z-10 max-w-4xl mx-auto space-y-6 text-[#4A4A4A] text-base md:text-lg leading-relaxed text-justify md:text-left font-medium">
           <p>
             Swami Sivananda&apos;s teachings are characterized by their practical approach and universal appeal. He did not create a new religion but rather synthesized the essence of all religions and spiritual traditions into a comprehensive system of Yoga. He emphasized that spiritual life must be integrated into daily activities.
           </p>
@@ -326,12 +326,12 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] uppercase tracking-wide">
                 Swami Vishnu-devananda
               </h2>
-              <p className="text-lg md:text-xl font-bold text-[#0B3B24] mt-2">
+              <p className="text-xl md:text-2xl font-bold text-[#0B3B24] mt-2">
                 (1927–1993)
               </p>
             </div>
 
-            <div className="text-[#4A4A4A] leading-relaxed space-y-6 text-sm md:text-base">
+            <div className="text-[#4A4A4A] leading-relaxed space-y-6 text-base md:text-lg">
               <p>
                 Swami Vishnu-devananda was sent by his Master Swami Sivananda to America in 1957 to spread the teachings of Yoga and Vedanta to the masses. He was a pioneer in teaching the Yogic Lifestyle of the five points, and introduced the West to the concept of Yoga Vacations, Yoga Teachers Training courses, and Yoga Children&apos;s camp.
               </p>
@@ -376,7 +376,7 @@ export default function AboutPage() {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6 leading-tight drop-shadow-md">
             &quot;Health is wealth, peace of mind is happiness, and Yoga shows the way&quot;
           </h2>
-          <p className="text-base md:text-lg tracking-widest font-medium opacity-90 drop-shadow-sm">
+          <p className="text-lg md:text-xl tracking-widest font-medium opacity-90 drop-shadow-sm">
             —Swami Vishnudevananda
           </p>
         </div>
@@ -396,7 +396,7 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-serif text-[#0B3B24] font-bold">
                   His Early Training: In the Footsteps of Faith
                 </h3>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                   <p>
                     Swami Vishnudevananda (Swamiji) was born in Kerala, South India, in 1927. He entered the Sivananda Ashram in Rishikesh in 1947 at the age of twenty. He took sannyasa (became a monk) and was appointed the first professor of Hatha yoga at the Sivananda Yoga Vedanta Forest Academy. There he trained many students, both Indian and Western.
                   </p>
@@ -428,7 +428,7 @@ export default function AboutPage() {
                   <br />
                   --- Seclusion in Uttarkashi, Himalaya
                 </h3>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                   <p>
                     Shortly after taking &quot;sannyasa&quot;, Swamiji felt a great need to be alone and do intense &quot;sadhana&quot;. With the permission of his Master, he walked to Uttarkashi. Here Swamiji found a small house. &quot;Asanas&quot; and &quot;pranayama&quot; were done four times daily in sessions of four hours each. The Ganges flowed in front of the cottage and he went to it for bathing and &quot;kriyas&quot;. All he ate was lentils and rice.
                   </p>
@@ -459,7 +459,7 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-serif text-[#0B3B24] font-bold">
                   The Journey West: &quot;People are waiting&quot;
                 </h3>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                   <p>
                     One day Swami Sivananda gave Swamiji a 10 Rupee note (less than a dollar!) and his blessings to travel to the West and spread the teachings of yoga and vedanta. &quot;People are waiting&quot; were the words of the Master.
                   </p>
@@ -490,7 +490,7 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-serif text-[#0B3B24] font-bold">
                   A Vision for Peace, A Life of Unity
                 </h3>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                   <p>
                     In 1969 he found the True World Order to help create unity and understanding between peoples of the world. A unique Yoga Teacher Training Course was developed with the aim of training future leaders and responsible citizens in the basics of yoga discipline. Swami Vishnudevananda emphasized the importance of first finding individual inner peace which could then lead to establishing global peace and harmony.
                   </p>
@@ -538,7 +538,7 @@ export default function AboutPage() {
                 Borders
               </h2>
             </div>
-            <div className="w-full md:w-3/4 space-y-4 text-white/90 text-sm md:text-base font-light leading-relaxed">
+            <div className="w-full md:w-3/4 space-y-4 text-white/90 text-base md:text-lg font-light leading-relaxed">
               <p>
                 In 1968 Swami Vishnudevananda had a vision of the world being destroyed by fire, of people fleeing in turmoil breaking down the barriers between nations in an attempt to escape. From that moment on, he embarked on a series of peace missions whose purpose was to show &apos;that the idea of nationalism, or patriotism must disappear, and only one unity should exist.&apos;
               </p>
@@ -569,7 +569,7 @@ export default function AboutPage() {
             An Enduring Legacy
           </h2>
 
-          <div className="space-y-6 text-white/90 text-sm md:text-base font-light leading-relaxed pr-0 md:pr-6">
+          <div className="space-y-6 text-white/90 text-base md:text-lg font-light leading-relaxed pr-0 md:pr-6">
             <p>
               Swami Vishnudevananda was an innovator and a pioneer in his methods of disseminating the classical Yoga teachings that he learned from his Master, Swami Sivananda and to whom he dedicated his life&apos;s work. He demystified yoga and offered clear, practical techniques for people to spiritualise their lives and attain health, mental balance and inner peace.
             </p>
@@ -599,12 +599,12 @@ export default function AboutPage() {
               <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] uppercase tracking-wide">
                 Swami Sitaramananda
               </h2>
-              <p className="text-lg md:text-xl font-bold text-[#0B3B24] mt-2">
+              <p className="text-xl md:text-2xl font-bold text-[#0B3B24] mt-2">
                 born in 1952 in Dalat, Vietnam
               </p>
             </div>
 
-            <div className="text-[#4A4A4A] leading-relaxed space-y-6 text-sm md:text-base">
+            <div className="text-[#4A4A4A] leading-relaxed space-y-6 text-base md:text-lg">
               <p>
                 Swami Sitaramananda is Vietnamese and has been a disciple of Swami Vishnudevananda since 1982 and serves as the Acharya (senior teacher) for Sivananda centers in the West, including the U.S. and Asia.
               </p>
@@ -649,7 +649,7 @@ export default function AboutPage() {
           <h2 className="text-2xl md:text-3xl font-serif mb-4 leading-tight drop-shadow-md">
             &quot;Placeholder quote&quot;
           </h2>
-          <p className="text-sm md:text-base tracking-widest font-medium opacity-90 drop-shadow-sm">
+          <p className="text-base md:text-lg tracking-widest font-medium opacity-90 drop-shadow-sm">
             — Swami Sitaramananda
           </p>
         </div>
@@ -664,10 +664,10 @@ export default function AboutPage() {
               <h3 className="text-2xl md:text-3xl font-serif text-[#0B3B24] font-bold">
                 A Life of Dedication
               </h3>
-              <h4 className="text-lg font-bold text-[#0B3B24] mb-6">
+              <h4 className="text-xl font-bold text-[#0B3B24] mb-6">
                 Four Decades of Unwavering Service
               </h4>
-              <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+              <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                 <p>
                   Swami Sitaramananda has over 40 years of experience teaching classical yoga around the world. She is the author of the book Sivananda Yoga: Philosophy and Practice (translated into Chinese, Japanese, and Vietnamese), as well as Positive Thinking Manual, The Meditation Manual, 108 Health Tips in Yoga, Light from the Source, The Answer Lies Within, Learning to Love Purely, and two volumes of poetry.
                 </p>
@@ -694,10 +694,10 @@ export default function AboutPage() {
               <h3 className="text-2xl md:text-3xl font-serif text-[#0B3B24] font-bold">
                 Carrying the Flame of Her Guru
               </h3>
-              <h4 className="text-lg font-bold text-[#0B3B24] mb-6">
+              <h4 className="text-xl font-bold text-[#0B3B24] mb-6">
                 — Planting Seeds of Peace
               </h4>
-              <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-sm md:text-base">
+              <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
                 <p>
                   Swami Sitaramananda has been instrumental in spreading Sivananda Yoga across Asia, continuing the mission of her guru, Swami Vishnudevananda. She introduced the teachings to China, Japan, Taiwan, and especially her birthplace, Vietnam, where she established the Sivananda Yoga Ashram in Dalat and three main centers in Hanoi, Ho Chi Minh City, and Dalat.
                 </p>
@@ -728,11 +728,11 @@ export default function AboutPage() {
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
             Blending Ancient Wisdom with Modern Need
           </h2>
-          <h3 className="text-lg md:text-xl font-medium mb-8 text-white/90">
+          <h3 className="text-xl md:text-2xl font-medium mb-8 text-white/90">
             — Training Health Educators, Inspiring Seekers
           </h3>
 
-          <div className="space-y-6 text-white/80 text-sm md:text-base leading-relaxed">
+          <div className="space-y-6 text-white/80 text-base md:text-lg leading-relaxed">
             <p>
               Swami Sitaramananda founded the Sivananda Yoga Health Educator Training Program, an 800-hour, 2-year course that equips students with traditional yogic tools for natural healing.
             </p>
@@ -774,11 +774,11 @@ export default function AboutPage() {
           <h2 className="text-4xl md:text-5xl font-serif text-[#0B3B24] mb-4">
             Join the Lineage by Karma Yoga
           </h2>
-          <p className="text-lg md:text-xl text-[#4A4A4A] mb-10 font-medium">
+          <p className="text-xl md:text-2xl text-[#4A4A4A] mb-10 font-medium">
             Path the way of study.. Devotion through Service
           </p>
           <Link href="/yoga-vacation">
-            <button className="bg-[#E5F5C8] hover:bg-[#d4e8aa] text-[#0B3B24] px-10 py-4 font-bold tracking-widest text-sm uppercase transition-colors shadow-sm rounded-sm">
+            <button className="bg-[#E5F5C8] hover:bg-[#d4e8aa] text-[#0B3B24] px-10 py-4 font-bold tracking-widest text-base uppercase transition-colors shadow-sm rounded-sm">
               Learn More
             </button>
           </Link>

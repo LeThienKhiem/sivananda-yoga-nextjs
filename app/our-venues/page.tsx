@@ -90,13 +90,13 @@ export default function OurVenuesPage() {
         </div>
 
         <div className="relative z-10 w-[90%] max-w-4xl px-8 py-10 md:py-14 bg-white shadow-[0_10px_40px_rgba(0,0,0,0.08)] rounded-sm translate-y-1/2 text-center">
-          <p className="text-xs md:text-sm text-[#0B3B24] tracking-widest uppercase mb-4 font-bold opacity-80">
+          <p className="text-base md:text-base text-[#0B3B24] tracking-widest uppercase mb-4 font-bold opacity-80">
             Experience the tranquility and natural beauty of our yoga retreat center
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#0B3B24] font-bold mb-6">
             Unleash the Beauty of Ashram
           </h1>
-          <p className="text-[#4A4A4A] leading-relaxed md:text-lg max-w-2xl mx-auto font-medium">
+          <p className="text-[#4A4A4A] leading-relaxed md:text-xl max-w-2xl mx-auto font-medium">
             Discover the sacred spaces designed to support your spiritual journey, physical well-being, and mental peace.
           </p>
         </div>
@@ -175,7 +175,7 @@ export default function OurVenuesPage() {
                 <h3 className="text-2xl md:text-3xl font-serif text-[#0B3B24] font-bold mb-2">
                   {venue.title}
                 </h3>
-                <h4 className="text-[#ED7D4D] text-sm tracking-widest uppercase font-semibold mb-6">
+                <h4 className="text-[#ED7D4D] text-base tracking-widest uppercase font-semibold mb-6">
                   {venue.subtitle}
                 </h4>
                 <p className="text-[#4A4A4A] leading-relaxed">{venue.desc}</p>
@@ -202,13 +202,13 @@ export default function OurVenuesPage() {
             Dining in Harmony with Nature
           </h2>
 
-          <p className="text-white/90 text-sm md:text-base leading-relaxed mb-10">
+          <p className="text-white/90 text-base md:text-lg leading-relaxed mb-10">
             Our dining area opens to peaceful views of the pine forest, with rustic picnic tables nestled in fresh air and birdsong. Meals are unhurried and nourishing—an invitation to slow down, be present, and return to the simple joy of eating in connection with nature&apos;s rhythm and care.
           </p>
 
           <Link
             href="/accommodations"
-            className="border border-white/80 text-white hover:bg-white hover:text-[#0B3B24] px-8 py-3 rounded-sm font-bold tracking-widest text-sm uppercase transition-colors w-fit inline-block"
+            className="border border-white/80 text-white hover:bg-white hover:text-[#0B3B24] px-8 py-3 rounded-sm font-bold tracking-widest text-base uppercase transition-colors w-fit inline-block"
           >
             Book Your Stay
           </Link>
@@ -251,12 +251,12 @@ export default function OurVenuesPage() {
             <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] font-bold mb-6">
               Boutique
             </h2>
-            <p className="text-[#4A4A4A] leading-relaxed mb-8 md:text-lg">
+            <p className="text-[#4A4A4A] leading-relaxed mb-8 md:text-xl">
               Find your yoga essentials, spiritual books, comfortable clothing, and natural Ayurvedic products in our peaceful ashram boutique. Everything you need to support your practice and take a piece of the ashram home with you.
             </p>
             <Link
               href="/programs"
-              className="bg-[#ED7D4D] hover:bg-orange-600 text-white px-8 py-4 w-fit rounded-sm font-bold tracking-widest text-sm uppercase shadow-md transition-all inline-block"
+              className="bg-[#ED7D4D] hover:bg-orange-600 text-white px-8 py-4 w-fit rounded-sm font-bold tracking-widest text-base uppercase shadow-md transition-all inline-block"
             >
               Discover More
             </Link>
@@ -292,7 +292,7 @@ export default function OurVenuesPage() {
                 <p className="text-[#4A4A4A] leading-relaxed mb-6 flex-grow">
                   Take a break from daily stress and immerse yourself in a holistic yoga lifestyle. Rejuvenate your body, mind, and spirit.
                 </p>
-                <span className="text-[#ED7D4D] font-bold uppercase tracking-widest text-sm group-hover:underline">
+                <span className="text-[#ED7D4D] font-bold uppercase tracking-widest text-base group-hover:underline">
                   Learn More
                 </span>
               </div>
@@ -318,7 +318,7 @@ export default function OurVenuesPage() {
                 <p className="text-[#4A4A4A] leading-relaxed mb-6 flex-grow">
                   Deepen your practice and learn how to share the teachings of yoga with others in our immersive 4-week certification program.
                 </p>
-                <span className="text-[#ED7D4D] font-bold uppercase tracking-widest text-sm group-hover:underline">
+                <span className="text-[#ED7D4D] font-bold uppercase tracking-widest text-base group-hover:underline">
                   Learn More
                 </span>
               </div>
@@ -335,10 +335,10 @@ export default function OurVenuesPage() {
       {/* 8. TESTIMONIAL QUOTE */}
       <section className="bg-white py-20 px-6 text-center">
         <div className="max-w-4xl mx-auto">
-          <p className="text-xl md:text-2xl text-[#0B3B24] font-serif italic leading-relaxed mb-8">
+          <p className="text-2xl md:text-2xl text-[#0B3B24] font-serif italic leading-relaxed mb-8">
             &quot;This place is a slice of heaven. The energy of the forest, the pure food, and the profound teachings have completely transformed my perspective on life.&quot;
           </p>
-          <p className="text-[#4A4A4A] font-bold uppercase tracking-wider text-sm">
+          <p className="text-[#4A4A4A] font-bold uppercase tracking-wider text-base">
             — Sarah M., Retreat Guest
           </p>
         </div>

@@ -49,7 +49,7 @@ export default function TeachingFoundation() {
                 <h3 className="text-[#0B3B24] text-2xl md:text-3xl font-serif font-bold mb-6">
                   {card.title}
                 </h3>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-10 flex-grow">
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-10 flex-grow">
                   {card.description}
                 </p>
                 <div

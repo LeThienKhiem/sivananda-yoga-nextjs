@@ -15,7 +15,7 @@ export default function MoreInformationVi() {
       <div className="space-y-12 border-l border-gray-200 pl-6 md:pl-10">
         {/* Contact Us */}
         <div className="space-y-4">
-          <h3 className="text-xl font-bold text-[#0B3B24]">Liên hệ với chúng tôi</h3>
+          <h3 className="text-2xl font-bold text-[#0B3B24]">Liên hệ với chúng tôi</h3>
           <p className="text-[#4A4A4A]">
             Bạn có câu hỏi về việc đăng ký các chương trình và khóa tu... vui lòng
             liên hệ với chúng tôi, gửi tin nhắn hoặc gọi{" "}
@@ -23,7 +23,7 @@ export default function MoreInformationVi() {
           </p>
           <Link
             href="/contact"
-            className="mt-2 inline-block rounded-sm bg-[#E5F5C8] px-8 py-3 text-sm font-bold uppercase tracking-widest text-[#0B3B24] shadow-sm transition-colors hover:bg-[#d4e8aa]"
+            className="mt-2 inline-block rounded-sm bg-[#E5F5C8] px-8 py-3 text-base font-bold uppercase tracking-widest text-[#0B3B24] shadow-sm transition-colors hover:bg-[#d4e8aa]"
           >
             Liên Hệ
           </Link>
@@ -31,7 +31,7 @@ export default function MoreInformationVi() {
 
         {/* FAQs */}
         <div className="space-y-4">
-          <h3 className="text-xl font-bold text-[#0B3B24]">
+          <h3 className="text-2xl font-bold text-[#0B3B24]">
             Câu hỏi thường gặp (FAQs)
           </h3>
           <p className="text-[#4A4A4A]">
@@ -40,7 +40,7 @@ export default function MoreInformationVi() {
           </p>
           <Link
             href="/frequently-asked-questions"
-            className="mt-2 inline-block rounded-sm bg-[#E5F5C8] px-8 py-3 text-sm font-bold uppercase tracking-widest text-[#0B3B24] shadow-sm transition-colors hover:bg-[#d4e8aa]"
+            className="mt-2 inline-block rounded-sm bg-[#E5F5C8] px-8 py-3 text-base font-bold uppercase tracking-widest text-[#0B3B24] shadow-sm transition-colors hover:bg-[#d4e8aa]"
           >
             Xem FAQs
           </Link>

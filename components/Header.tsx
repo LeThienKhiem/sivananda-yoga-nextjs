@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { User, Menu, X, ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 
-const HEADER_BG = "bg-[#1e5c2b]";
-const ACTIVE_LINK = "text-[#d4e08b]";
+const HEADER_BG = "bg-[#0B3B24]";
+const ACTIVE_LINK = "text-[#E5F5C8]";
 
 type MegaMenuColumn = { header: string; links: { label: string; href: string }[] };
 
@@ -61,7 +62,7 @@ const MEGA_MENUS: Record<string, MegaMenuColumn[]> = {
       header: "AYURVEDA COURSE",
       links: [
         { label: "100 Foundation Ayurveda", href: "/100-foundation-ayurveda" },
-        { label: "Detoxification", href: "/programs" },
+        { label: "Detoxification", href: "/detoxification" },
       ],
     },
   ],
@@ -78,14 +79,14 @@ const MEGA_MENUS: Record<string, MegaMenuColumn[]> = {
       links: [
         { label: "Da Lat Health House", href: "/da-lat-ashram-health-house" },
         { label: "Ho Chi Minh City Yoga Center", href: "/ho-chi-minh-center" },
-        { label: "Hanoi City Yoga Center", href: "/programs" },
+        { label: "Hanoi City Yoga Center", href: "/hanoi-center" },
         { label: "Da Lat City Yoga Center", href: "/sivananda-yoga-dalat-center" },
       ],
     },
     {
       header: "BLOG",
       links: [
-        { label: "Ayurveda", href: "/blog" },
+        { label: "Blogs", href: "/blog" },
       ],
     },
   ],
@@ -101,32 +102,47 @@ const NAV_LINKS = [
 ] as const;
 
 function MegaMenuDropdown({ columns }: { columns: MegaMenuColumn[] }) {
+  const widthClass =
+    columns.length >= 3 ? "w-[900px]" : columns.length === 2 ? "w-[700px]" : "w-[500px]";
   return (
     <div
-      className="absolute left-1/2 top-full z-50 w-max -translate-x-1/2 pt-0 opacity-0 pointer-events-none transition-opacity duration-200 group-hover:opacity-100 group-hover:pointer-events-auto"
+      className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out"
       aria-hidden
     >
-      <div className="bg-white p-8 shadow-2xl rounded-xl border-t-4 border-[#1e5c2b]">
-        <div className="flex gap-12">
+      <div
+        className={`${widthClass} overflow-hidden rounded-2xl border border-gray-100 bg-[#FDFCF8] shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative`}
+      >
+        <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
+        <div
+          className={`grid gap-8 p-8 ${columns.length >= 3 ? "grid-cols-3" : "grid-cols-2"}`}
+        >
           {columns.map((col) => (
-            <div key={col.header} className="min-w-[200px]">
-              <p className="mb-4 text-sm font-bold uppercase tracking-wider text-gray-900">
+            <div key={col.header}>
+              <h4 className="mb-5 border-b border-gray-200 pb-2 text-xs font-bold uppercase tracking-widest text-gray-400">
                 {col.header}
-              </p>
-              <ul className="space-y-0">
+              </h4>
+              <ul className="space-y-2">
                 {col.links.map((link, index) => (
                   <li key={`${col.header}-${link.label}-${index}`}>
                     <Link
                       href={link.href}
-                      className="inline-block py-1.5 text-gray-600 transition-all duration-300 hover:text-[#1e5c2b] hover:translate-x-1"
+                      className="group/link flex items-center justify-between rounded-lg p-3 transition-all duration-300 hover:bg-white hover:shadow-sm"
                     >
-                      {link.label}
+                      <span className="font-medium text-[#0B3B24] transition-colors group-hover/link:text-[#ED7D4D]">
+                        {link.label}
+                      </span>
+                      <ArrowRight className="h-4 w-4 -translate-x-2 text-[#ED7D4D] opacity-0 transition-all duration-300 group-hover/link:translate-x-0 group-hover/link:opacity-100" />
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
+        </div>
+        <div className="border-t border-gray-100 bg-[#F4F7F0] p-4 text-center">
+          <p className="text-sm italic text-[#4A4A4A]">
+            &quot;Health is wealth, peace of mind is happiness, Yoga shows the way.&quot;
+          </p>
         </div>
       </div>
     </div>
@@ -136,6 +152,19 @@ function MegaMenuDropdown({ columns }: { columns: MegaMenuColumn[] }) {
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setActiveMobileSubmenu(null);
+  }, [pathname]);
 
   const toggleMobileSubmenu = (menuName: string) =>
     setActiveMobileSubmenu((prev) => (prev === menuName ? null : menuName));
@@ -147,31 +176,20 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full ${HEADER_BG} border-b border-[#1a5226]`}
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${HEADER_BG} border-b border-white/10 ${scrolled ? "shadow-lg" : ""}`}
     >
-      <div className="max-w-[1440px] mx-auto w-full px-4 lg:px-8">
-        <div className="flex h-16 items-center justify-between gap-4">
-          {/* Left: Brand + circular logo placeholder */}
+      <div className="max-w-[1400px] mx-auto w-full px-4 md:px-6 lg:px-8">
+        <div className="flex h-20 md:h-24 flex-nowrap items-center justify-between gap-4">
+          {/* Left: Image Logo Only */}
           <Link
             href="/"
-            className="flex shrink-0 items-center gap-3 transition-opacity hover:opacity-90"
+            className="group flex shrink-0 items-center transition-transform duration-300 hover:scale-105"
           >
-            <div
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-white"
-              aria-hidden
-            >
-              <div className="h-6 w-6 rounded-full bg-[#1e5c2b] ring-2 ring-white flex items-center justify-center">
-                <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-b-[8px] border-l-transparent border-r-transparent border-b-white" />
-              </div>
-            </div>
-            <div className="hidden min-w-0 sm:block">
-              <p className="truncate text-sm font-bold uppercase leading-tight text-white">
-                Sivananda Yoga Resort and Training Center
-              </p>
-              <p className="truncate text-sm font-normal uppercase text-white/95">
-                Da Lat, Vietnam
-              </p>
-            </div>
+            <img
+              src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/aae6b3b8-5465-4374-b8d4-7cba4c681418.png"
+              alt="Sivananda Yoga Logo"
+              className="h-12 w-auto object-contain md:h-14 lg:h-16"
+            />
           </Link>
 
           {/* Center: Navigation (desktop) with mega menu dropdowns */}
@@ -191,13 +209,16 @@ export default function Header() {
                   >
                     <Link
                       href={href}
-                      className={`block py-2 text-xs font-medium uppercase tracking-wider transition-colors md:text-sm ${
+                      className={`flex items-center gap-1.5 py-2 text-xs font-medium uppercase tracking-wider transition-colors md:text-sm ${
                         active
                           ? `${ACTIVE_LINK} font-bold`
-                          : "text-white hover:text-[#d4e08b]"
+                          : "text-white/90 hover:text-[#ED7D4D]"
                       }`}
                     >
                       {label}
+                      {hasDropdown && (
+                        <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:rotate-180" />
+                      )}
                     </Link>
                     {hasDropdown && (
                       <MegaMenuDropdown columns={columns} />
@@ -208,12 +229,12 @@ export default function Header() {
             </ul>
           </nav>
 
-          {/* Right: Language selector (UK flag + EN) + User icon */}
+          {/* Right: Language selector + Hamburger (mobile) */}
           <div className="flex shrink-0 items-center gap-3">
             <button
               type="button"
               aria-label="Language: English"
-              className="flex items-center gap-1.5 rounded-md px-2 py-1.5 text-white transition-colors hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#1e5c2b]"
+              className="hidden items-center gap-1.5 rounded-md px-2 py-1.5 text-white/90 transition-colors hover:text-[#E5F5C8] focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#0B3B24] lg:flex"
             >
               <span className="text-base leading-none" aria-hidden>
                 🇬🇧
@@ -222,21 +243,14 @@ export default function Header() {
                 EN
               </span>
             </button>
-            <button
-              type="button"
-              aria-label="User profile"
-              className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-white text-white transition-colors hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#1e5c2b]"
-            >
-              <User className="h-4 w-4" aria-hidden />
-            </button>
 
-            {/* Hamburger (mobile only) - white icon */}
+            {/* Hamburger (mobile only) */}
             <button
               type="button"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
               onClick={() => setMobileMenuOpen((o) => !o)}
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 md:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-lg text-white transition-colors hover:text-[#E5F5C8] md:hidden"
             >
               {mobileMenuOpen ? (
                 <X className="h-5 w-5" aria-hidden />

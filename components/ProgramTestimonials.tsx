@@ -64,11 +64,11 @@ export default function ProgramTestimonials() {
         <div className="w-full flex flex-col items-center min-h-[180px] md:min-h-[140px]">
           <p
             key={currentIndex}
-            className="text-lg md:text-2xl max-w-4xl leading-relaxed mb-6 font-light italic transition-opacity duration-500"
+            className="text-xl md:text-2xl max-w-4xl leading-relaxed mb-6 font-light italic transition-opacity duration-500"
           >
             &quot;{currentTestimonial.quote}&quot;
           </p>
-          <p className="text-sm md:text-base font-medium opacity-90">
+          <p className="text-base md:text-lg font-medium opacity-90">
             — {currentTestimonial.author}
           </p>
         </div>

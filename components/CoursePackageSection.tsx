@@ -32,7 +32,7 @@ export default function CoursePackageSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
           {/* Left: Inclusions & Exclusions */}
           <div>
-            <ul className="space-y-4 mb-10 text-gray-700 text-lg">
+            <ul className="space-y-4 mb-10 text-gray-700 text-xl">
               {INCLUDED.map((item) => (
                 <li key={item}>
                   <div className="flex items-center gap-4">
@@ -43,12 +43,12 @@ export default function CoursePackageSection() {
               ))}
             </ul>
 
-            <p className="text-gray-500 text-base mb-6 leading-relaxed">
+            <p className="text-gray-500 text-lg mb-6 leading-relaxed">
               ***Other required materials, excluded from the course fee, but
               available in our boutique for purchase:
             </p>
 
-            <ul className="space-y-3 text-gray-600 text-base">
+            <ul className="space-y-3 text-gray-600 text-lg">
               {EXCLUDED.map((item) => (
                 <li key={item}>
                   <div className="flex items-start gap-3">
@@ -66,13 +66,13 @@ export default function CoursePackageSection() {
               {PRICING.map((row) => (
                 <div
                   key={row.label}
-                  className="flex justify-between items-center text-gray-700 text-lg mb-6 last:mb-0"
+                  className="flex justify-between items-center text-gray-700 text-xl mb-6 last:mb-0"
                 >
                   <span>{row.label}</span>
                   <span className="font-semibold">{row.price}</span>
                 </div>
               ))}
-              <p className="text-gray-400 text-sm mt-8 pt-6 border-t border-gray-100">
+              <p className="text-gray-400 text-base mt-8 pt-6 border-t border-gray-100">
                 *** incl. Deposit US$ 250 (due at time of registration)
               </p>
             </div>

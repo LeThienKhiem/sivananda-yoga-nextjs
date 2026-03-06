@@ -3,8 +3,25 @@
 import React from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
+import BenefitsTTC from "@/components/BenefitsTTC";
+import CourseCurriculum from "@/components/CourseCurriculum";
+import SeniorTeachers from "@/components/SeniorTeachers";
+import StudentFeedback from "@/components/StudentFeedback";
+import AshramGallery from "@/components/AshramGallery";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+
+const schedule = [
+  { time: "5:30 am", activity: "Wake up bell" },
+  { time: "6:00 am", activity: "Satsang (Meditation, Chanting, Lecture)" },
+  { time: "8:00 am", activity: "Yoga Asana & Pranayama" },
+  { time: "10:00 am", activity: "Vegetarian Brunch" },
+  { time: "11:00 am", activity: "Karma Yoga" },
+  { time: "12:00 pm", activity: "Ayurveda Lecture / Workshop" },
+  { time: "4:00 pm", activity: "Yoga Asana & Pranayama" },
+  { time: "6:00 pm", activity: "Vegetarian Dinner" },
+  { time: "8:00 pm", activity: "Satsang (Meditation, Chanting, Lecture)" },
+];
 
 export default function AyurvedaFoundationPage() {
   return (
@@ -27,7 +44,7 @@ export default function AyurvedaFoundationPage() {
 
         {/* Seamless Overlapping Content Box (No Shadow, blends with background) */}
         <div className="relative z-10 mx-auto w-[95%] max-w-6xl bg-[#FDFCF8] px-6 pb-6 pt-10 text-center -mt-16 md:-mt-24 md:pb-12 md:pt-14">
-          <p className="mb-3 text-lg font-medium text-[#0B3B24] md:mb-4 md:text-xl">
+          <p className="mb-3 text-xl font-medium text-[#0B3B24] md:mb-4 md:text-2xl">
             The Ancient Wisdom of Healthy Living
           </p>
           <h1 className="font-serif text-3xl font-bold text-[#0B3B24] md:text-5xl lg:text-6xl">
@@ -42,7 +59,7 @@ export default function AyurvedaFoundationPage() {
           {/* Left: Text Content */}
           <div className="w-full md:w-1/2">
             <div className="space-y-6 border-l-[3px] border-gray-300 pl-6 md:pl-8">
-              <p className="text-sm leading-relaxed text-[#4A4A4A] md:text-base">
+              <p className="text-base leading-relaxed text-[#4A4A4A] md:text-lg">
                 This 100-hour program offers a unique opportunity to gain authentic
                 and comprehensive knowledge of Ayurveda — from foundational
                 principles to advanced applications. Participants will study and
@@ -50,7 +67,7 @@ export default function AyurvedaFoundationPage() {
                 <strong>Vaidyagrama Healing Village, India</strong>, supported by
                 an experienced team of instructors in Vietnam.
               </p>
-              <p className="text-sm leading-relaxed text-[#4A4A4A] md:text-base">
+              <p className="text-base leading-relaxed text-[#4A4A4A] md:text-lg">
                 The course focuses on applying traditional Ayurvedic wisdom to
                 enhance physical and mental well-being, while empowering
                 participants to share their knowledge and contribute positively
@@ -82,7 +99,7 @@ export default function AyurvedaFoundationPage() {
             A Special Program by Vaidyagrama Healing Village, India & Sivananda
             Yoga Vietnam
           </h2>
-          <p className="mb-12 max-w-3xl text-sm leading-relaxed text-[#666666] md:text-base">
+          <p className="mb-12 max-w-3xl text-base leading-relaxed text-[#666666] md:text-lg">
             Upon completion, participants will receive an official certificate
             from Sivananda Yoga Vietnam, opening doors to further study, practice,
             and professional opportunities in the field of Ayurveda and holistic
@@ -125,7 +142,7 @@ export default function AyurvedaFoundationPage() {
           {/* Text content on left */}
           <div className="absolute inset-0 flex items-center px-6 py-12 md:px-12 md:py-16 lg:px-20">
             <div className="max-w-2xl space-y-6 text-white">
-              <p className="text-sm leading-relaxed md:text-base">
+              <p className="text-base leading-relaxed md:text-lg">
                 Immerse yourself in the classical lifestyle of Yoga and Ayurveda,
                 including daily meditation, yoga practice, nutritious vegetarian
                 meals, mindful self-care routines, herbal tea preparation, and
@@ -134,7 +151,7 @@ export default function AyurvedaFoundationPage() {
                 well-being — nurturing body, mind, and spirit in harmony with
                 nature.
               </p>
-              <p className="text-sm leading-relaxed md:text-base">
+              <p className="text-base leading-relaxed md:text-lg">
                 Located at the Sivananda Yoga Dalat Resort and Training Center,
                 the course unfolds in a serene mountain sanctuary near Hồ Tuyền
                 Lâm Lake, surrounded by pine forests, fresh air, and natural
@@ -142,7 +159,7 @@ export default function AyurvedaFoundationPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-md bg-[#0B3B24] px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#0B3B24]/90"
+                className="inline-flex items-center justify-center rounded-md bg-[#0B3B24] px-8 py-3.5 text-base font-bold uppercase tracking-widest text-white transition-colors hover:bg-[#0B3B24]/90"
               >
                 Enroll Now
               </Link>
@@ -150,6 +167,175 @@ export default function AyurvedaFoundationPage() {
           </div>
         </div>
       </section>
+
+      {/* 4. BENEFITS SECTION */}
+      <BenefitsTTC />
+
+      {/* 5. CURRICULUM SECTION */}
+      <CourseCurriculum />
+
+      {/* 6. SENIOR TEACHERS SECTION */}
+      <SeniorTeachers />
+
+      {/* 7. DAILY SCHEDULE SECTION */}
+      <section className="mx-auto w-full max-w-7xl px-6 py-24">
+        <div className="flex flex-col gap-16 lg:flex-row lg:gap-20">
+          <div className="w-full lg:w-[45%]">
+            <h2 className="mb-6 font-serif text-3xl font-bold text-[#0B3B24]">
+              Daily Schedule
+            </h2>
+            <p className="mb-10 leading-relaxed text-[#4A4A4A]">
+              The daily schedule follows the traditional ashram routine,
+              integrating Ayurveda workshops with classical Yoga practices. This
+              balanced routine of learning, practice, selfless service, and
+              meditation is designed to elevate your prana and restore inner
+              harmony.
+            </p>
+            <div className="relative aspect-square w-full overflow-hidden rounded-sm shadow-lg md:aspect-[4/3]">
+              <Image
+                src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=800"
+                alt="Daily Practice"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
+            </div>
+          </div>
+
+          <div className="flex w-full flex-col justify-center border-t border-gray-200 pt-10 md:border-l md:border-t-0 md:pl-10 md:pt-0 lg:w-[55%] lg:pl-16">
+            <div className="space-y-6">
+              {schedule.map((item, index) => (
+                <div
+                  key={index}
+                  className="relative flex flex-col gap-2 border-b border-gray-100 pb-6 last:border-0 sm:flex-row sm:items-start sm:gap-6"
+                >
+                  <div className="w-24 shrink-0 pt-1 font-bold text-[#0B3B24]">
+                    {item.time}
+                  </div>
+                  <div className="flex-grow pt-1 text-[#4A4A4A]">
+                    {item.activity}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. WHAT INCLUDES IN THE PACKAGE SECTION */}
+      <section className="border-t border-gray-200/60 bg-[#FDFCF8] px-6 py-24">
+        <div className="mx-auto flex max-w-6xl flex-col gap-16 lg:flex-row lg:gap-24">
+          <div className="w-full lg:w-[60%]">
+            <h2 className="mb-10 font-serif text-3xl font-bold text-[#0B3B24] md:text-4xl">
+              What Includes in the Package
+            </h2>
+            <ul className="mb-12 space-y-6 text-base text-[#4A4A4A] md:text-lg">
+              <li className="flex items-center gap-4">
+                <div className="h-5 w-5 shrink-0 rounded-full border-2 border-[#0B3B24]" />
+                <span>Accommodation and Tuition</span>
+              </li>
+              <li className="flex items-center gap-4">
+                <div className="h-5 w-5 shrink-0 rounded-full border-2 border-[#0B3B24]" />
+                <span>2 Daily Vegetarian/Ayurvedic Meals</span>
+              </li>
+              <li className="flex items-center gap-4">
+                <div className="h-5 w-5 shrink-0 rounded-full border-2 border-[#0B3B24]" />
+                <span>Uniform and Study Manual</span>
+              </li>
+              <li className="flex items-center gap-4">
+                <div className="h-5 w-5 shrink-0 rounded-full border-2 border-[#0B3B24]" />
+                <span>Personal Ayurvedic Consultation</span>
+              </li>
+            </ul>
+
+            <div className="space-y-4">
+              <h4 className="font-medium text-gray-500">Important Note</h4>
+              <ul className="space-y-3 text-base text-[#4A4A4A] md:text-lg">
+                <li className="flex items-start gap-3">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="mt-1 h-4 w-4 shrink-0 text-[#0B3B24]"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  <span>
+                    This course requires a commitment to the ashram schedule and a
+                    sattvic lifestyle.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="w-full lg:w-[40%]">
+            <div className="rounded-sm border border-gray-100 bg-white p-8 shadow-[0_10px_40px_rgba(0,0,0,0.06)] md:p-10 lg:sticky lg:top-24">
+              <h3 className="mb-2 font-bold uppercase tracking-widest text-[#0B3B24] md:text-base">
+                Program Cost
+              </h3>
+              <p className="mb-8 text-gray-400 md:text-base">
+                *** incl. Deposit (due at time of registration)
+              </p>
+
+              <div className="mb-8 space-y-6 font-medium text-[#4A4A4A] md:text-lg">
+                <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+                  <span>Single Room</span>
+                  <span className="font-bold text-[#0B3B24]">US$ XXX</span>
+                </div>
+                <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+                  <span>Shared Room (2 people)</span>
+                  <span className="font-bold text-[#0B3B24]">US$ XXX</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>Shared Room (4 people)</span>
+                  <span className="font-bold text-[#0B3B24]">US$ XXX</span>
+                </div>
+              </div>
+
+              <Link
+                href="/contact"
+                className="block w-full rounded-sm bg-[#ED7D4D] px-8 py-4 text-center font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600"
+              >
+                Register Now
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. VIDEO TESTIMONIAL SECTION */}
+      <section className="w-full bg-white px-6 py-24">
+        <div className="mx-auto max-w-5xl text-center">
+          <h2 className="mb-12 font-serif text-3xl font-bold text-[#0B3B24] md:text-4xl">
+            Experience the Journey
+          </h2>
+          <div className="group relative aspect-video w-full cursor-pointer overflow-hidden rounded-xl border border-gray-100 shadow-2xl">
+            <Image
+              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600"
+              alt="Video Testimonial Thumbnail"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/10">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/95 shadow-xl backdrop-blur-sm transition-transform group-hover:scale-110 md:h-24 md:w-24">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="ml-1.5 h-8 w-8 text-[#ED7D4D] md:h-10 md:w-10"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. STUDENT FEEDBACK SECTION */}
+      <StudentFeedback />
+
+      {/* 11. ASHRAM GALLERY SECTION */}
+      <AshramGallery />
 
       <div className="flex-grow" />
 

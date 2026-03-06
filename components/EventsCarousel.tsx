@@ -160,7 +160,7 @@ export default function EventsCarousel({
           <h2 className="mb-4 font-serif text-3xl font-bold text-[#0B3B24] md:text-5xl">
             {title}
           </h2>
-          <p className="text-lg font-medium text-[#4A4A4A]">
+          <p className="text-xl font-medium text-[#4A4A4A]">
             {displaySubtitle}
           </p>
         </div>
@@ -242,23 +242,23 @@ export default function EventsCarousel({
                       sizes="(max-width: 768px) 280px, 400px"
                       draggable={false}
                     />
-                    <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#0B3B24] backdrop-blur-sm">
+                    <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-base font-bold uppercase tracking-widest text-[#0B3B24] backdrop-blur-sm">
                       {event.category}
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="flex flex-grow flex-col p-6 md:p-8">
-                    <h3 className="mb-6 line-clamp-2 font-serif text-xl font-bold leading-tight text-[#0B3B24] md:text-2xl">
+                    <h3 className="mb-6 line-clamp-2 font-serif text-2xl font-bold leading-tight text-[#0B3B24] md:text-2xl">
                       {event.title}
                     </h3>
 
                     <div className="mt-auto space-y-3">
-                      <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
+                      <div className="flex items-center gap-3 text-base text-[#4A4A4A]">
                         <Calendar className="h-4 w-4 shrink-0 text-[#ED7D4D]" />
                         <span className="font-medium">{event.date}</span>
                       </div>
-                      <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
+                      <div className="flex items-center gap-3 text-base text-[#4A4A4A]">
                         <MapPin className="h-4 w-4 shrink-0 text-[#ED7D4D]" />
                         <span>{event.location}</span>
                       </div>
@@ -271,7 +271,7 @@ export default function EventsCarousel({
                     >
                       <button
                         type="button"
-                        className="group flex w-full items-center justify-center gap-2 rounded-md bg-[#F4F7F0] py-3 text-sm font-bold uppercase tracking-widest text-[#0B3B24] transition-colors hover:bg-[#ED7D4D] hover:text-white"
+                        className="group flex w-full items-center justify-center gap-2 rounded-md bg-[#F4F7F0] py-3 text-base font-bold uppercase tracking-widest text-[#0B3B24] transition-colors hover:bg-[#ED7D4D] hover:text-white"
                       >
                         View Details
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import EnrollTTCSection from "@/components/EnrollTTCSection";
 import WhyChooseTTC from "@/components/WhyChooseTTC";
-import BenefitsOfTTC from "@/components/BenefitsOfTTC";
+import BenefitsTTC from "@/components/BenefitsTTC";
 import EventsCarousel from "@/components/EventsCarousel";
 import CoursePackageSection from "@/components/CoursePackageSection";
 import CurriculumSection from "@/components/CurriculumSection";
@@ -43,7 +43,7 @@ export default function TeacherTrainingPage() {
             sizes="100vw"
           />
           <div className="relative z-10 bg-white w-[90%] max-w-5xl py-12 md:py-16 px-6 shadow-xl text-center -mb-20">
-            <p className="text-gray-500 uppercase tracking-[0.2em] text-sm md:text-lg mb-4 font-light">
+            <p className="text-gray-500 uppercase tracking-[0.2em] text-base md:text-xl mb-4 font-light">
               A Life Transforming Experience
             </p>
             <h1 className="text-[#0B3B24] font-serif text-3xl md:text-5xl lg:text-6xl font-medium">
@@ -64,7 +64,7 @@ export default function TeacherTrainingPage() {
                 <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] mb-8">
                   First offered in 1969
                 </h2>
-                <p className="text-gray-700 leading-relaxed text-lg mb-6">
+                <p className="text-gray-700 leading-relaxed text-xl mb-6">
                   The Sivananda Yoga Teacher Training Course (TTC) was the first
                   program of its kind, established by Swami Vishnudevananda. Today
                   it has produced over 52,000 graduates worldwide and offers an
@@ -116,7 +116,7 @@ export default function TeacherTrainingPage() {
                 <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] mb-8">
                   Immersive 4-week residential training
                 </h2>
-                <div className="text-gray-700 leading-relaxed text-lg">
+                <div className="text-gray-700 leading-relaxed text-xl">
                   <div className="border-t border-gray-200 pt-6 mt-6">
                     <span className="font-semibold text-[#0B3B24]">
                       Physical Mastery:
@@ -162,7 +162,7 @@ export default function TeacherTrainingPage() {
               <h2 className="text-3xl font-serif text-[#0B3B24] mb-2">
                 Yoga Alliance Certified
               </h2>
-              <p className="text-sm text-gray-500 uppercase tracking-widest font-semibold mb-6">
+              <p className="text-base text-gray-500 uppercase tracking-widest font-semibold mb-6">
                 28-DAY IMMERSION STUDY - GRADUATE WITH GLOBAL CERTIFICATION
               </p>
               <p className="text-[#4A4A4A] leading-relaxed">
@@ -174,7 +174,7 @@ export default function TeacherTrainingPage() {
 
         <WhyChooseTTC />
 
-        <BenefitsOfTTC />
+        <BenefitsTTC />
 
         <CoursePackageSection />
 
