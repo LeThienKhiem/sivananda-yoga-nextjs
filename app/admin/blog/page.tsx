@@ -195,17 +195,17 @@ export default function AdminBlogPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8 text-gray-800">
+    <div className="min-h-screen bg-gray-50 p-4 md:p-8 text-gray-800">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-[#0B3B24]">Blog Manager</h1>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-[#0B3B24]">Blog Manager</h1>
           {!isEditing && (
             <button
               onClick={() => {
                 resetForm();
                 setIsEditing(true);
               }}
-              className="bg-[#ED7D4D] text-white px-6 py-2 rounded-md font-semibold flex items-center gap-2 hover:bg-orange-600"
+              className="w-full sm:w-auto bg-[#ED7D4D] text-white px-6 py-2 rounded-md font-semibold flex items-center justify-center gap-2 hover:bg-orange-600"
             >
               <Plus size={20} /> Create New Post
             </button>
@@ -242,11 +242,11 @@ export default function AdminBlogPage() {
 
             {/* Left Column: Editor */}
             <div
-              className={`flex-1 min-w-0 ${
+              className={`flex-1 min-w-0 space-y-8 lg:h-[calc(100vh-200px)] lg:overflow-y-auto lg:pr-4 ${
                 previewMode === "preview" ? "hidden lg:block" : ""
               }`}
             >
-              <div className="bg-white p-6 lg:p-8 rounded-xl shadow-sm border border-gray-200">
+              <div className="bg-white p-4 md:p-6 lg:p-8 rounded-xl shadow-sm border border-gray-200">
                 <h2 className="text-2xl font-bold mb-6 border-b pb-4">
                   {formData.id ? "Edit Post" : "Create New Post"}
                 </h2>
@@ -675,85 +675,86 @@ export default function AdminBlogPage() {
                 No blog posts found. Create one!
               </div>
             ) : (
-              <table className="w-full text-left">
-                <thead className="bg-gray-50 text-gray-600 border-b">
-                  <tr>
-                    <th className="p-4 font-semibold">Image</th>
-                    <th className="p-4 font-semibold">Title</th>
-                    <th className="p-4 font-semibold">Category</th>
-                    <th className="p-4 font-semibold">Date</th>
-                    <th className="p-4 font-semibold text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {blogs.map((blog) => (
-                    <tr
-                      key={blog.id}
-                      className="hover:bg-gray-50 transition-colors"
-                    >
-                      <td className="p-4">
-                        <div className="relative">
-                          {blog.header_image ? (
-                            <img
-                              src={blog.header_image}
-                              alt={blog.title}
-                              className="w-16 h-12 object-cover rounded"
-                            />
-                          ) : (
-                            <div className="w-16 h-12 bg-gray-200 rounded flex items-center justify-center text-gray-400">
-                              <ImageIcon size={16} />
-                            </div>
-                          )}
-                          {blog.youtube_link && (
-                            <div
-                              className="absolute -top-1 -right-1 bg-red-600 rounded-full p-0.5"
-                              title="Has YouTube video"
-                            >
-                              <Video size={10} className="text-white" />
-                            </div>
-                          )}
+              <>
+                {/* Desktop Table View */}
+                <div className="hidden md:block">
+                  <table className="w-full text-left">
+                    <thead className="bg-gray-50 text-gray-600 border-b">
+                      <tr>
+                        <th className="p-4 font-semibold">Media</th>
+                        <th className="p-4 font-semibold">Title</th>
+                        <th className="p-4 font-semibold">Category</th>
+                        <th className="p-4 font-semibold">Date</th>
+                        <th className="p-4 font-semibold text-right">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {blogs.map(blog => (
+                        <tr key={blog.id} className="hover:bg-gray-50 transition-colors">
+                          <td className="p-4">
+                            {blog.header_image ? (
+                              <div className="relative w-16 h-12">
+                                <img src={blog.header_image} alt={blog.title} className="w-16 h-12 object-cover rounded" />
+                                {blog.youtube_link && <Video size={16} className="absolute bottom-1 right-1 text-white drop-shadow-md" />}
+                              </div>
+                            ) : blog.youtube_link ? (
+                              <div className="w-16 h-12 bg-red-100 rounded flex items-center justify-center text-red-500"><Video size={20} /></div>
+                            ) : (
+                              <div className="w-16 h-12 bg-gray-200 rounded flex items-center justify-center text-gray-400"><ImageIcon size={16} /></div>
+                            )}
+                          </td>
+                          <td className="p-4 font-medium text-[#0B3B24] max-w-xs truncate">{blog.title}</td>
+                          <td className="p-4 text-sm text-gray-600"><span className="bg-[#E5F5C8] text-[#4F6F1F] px-2 py-1 rounded text-xs font-bold">{blog.category}</span></td>
+                          <td className="p-4 text-sm text-gray-500">{new Date(blog.created_at).toLocaleDateString()}</td>
+                          <td className="p-4 text-right">
+                            <button onClick={() => editBlog(blog)} className="text-blue-600 hover:bg-blue-50 p-2 rounded-full mr-2 transition-colors">
+                              <Edit size={18} />
+                            </button>
+                            <button onClick={() => deleteBlog(blog.id)} className="text-red-600 hover:bg-red-50 p-2 rounded-full transition-colors">
+                              <Trash2 size={18} />
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Mobile Card View */}
+                <div className="md:hidden flex flex-col divide-y divide-gray-100">
+                  {blogs.map(blog => (
+                    <div key={blog.id} className="flex items-center gap-4 p-4 hover:bg-gray-50 transition-colors">
+                      <div className="shrink-0">
+                        {blog.header_image ? (
+                          <div className="relative w-16 h-16">
+                            <img src={blog.header_image} alt={blog.title} className="w-16 h-16 object-cover rounded-md shadow-sm" />
+                            {blog.youtube_link && <Video size={14} className="absolute bottom-1 right-1 text-white drop-shadow-md" />}
+                          </div>
+                        ) : blog.youtube_link ? (
+                          <div className="w-16 h-16 bg-red-100 rounded-md flex items-center justify-center text-red-500"><Video size={20} /></div>
+                        ) : (
+                          <div className="w-16 h-16 bg-gray-100 rounded-md flex items-center justify-center text-gray-400"><ImageIcon size={20} /></div>
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-bold text-[#0B3B24] truncate text-sm mb-1">{blog.title}</h4>
+                        <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 mt-1">
+                          <span className="bg-[#E5F5C8] text-[#4F6F1F] px-1.5 py-0.5 rounded font-bold truncate">{blog.category}</span>
+                          <span className="truncate">{new Date(blog.created_at).toLocaleDateString()}</span>
                         </div>
-                      </td>
-                      <td className="p-4 font-medium text-[#0B3B24] max-w-xs truncate">
-                        <span className="inline-flex items-center gap-1.5">
-                          {blog.title}
-                          {blog.youtube_link && (
-                            <span title="Has YouTube video" className="inline-flex">
-                              <Video
-                                size={14}
-                                className="text-red-600 shrink-0"
-                                aria-hidden
-                              />
-                            </span>
-                          )}
-                        </span>
-                      </td>
-                      <td className="p-4 text-sm text-gray-600">
-                        <span className="bg-[#E5F5C8] text-[#4F6F1F] px-2 py-1 rounded text-xs font-bold">
-                          {blog.category}
-                        </span>
-                      </td>
-                      <td className="p-4 text-sm text-gray-500">
-                        {new Date(blog.created_at).toLocaleDateString()}
-                      </td>
-                      <td className="p-4 text-right">
-                        <button
-                          onClick={() => editBlog(blog)}
-                          className="text-blue-600 hover:bg-blue-50 p-2 rounded-full mr-2 transition-colors"
-                        >
-                          <Edit size={18} />
+                      </div>
+                      <div className="flex flex-col gap-2 shrink-0">
+                        <button onClick={() => editBlog(blog)} className="text-blue-600 bg-blue-50 p-2.5 rounded-md transition-colors flex items-center justify-center">
+                          <Edit size={16} />
                         </button>
-                        <button
-                          onClick={() => deleteBlog(blog.id)}
-                          className="text-red-600 hover:bg-red-50 p-2 rounded-full transition-colors"
-                        >
-                          <Trash2 size={18} />
+                        <button onClick={() => deleteBlog(blog.id)} className="text-red-600 bg-red-50 p-2.5 rounded-md transition-colors flex items-center justify-center">
+                          <Trash2 size={16} />
                         </button>
-                      </td>
-                    </tr>
+                      </div>
+                    </div>
                   ))}
-                </tbody>
-              </table>
+                </div>
+              </>
             )}
           </div>
         )}

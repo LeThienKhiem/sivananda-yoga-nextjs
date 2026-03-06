@@ -173,25 +173,25 @@ export default function AdminCoursesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8 text-gray-800">
+    <div className="min-h-screen bg-gray-50 p-4 md:p-8 text-gray-800">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-[#0B3B24]">Course Manager</h1>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+          <h1 className="text-2xl md:text-3xl font-bold text-[#0B3B24]">Course Manager</h1>
           {!isEditing && (
-            <button onClick={() => setIsEditing(true)} className="bg-[#ED7D4D] text-white px-6 py-2 rounded-md font-semibold flex items-center gap-2 hover:bg-orange-600">
+            <button onClick={() => setIsEditing(true)} className="w-full sm:w-auto bg-[#ED7D4D] text-white px-6 py-2 rounded-md font-semibold flex items-center justify-center gap-2 hover:bg-orange-600">
               <Plus size={20} /> Create New Course
             </button>
           )}
         </div>
 
         {isEditing ? (
-          <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+          <div className="bg-white p-4 md:p-8 rounded-xl shadow-sm border border-gray-200">
             <h2 className="text-2xl font-bold mb-6 border-b pb-4">{formData.id ? 'Edit Course' : 'Create New Course'}</h2>
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               
                 {/* LEFT COLUMN: EDITOR */}
-                <div className="space-y-8 lg:h-[calc(100vh-200px)] lg:overflow-y-auto lg:pr-4">
+                <div className="space-y-8 lg:h-[calc(100vh-200px)] lg:overflow-y-auto lg:pr-4 min-h-0">
                   
                   {/* Basic Info */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-gray-50 rounded-lg">
@@ -234,7 +234,7 @@ export default function AdminCoursesPage() {
                       <label className="block text-sm font-bold mb-1 text-[#0B3B24]">End Date & Time</label>
                       <input type="text" name="end_date" value={formData.end_date} onChange={handleInputChange} placeholder="Saturday, January 10, 2026 @ 5:00 pm" className="w-full p-2 border rounded outline-none" />
                     </div>
-                    <div className="md:col-span-2 grid grid-cols-2 gap-6">
+                    <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-bold mb-1 text-[#0B3B24]">Venue Name</label>
                         <input type="text" name="venue_name" value={formData.venue_name} onChange={handleInputChange} placeholder="Sivananda Yoga Resort..." className="w-full p-2 border rounded outline-none" />
@@ -385,52 +385,97 @@ export default function AdminCoursesPage() {
             ) : courses.length === 0 ? (
               <div className="p-12 text-center text-gray-500">No courses found. Create one!</div>
             ) : (
-              <table className="w-full text-left">
-                <thead className="bg-gray-50 text-gray-600 border-b">
-                  <tr>
-                    <th className="p-4 font-semibold">Image</th>
-                    <th className="p-4 font-semibold">Title</th>
-                    <th className="p-4 font-semibold">Categories</th>
-                    <th className="p-4 font-semibold">Date</th>
-                    <th className="p-4 font-semibold text-center">Status</th>
-                    <th className="p-4 font-semibold text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
+              <>
+                {/* Desktop Table View */}
+                <div className="hidden md:block">
+                  <table className="w-full text-left">
+                    <thead className="bg-gray-50 text-gray-600 border-b">
+                      <tr>
+                        <th className="p-4 font-semibold">Image</th>
+                        <th className="p-4 font-semibold">Title</th>
+                        <th className="p-4 font-semibold">Categories</th>
+                        <th className="p-4 font-semibold">Date</th>
+                        <th className="p-4 font-semibold text-center">Status</th>
+                        <th className="p-4 font-semibold text-right">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {courses.map(course => (
+                        <tr key={course.id} className="hover:bg-gray-50 transition-colors">
+                          <td className="p-4">
+                            {course.image_url ? (
+                              <img src={course.image_url} alt={course.title} className="w-20 h-14 object-cover rounded shadow-sm" />
+                            ) : (
+                              <div className="w-20 h-14 bg-gray-200 rounded flex items-center justify-center text-gray-400"><ImageIcon size={16} /></div>
+                            )}
+                          </td>
+                          <td className="p-4 font-bold text-[#0B3B24] max-w-xs truncate">{course.title}</td>
+                          <td className="p-4 text-xs text-gray-500">
+                            <div className="flex flex-wrap gap-1">
+                               {course.category?.slice(0,2).map((c:string) => <span key={c} className="bg-gray-200 px-2 py-0.5 rounded">{c}</span>)}
+                               {course.category?.length > 2 && <span>+{course.category.length - 2}</span>}
+                            </div>
+                          </td>
+                          <td className="p-4 text-sm text-gray-600">{course.date_display}</td>
+                          <td className="p-4 text-center">
+                            <span className={`px-3 py-1 rounded-full text-xs font-bold ${course.is_active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
+                              {course.is_active ? 'Active' : 'Hidden'}
+                            </span>
+                          </td>
+                          <td className="p-4 text-right">
+                            <button onClick={() => editCourse(course)} className="text-blue-600 hover:bg-blue-50 p-2 rounded-full mr-2 transition-colors">
+                              <Edit size={18} />
+                            </button>
+                            <button onClick={() => deleteCourse(course.id)} className="text-red-600 hover:bg-red-50 p-2 rounded-full transition-colors">
+                              <Trash2 size={18} />
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                {/* Mobile Card View */}
+                <div className="md:hidden flex flex-col divide-y divide-gray-100">
                   {courses.map(course => (
-                    <tr key={course.id} className="hover:bg-gray-50 transition-colors">
-                      <td className="p-4">
-                        {course.image_url ? (
-                          <img src={course.image_url} alt={course.title} className="w-20 h-14 object-cover rounded shadow-sm" />
-                        ) : (
-                          <div className="w-20 h-14 bg-gray-200 rounded flex items-center justify-center text-gray-400"><ImageIcon size={16} /></div>
-                        )}
-                      </td>
-                      <td className="p-4 font-bold text-[#0B3B24] max-w-xs truncate">{course.title}</td>
-                      <td className="p-4 text-xs text-gray-500">
-                        <div className="flex flex-wrap gap-1">
-                           {course.category?.slice(0,2).map((c:string) => <span key={c} className="bg-gray-200 px-2 py-0.5 rounded">{c}</span>)}
-                           {course.category?.length > 2 && <span>+{course.category.length - 2}</span>}
+                    <div key={course.id} className="flex flex-col p-4 hover:bg-gray-50 transition-colors gap-3">
+                      <div className="flex items-start gap-4">
+                        <div className="shrink-0">
+                          {course.image_url ? (
+                            <img src={course.image_url} alt={course.title} className="w-16 h-16 object-cover rounded-md shadow-sm" />
+                          ) : (
+                            <div className="w-16 h-16 bg-gray-100 rounded-md flex items-center justify-center text-gray-400"><ImageIcon size={20} /></div>
+                          )}
                         </div>
-                      </td>
-                      <td className="p-4 text-sm text-gray-600">{course.date_display}</td>
-                      <td className="p-4 text-center">
-                        <span className={`px-3 py-1 rounded-full text-xs font-bold ${course.is_active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
-                          {course.is_active ? 'Active' : 'Hidden'}
-                        </span>
-                      </td>
-                      <td className="p-4 text-right">
-                        <button onClick={() => editCourse(course)} className="text-blue-600 hover:bg-blue-50 p-2 rounded-full mr-2 transition-colors">
-                          <Edit size={18} />
-                        </button>
-                        <button onClick={() => deleteCourse(course.id)} className="text-red-600 hover:bg-red-50 p-2 rounded-full transition-colors">
-                          <Trash2 size={18} />
-                        </button>
-                      </td>
-                    </tr>
+                        <div className="flex-1 min-w-0">
+                          <h4 className="font-bold text-[#0B3B24] line-clamp-2 text-sm mb-1.5">{course.title}</h4>
+                          <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 mt-1">
+                            <span className={`px-2 py-0.5 rounded-md font-bold ${course.is_active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
+                              {course.is_active ? 'Active' : 'Hidden'}
+                            </span>
+                            <span className="truncate">{course.date_display}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
+                        <div className="flex flex-wrap gap-1">
+                           {course.category?.slice(0,2).map((c:string) => <span key={c} className="bg-gray-200 text-gray-600 px-2 py-0.5 rounded text-[10px]">{c}</span>)}
+                           {course.category?.length > 2 && <span className="text-[10px] text-gray-500">+{course.category.length - 2}</span>}
+                        </div>
+                        <div className="flex gap-2">
+                          <button onClick={() => editCourse(course)} className="text-blue-600 bg-blue-50 px-3 py-1.5 rounded-md transition-colors flex items-center gap-1 text-xs font-bold">
+                            <Edit size={14} /> Edit
+                          </button>
+                          <button onClick={() => deleteCourse(course.id)} className="text-red-600 bg-red-50 px-3 py-1.5 rounded-md transition-colors flex items-center gap-1 text-xs font-bold">
+                            <Trash2 size={14} /> Delete
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   ))}
-                </tbody>
-              </table>
+                </div>
+              </>
             )}
           </div>
         )}
