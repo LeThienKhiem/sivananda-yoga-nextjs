@@ -207,7 +207,7 @@ export default function Home() {
                 className="group relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-md md:h-[300px]"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800"
+                  src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-vacation-homepage.jpg"
                   alt="Yoga Vacation"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -230,7 +230,7 @@ export default function Home() {
                 className="group relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-md md:h-[300px]"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800"
+                  src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-teacher-training-homepage.jpg"
                   alt="Teacher Training"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -253,7 +253,7 @@ export default function Home() {
                 className="group relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-md md:h-[300px]"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1576091160550-2173ff9e5fe3?q=80&w=800"
+                  src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/Yoga_ayurveda_homepage.jpg"
                   alt="Ayurveda"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -276,7 +276,7 @@ export default function Home() {
                 className="group relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-md md:h-[300px]"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800"
+                  src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-for-holistic-health-homepage.jpg"
                   alt="Yoga for Holistic Health"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -299,7 +299,7 @@ export default function Home() {
                 className="group relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-md md:h-[300px]"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=800"
+                  src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-short-courses-homepage.jpg"
                   alt="Short Course"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -322,7 +322,7 @@ export default function Home() {
                 className="group relative flex h-[250px] w-full items-center justify-center overflow-hidden rounded-2xl shadow-md md:h-[300px]"
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=800"
+                  src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-corporate-training-homepage.jpg"
                   alt="Corporate Training"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -349,7 +349,7 @@ export default function Home() {
         >
           <div className="absolute inset-0">
             <Image
-              src="https://zjffxjmsumxcdmqslmhw.supabase.co/storage/v1/object/public/Icon/crescent-moon-sunrise-banner.jpeg"
+              src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-kindle-the-light-of-love.png"
               alt=""
               fill
               className="object-cover"
@@ -394,7 +394,7 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-stone-100 shadow-md">
                 <Image
-                  src="https://images.unsplash.com/photo-1667586745834-1d077ec9fe73"
+                  src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/sivanada_master01.jpeg"
                   alt="Swami Sivananda – yoga and meditation lineage"
                   fill
                   className="object-cover grayscale"
@@ -403,7 +403,7 @@ export default function Home() {
               </div>
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-stone-100 shadow-md">
                 <Image
-                  src="https://images.unsplash.com/photo-1590767443384-2e06da4f831c"
+                  src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/sivanada_master02.jpg"
                   alt="Traditional yoga practice"
                   fill
                   className="object-cover"
@@ -412,7 +412,7 @@ export default function Home() {
               </div>
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-stone-100 shadow-md">
                 <Image
-                  src="https://images.unsplash.com/photo-1545205597-3d9d02c29597"
+                  src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/sivanada_master03.jpg"
                   alt="Yoga and meditation heritage"
                   fill
                   className="object-cover"
@@ -421,7 +421,7 @@ export default function Home() {
               </div>
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-stone-100 shadow-md">
                 <Image
-                  src="https://images.unsplash.com/photo-1591343395902-1adcb454c4e2"
+                  src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/Swami-Sivananda-Gazing.jpg"
                   alt="Serene traditional yoga and meditation"
                   fill
                   className="object-cover"
@@ -447,7 +447,7 @@ export default function Home() {
             {/* Column 1: Tranquil Nature */}
             <div className="group relative flex-1 md:hover:flex-[2_2_0%] transition-all duration-700 ease-in-out cursor-pointer border-b md:border-b-0 md:border-r border-white/40 overflow-hidden">
               <Image 
-                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600" 
+                src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/Yoga-The-Perfect-Place-to-Learn-and-Relax-01.jpg" 
                 alt="Tranquil Nature" 
                 fill 
                 className="object-cover transition-transform duration-1000 group-hover:scale-105" 
@@ -472,7 +472,7 @@ export default function Home() {
             {/* Column 2: Authentic Teachings */}
             <div className="group relative flex-1 md:hover:flex-[2_2_0%] transition-all duration-700 ease-in-out cursor-pointer border-b md:border-b-0 md:border-r border-white/40 overflow-hidden">
               <Image 
-                src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=1600" 
+                src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/Yoga-The-Perfect-Place-to-Learn-and-Relax-02.jpg" 
                 alt="Authentic Teachings" 
                 fill 
                 className="object-cover transition-transform duration-1000 group-hover:scale-105" 
@@ -497,7 +497,7 @@ export default function Home() {
             {/* Column 3: Holistic Healing */}
             <div className="group relative flex-1 md:hover:flex-[2_2_0%] transition-all duration-700 ease-in-out cursor-pointer overflow-hidden">
               <Image 
-                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1600" 
+                src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/Yoga-The-Perfect-Place-to-Learn-and-Relax-03.jpg" 
                 alt="Holistic Healing" 
                 fill 
                 className="object-cover transition-transform duration-1000 group-hover:scale-105" 

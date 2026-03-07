@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FaqAccordion from "@/components/FaqAccordion";
 import FaqDuringStay from "@/components/FaqDuringStay";
-import ContactUs from "@/components/ContactUs";
+import ContactSection from "@/components/ContactSection";
 import EventsCarousel from "@/components/EventsCarousel";
 
 const HERO_IMAGE_URL =
@@ -43,7 +43,7 @@ export default function FrequentlyAskedQuestionsPage() {
       <main className="mb-0 bg-[#fcfaf5]">
         <FaqAccordion />
         <FaqDuringStay />
-        <ContactUs />
+        <ContactSection />
         <EventsCarousel
           title="Ready for your Own Transformation"
           subtitle="Join us for life-changing experience"

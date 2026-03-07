@@ -1,41 +1,46 @@
-import Image from "next/image";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ContactUs from "@/components/ContactUs";
+"use client";
 
-const HERO_IMAGE_URL =
-  "https://images.unsplash.com/photo-1712760152151-3c1841a07aa3";
+import React from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Image from 'next/image';
+import ContactSection from '@/components/ContactSection';
 
-export const metadata = {
-  title: "Contact Us | Sivananda Yoga Vietnam",
-  description:
-    "Get in touch with Sivananda Yoga Resort and Training Center in Da Lat, Vietnam.",
-};
+const HERO_IMAGE = "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000";
 
 export default function ContactPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <main className="min-h-screen bg-[#FDFCF8] flex flex-col">
       <Header />
-      {/* Hero banner */}
-      <section className="relative flex h-[408px] w-full shrink-0 items-center justify-center overflow-hidden">
-        <Image
-          src={HERO_IMAGE_URL}
-          alt="Serene misty lake"
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority
-        />
-        <div className="absolute inset-0 z-10 bg-black/40" aria-hidden />
-        <h1 className="relative z-20 font-serif text-4xl font-medium uppercase tracking-widest text-white md:text-6xl">
-          CONTACT US
-        </h1>
+
+      {/* 1. HERO BANNER */}
+      <section className="relative w-full flex flex-col mt-16 md:mt-0">
+        <div className="relative w-full h-[40vh] min-h-[350px] md:h-[50vh] md:min-h-[450px] z-0">
+          <Image 
+            src={HERO_IMAGE}
+            alt="Contact Sivananda Yoga Resort"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        
+        <div className="relative z-10 w-[95%] max-w-4xl mx-auto bg-[#FDFCF8] px-6 pt-10 pb-6 md:pt-14 md:pb-10 text-center -mt-16 md:-mt-24 shadow-[0_-10px_30px_rgba(253,252,248,1)]">
+          <p className="text-base md:text-lg text-gray-500 font-medium mb-3 tracking-widest uppercase">
+            We are here to help
+          </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#0B3B24] font-bold">
+            Get in Touch
+          </h1>
+        </div>
       </section>
 
-      <div className="min-h-0 flex-1">
-        <ContactUs />
-      </div>
+      {/* 2. CONTACT SECTION */}
+      <ContactSection />
+
+      <div className="flex-grow"></div>
+
       <Footer />
-    </div>
+    </main>
   );
 }
