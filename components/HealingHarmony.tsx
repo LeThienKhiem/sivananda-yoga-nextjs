@@ -3,13 +3,13 @@
 import Image from "next/image";
 
 const IMG_HANDS_HERBS =
-  "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=800&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/IMG_9749.jpg";
 const IMG_SPA_TOWELS =
-  "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1200&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ORG_DSC01192.jpg";
 const IMG_MASSAGE_OIL =
-  "https://images.unsplash.com/photo-1604085804781-04a7d1adba36";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/DSC05863.jpg";
 const IMG_SPICES =
-  "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=1200&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/IMG_9672.jpg";
 
 export default function HealingHarmony() {
   return (
@@ -41,13 +41,12 @@ export default function HealingHarmony() {
           {/* Item 3: Middle Center Text Block */}
           <div className="col-span-1 lg:col-span-4 lg:row-span-1 flex flex-col justify-center p-6 lg:p-10 bg-[#FDFCF8]">
             <h3 className="text-2xl lg:text-3xl font-serif text-[#0B3B24] mb-4 font-bold">
-              Healing in Harmony with Nature
+            Natural Healing
             </h3>
             <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
-              The science of Ayurveda emerged from in-depth study of the natural
-              world, from the elements which create everything to the rhythms of
-              the days and seasons. It is an approach to life in harmony with
-              nature.
+            Ayurveda is the science of living in sync with nature.
+            erived from studying the elements and seasonal rhythms,
+            it offers a blueprint for health through natural harmony.
             </p>
           </div>
 

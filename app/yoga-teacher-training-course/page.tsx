@@ -15,11 +15,11 @@ import MessageFromTeachers from "@/components/MessageFromTeachers";
 import AshramGallery from "@/components/AshramGallery";
 
 const HERO_IMAGE_URL =
-  "https://images.unsplash.com/photo-1524863479829-916d8e77f114";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/Yoga-The-Perfect-Place-to-Learn-and-Relax-02.jpg";
 const IMG_TTC_FOREST =
-  "https://images.unsplash.com/photo-1545205597-3d9d02c29597";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga_training_course_intro2.jpg";
 const IMG_ASANA_WORKSHOP =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga_training_course_intro.jpg";
 
 export const metadata = {
   title: "Yoga Teacher Training Course | Sivananda Yoga Vietnam",

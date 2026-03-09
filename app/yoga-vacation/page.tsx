@@ -9,19 +9,19 @@ import BoutiqueSection from "@/components/BoutiqueSection";
 import TestimonialSection from "@/components/TestimonialSection";
 
 const HERO_IMAGE_URL =
-  "https://images.unsplash.com/photo-1546587348-d12660c30c50";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-vacation-01.png";
 const IMG_YOGA_GRASS =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-vacation-02.png";
 const IMG_LINEAGE =
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/sivanada_master02.jpg";
 const IMG_FOREST_PATH =
-  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-vacation-03.png";
 const IMG_QUOTE_BANNER =
-  "https://images.unsplash.com/photo-1601314002592-b8734bca6604";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-vacation-04.png";
 const IMG_MEDITATION_NATURE =
-  "https://images.unsplash.com/photo-1447452001602-7090c7ab2db3";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-vacation-06.png";
 const IMG_YOGA_HEADSTAND =
-  "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-vacation-05.png";
 
 export const metadata = {
   title: "Yoga Vacation | Sivananda Yoga Vietnam",

@@ -7,29 +7,56 @@ import Image from "next/image";
 import Link from "next/link";
 
 const IMG_GURUS =
-  "https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=2000";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/sivanada_master04.jpg.jpg";
 const IMG_SIVANANDA =
   "https://zjffxjmsumxcdmqslmhw.supabase.co/storage/v1/object/public/Icon/Swami-Sivananda-Sivananda-Yoga-New-York.jpg";
-const IMG_FOREST =
+const IMG_SIVANANDA_QUOTE_BG =
+  "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2000";
+const IMG_SIVANANDA_MISSION_BG =
+  "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2000";
+const IMG_VISHNU_QUOTE_BG =
   "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2000";
 const IMG_LIFE_1 =
-  "https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/siva.jpg";
 const IMG_LIFE_2 =
-  "https://images.unsplash.com/photo-1533228876429-012051c514b8?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/p153.jpg";
 const IMG_LIFE_3 =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/sivanada_master01.jpeg";
 const IMG_LIFE_4 =
-  "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/Swami_Chinmayananda_on_his_day_of_Sannyas_initiation,_with_Guru_Swami_Sivananda_and_other_disciples,_Feb_25,_1949,_Maha_Shivratri_Day.jpg";
+const sivanandaImages = [IMG_LIFE_1, IMG_LIFE_2, IMG_LIFE_3, IMG_LIFE_4];
 const IMG_VISHNU =
-  "https://images.unsplash.com/photo-1555580252-8408cb833b93?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/89-V-red-shirt-diff-shot.jpg";
 const IMG_VISHNU_LIFE_1 =
-  "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/62-V-Crow-%20rishikesh-23.jpg";
+const IMG_VISHNU_LIFE_2 =
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/dhanurasana-posture-arc.webp";
+const IMG_VISHNU_LIFE_3 =
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/SwamijiMahasamadhi-1.jpg";
+const IMG_VISHNU_LIFE_4 =
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/Swami-Vishnudevananda.webp";
+const vishnudevanandaImages = [
+  IMG_VISHNU_LIFE_1,
+  IMG_VISHNU_LIFE_2,
+  IMG_VISHNU_LIFE_3,
+  IMG_VISHNU_LIFE_4,
+];
 const IMG_PLANE =
-  "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2000";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/90-V-sits-on-wing-of-peace-plane-2.jpg";
 const IMG_SITARA_1 =
-  "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/38eda06e-7fc8-49d7-91e3-b531832412a5.jpg";
 const IMG_SITARA_2 =
-  "https://images.unsplash.com/photo-1522383225653-ed111181a951?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/f8f57361-4042-47ef-b684-5489f2b579b2.png";
+const IMG_ENDURING_LEGACY_BG =
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/658b65e7-961a-4282-8f23-4bcd2788c3ed-2.jpg";
+const IMG_SITARA_PORTRAIT =
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/sw_Sita.jpg";
+const IMG_SITARA_QUOTE_BG =
+  "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2000";
+const IMG_SITARA_BOTTOM_SPLIT =
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/967eedd3-7b04-468c-a9d2-e14a7db6e.png";
+const IMG_FINAL_CTA_BG =
+  "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2000";
 
 export default function AboutPage() {
   return (
@@ -131,7 +158,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src={IMG_FOREST}
+            src={IMG_SIVANANDA_QUOTE_BG}
             alt="Forest Path"
             fill
             className="object-cover"
@@ -181,7 +208,7 @@ export default function AboutPage() {
               <div className="w-full md:w-1/2">
                 <div className="relative w-full aspect-[3/4] max-w-md mx-auto rounded-sm overflow-hidden shadow-2xl">
                   <Image
-                    src={IMG_LIFE_1}
+                    src={sivanandaImages[0]}
                     alt="Sivananda blessing"
                     fill
                     className="object-cover grayscale contrast-125"
@@ -211,7 +238,7 @@ export default function AboutPage() {
               <div className="w-full md:w-1/2">
                 <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-2xl">
                   <Image
-                    src={IMG_LIFE_2}
+                    src={sivanandaImages[1]}
                     alt="Sivananda teaching"
                     fill
                     className="object-cover grayscale contrast-125"
@@ -241,7 +268,7 @@ export default function AboutPage() {
               <div className="w-full md:w-1/2">
                 <div className="relative w-full aspect-[3/4] max-w-md mx-auto rounded-sm overflow-hidden shadow-2xl">
                   <Image
-                    src={IMG_LIFE_3}
+                    src={sivanandaImages[2]}
                     alt="Sivananda standing outdoors"
                     fill
                     className="object-cover grayscale contrast-125"
@@ -272,7 +299,7 @@ export default function AboutPage() {
               <div className="w-full md:w-1/2">
                 <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-2xl">
                   <Image
-                    src={IMG_LIFE_4}
+                    src={sivanandaImages[3]}
                     alt="Sivananda with followers"
                     fill
                     className="object-cover grayscale contrast-125"
@@ -290,7 +317,7 @@ export default function AboutPage() {
         {/* Faded Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src={IMG_FOREST}
+            src={IMG_SIVANANDA_MISSION_BG}
             alt="Forest Background"
             fill
             className="object-cover"
@@ -363,7 +390,7 @@ export default function AboutPage() {
       <section className="relative w-full h-[350px] md:h-[400px] flex items-center justify-center text-center px-6">
         <div className="absolute inset-0 z-0">
           <Image
-            src={IMG_FOREST}
+            src={IMG_VISHNU_QUOTE_BG}
             alt="Forest Path"
             fill
             className="object-cover"
@@ -409,7 +436,7 @@ export default function AboutPage() {
                 <div className="relative w-full aspect-[3/4] max-w-md mx-auto rounded-sm overflow-hidden shadow-2xl p-4 bg-white">
                   <div className="relative w-full h-full">
                     <Image
-                      src={IMG_VISHNU_LIFE_1}
+                      src={vishnudevanandaImages[0]}
                       alt="Headstand practice"
                       fill
                       className="object-cover grayscale contrast-125"
@@ -443,7 +470,7 @@ export default function AboutPage() {
               <div className="w-full md:w-1/2">
                 <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-2xl">
                   <Image
-                    src={IMG_LIFE_2}
+                    src={vishnudevanandaImages[1]}
                     alt="Himalaya Hut"
                     fill
                     className="object-cover grayscale contrast-125"
@@ -474,7 +501,7 @@ export default function AboutPage() {
               <div className="w-full md:w-1/2">
                 <div className="relative w-full aspect-[3/4] max-w-md mx-auto rounded-sm overflow-hidden shadow-2xl">
                   <Image
-                    src={IMG_LIFE_4}
+                    src={vishnudevanandaImages[2]}
                     alt="Teaching Yoga Class"
                     fill
                     className="object-cover grayscale contrast-125"
@@ -502,7 +529,7 @@ export default function AboutPage() {
               <div className="w-full md:w-1/2">
                 <div className="relative w-full aspect-[3/5] rounded-sm overflow-hidden shadow-2xl">
                   <Image
-                    src={IMG_LIFE_1}
+                    src={vishnudevanandaImages[3]}
                     alt="Walking in crowd"
                     fill
                     className="object-cover grayscale contrast-125"
@@ -555,7 +582,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src={IMG_GURUS}
+            src={IMG_ENDURING_LEGACY_BG}
             alt="An Enduring Legacy"
             fill
             className="object-cover"
@@ -621,7 +648,7 @@ export default function AboutPage() {
           <div className="w-full md:w-1/2 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md aspect-[4/5] rounded-sm overflow-hidden shadow-xl">
               <Image
-                src={IMG_LIFE_3}
+                src={IMG_SITARA_PORTRAIT}
                 alt="Swami Sitaramananda walking"
                 fill
                 className="object-cover"
@@ -636,7 +663,7 @@ export default function AboutPage() {
       <section className="relative w-full h-[250px] md:h-[300px] flex items-center justify-center text-center px-6">
         <div className="absolute inset-0 z-0">
           <Image
-            src={IMG_FOREST}
+            src={IMG_SITARA_QUOTE_BG}
             alt="Forest Path"
             fill
             className="object-cover"
@@ -745,7 +772,7 @@ export default function AboutPage() {
         {/* Right: Full Cover Image */}
         <div className="w-full md:w-1/2 relative min-h-[400px] md:min-h-full">
           <Image
-            src={IMG_GURUS}
+            src={IMG_SITARA_BOTTOM_SPLIT}
             alt="Swami Sitaramananda close up"
             fill
             className="object-cover"
@@ -759,7 +786,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src={IMG_FOREST}
+            src={IMG_FINAL_CTA_BG}
             alt="Join the Lineage"
             fill
             className="object-cover"

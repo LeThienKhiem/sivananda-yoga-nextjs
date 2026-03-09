@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const IMG_SUNRISE_URL =
-  "https://images.unsplash.com/photo-1501785888041-af3ef285b470";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner_hero_yoga_mainpage.jpg";
 
 export default function WhyChooseTTC() {
   return (

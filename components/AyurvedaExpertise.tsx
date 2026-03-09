@@ -8,7 +8,7 @@ const expertiseCards = [
     id: 1,
     title: "7-Day Ayurveda Detox Program",
     image:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop",
+      "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ayurveda-05.png",
     description:
       "This 7-day detox retreat is a harmonious blend of Yoga – Ayurveda – Meditation – Nutrition – Natural Therapy, designed to help your body rest, cleanse, and restore inner balance.\n\nThis is your opportunity to gift yourself a week of rejuvenation in the peaceful pine forests of Da Lat.",
     link: "#",
@@ -17,7 +17,7 @@ const expertiseCards = [
     id: 2,
     title: "100-Hour Ayurveda Training",
     image:
-      "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?q=80&w=800&auto=format&fit=crop",
+      "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ayurveda-06.png",
     description:
       "An intensive training course with a 100-hour certification issued by Vaidyagrama Ayurveda Healing Village (India) in collaboration with Sivananda Yoga. This course is open to anyone wishing to experience the classical Yoga & Ayurveda lifestyle. It offers foundational Ayurvedic knowledge to enhance physical and mental well-being, and equips participants to apply and share these teachings to benefit their communities.",
     link: "#",

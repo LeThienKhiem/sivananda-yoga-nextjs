@@ -461,7 +461,7 @@ export default function AdvancedTeacherTrainingPage() {
                 <div className="w-full md:w-[45%] relative z-10">
                   <div className="aspect-[4/3] md:aspect-[3/2] relative rounded-sm shadow-[0_20px_50px_rgba(0,0,0,0.15)] overflow-hidden">
                     <Image
-                      src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?q=80&w=800"
+                      src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-teaching-course-testinomial.webp"
                       alt="Sanskrit Study"
                       fill
                       className="object-cover"

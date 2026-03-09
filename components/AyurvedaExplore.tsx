@@ -6,11 +6,11 @@ import Link from "next/link";
 const IMG_YOGA_NATURE =
   "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop";
 const IMG_MASSAGE_HANDS =
-  "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=800&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ayurveda-01.png";
 const IMG_HERBS_OILS =
-  "https://images.unsplash.com/photo-1608405059861-b21a68ae76a2";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ayurveda-02.png";
 const IMG_HEAD_MASSAGE =
-  "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ayurveda-03.png";
 const IMG_LEG_MASSAGE =
   "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=800&auto=format&fit=crop";
 
@@ -21,16 +21,8 @@ export default function AyurvedaExplore() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-16">
           {/* Left Column */}
           <div className="flex flex-col gap-4 md:gap-6">
-            <div className="relative w-full aspect-square rounded-sm overflow-hidden group">
-              <Image
-                src={IMG_YOGA_NATURE}
-                alt="Yoga in nature - prana and natural energies"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-black/40 p-6 md:p-8 flex flex-col justify-center">
-                <p className="text-white text-base md:text-lg leading-relaxed">
+            <div className="w-full aspect-square rounded-sm p-6 md:p-8 flex flex-col justify-center bg-[#F4F7F0]">
+              <p className="text-black text-base md:text-lg leading-relaxed">
                   At the Yoga Resort, an abundance of natural energies infuses
                   our lives with prana (life force) — the trees, birds, ponds,
                   gardens, forest, sky, butterflies, stars — every living thing
@@ -40,8 +32,7 @@ export default function AyurvedaExplore() {
                   One of Ayurveda&apos;s core tenets is that the body&apos;s own
                   natural wisdom leads to vibrant health and the setting here
                   invites that natural wisdom to emerge.
-                </p>
-              </div>
+              </p>
             </div>
             <div className="relative w-full aspect-square rounded-sm overflow-hidden">
               <Image
@@ -76,24 +67,15 @@ export default function AyurvedaExplore() {
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
-            <div className="relative w-full aspect-square rounded-sm overflow-hidden group">
-              <Image
-                src={IMG_LEG_MASSAGE}
-                alt="Leg massage or Ayurvedic treatment"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-black/40 p-6 md:p-8 flex flex-col justify-center">
-                <p className="text-white text-base md:text-lg leading-relaxed">
+            <div className="w-full aspect-square rounded-sm p-6 md:p-8 flex flex-col justify-center bg-[#F4F7F0]">
+              <p className="text-black text-base md:text-lg leading-relaxed">
                   As daily rhythms and routines are foundational to Ayurveda, we
                   encourage anyone interested in Ayurveda to come for our Yoga
                   Vacation Program and benefit from the combination of the
                   prana-rich natural world and the Daily Schedule of meditation
                   and spiritual teachings; wholesome, nutrition-rich plant-based
                   meals; and Sivananda Yoga classes.
-                </p>
-              </div>
+              </p>
             </div>
           </div>
         </div>

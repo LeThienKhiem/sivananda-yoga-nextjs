@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const BG_IMAGE_URL =
-  "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-teaching-course-testinomial.webp";
 
 export default function EnrollTTCSection() {
   return (

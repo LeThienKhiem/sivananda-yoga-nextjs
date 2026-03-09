@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 const AYURVEDA_IMAGE_URL =
-  "https://images.unsplash.com/photo-1573497620053-ea5300f94f21";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/Yoga_ayurveda_homepage.jpg";
 export default function AyurvedaIntro() {
   return (
     <section className="bg-[#FDFCF8] py-20 md:py-28 px-6">

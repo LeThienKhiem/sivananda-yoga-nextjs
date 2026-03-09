@@ -18,7 +18,7 @@ export default function ProgramsPage() {
       <section className="relative w-full h-[600px] md:h-[700px] flex items-end justify-center">
         {/* Background Image */}
         <Image
-          src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1200&auto=format&fit=crop"
+          src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/_G5A1748.jpg"
           alt="Ayurveda Team"
           fill
           priority
