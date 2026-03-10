@@ -6,43 +6,43 @@ import Footer from "@/components/Footer";
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1400&auto=format&fit=crop";
 const IMG_SWAMI_TEACHING =
-  "https://images.unsplash.com/photo-1590767443384-2e06da4f831c?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-01.png";
 const IMG_VALLEY_OVERLOOK =
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1400&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-vacation-06.png";
 const IMG_ASANA =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-02.png";
 const IMG_CONSCIOUS =
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-03.png";
 const IMG_SPINE =
-  "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-04.png";
 const IMG_BODY_MIND =
-  "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-14.png";
 const IMG_PRANAYAMA =
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/training-01.png";
 const IMG_HA_THA =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-16.png";
 const IMG_SAVASANA =
-  "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-05.png";
 const IMG_RELAXATION_LEVELS =
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-06.png";
 const IMG_PHYSICAL_RELAXATION =
-  "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=800&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-07.png";
 const IMG_MENTAL_RELAXATION =
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-08.png";
 const IMG_SPIRITUAL_RELAXATION =
-  "https://images.unsplash.com/photo-1590767443384-2e06da4f831c?q=80&w=800&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-09.png";
 const IMG_PROPER_DIET =
-  "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1400&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-10.png";
 const IMG_SATTVIC_DIET =
-  "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-11.png";
 const IMG_AHIMSA_NATURE =
-  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-12.png";
 const IMG_POSITIVE_THINKING =
-  "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1400&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-15.png";
 const IMG_THOUGHT_MEDITATION =
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-14.png";
 const IMG_POWER_THOUGHTS =
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-13.png";
 
 export const metadata = {
   title: "The 5 Points of Yoga | Sivananda Yoga Vietnam",

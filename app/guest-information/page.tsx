@@ -10,9 +10,9 @@ import { MapPin, Phone, Mail, Clock, Plus, Navigation } from "lucide-react";
 const HERO_IMG =
   "https://images.unsplash.com/photo-1522383225653-ed111181a951?q=80&w=2000";
 const IMG_REMINDER =
-  "https://images.unsplash.com/photo-1508672019048-805c876b67e2?q=80&w=1000";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-15.png";
 const IMG_MINDFUL =
-  "https://images.unsplash.com/photo-1543807535-eceef0bc6599?q=80&w=1000";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-16.png";
 
 export default function GuestInformationPage() {
   return (

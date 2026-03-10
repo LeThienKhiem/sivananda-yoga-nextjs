@@ -4,11 +4,15 @@ import React, { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+import Link from "next/link";
 import { Wifi, Wind, Users, Droplets, Coffee } from "lucide-react";
+
+const BOOK_TTC_URL =
+  "https://sivanandayogavietnam.secure.retreat.guru/program/yoga-teachers-training-course-march-2026-2027/?form=1&lang=en";
 
 // --- IMAGE URLS (plain) ---
 const HERO_IMG =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/accom-07.png";
 const ROOM1_IMGS = [
   "https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=1600",
   "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800",
@@ -24,9 +28,9 @@ const ROOM2_IMGS = [
   "https://images.unsplash.com/photo-1499916078039-922301b0eb9b?q=80&w=800",
 ];
 const MEAL_IMGS = [
-  "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=1600",
-  "https://images.unsplash.com/photo-1505935428862-770b6f24f629?q=80&w=1600",
-  "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1600",
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/accom-01.png",
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/accom-02.png",
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/accom-03.png",
 ];
 const GALLERY_LOTUS =
   "https://images.unsplash.com/photo-1464692805480-a69dfaafdb0d?q=80&w=800";
@@ -191,9 +195,9 @@ export default function AccommodationsPage() {
 
               <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-gray-200 gap-4">
                 <p className="text-xl font-serif font-bold text-[#0B3B24]">{rooms[0].price}</p>
-                <button type="button" className="bg-[#ED7D4D] text-white px-8 py-3 font-bold text-base tracking-widest uppercase rounded-sm hover:bg-orange-600 transition-colors w-full sm:w-auto text-center shadow-md">
+                <Link href={BOOK_TTC_URL} target="_blank" rel="noopener noreferrer" className="bg-[#ED7D4D] text-white px-8 py-3 font-bold text-base tracking-widest uppercase rounded-sm hover:bg-orange-600 transition-colors w-full sm:w-auto text-center shadow-md inline-block">
                   Book Now
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -225,9 +229,9 @@ export default function AccommodationsPage() {
 
               <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-gray-200 gap-4">
                 <p className="text-xl font-serif font-bold text-[#0B3B24]">{rooms[1].price}</p>
-                <button type="button" className="bg-[#ED7D4D] text-white px-8 py-3 font-bold text-base tracking-widest uppercase rounded-sm hover:bg-orange-600 transition-colors w-full sm:w-auto text-center shadow-md">
+                <Link href={BOOK_TTC_URL} target="_blank" rel="noopener noreferrer" className="bg-[#ED7D4D] text-white px-8 py-3 font-bold text-base tracking-widest uppercase rounded-sm hover:bg-orange-600 transition-colors w-full sm:w-auto text-center shadow-md inline-block">
                   Book Now
-                </button>
+                </Link>
               </div>
             </div>
           </div>

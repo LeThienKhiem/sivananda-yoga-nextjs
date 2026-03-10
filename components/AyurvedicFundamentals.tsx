@@ -62,7 +62,7 @@ export default function AyurvedicFundamentals() {
         </h2>
       </div>
 
-      <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-12 scroll-smooth [&::-webkit-scrollbar]:hidden">
+      <div className="flex justify-center gap-6 overflow-x-auto snap-x snap-mandatory pb-12 scroll-smooth [&::-webkit-scrollbar]:hidden">
         {fundamentalData.map((item) => (
           <div
             key={item.id}

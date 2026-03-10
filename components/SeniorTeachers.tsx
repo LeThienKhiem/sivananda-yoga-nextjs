@@ -1,44 +1,41 @@
 import Image from "next/image";
 
-const IMG_TEACHER =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600";
-
 const seniorTeachers = [
   {
     name: "Swami Sitaramananda",
     role: "Acharya of Asia",
     bio: "A devoted disciple of Swami Vishnudevananda since 1982, serves as the Acharya (senior teacher) for Sivananda centers in the West, including the U.S. and Asia.",
-    image: IMG_TEACHER,
+    image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/teacher01.png",
   },
   {
     name: "Swami Narayanananda",
     role: "Director of Sivananda Yoga Ashram",
     bio: "A devoted disciple of Swami Vishnudevananda with over 20 years of teaching experience worldwide.",
-    image: IMG_TEACHER,
+    image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/teacher04.png",
   },
   {
     name: "Swami Pranavananda",
     role: "Senior Teacher of Sivananda Yoga",
     bio: "A devoted disciple with over 20 years of teaching experience, dedicated to spreading the teachings of Vedanta.",
-    image: IMG_TEACHER,
+    image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/teacher02.png",
   },
   {
     name: "Swami Lalitananda",
     role: "Director of Sivananda Yoga Hochiminh Center",
     bio: "A devoted practitioner guiding the community with deep knowledge of Hatha Yoga and Ayurveda.",
-    image: IMG_TEACHER,
+    image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/teacher05.png",
   },
   {
     name: "Swami Dharmananda",
     role: "Director of Sivananda Yoga Dalat Center",
     bio: "Guiding students with wisdom and compassion, focusing on the practical application of yoga in daily life.",
-    image: IMG_TEACHER,
+    image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/teacher03.png",
   },
   {
     name: "Swami Vidyananda",
     role: "Director of Sivananda Yoga Hanoi Center",
     bio: "Dedicated to sharing the light of yoga philosophy and establishing a strong spiritual community in the capital.",
-    image: IMG_TEACHER,
+    image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/teacher06.png",
   },
 ];
 

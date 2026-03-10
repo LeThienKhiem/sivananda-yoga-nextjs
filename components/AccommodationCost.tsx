@@ -2,6 +2,10 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+
+const BOOK_TTC_URL =
+  "https://sivanandayogavietnam.secure.retreat.guru/program/yoga-teachers-training-course-march-2026-2027/?form=1&lang=en";
 
 const accommodations = [
   {
@@ -113,12 +117,14 @@ export default function AccommodationCost() {
                   {activeAcc.price}
                 </p>
               </div>
-              <button
-                type="button"
-                className="shrink-0 rounded-sm bg-[#ED7D4D] px-6 py-3 text-base font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600 md:px-8 md:py-4 md:text-base"
+              <Link
+                href={BOOK_TTC_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 rounded-sm bg-[#ED7D4D] px-6 py-3 text-base font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600 md:px-8 md:py-4 md:text-base inline-block"
               >
                 Book Now
-              </button>
+              </Link>
             </div>
           </div>
         </div>

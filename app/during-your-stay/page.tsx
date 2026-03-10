@@ -11,17 +11,17 @@ import { Check } from "lucide-react";
 const HERO_IMG =
   "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000";
 const IMG_DAILY =
-  "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/during-stay-01.png";
 const IMG_SCHEDULE_INLINE =
-  "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?q=80&w=400";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/during-stay-02.png";
 const IMG_YOGA_CLASS =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/during-stay-03.png";
 const IMG_SAVASANA =
-  "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/during-stay-04.png";
 const IMG_SATSANG =
-  "https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-05.png";
 const IMG_MEALS =
-  "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-10.png";
 
 const schedule = [
   { time: "5:30 am", activity: "Wake up bell" },

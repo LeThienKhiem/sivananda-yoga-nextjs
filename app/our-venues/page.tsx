@@ -9,32 +9,32 @@ import Link from "next/link";
 
 // --- Image URLs ---
 const HERO_IMG =
-  "https://images.unsplash.com/photo-1542385151-efd9000785a0?q=80&w=2000";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/venue-06.png";
 const COLLAGE_LEFT =
-  "https://images.unsplash.com/photo-1543807535-eceef0bc6599?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-16.png";
 const COLLAGE_MID1 =
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-04.png";
 const COLLAGE_MID2 =
-  "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-15.png";
 const BANNER_MEALS =
-  "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2000";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/venue-07.png";
 const BOUTIQUE_1 =
-  "https://images.unsplash.com/photo-1767431199061-3237ddd5de9f";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/boutique-01.png";
 const BOUTIQUE_2 =
-  "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?q=80&w=600";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/vacation-02.png";
 const BOUTIQUE_WIDE =
-  "https://images.unsplash.com/photo-1508672019048-805c876b67e2?q=80&w=1000";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/vacation-01.png";
 const CTA_VACATION =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-vacation-03.png";
 const CTA_TTC =
-  "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-11.png";
 
 const VENUE_IMGS = [
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600",
-  "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1600",
-  "https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=1600",
-  "https://images.unsplash.com/photo-1772536888848-c0e7f0f6cf39",
-  "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1600",
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/venue-01.png",
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/venue-02.png",
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/venue-03.png",
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/venue-04.png",
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/venue-05.png",
 ];
 
 const venues = [

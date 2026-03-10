@@ -8,20 +8,18 @@ import Link from "next/link";
 import SeniorTeachers from "@/components/SeniorTeachers";
 
 const IMG_HERO =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000";
-const IMG_TEACHER =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner-hero-staff-02.png";
 
 const seniorStaffs = [
-  { name: "Narayana Chaitanya", role: "Director of Sivananda Center", image: IMG_TEACHER },
-  { name: "Yoga Saraswati", role: "Director of Hochiminh Center", image: IMG_TEACHER },
-  { name: "Shambho Hari Hari", role: "Director of Yoga Vacation", image: IMG_TEACHER },
-  { name: "Radha Thanh Ngoc", role: "Senior Staff", image: IMG_TEACHER },
-  { name: "Ambika Chaitanya", role: "Senior Staff", image: IMG_TEACHER },
-  { name: "Krishna Chaitanya", role: "Senior Staff", image: IMG_TEACHER },
-  { name: "Atmaram Chaitanya", role: "Senior Staff", image: IMG_TEACHER },
-  { name: "Anandamayi Chaitanya", role: "Senior Staff", image: IMG_TEACHER },
-  { name: "Karuna Chaitanya", role: "Senior Staff", image: IMG_TEACHER },
+  { name: "Narayana Chaitanya", role: "Director of Sivananda Center", image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/staff-08.png" },
+  { name: "Yoga Saraswati", role: "Director of Hochiminh Center", image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/staff-09.png" },
+  { name: "Shambho Hari Hari", role: "Director of Yoga Vacation", image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/staff-07.png" },
+  { name: "Radha Thanh Ngoc", role: "Senior Staff", image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/staff-06.png" },
+  { name: "Ambika Chaitanya", role: "Senior Staff", image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/staff-01.png" },
+  { name: "Krishna Chaitanya", role: "Senior Staff", image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/staff-05.png" },
+  { name: "Atmaram Chaitanya", role: "Senior Staff", image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/staff-02.png" },
+  { name: "Anandamayi Chaitanya", role: "Senior Staff", image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/staff-03.png" },
+  { name: "Karuna Chaitanya", role: "Senior Staff", image: "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/staff-04.png" },
 ];
 
 export default function OurTeachersPage() {
@@ -30,7 +28,7 @@ export default function OurTeachersPage() {
       <Header />
 
       {/* 1. HERO BANNER */}
-      <section className="relative w-full h-[40vh] min-h-[300px] flex items-center justify-center">
+      <section className="relative w-full min-h-screen flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <Image
             src={IMG_HERO}
