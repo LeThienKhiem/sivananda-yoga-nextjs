@@ -3,11 +3,11 @@
 import Image from "next/image";
 
 const IMG_COBRA_POSE =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/training-06.png";
 const IMG_GURUS =
-  "https://images.unsplash.com/photo-1590767443384-2e06da4f831c?q=80&w=800&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/sivanada_master02.jpg";
 const IMG_PINE_FOREST =
-  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4FxIi7Ms.jpeg";
 
 export default function ClassicalYogaPurpose() {
   return (

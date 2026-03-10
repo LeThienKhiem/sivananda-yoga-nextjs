@@ -11,7 +11,7 @@ const foundations = [
     description:
       "The four paths of yoga according to Swami Sivananda are Karma Yoga (selfless service), Bhakti Yoga (devotion), Raja Yoga (meditation), and Jnana Yoga (knowledge of the Self).",
     image:
-      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1000&auto=format&fit=crop",
+      "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/training-04.png",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const foundations = [
     description:
       "The 5 Points of Yoga by Swami Vishnudevananda are: proper exercise, proper breathing, proper relaxation, proper diet, and positive thinking with meditation—forming a complete system for physical and mental well-being.",
     image:
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop",
+    "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/training-05.png",
   },
 ];
 

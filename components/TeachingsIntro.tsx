@@ -3,9 +3,9 @@
 import Image from "next/image";
 
 const IMG_PRANAYAMA =
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/training-01.png";
 const IMG_STUDY_GROUP =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/training-02.png";
 
 export default function TeachingsIntro() {
   return (

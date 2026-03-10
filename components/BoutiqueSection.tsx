@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 const IMG_BOUTIQUE_SHELF =
-  "https://images.unsplash.com/photo-1542838132-92c53300491e";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/vacation-02.png";
 const IMG_CLOTHES_BROWSING =
-  "https://images.unsplash.com/photo-1441986300917-64674bd600d8";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/vacation-01.png";
 
 export default function BoutiqueSection() {
   return (

@@ -11,35 +11,35 @@ import Link from "next/link";
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1600";
 const IMG_INTRO =
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-01.png";
 const IMG_KARMA =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-12.png";
 const IMG_BHAKTI =
-  "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=600&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-13.png";
 const IMG_RAJA =
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=600&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-14.png";
 const IMG_JNANA =
-  "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=600&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-15.png";
 const IMG_TESTIMONIAL_BG =
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1600&auto=format&fit=crop";
 const IMG_KARMA_AERIAL =
-  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-02.png";
 const IMG_KARMA_TRAIL =
-  "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-03.png";
 const IMG_BHAKTI_QUOTE =
   "https://images.unsplash.com/photo-1473773508845-188df298d2d1?q=80&w=1600";
 const IMG_BHAKTI_LILY =
-  "https://images.unsplash.com/photo-1761839257513-a921710a4291";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-05.png";
 const IMG_BHAKTI_LOVE =
-  "https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=800&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-16.png";
 const IMG_RAJA_TOP =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-07.png";
 const IMG_RAJA_BOTTOM =
   "https://images.unsplash.com/photo-1522383225653-ed111181a951?q=80&w=1600";
 const IMG_RAJA_DISCIPLINE =
-  "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=800&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-08.png";
 const IMG_RAJA_CONCENTRATION =
-  "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-09.png";
 const IMG_ASHTANGA_FOREST =
   "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1600";
 const IMG_JNANA_LOTUS =
