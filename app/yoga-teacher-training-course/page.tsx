@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import EnrollTTCSection from "@/components/EnrollTTCSection";
 import WhyChooseTTC from "@/components/WhyChooseTTC";
 import BenefitsTTC from "@/components/BenefitsTTC";
-import EventsCarousel from "@/components/EventsCarousel";
+import UpcomingEvents from "@/components/UpcomingEvents";
 import CoursePackageSection from "@/components/CoursePackageSection";
 import CurriculumSection from "@/components/CurriculumSection";
 import DailySchedule from "@/components/DailySchedule";
@@ -183,7 +183,7 @@ export default function TeacherTrainingPage() {
         <DailySchedule />
 
         <section className="py-24 bg-[#fcfaf5]" aria-label="Upcoming events">
-          <EventsCarousel title="Upcoming Events" />
+          <UpcomingEvents />
         </section>
 
         <TTCTestimonials />

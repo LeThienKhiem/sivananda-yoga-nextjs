@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import AnimatedNumber from "@/components/AnimatedNumber";
-import EventsCarousel from "@/components/EventsCarousel";
+import UpcomingEvents from "@/components/UpcomingEvents";
 import TestimonialsCarousel2 from "@/components/TestimonialsCarousel2";
+import YogaInsights from "@/components/YogaInsights";
 import Footer from "@/components/Footer";
 
 const HERO_IMAGE_URL =
@@ -522,185 +523,13 @@ export default function Home() {
           </div>
         </section>
 
-        <EventsCarousel />
-
-        {/* Blog section – placeholder for future database-driven posts */}
-        <section id="blog" className="bg-[#f9f7f2] py-20">
-          <div className="mx-auto max-w-[1440px] px-4 lg:px-8">
-            <h2 className="font-serif text-3xl font-bold text-center text-[#1e5c2b] md:text-4xl">
-              YOGA INSIGHTS & STORIES
-            </h2>
-            <p className="mt-4 mb-12 text-center text-gray-600">
-              Explore articles on yoga philosophy, health, and spiritual lifestyle.
-            </p>
-
-            {(() => {
-              const BLOG_MOCKUPS: Array<{
-                id: number;
-                title: string;
-                excerpt: string;
-                category: string;
-                image: string;
-                imageW: number;
-                imageH: number;
-                date: string;
-              }> = [
-                {
-                  id: 1,
-                  title: "5 Benefits of Morning Meditation",
-                  excerpt:
-                    "Starting your day with meditation can transform your mental clarity and emotional balance. Discover how a few minutes of stillness can set a positive tone for the entire day.",
-                  category: "Wellness",
-                  image:
-                    "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=600",
-                  imageW: 800,
-                  imageH: 600,
-                  date: "Feb 28, 2025",
-                },
-                {
-                  id: 2,
-                  title: "Understanding Karma Yoga",
-                  excerpt:
-                    "Karma Yoga is the path of selfless action and service. Learn how practicing without attachment to results can lead to inner freedom and spiritual growth.",
-                  category: "Philosophy",
-                  image:
-                    "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=900",
-                  imageW: 600,
-                  imageH: 900,
-                  date: "Feb 25, 2025",
-                },
-                {
-                  id: 3,
-                  title: "Sattvic Diet Guide",
-                  excerpt:
-                    "A Sattvic diet nourishes the body and calms the mind. Explore the principles of pure, natural foods that support a yogic lifestyle and enhance meditation.",
-                  category: "Diet",
-                  image:
-                    "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&h=500",
-                  imageW: 800,
-                  imageH: 500,
-                  date: "Feb 22, 2025",
-                },
-                {
-                  id: 4,
-                  title: "The Art of Pranayama",
-                  excerpt:
-                    "Breath is the bridge between body and mind. Discover ancient breathing techniques that can reduce stress, increase vitality, and prepare you for deep meditation.",
-                  category: "Asana",
-                  image:
-                    "https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&h=800",
-                  imageW: 600,
-                  imageH: 800,
-                  date: "Feb 18, 2025",
-                },
-                {
-                  id: 5,
-                  title: "Finding Inner Peace Through Asana",
-                  excerpt:
-                    "Physical postures are more than exercise—they are a gateway to stillness. Learn how a consistent asana practice can quiet the mind and open the heart.",
-                  category: "Asana",
-                  image:
-                    "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=800&h=600",
-                  imageW: 800,
-                  imageH: 600,
-                  date: "Feb 15, 2025",
-                },
-                {
-                  id: 6,
-                  title: "Bhagavad Gita: Wisdom for Modern Life",
-                  excerpt:
-                    "The timeless teachings of the Gita offer practical guidance for navigating life's challenges. Explore how ancient wisdom applies to your daily decisions and relationships.",
-                  category: "Philosophy",
-                  image:
-                    "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=600&h=900",
-                  imageW: 600,
-                  imageH: 900,
-                  date: "Feb 12, 2025",
-                },
-                {
-                  id: 7,
-                  title: "Yoga for Better Sleep",
-                  excerpt:
-                    "Struggling with insomnia? Gentle yoga poses and relaxation techniques can prepare your nervous system for restful, restorative sleep. Try these bedtime routines.",
-                  category: "Wellness",
-                  image:
-                    "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=800&h=500",
-                  imageW: 800,
-                  imageH: 500,
-                  date: "Feb 8, 2025",
-                },
-                {
-                  id: 8,
-                  title: "Ayurveda and Your Dosha",
-                  excerpt:
-                    "Understanding your unique constitution can help you make better lifestyle choices. Discover the three doshas and how to balance them through diet and daily routine.",
-                  category: "Diet",
-                  image:
-                    "https://images.unsplash.com/photo-1591343395902-1adcb454c4e2?w=600&h=800",
-                  imageW: 600,
-                  imageH: 800,
-                  date: "Feb 5, 2025",
-                },
-              ];
-
-              return (
-                <>
-                  <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6">
-                    {BLOG_MOCKUPS.map((post) => (
-                      <article
-                        key={post.id}
-                        className="break-inside-avoid mb-6 rounded-2xl border border-gray-100 bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl"
-                      >
-                        <div className="relative w-full">
-                          <Image
-                            src={post.image}
-                            alt={post.title}
-                            width={post.imageW}
-                            height={post.imageH}
-                            className="w-full h-auto object-cover"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                          />
-                        </div>
-                        <div className="p-6">
-                          <div className="flex flex-wrap items-center gap-2">
-                            <span className="text-base font-semibold uppercase tracking-wide text-[#1e5c2b]">
-                              {post.category}
-                            </span>
-                            <span className="text-base text-gray-500">
-                              {post.date}
-                            </span>
-                          </div>
-                          <h3 className="mt-3 mb-2 text-2xl font-bold text-stone-800">
-                            {post.title}
-                          </h3>
-                          <p className="text-base text-gray-600 line-clamp-3">
-                            {post.excerpt}
-                          </p>
-                          <Link
-                            href="#"
-                            className="mt-4 inline-block font-medium text-[#1e5c2b] transition hover:underline"
-                          >
-                            Read more →
-                          </Link>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                  <div className="mt-12 flex justify-center">
-                    <Link
-                      href="#"
-                      className="rounded-lg border-2 border-[#1e5c2b] bg-[#1e5c2b] px-8 py-4 font-semibold text-white shadow-sm transition hover:bg-[#1e5c2b]/90 hover:shadow-md"
-                    >
-                      VIEW ALL POSTS
-                    </Link>
-                  </div>
-                </>
-              );
-            })()}
-        </div>
-        </section>
+        <UpcomingEvents />
 
         <TestimonialsCarousel2 />
+
+        {/* 7. YOGA INSIGHTS (BLOGS MASONRY) */}
+        <YogaInsights />
+
         <Footer />
       </main>
     </>

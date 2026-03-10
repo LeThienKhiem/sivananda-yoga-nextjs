@@ -3,7 +3,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DailySchedule from "@/components/DailySchedule";
-import EventsCarousel from "@/components/EventsCarousel";
+import UpcomingEvents from "@/components/UpcomingEvents";
 import AccommodationCost from "@/components/AccommodationCost";
 import BoutiqueSection from "@/components/BoutiqueSection";
 import TestimonialSection from "@/components/TestimonialSection";
@@ -232,7 +232,7 @@ export default function YogaVacationPage() {
         </section>
 
         <DailySchedule />
-        <EventsCarousel title="Upcoming Events" />
+        <UpcomingEvents />
         <AccommodationCost />
         <BoutiqueSection />
         <TestimonialSection />

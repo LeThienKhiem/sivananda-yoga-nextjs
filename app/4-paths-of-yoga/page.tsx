@@ -3,7 +3,7 @@
 import React from "react";
 import Header from "@/components/Header";
 import KarmaYogaTabs from "@/components/KarmaYogaTabs";
-import EventsCarousel from "@/components/EventsCarousel";
+import UpcomingEvents from "@/components/UpcomingEvents";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
@@ -647,7 +647,7 @@ export default function FourPathsOfYogaPage() {
 
       {/* Upcoming Events */}
       <section className="py-24" aria-label="Upcoming events">
-        <EventsCarousel title="Upcoming Events" />
+        <UpcomingEvents />
       </section>
 
       <Footer />

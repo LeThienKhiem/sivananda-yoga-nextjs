@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import EventsCarousel from "@/components/EventsCarousel";
+import UpcomingEvents from "@/components/UpcomingEvents";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import MoreInformationVi from "@/components/MoreInformationVi";
@@ -188,7 +188,7 @@ export default function SyhetPracticuumPage() {
 
       {/* 6. UPCOMING EVENTS SECTION */}
       <div className="bg-[#FDFCF8] py-12">
-        <EventsCarousel title="Upcoming Events" />
+        <UpcomingEvents />
       </div>
 
       {/* 7. MORE INFORMATION SECTION (VIETNAMESE) */}

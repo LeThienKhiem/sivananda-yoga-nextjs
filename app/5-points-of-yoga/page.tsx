@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Header from "@/components/Header";
-import EventsCarousel from "@/components/EventsCarousel";
+import UpcomingEvents from "@/components/UpcomingEvents";
 import Footer from "@/components/Footer";
 
 const HERO_IMAGE =
@@ -573,7 +573,7 @@ export default function FivePointsOfYogaPage() {
 
         {/* Upcoming Events */}
         <section className="py-24" aria-label="Upcoming events">
-          <EventsCarousel title="Upcoming Events" />
+          <UpcomingEvents />
         </section>
       </main>
       <Footer />

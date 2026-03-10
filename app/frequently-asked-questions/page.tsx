@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import FaqAccordion from "@/components/FaqAccordion";
 import FaqDuringStay from "@/components/FaqDuringStay";
 import ContactSection from "@/components/ContactSection";
-import EventsCarousel from "@/components/EventsCarousel";
+import UpcomingEvents from "@/components/UpcomingEvents";
 
 const HERO_IMAGE_URL =
   "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843";
@@ -44,10 +44,7 @@ export default function FrequentlyAskedQuestionsPage() {
         <FaqAccordion />
         <FaqDuringStay />
         <ContactSection />
-        <EventsCarousel
-          title="Ready for your Own Transformation"
-          subtitle="Join us for life-changing experience"
-        />
+        <UpcomingEvents />
         <Footer />
       </main>
     </>
