@@ -70,8 +70,9 @@ const MEGA_MENUS: Record<string, MegaMenuColumn[]> = {
     {
       header: "OUR TEACHER",
       links: [
-        { label: "GURU", href: "/about" },
         { label: "Our Teachers", href: "/our-teachers" },
+        { label: "Mission & Vision", href: "/Mission-Vision" },
+        { label: "Sivananda Lineage", href: "/Sivananda-Lineage" },
       ],
     },
     {
