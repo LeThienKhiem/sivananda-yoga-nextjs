@@ -1,9 +1,13 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Image from "next/image";
+
+const DONATION_URL =
+  "https://sivanandayogavietnam.secure.retreat.guru/program/gift-certificate-yoga-peace-and-well-being/?form=1&lang=en";
 
 export default function DonationPage() {
   return (
@@ -66,9 +70,14 @@ export default function DonationPage() {
             <p className="text-[#4A4A4A] text-sm md:text-base leading-relaxed mb-8">
               Your donation helps dedicated individuals access transformative yoga education, regardless of their financial circumstances. It supports scholarships for the Yoga Teacher Training Course (TTC) and tuition reductions for other programs, allowing more people to benefit from the tools of self-healing, clarity, and inner peace. By giving, you help spread the light of yoga and empower others to grow, serve, and uplift their communities.
             </p>
-            <button className="bg-[#ED7D4D] text-white font-bold uppercase tracking-widest text-xs md:text-sm px-8 py-3.5 rounded-sm hover:bg-orange-600 transition-colors shadow-md">
+            <Link
+              href={DONATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-[#ED7D4D] text-white font-bold uppercase tracking-widest text-xs md:text-sm px-8 py-3.5 rounded-sm hover:bg-orange-600 transition-colors shadow-md"
+            >
               Donate Now
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -126,9 +135,14 @@ export default function DonationPage() {
             <p className="text-[#4A4A4A] text-sm md:text-base leading-relaxed mb-8">
               Your general donation helps sustain the living heart of the Ashram—a community dedicated to learning, practice, and inner transformation. It supports the ongoing needs of daily operations. Your gift also contributes to the responsible evolution and future development of this sacred space, ensuring it remains a place of light, discipline, and peace for generations to come.
             </p>
-            <button className="bg-[#ED7D4D] text-white font-bold uppercase tracking-widest text-xs md:text-sm px-8 py-3.5 rounded-sm hover:bg-orange-600 transition-colors shadow-md">
+            <Link
+              href={DONATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-[#ED7D4D] text-white font-bold uppercase tracking-widest text-xs md:text-sm px-8 py-3.5 rounded-sm hover:bg-orange-600 transition-colors shadow-md"
+            >
               Donate Now
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -225,9 +239,14 @@ export default function DonationPage() {
 
           {/* Final CTA Button */}
           <div className="text-center">
-            <button className="bg-[#ED7D4D] text-white font-bold uppercase tracking-widest text-sm md:text-base px-14 py-4 rounded-sm hover:bg-orange-600 transition-colors shadow-lg">
-              Donate Now
-            </button>
+            <Link
+            href={DONATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#ED7D4D] text-white font-bold uppercase tracking-widest text-sm md:text-base px-14 py-4 rounded-sm hover:bg-orange-600 transition-colors shadow-lg"
+          >
+            Donate Now
+          </Link>
           </div>
         </div>
       </section>
