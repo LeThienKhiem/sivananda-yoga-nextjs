@@ -188,8 +188,11 @@ export default function CoursesPage() {
               </div>
             ) : (
               courses.map((course, idx) => (
-                <div key={course.id} className="bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row overflow-hidden group hover:shadow-md transition-shadow">
-                  
+                <Link
+                  key={course.id}
+                  href={`/syhet-courses/${course.slug || course.id}`}
+                  className="bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row overflow-hidden group hover:shadow-md transition-shadow block"
+                >
                   {/* Course Image */}
                   <div className="relative w-full md:w-[35%] lg:w-[40%] aspect-video md:aspect-auto min-h-[220px] overflow-hidden bg-gray-100">
                     {course.image_url && (
@@ -201,7 +204,11 @@ export default function CoursesPage() {
                       />
                     )}
                     {/* Favorite Icon */}
-                    <button className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 transition-colors shadow-sm">
+                    <button
+                      type="button"
+                      onClick={(e) => e.preventDefault()}
+                      className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 transition-colors shadow-sm"
+                    >
                       <Heart size={16} className={idx === 1 ? 'fill-red-500 text-red-500' : ''} />
                     </button>
                   </div>
@@ -212,7 +219,7 @@ export default function CoursesPage() {
                       {course.price_display}
                     </p>
                     
-                    <h3 className="text-xl md:text-2xl font-serif text-[#0B3B24] font-bold mb-6 line-clamp-2">
+                    <h3 className="text-xl md:text-2xl font-serif text-[#0B3B24] font-bold mb-6 line-clamp-2 group-hover:text-[#4F6F1F] transition-colors">
                       {course.title}
                     </h3>
                     
@@ -227,17 +234,26 @@ export default function CoursesPage() {
                       </div>
                     </div>
 
-                    {/* Register Button/Link */}
-                    <div className="mt-auto flex justify-end">
-                      <Link href={course.registration_link || '#'}>
-                        <button className="bg-transparent border border-[#0B3B24] text-[#0B3B24] hover:bg-[#0B3B24] hover:text-white px-6 py-2 rounded font-bold text-xs tracking-widest uppercase transition-all">
+                    {/* Action buttons - Register opens external, card click goes to detail */}
+                    <div className="mt-auto flex justify-end gap-3">
+                      {course.registration_link && (
+                        <a
+                          href={course.registration_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="bg-transparent border border-[#0B3B24] text-[#0B3B24] hover:bg-[#0B3B24] hover:text-white px-6 py-2 rounded font-bold text-xs tracking-widest uppercase transition-all"
+                        >
                           Register Now
-                        </button>
-                      </Link>
+                        </a>
+                      )}
+                      <span className="bg-[#0B3B24] text-white px-6 py-2 rounded font-bold text-xs tracking-widest uppercase">
+                        View Details →
+                      </span>
                     </div>
                   </div>
 
-                </div>
+                </Link>
               ))
             )}
           </div>
