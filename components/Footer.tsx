@@ -201,16 +201,22 @@ export default function Footer() {
             <div>
               <nav className="mb-4 flex flex-col space-y-2 lg:mb-8 lg:space-y-4 text-base lg:text-base">
                 <Link
-                  href="/faqs"
+                  href="/frequently-asked-questions"
                   className={`${FOOTER_LINK} font-semibold text-white`}
                 >
                   FAQs
                 </Link>
                 <Link
-                  href="/terms"
+                  href="/misconduct-policy"
                   className={`${FOOTER_LINK} font-semibold text-white`}
                 >
-                  Terms & Policies
+                  Misconduct Policy
+                </Link>
+                <Link
+                  href="/privacy-policy"
+                  className={`${FOOTER_LINK} font-semibold text-white`}
+                >
+                  Privacy Policy
                 </Link>
                 <Link
                   href="/donation"

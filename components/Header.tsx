@@ -91,6 +91,15 @@ const MEGA_MENUS: Record<string, MegaMenuColumn[]> = {
       ],
     },
   ],
+  "CONTACT US": [
+    {
+      header: "CONTACT US",
+      links: [
+        { label: "Contact Da Lat Ashram", href: "/contact" },
+        { label: "International Community", href: "/community" },
+      ],
+    },
+  ],
 };
 
 const NAV_LINKS = [
@@ -104,7 +113,17 @@ const NAV_LINKS = [
 
 function MegaMenuDropdown({ columns }: { columns: MegaMenuColumn[] }) {
   const widthClass =
-    columns.length >= 3 ? "w-[900px]" : columns.length === 2 ? "w-[700px]" : "w-[500px]";
+    columns.length >= 3
+      ? "w-[900px]"
+      : columns.length === 2
+        ? "w-[700px]"
+        : "w-[320px]";
+  const gridClass =
+    columns.length >= 3
+      ? "grid-cols-3"
+      : columns.length === 2
+        ? "grid-cols-2"
+        : "grid-cols-1";
   return (
     <div
       className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out"
@@ -114,9 +133,7 @@ function MegaMenuDropdown({ columns }: { columns: MegaMenuColumn[] }) {
         className={`${widthClass} overflow-hidden rounded-2xl border border-gray-100 bg-[#FDFCF8] shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative`}
       >
         <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
-        <div
-          className={`grid gap-8 p-8 ${columns.length >= 3 ? "grid-cols-3" : "grid-cols-2"}`}
-        >
+        <div className={`grid gap-8 p-8 ${gridClass}`}>
           {columns.map((col) => (
             <div key={col.header}>
               <h4 className="mb-5 border-b border-gray-200 pb-2 text-xs font-bold uppercase tracking-widest text-gray-400">
@@ -129,7 +146,7 @@ function MegaMenuDropdown({ columns }: { columns: MegaMenuColumn[] }) {
                       href={link.href}
                       className="group/link flex items-center justify-between rounded-lg p-3 transition-all duration-300 hover:bg-white hover:shadow-sm"
                     >
-                      <span className="font-medium text-[#0B3B24] transition-colors group-hover/link:text-[#ED7D4D]">
+                      <span className="whitespace-nowrap font-medium text-[#0B3B24] transition-colors group-hover/link:text-[#ED7D4D]">
                         {link.label}
                       </span>
                       <ArrowRight className="h-4 w-4 -translate-x-2 text-[#ED7D4D] opacity-0 transition-all duration-300 group-hover/link:translate-x-0 group-hover/link:opacity-100" />
