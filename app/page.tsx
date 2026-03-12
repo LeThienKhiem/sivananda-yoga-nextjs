@@ -123,7 +123,7 @@ export default function Home() {
             </p>
             <Link
               href="/yoga-vacation"
-              className="mt-6 inline-block rounded-lg border border-orange-400/50 bg-white/10 px-8 py-4 font-bold uppercase tracking-wider text-white shadow-[0_0_25px_rgba(249,115,22,0.5)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-orange-400 hover:bg-white/20 hover:shadow-[0_0_35px_rgba(249,115,22,0.7)]"
+              className="mt-6 inline-block rounded-lg border border-orange-400/50 bg-white/10 px-8 py-4 font-bold uppercase tracking-wider text-white shadow-[0_0_25px_rgba(249,115,22,0.5)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#ED7D4D] hover:border-[#ED7D4D] hover:text-white hover:shadow-[0_0_35px_rgba(249,115,22,0.7)]"
             >
               EXPLORE YOGA VACATION
             </Link>
@@ -335,7 +335,7 @@ export default function Home() {
                     Corporate Training
                   </h3>
                   <p className="text-sm font-light opacity-95 drop-shadow-sm md:text-base">
-                    Improve the way you work
+                    Contact us for more details
           </p>
         </div>
               </Link>

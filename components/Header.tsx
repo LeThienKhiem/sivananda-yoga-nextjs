@@ -103,7 +103,7 @@ const MEGA_MENUS: Record<string, MegaMenuColumn[]> = {
 };
 
 const NAV_LINKS = [
-  { href: "/yoga-vacation", label: "YOGA VACATION", active: true },
+  { href: "/yoga-vacation", label: "YOGA VACATION", active: false },
   { href: "/yoga-teacher-training-course", label: "TEACHER TRAINING", active: false },
   { href: "/programs", label: "AYURVEDA", active: false },
   { href: "/about", label: "ABOUT US", active: false },

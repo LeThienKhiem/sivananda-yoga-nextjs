@@ -133,12 +133,12 @@ export default function UpcomingEvents() {
     <section className="bg-[#FDFCF8] py-24 w-full overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h2 className="text-3xl md:text-5xl font-serif text-[#0B3B24] font-bold mb-4">
+          <h3 className="text-[#ED7D4D] font-bold tracking-widest text-sm uppercase mb-3">
+            Programs and retreat
+          </h3>
+          <h2 className="text-3xl md:text-5xl font-serif text-[#0B3B24] font-bold">
             Upcoming Events & Courses
           </h2>
-          <p className="text-[#4A4A4A] text-lg font-medium">
-            Join our transformational programs and retreats
-          </p>
         </div>
       </div>
 
