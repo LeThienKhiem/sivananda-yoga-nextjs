@@ -48,7 +48,7 @@ const IMG_SITARA_1 =
 const IMG_SITARA_2 =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/f8f57361-4042-47ef-b684-5489f2b579b2.png";
 const IMG_ENDURING_LEGACY_BG =
-  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/658b65e7-961a-4282-8f23-4bcd2788c3ed-2.jpg";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/Vishnudevananda-swami-vishnu.png";
 const IMG_SITARA_PORTRAIT =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/sw_Sita.jpg";
 const IMG_SITARA_QUOTE_BG =
@@ -575,18 +575,18 @@ export default function AboutPage() {
             src={IMG_ENDURING_LEGACY_BG}
             alt="An Enduring Legacy"
             fill
-            className="object-cover"
+            className="object-cover md:object-[70%_center]"
             sizes="100vw"
           />
         </div>
 
         {/* Left Overlay Content Panel */}
-        <div className="relative z-10 w-full md:w-[55%] lg:w-[50%] bg-[#1A1A1A]/80 backdrop-blur-sm p-8 md:p-14 lg:p-20 flex flex-col justify-center border-r border-white/10">
-          <h2 className="text-3xl md:text-4xl font-serif text-white font-bold mb-8">
+        <div className="relative z-10 w-full md:w-[45%] lg:w-[40%] xl:w-[35%] bg-[#1A1A1A]/80 backdrop-blur-sm p-8 md:p-12 lg:p-16 flex flex-col justify-center border-r border-white/10">
+          <h2 className="text-3xl md:text-4xl font-serif text-white font-bold mb-6 drop-shadow-sm">
             An Enduring Legacy
           </h2>
 
-          <div className="space-y-6 text-white/90 text-base md:text-lg font-light leading-relaxed pr-0 md:pr-6">
+          <div className="space-y-5 text-white/90 text-sm md:text-base font-light leading-relaxed">
             <p>
               Swami Vishnudevananda was an innovator and a pioneer in his methods of disseminating the classical Yoga teachings that he learned from his Master, Swami Sivananda and to whom he dedicated his life&apos;s work. He demystified yoga and offered clear, practical techniques for people to spiritualise their lives and attain health, mental balance and inner peace.
             </p>
@@ -601,6 +601,10 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
+
+        {/* Right side is intentionally left empty to let the background image shine through */}
+        <div className="hidden md:block flex-grow relative z-10 pointer-events-none"></div>
+
       </section>
 
       {/* ========================================= */}
