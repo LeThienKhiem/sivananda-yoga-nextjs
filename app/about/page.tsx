@@ -63,30 +63,28 @@ export default function AboutPage() {
     <main className="min-h-screen bg-[#FDFCF8] flex flex-col">
       <Header />
 
-      {/* 1. OUR LINEAGE SECTION - Mobile: text top, image bottom. Desktop: overlay on full-width bg */}
-      <section className="relative w-full min-h-0 md:min-h-[85vh] flex flex-col md:flex-row">
-        {/* Full-width Background Image - desktop only */}
-        <div className="absolute inset-0 z-0 hidden md:block">
+      {/* 1. OUR LINEAGE SECTION */}
+      <section className="relative w-full min-h-[600px] md:min-h-[85vh] flex">
+        
+        {/* Full-width Background Image */}
+        <div className="absolute inset-0 z-0">
           <Image
             src={IMG_GURUS}
             alt="Swami Sivananda and Swami Vishnudevananda"
             fill
-            className="object-cover grayscale contrast-125"
+            className="object-cover grayscale contrast-125 md:object-[70%_center]"
             priority
             sizes="100vw"
           />
         </div>
 
-        {/* Text: full width on mobile (first), half-width overlay on desktop */}
-        <div className="relative z-10 w-full md:w-1/2 bg-[#2c3e50]/75 backdrop-blur-md p-10 md:p-16 lg:p-24 flex flex-col justify-center text-white shadow-2xl border-r border-white/10">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 drop-shadow-sm">
-            Our Lineage
-          </h2>
-          <h3 className="text-2xl md:text-2xl font-bold mb-10 text-blue-50 drop-shadow-sm">
-            From India to Vietnam
-          </h3>
+        {/* Left Content Overlay (Glassmorphism / Blur Effect) */}
+        <div className="relative z-10 w-full md:w-[45%] lg:w-[40%] xl:w-[35%] bg-[#43525B]/90 backdrop-blur-sm p-8 md:p-12 lg:p-16 flex flex-col justify-center text-white shadow-2xl border-r border-white/10">
 
-          <div className="space-y-6 text-white/95 leading-relaxed text-base md:text-lg font-light pr-0 md:pr-8">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 drop-shadow-sm">Our Lineage</h2>
+          <h3 className="text-xl md:text-2xl font-bold mb-8 text-white/90 drop-shadow-sm">From India to Vietnam</h3>
+
+          <div className="space-y-6 text-white/90 leading-relaxed text-sm md:text-base font-light">
             <p>
               The International Sivananda Yoga Vedanta Centres, founded by Swami Vishnudevananda under the guidance of Swami Sivananda, has grown since 1959 to nearly 60 global locations. Recognized for authentic yoga teachings, it has trained over 50,000 teachers and offers diverse programs, including personal growth through Karma Yoga service.
             </p>
@@ -95,20 +93,10 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
+        
+        {/* Right side is intentionally left empty to let the background image shine through */}
+        <div className="hidden md:block flex-grow relative z-10 pointer-events-none"></div>
 
-        {/* Mobile only: image below the text */}
-        <div className="relative w-full min-h-[320px] md:hidden z-0">
-          <Image
-            src={IMG_GURUS}
-            alt="Swami Sivananda and Swami Vishnudevananda"
-            fill
-            className="object-cover grayscale contrast-125"
-            sizes="100vw"
-          />
-        </div>
-
-        {/* Desktop: right half empty so background image shows */}
-        <div className="hidden md:block w-1/2 relative z-10 pointer-events-none" />
       </section>
 
       {/* 2. SWAMI SIVANANDA BIO SECTION */}
@@ -543,8 +531,9 @@ export default function AboutPage() {
       </section>
 
       {/* 9. BOTTOM MISSION BANNER SECTION */}
-      <section className="relative w-full h-[500px] md:h-[600px] flex items-end">
-        <div className="absolute inset-0 z-0">
+      <section className="w-full flex flex-col">
+        {/* Top: Full Width Image (No overlay covering it) */}
+        <div className="relative w-full h-[400px] md:h-[600px]">
           <Image
             src={IMG_PLANE}
             alt="Peace Plane"
@@ -554,18 +543,19 @@ export default function AboutPage() {
           />
         </div>
 
-        <div className="relative z-10 w-full bg-[#1A1A1A]/85 backdrop-blur-sm border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-6 py-10 md:py-12 flex flex-col md:flex-row gap-8 md:gap-16 items-start md:items-center">
-            <div className="w-full md:w-1/4">
-              <h2 className="text-3xl md:text-4xl font-serif text-white font-bold leading-tight">
-                Mission
-                <br />
-                Beyond
-                <br />
+        {/* Bottom: Text Content on Light Background */}
+        <div className="w-full bg-[#FDFCF8] border-b border-gray-100">
+          <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row gap-8 md:gap-16 items-start">
+            {/* Title */}
+            <div className="w-full md:w-1/3 lg:w-1/4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#0B3B24] font-bold leading-tight">
+                Mission<br className="hidden md:block" />
+                Beyond<br className="hidden md:block" />
                 Borders
               </h2>
             </div>
-            <div className="w-full md:w-3/4 space-y-4 text-white/90 text-base md:text-lg font-light leading-relaxed">
+            {/* Description */}
+            <div className="w-full md:w-2/3 lg:w-3/4 space-y-6 text-[#4A4A4A] text-base md:text-lg leading-relaxed font-medium">
               <p>
                 In 1968 Swami Vishnudevananda had a vision of the world being destroyed by fire, of people fleeing in turmoil breaking down the barriers between nations in an attempt to escape. From that moment on, he embarked on a series of peace missions whose purpose was to show &apos;that the idea of nationalism, or patriotism must disappear, and only one unity should exist.&apos;
               </p>
