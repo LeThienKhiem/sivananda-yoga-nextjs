@@ -34,35 +34,37 @@ export default function YogaVacationPage() {
     <div className="flex min-h-screen flex-col w-full">
       <Header />
       <main className="flex-grow flex flex-col w-full">
-        {/* Hero Banner */}
-        <section className="relative w-full min-h-[600px] flex items-center justify-center text-center px-6">
-          <Image
-            src={HERO_IMAGE_URL}
-            alt="Majestic mountain sunset - Yoga Vacation in Da Lat"
-            fill
-            className="object-cover object-center"
-            priority
-            sizes="100vw"
+        {/* 1. HERO BANNER (Exact clone of Home Page structure) */}
+        <section className="relative flex h-[85vh] min-h-[400px] flex-col items-center justify-center overflow-hidden px-4 mt-16 md:mt-0">
+          <div className="absolute inset-0 h-full w-full animate-zoom-out">
+            <Image
+              src={HERO_IMAGE_URL}
+              alt="Yoga Vacation in Da Lat"
+              fill
+              className="object-cover"
+              priority
+              sizes="100vw"
+            />
+          </div>
+          <div
+            className="absolute inset-0 z-10 bg-black/40"
+            aria-hidden
           />
-          <div className="absolute inset-0 bg-black/40 z-10" aria-hidden />
-          <div className="relative z-20 flex flex-col items-center max-w-4xl mx-auto mt-16">
-            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-semibold mb-8 leading-tight">
-              Find Your Inner Peace in Da Lat
+          <div className="relative z-20 flex max-w-4xl flex-col items-center justify-center text-center">
+            <p className="text-sm md:text-base font-bold tracking-widest uppercase text-white/95 mb-4">
+              A Journey of Self-Discovery
+            </p>
+            <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
+              Yoga Vacation
             </h1>
-            <p className="text-white text-xl md:text-2xl leading-relaxed mb-10 max-w-xl">
-              A Yoga Vacation at the Sivananda Resort
-              <br />
-              connects you with inner peace and
-              <br />
-              empowering practices
-              <br />
-              in a setting of unparalleled beauty
+            <p className="mt-6 text-lg font-medium text-white md:text-xl max-w-2xl leading-relaxed">
+              Take a break from daily stress and immerse yourself in a holistic yoga lifestyle. Rejuvenate your body, mind, and spirit in the serene pine forests of Da Lat.
             </p>
             <Link
               href="/accommodations"
-              className="inline-block bg-[#ED7D4D] text-white font-bold uppercase px-8 py-3.5 tracking-wider rounded-sm hover:bg-orange-600 transition-colors"
+              className="mt-6 inline-block rounded-lg border-2 border-white bg-transparent px-8 py-4 font-bold uppercase tracking-widest text-sm text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#ED7D4D] hover:border-[#ED7D4D] hover:text-white hover:shadow-[0_0_20px_rgba(237,125,77,0.6)]"
             >
-              BOOK YOUR STAY
+              Book Your Stay
             </Link>
           </div>
         </section>

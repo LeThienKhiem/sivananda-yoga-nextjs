@@ -7,7 +7,7 @@ const fundamentalData = [
     id: 1,
     title: "Udwaethanam",
     description:
-      "Udwaethanam is a detoxifying deep tissue massage using herbal powders and oils. It involves upward massage strokes and is used to regulate blood circulation and improve metabolism. Among its numerous benefits, Udwaethanam removes toxins from the skin, eliminates excess fat accumulated under the skin, and improves skin complexion. It is also used to relieve stress and improve joint mobility issues.",
+      "Udwarthanam is a detoxifying deep tissue massage using herbal powders and oils. It involves upward massage strokes and is used to regulate blood circulation and improve metabolism. Among its numerous benefits, Udwarthanam removes toxins from the skin, eliminates excess fat accumulated under the skin, and improves skin complexion. It is also used to relieve stress and improve joint mobility issues.",
     image:
       "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ayurveda-07.png",
   },
@@ -23,7 +23,7 @@ const fundamentalData = [
     id: 3,
     title: "Dinacharya",
     description:
-      "Dinacharya focuses on the five sense organs: eyes, nose, mouth, ears, and skin. It is a practice that helps to release toxins and cleanse the senses using specific herb-enhanced oils and other natural ingredients. As we interact with and take in information from the outside world through our five senses, Dinacharya is a profound practice for restoring the body's primary sensors to natural health.",
+      "Dinacharya focuses on the five sense organs: eyes, nose, mouth, ears, and skin. It is a practice that helps to release toxins and cleanse the senses using specific herb-enhanced oils and other natural ingredients. As we interact with and take in information from the outside world through our five senses, Dinacharya is a profound practice for restoring the body’s primary sensors to natural health.",
     image:
       "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ayurveda-09.png",
   },
@@ -31,7 +31,7 @@ const fundamentalData = [
     id: 4,
     title: "Shirodhara",
     description:
-      "Shirodhara involves the gentle, continuous pouring of warm medicated oil on the forehead. This divine treatment works directly on the nervous system to calm the mind, relieve stress, and improve sleep quality. It is widely recognized for its effectiveness in treating headaches, anxiety, and mental fatigue.",
+      "Often referred to as the 'King of Ayurvedic Treatments,' Podikizhi involves squeezing warm medicated oil from a cloth over the entire body while performing a light massage. It combines heat and oil therapy to strengthen muscles, lubricate joints, and boost the immune system.",
     image:
       "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ayurveda-10.png",
   },

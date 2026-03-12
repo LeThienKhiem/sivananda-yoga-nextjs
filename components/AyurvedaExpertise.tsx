@@ -11,7 +11,7 @@ const expertiseCards = [
       "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ayurveda-05.png",
     description:
       "This 7-day detox retreat is a harmonious blend of Yoga – Ayurveda – Meditation – Nutrition – Natural Therapy, designed to help your body rest, cleanse, and restore inner balance.\n\nThis is your opportunity to gift yourself a week of rejuvenation in the peaceful pine forests of Da Lat.",
-    link: "#",
+    link: "/syhet-courses",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const expertiseCards = [
       "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ayurveda-06.png",
     description:
       "An intensive training course with a 100-hour certification issued by Vaidyagrama Ayurveda Healing Village (India) in collaboration with Sivananda Yoga. This course is open to anyone wishing to experience the classical Yoga & Ayurveda lifestyle. It offers foundational Ayurvedic knowledge to enhance physical and mental well-being, and equips participants to apply and share these teachings to benefit their communities.",
-    link: "#",
+    link: "/syhet-courses",
   },
 ];
 

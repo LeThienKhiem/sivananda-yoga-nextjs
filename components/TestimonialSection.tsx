@@ -36,12 +36,18 @@ export default function TestimonialSection() {
 
       {/* CTA (Bottom Section) */}
       <div className="flex flex-col items-center lg:items-end w-full px-6 lg:px-24 xl:px-32 pt-12 pb-16 z-10 flex-1">
-          <Link
-            href="/accommodations"
-            className="border border-[#ED7D4D] text-[#ED7D4D] bg-white px-10 py-4 font-bold tracking-widest uppercase hover:bg-[#ED7D4D] hover:text-white transition-colors mb-4 inline-block text-center"
+          <a
+            href="https://sivanandayogavietnam.secure.retreat.guru/program/vacation/?form=1&lang=en"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            REGISTER NOW
-          </Link>
+            <button
+              type="button"
+              className="border border-[#ED7D4D] text-[#ED7D4D] bg-white px-10 py-4 font-bold tracking-widest uppercase hover:bg-[#ED7D4D] hover:text-white transition-colors mb-4 inline-block text-center"
+            >
+              REGISTER NOW
+            </button>
+          </a>
           <p className="text-gray-700 text-xl">
             Have Questions?{" "}
             <Link

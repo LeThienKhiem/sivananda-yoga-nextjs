@@ -187,73 +187,68 @@ export default function CoursesPage() {
                 No courses available at the moment.
               </div>
             ) : (
-              courses.map((course, idx) => (
-                <Link
-                  key={course.id}
-                  href={`/syhet-courses/${course.slug || course.id}`}
-                  className="bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row overflow-hidden group hover:shadow-md transition-shadow block"
-                >
-                  {/* Course Image */}
-                  <div className="relative w-full md:w-[35%] lg:w-[40%] aspect-video md:aspect-auto min-h-[220px] overflow-hidden bg-gray-100">
-                    {course.image_url && (
-                      <Image 
-                        src={course.image_url} 
-                        alt={course.title} 
-                        fill 
-                        className="object-cover group-hover:scale-105 transition-transform duration-700" 
-                      />
-                    )}
-                    {/* Favorite Icon */}
-                    <button
-                      type="button"
-                      onClick={(e) => e.preventDefault()}
-                      className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 transition-colors shadow-sm"
-                    >
-                      <Heart size={16} className={idx === 1 ? 'fill-red-500 text-red-500' : ''} />
-                    </button>
-                  </div>
+              courses.map((course) => (
+              <div key={course.id} className="bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row overflow-hidden group hover:shadow-md transition-shadow">
+                
+                {/* Course Image (Clickable to detail) */}
+                <Link href={`/syhet-courses/${course.slug || course.id}`} className="relative w-full md:w-[35%] lg:w-[40%] aspect-video md:aspect-auto min-h-[220px] overflow-hidden bg-gray-100 block shrink-0">
+                  {course.image_url && (
+                    <Image 
+                      src={course.image_url} 
+                      alt={course.title} 
+                      fill 
+                      className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                    />
+                  )}
+                  {/* Favorite Icon */}
+                  <button onClick={(e) => e.preventDefault()} className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 transition-colors shadow-sm z-10">
+                    <Heart size={16} />
+                  </button>
+                </Link>
 
-                  {/* Course Details */}
-                  <div className="p-6 md:p-8 flex flex-col flex-1 justify-center">
-                    <p className="text-xs font-bold text-[#A3B827] uppercase tracking-widest mb-2">
-                      {course.price_display}
-                    </p>
-                    
-                    <h3 className="text-xl md:text-2xl font-serif text-[#0B3B24] font-bold mb-6 line-clamp-2 group-hover:text-[#4F6F1F] transition-colors">
+                {/* Course Details */}
+                <div className="p-6 md:p-8 flex flex-col flex-1 justify-center">
+                  <p className="text-xs font-bold text-[#A3B827] uppercase tracking-widest mb-2">
+                    {course.price_display}
+                  </p>
+                  
+                  {/* Title (Clickable to detail) */}
+                  <Link href={`/syhet-courses/${course.slug || course.id}`} className="w-fit">
+                    <h3 className="text-xl md:text-2xl font-serif text-[#0B3B24] font-bold mb-6 line-clamp-2 hover:text-[#ED7D4D] transition-colors">
                       {course.title}
                     </h3>
-                    
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
-                        <Calendar className="w-4 h-4 text-[#4F6F1F] flex-shrink-0" />
-                        <span className="font-medium">{course.date_display}</span>
-                      </div>
-                      <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
-                        <MapPin className="w-4 h-4 text-[#4F6F1F] flex-shrink-0" />
-                        <span>{course.location}</span>
-                      </div>
+                  </Link>
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
+                      <Calendar className="w-4 h-4 text-[#4F6F1F] flex-shrink-0" />
+                      <span className="font-medium">{course.date_display}</span>
                     </div>
-
-                    {/* Action buttons - Register opens external, card click goes to detail */}
-                    <div className="mt-auto flex justify-end gap-3">
-                      {course.registration_link && (
-                        <a
-                          href={course.registration_link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="bg-transparent border border-[#0B3B24] text-[#0B3B24] hover:bg-[#0B3B24] hover:text-white px-6 py-2 rounded font-bold text-xs tracking-widest uppercase transition-all"
-                        >
-                          Register Now
-                        </a>
-                      )}
-                      <span className="bg-[#0B3B24] text-white px-6 py-2 rounded font-bold text-xs tracking-widest uppercase">
-                        View Details →
-                      </span>
+                    <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
+                      <MapPin className="w-4 h-4 text-[#4F6F1F] flex-shrink-0" />
+                      <span>{course.location}</span>
                     </div>
                   </div>
 
-                </Link>
+                  {/* Buttons Area */}
+                  <div className="mt-auto flex flex-wrap justify-end gap-3 pt-4 border-t border-gray-50">
+                    <Link href={`/syhet-courses/${course.slug || course.id}`}>
+                      <button className="bg-gray-50 text-gray-600 hover:bg-gray-200 px-6 py-2.5 rounded font-bold text-xs tracking-widest uppercase transition-all shadow-sm">
+                        Details
+                      </button>
+                    </Link>
+                    
+                    {course.registration_link && course.registration_link !== '#' && (
+                      <a href={course.registration_link} target="_blank" rel="noopener noreferrer">
+                        <button className="bg-transparent border-2 border-[#0B3B24] text-[#0B3B24] hover:bg-[#0B3B24] hover:text-white px-6 py-2 rounded font-bold text-xs tracking-widest uppercase transition-all">
+                          Register Now
+                        </button>
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+              </div>
               ))
             )}
           </div>
