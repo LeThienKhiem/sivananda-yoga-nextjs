@@ -56,7 +56,7 @@ export default function AccommodationCost() {
         {/* Header */}
         <div className="mb-10 text-center md:text-left">
           <h2 className="mb-3 font-serif text-3xl font-bold text-[#0B3B24] md:text-4xl">
-            Accommodation & Cost
+            Accommodation
           </h2>
           <p className="font-medium italic text-[#4A4A4A]">
             Simple Living, High Thinking

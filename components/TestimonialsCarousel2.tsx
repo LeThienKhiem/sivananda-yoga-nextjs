@@ -1,97 +1,103 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-
-const TESTIMONIALS = [
-  {
-    quote:
-      "Peaceful and beautiful place, with real yogi life My experience was fantastic. I was able to learn a lot about theory, meditation and Asana practice. People were very kind, helpful and keen to share knowledge. The training center is located in a gorgeous area in the mountains of Da Lat. The food was also great. I can't wait to come back and my daily life has changed with the new things I learnt there.",
-    name: "Deborah B",
-    details: "Chef | Rio de Janeiro | October 8, 2017",
-  },
-  {
-    quote:
-      "The nature, the prana (energy), the staff and the knowledge available here cannot be described in words as words have too little power to convey the whole. This is where one has to come and to experience to believe that such a great place does actually exist.",
-    name: "Kenny Lam",
-    details: "Ceo 4U Tour | March 23, 2017",
-  },
-  {
-    quote:
-      "I went to the Sivananda Ashram in Dalat with the intention to cement my meditation practice. What I got was a lot more. With the help from the staff I discovered an inclination for selfless service and attained tools to be affirmative with my mind. I learned about how the mind works, how I work and got deeper into my yoga practice. After a week, I decided to go back. The food is delicious, the space is amazing, the people are amazing.",
-    name: "Jane",
-    details: "Marketing | San Diego, California | June 30, 2017",
-  },
-] as const;
-
-const INTERVAL_MS = 8000;
+import React, { useState, useEffect } from "react";
+import { Loader2 } from "lucide-react";
+import { supabase } from "@/utils/supabase";
 
 export default function TestimonialsCarousel2() {
+  const [feedbacks, setFeedbacks] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [timerKey, setTimerKey] = useState(0);
 
-  const goTo = useCallback((index: number) => {
-    setActiveIndex(index);
-    setTimerKey((k) => k + 1); // Reset the 8-second timer
-  }, []);
-
-  const next = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % TESTIMONIALS.length);
-  }, []);
-
+  // 1. Fetch from Supabase
   useEffect(() => {
-    const timer = setInterval(next, INTERVAL_MS);
-    return () => clearInterval(timer);
-  }, [next, timerKey]);
+    const fetchFeedbacks = async () => {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from("testimonials")
+        .select("*")
+        .eq("is_active", true)
+        .order("sort_order", { ascending: true })
+        .order("created_at", { ascending: false });
 
-  const current = TESTIMONIALS[activeIndex];
+      if (error) console.error("Error fetching testimonials:", error);
+      else setFeedbacks(data || []);
+      setLoading(false);
+    };
+
+    fetchFeedbacks();
+  }, []);
+
+  // 2. Auto Scroll Logic (Every 5 seconds)
+  useEffect(() => {
+    if (feedbacks.length === 0) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % feedbacks.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [feedbacks]);
+
+  if (loading) {
+    return (
+      <div className="py-24 flex justify-center">
+        <Loader2 className="animate-spin text-[#ED7D4D] w-10 h-10" />
+      </div>
+    );
+  }
+
+  if (feedbacks.length === 0) return null;
 
   return (
-    <section
-      id="testimonials2"
-      className="relative overflow-hidden bg-[#f9f8f6] py-24 mb-0 border-none"
-    >
-      {/* Large decorative quote mark */}
-      <div
-        className="pointer-events-none absolute left-1/2 top-12 -translate-x-1/2 select-none font-serif text-[12rem] leading-none text-[#1e5c2b]/10"
-        aria-hidden
-      >
-        &ldquo;
-      </div>
+    <section className="bg-[#FDFCF8] py-24 px-6 w-full overflow-hidden">
+      <div className="max-w-5xl mx-auto text-center relative min-h-[400px] flex flex-col justify-center">
+        {/* Decorative Large Quote Icon */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8 text-[150px] md:text-[200px] text-gray-200/60 font-serif leading-none select-none z-0">
+          &ldquo;
+        </div>
 
-      <div className="relative mx-auto max-w-4xl px-4">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeIndex}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="text-center"
-          >
-            <blockquote className="font-serif text-2xl italic leading-relaxed text-stone-700 md:text-2xl">
-              {current.quote}
-            </blockquote>
-            <p className="mt-8 text-xl font-bold text-[#1e5c2b]">{current.name}</p>
-            <p className="mt-2 text-base uppercase tracking-wider text-gray-500">
-              {current.details}
-            </p>
-          </motion.div>
-        </AnimatePresence>
+        {/* Content Wrapper for Fade Transition */}
+        <div className="relative z-10 w-full mt-12">
+          {feedbacks.map((item, index) => (
+            <div
+              key={item.id}
+              className={`transition-all duration-1000 ease-in-out w-full
+                ${
+                  index === activeIndex
+                    ? "opacity-100 relative translate-y-0"
+                    : "opacity-0 absolute top-0 left-0 -translate-y-4 pointer-events-none"
+                }`}
+            >
+              <p className="text-xl md:text-[26px] lg:text-[28px] font-serif italic text-[#4A4A4A] leading-[1.8] mb-10 px-4 md:px-16">
+                {item.description}
+              </p>
 
-        {/* Navigation dots */}
-        <div className="mt-12 flex justify-center gap-2">
-          {TESTIMONIALS.map((_, index) => (
+              <h4 className="text-lg md:text-xl font-bold text-[#0B3B24] mb-2">
+                {item.name}
+              </h4>
+
+              {item.title && (
+                <p className="text-[11px] md:text-xs text-gray-500 uppercase tracking-widest font-medium">
+                  {item.title}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Pagination Dots */}
+        <div className="flex justify-center gap-2.5 mt-16 relative z-20">
+          {feedbacks.map((_, idx) => (
             <button
-              key={index}
-              type="button"
-              onClick={() => goTo(index)}
-              aria-label={`Go to testimonial ${index + 1}`}
-              aria-current={index === activeIndex ? "true" : undefined}
-              className="h-3 w-3 rounded-full transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1e5c2b] focus-visible:ring-offset-2"
-              style={{
-                backgroundColor: index === activeIndex ? "#1e5c2b" : "rgba(0,0,0,0.3)",
-              }}
+              key={idx}
+              onClick={() => setActiveIndex(idx)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                activeIndex === idx
+                  ? "bg-[#0B3B24] scale-110"
+                  : "bg-gray-300 hover:bg-gray-400"
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
             />
           ))}
         </div>

@@ -8,6 +8,7 @@ import CourseCurriculum from "@/components/CourseCurriculum";
 import SeniorTeachers from "@/components/SeniorTeachers";
 import StudentFeedback from "@/components/StudentFeedback";
 import AshramGallery from "@/components/AshramGallery";
+import TestimonialVideoSection from "@/components/TestimonialVideoSection";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
@@ -80,7 +81,7 @@ export default function AyurvedaFoundationPage() {
           <div className="w-full md:w-1/2">
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg">
               <Image
-                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800"
+                src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/100-01.png"
                 alt="Ayurveda Class in Nature"
                 fill
                 className="object-cover"
@@ -128,7 +129,7 @@ export default function AyurvedaFoundationPage() {
         {/* Bottom Block: Image with Text Overlay */}
         <div className="relative h-[50vh] min-h-[400px] w-full md:h-[70vh] md:min-h-[600px]">
           <Image
-            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000"
+            src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/100-03.png"
             alt="Yoga Meditation in Forest"
             fill
             className="object-cover"
@@ -303,33 +304,8 @@ export default function AyurvedaFoundationPage() {
         </div>
       </section>
 
-      {/* 9. VIDEO TESTIMONIAL SECTION */}
-      <section className="w-full bg-white px-6 py-24">
-        <div className="mx-auto max-w-5xl text-center">
-          <h2 className="mb-12 font-serif text-3xl font-bold text-[#0B3B24] md:text-4xl">
-            Experience the Journey
-          </h2>
-          <div className="group relative aspect-video w-full cursor-pointer overflow-hidden rounded-xl border border-gray-100 shadow-2xl">
-            <Image
-              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600"
-              alt="Video Testimonial Thumbnail"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/10">
-              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/95 shadow-xl backdrop-blur-sm transition-transform group-hover:scale-110 md:h-24 md:w-24">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="ml-1.5 h-8 w-8 text-[#ED7D4D] md:h-10 md:w-10"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 9. TESTIMONIAL VIDEO SECTION */}
+      <TestimonialVideoSection title="Experience the Journey" />
 
       {/* 10. STUDENT FEEDBACK SECTION */}
       <StudentFeedback />

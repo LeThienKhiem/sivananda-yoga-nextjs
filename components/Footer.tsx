@@ -196,7 +196,7 @@ export default function Footer() {
                   Registration & Arrival
                 </Link>
                 <Link href="/accommodations" className={FOOTER_LINK}>
-                  Accommodation & Cost
+                  Accommodation
                 </Link>
                 <Link href="/guest-information" className={FOOTER_LINK}>
                   Transportation & Arrival
