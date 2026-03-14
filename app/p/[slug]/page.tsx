@@ -20,6 +20,36 @@ import AshramGallery from "@/components/AshramGallery";
 import BenefitsTTC from "@/components/BenefitsTTC";
 import YogaInsights from "@/components/YogaInsights";
 import KarmaYogaTabs from "@/components/KarmaYogaTabs";
+import AyurvedicFundamentals from "@/components/AyurvedicFundamentals";
+import AyurvedaArticles from "@/components/AyurvedaArticles";
+import AyurvedaExplore from "@/components/AyurvedaExplore";
+import AyurvedaIntro from "@/components/AyurvedaIntro";
+import AyurvedaExpertise from "@/components/AyurvedaExpertise";
+import BoutiqueSection from "@/components/BoutiqueSection";
+import ClassicalYogaPurpose from "@/components/ClassicalYogaPurpose";
+import ContactUs from "@/components/ContactUs";
+import CoursePackageSection from "@/components/CoursePackageSection";
+import CurriculumSection from "@/components/CurriculumSection";
+import DailySchedule from "@/components/DailySchedule";
+import EnrollTTCSection from "@/components/EnrollTTCSection";
+import EventsCarousel from "@/components/EventsCarousel";
+import FaqAccordion from "@/components/FaqAccordion";
+import FaqDuringStay from "@/components/FaqDuringStay";
+import HealingHarmony from "@/components/HealingHarmony";
+import MainTeachers from "@/components/MainTeachers";
+import MessageFromTeachers from "@/components/MessageFromTeachers";
+import MoreInformationVi from "@/components/MoreInformationVi";
+import PlaceCarousel from "@/components/PlaceCarousel";
+import ProgramTestimonials from "@/components/ProgramTestimonials";
+import TeachingsIntro from "@/components/TeachingsIntro";
+import TeachingFoundation from "@/components/TeachingFoundation";
+import TestimonialSection from "@/components/TestimonialSection";
+import TestimonialsCarousel2 from "@/components/TestimonialsCarousel2";
+import TestimonialVideoSection from "@/components/TestimonialVideoSection";
+import TTCTestimonials from "@/components/TTCTestimonials";
+import VideoTestimonials from "@/components/VideoTestimonials";
+import WhyChooseTTC from "@/components/WhyChooseTTC";
+import YogaDefinition from "@/components/YogaDefinition";
 
 const FALLBACK_HERO =
   "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000";
@@ -108,55 +138,103 @@ export default function DynamicGeneratedPage() {
       {/* 2. DYNAMIC COMPONENT RENDERER (Reading the JSON) */}
       <div className="w-full flex-grow flex flex-col mt-12 md:mt-20">
         {pageData.components?.map((comp: any, idx: number) => {
+          const data = comp.data ?? {};
           switch (comp.type) {
-            case "UpcomingEvents": {
-              const data = comp.data ?? {};
-              return (
-                <UpcomingEvents
-                  key={comp.id}
-                  subtitle={data.subtitle}
-                  title={data.title}
-                  ctaText={data.ctaText}
-                  ctaLink={data.ctaLink}
-                />
-              );
-            }
+            case "UpcomingEvents":
+              return <UpcomingEvents key={comp.id} {...data} />;
             case "StudentFeedback":
-              return <StudentFeedback key={comp.id} />;
-            case "CustomTwoColumn": {
-              const data = comp.data ?? comp;
+              return <StudentFeedback key={comp.id} {...data} />;
+            case "CustomTwoColumn":
               return (
                 <CustomTwoColumn
                   key={comp.id}
-                  title={data?.title}
-                  description={data?.description}
-                  imageUrl={data?.image_url}
+                  {...data}
+                  imageUrl={data.image_url ?? data.imageUrl}
                   imageFirst={idx % 2 === 0}
                 />
               );
-            }
             case "ContactSection":
               return (
                 <div key={comp.id} className="bg-white">
-                  <ContactSection />
+                  <ContactSection {...data} />
                 </div>
               );
             case "MoreInformation":
-              return <MoreInformation key={comp.id} />;
+              return <MoreInformation key={comp.id} {...data} />;
             case "AccommodationCost":
-              return <AccommodationCost key={comp.id} />;
+              return <AccommodationCost key={comp.id} {...data} />;
             case "CourseCurriculum":
-              return <CourseCurriculum key={comp.id} />;
+              return <CourseCurriculum key={comp.id} {...data} />;
             case "SeniorTeachers":
-              return <SeniorTeachers key={comp.id} />;
+              return <SeniorTeachers key={comp.id} {...data} />;
             case "AshramGallery":
-              return <AshramGallery key={comp.id} />;
+              return <AshramGallery key={comp.id} {...data} />;
             case "BenefitsTTC":
-              return <BenefitsTTC key={comp.id} />;
+              return <BenefitsTTC key={comp.id} {...data} />;
             case "YogaInsights":
-              return <YogaInsights key={comp.id} />;
+              return <YogaInsights key={comp.id} {...data} />;
             case "KarmaYogaTabs":
-              return <KarmaYogaTabs key={comp.id} />;
+              return <KarmaYogaTabs key={comp.id} {...data} />;
+            case "AyurvedicFundamentals":
+              return <AyurvedicFundamentals key={comp.id} {...data} />;
+            case "AyurvedaArticles":
+              return <AyurvedaArticles key={comp.id} {...data} />;
+            case "AyurvedaExplore":
+              return <AyurvedaExplore key={comp.id} {...data} />;
+            case "AyurvedaIntro":
+              return <AyurvedaIntro key={comp.id} {...data} />;
+            case "AyurvedaExpertise":
+              return <AyurvedaExpertise key={comp.id} {...data} />;
+            case "BoutiqueSection":
+              return <BoutiqueSection key={comp.id} {...data} />;
+            case "ClassicalYogaPurpose":
+              return <ClassicalYogaPurpose key={comp.id} {...data} />;
+            case "ContactUs":
+              return <ContactUs key={comp.id} {...data} />;
+            case "CoursePackageSection":
+              return <CoursePackageSection key={comp.id} {...data} />;
+            case "CurriculumSection":
+              return <CurriculumSection key={comp.id} {...data} />;
+            case "DailySchedule":
+              return <DailySchedule key={comp.id} {...data} />;
+            case "EnrollTTCSection":
+              return <EnrollTTCSection key={comp.id} {...data} />;
+            case "EventsCarousel":
+              return <EventsCarousel key={comp.id} {...data} />;
+            case "FaqAccordion":
+              return <FaqAccordion key={comp.id} {...data} />;
+            case "FaqDuringStay":
+              return <FaqDuringStay key={comp.id} {...data} />;
+            case "HealingHarmony":
+              return <HealingHarmony key={comp.id} {...data} />;
+            case "MainTeachers":
+              return <MainTeachers key={comp.id} {...data} />;
+            case "MessageFromTeachers":
+              return <MessageFromTeachers key={comp.id} {...data} />;
+            case "MoreInformationVi":
+              return <MoreInformationVi key={comp.id} {...data} />;
+            case "PlaceCarousel":
+              return <PlaceCarousel key={comp.id} {...data} />;
+            case "ProgramTestimonials":
+              return <ProgramTestimonials key={comp.id} {...data} />;
+            case "TeachingsIntro":
+              return <TeachingsIntro key={comp.id} {...data} />;
+            case "TeachingFoundation":
+              return <TeachingFoundation key={comp.id} {...data} />;
+            case "TestimonialSection":
+              return <TestimonialSection key={comp.id} {...data} />;
+            case "TestimonialsCarousel2":
+              return <TestimonialsCarousel2 key={comp.id} {...data} />;
+            case "TestimonialVideoSection":
+              return <TestimonialVideoSection key={comp.id} {...data} />;
+            case "TTCTestimonials":
+              return <TTCTestimonials key={comp.id} {...data} />;
+            case "VideoTestimonials":
+              return <VideoTestimonials key={comp.id} {...data} />;
+            case "WhyChooseTTC":
+              return <WhyChooseTTC key={comp.id} {...data} />;
+            case "YogaDefinition":
+              return <YogaDefinition key={comp.id} {...data} />;
             default:
               return (
                 <div
