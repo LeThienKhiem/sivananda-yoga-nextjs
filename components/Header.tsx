@@ -7,7 +7,7 @@ import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 import { supabase } from "@/utils/supabase";
 
 const LOGO_URL =
-  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner-logo.png";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner-logo-01.png";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
