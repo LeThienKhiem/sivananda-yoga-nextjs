@@ -8,6 +8,7 @@ import {
   HelpCircle,
   ArrowRight,
   LayoutDashboard,
+  LayoutTemplate,
   MessageSquareQuote,
 } from "lucide-react";
 
@@ -48,6 +49,15 @@ const adminModules = [
     color: "text-purple-600",
     bgColor: "bg-purple-50",
     borderColor: "hover:border-purple-200",
+  },
+  {
+    title: "Page Builder",
+    description: "Create custom dynamic pages with drag-and-drop components.",
+    href: "/admin/pages",
+    icon: LayoutTemplate,
+    color: "text-indigo-600",
+    bgColor: "bg-indigo-50",
+    borderColor: "hover:border-indigo-200",
   },
   // Future placeholders
   /*

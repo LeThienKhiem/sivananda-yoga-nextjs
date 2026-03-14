@@ -1,176 +1,18 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
+import { supabase } from "@/utils/supabase";
 
-const HEADER_BG = "bg-[#0B3B24]";
-const ACTIVE_LINK = "text-[#E5F5C8]";
-
-type MegaMenuColumn = { header: string; links: { label: string; href: string }[] };
-
-const MEGA_MENUS: Record<string, MegaMenuColumn[]> = {
-  "YOGA VACATION": [
-    {
-      header: "EXPLORE",
-      links: [
-        { label: "Yoga Vacation", href: "/yoga-vacation" },
-        { label: "Sivananda Teaching", href: "/sivananda-teachings" },
-        { label: "5 points of Yoga", href: "/5-points-of-yoga" },
-        { label: "4 paths of Yoga", href: "/4-paths-of-yoga" },
-      ],
-    },
-    {
-      header: "REGISTRATION",
-      links: [
-        { label: "Accommodation & Meal", href: "/accommodations" },
-        { label: "Our Venue", href: "/our-venues" },
-        { label: "Transportation & Arrival", href: "/guest-information" },
-        { label: "During Your Stay", href: "/during-your-stay" },
-      ],
-    },
-  ],
-  "TEACHER TRAINING": [
-    {
-      header: "TEACHER TRAINING COURSE (TTC)",
-      links: [
-        { label: "TTC Program - 200 hours", href: "/yoga-teacher-training-course" },
-        { label: "Advanced TTC Program - 300 hours", href: "/advanced-yoga-teacher-training-course" },
-        { label: "Sadhana Intensive", href: "/sadhana-intensive" },
-        { label: "Vedanta Silence Meditation", href: "/vedanta-silence-meditation" },
-        { label: "Other Courses for TTC", href: "/specialty-courses" },
-      ],
-    },
-    {
-      header: "HEALTH EDUCATOR TRAINING (SYHET)",
-      links: [
-        { label: "About SYHET Program", href: "/sivananda-yoga-health-educator-training" },
-        { label: "SYHET Practicuum", href: "/syhet-practicuum" },
-        { label: "Courses", href: "/syhet-courses" },
-      ],
-    },
-  ],
-  AYURVEDA: [
-    {
-      header: "ABOUT AYURVEDA",
-      links: [
-        { label: "Traditional Ayurveda Practices", href: "/programs" },
-      ],
-    },
-    {
-      header: "AYURVEDA COURSE",
-      links: [
-        { label: "100 Foundation Ayurveda", href: "/100-foundation-ayurveda" },
-        { label: "Detoxification", href: "/detoxification" },
-      ],
-    },
-  ],
-  "ABOUT US": [
-    {
-      header: "OUR TEACHER",
-      links: [
-        { label: "Our Teachers", href: "/our-teachers" },
-        { label: "Mission & Vision", href: "/Mission-Vision" },
-        { label: "Sivananda Lineage", href: "/Sivananda-Lineage" },
-      ],
-    },
-    {
-      header: "OTHER VIETNAM CENTER",
-      links: [
-        { label: "Da Lat Health House", href: "/da-lat-ashram-health-house" },
-        { label: "Ho Chi Minh City Yoga Center", href: "/ho-chi-minh-center" },
-        { label: "Hanoi City Yoga Center", href: "/hanoi-center" },
-        { label: "Da Lat City Yoga Center", href: "/sivananda-yoga-dalat-center" },
-      ],
-    },
-    {
-      header: "BLOG",
-      links: [
-        { label: "Blogs", href: "/blog" },
-      ],
-    },
-  ],
-  "CONTACT US": [
-    {
-      header: "CONTACT US",
-      links: [
-        { label: "Contact Da Lat Ashram", href: "/contact" },
-        { label: "International Community", href: "/community" },
-      ],
-    },
-  ],
-};
-
-const NAV_LINKS = [
-  { href: "/yoga-vacation", label: "YOGA VACATION", active: false },
-  { href: "/yoga-teacher-training-course", label: "TEACHER TRAINING", active: false },
-  { href: "/programs", label: "AYURVEDA", active: false },
-  { href: "/about", label: "ABOUT US", active: false },
-  { href: "/contact", label: "CONTACT US", active: false },
-  { href: "/frequently-asked-questions", label: "FAQ", active: false },
-] as const;
-
-function MegaMenuDropdown({ columns }: { columns: MegaMenuColumn[] }) {
-  const widthClass =
-    columns.length >= 3
-      ? "w-[900px]"
-      : columns.length === 2
-        ? "w-[700px]"
-        : "w-[320px]";
-  const gridClass =
-    columns.length >= 3
-      ? "grid-cols-3"
-      : columns.length === 2
-        ? "grid-cols-2"
-        : "grid-cols-1";
-  return (
-    <div
-      className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-2 opacity-0 invisible translate-y-4 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out"
-      aria-hidden
-    >
-      <div
-        className={`${widthClass} overflow-hidden rounded-2xl border border-gray-100 bg-[#FDFCF8] shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative`}
-      >
-        <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
-        <div className={`grid gap-8 p-8 ${gridClass}`}>
-          {columns.map((col) => (
-            <div key={col.header}>
-              <h4 className="mb-5 border-b border-gray-200 pb-2 text-xs font-bold uppercase tracking-widest text-gray-400">
-                {col.header}
-              </h4>
-              <ul className="space-y-2">
-                {col.links.map((link, index) => (
-                  <li key={`${col.header}-${link.label}-${index}`}>
-                    <Link
-                      href={link.href}
-                      className="group/link flex items-center justify-between rounded-lg p-3 transition-all duration-300 hover:bg-white hover:shadow-sm"
-                    >
-                      <span className="whitespace-nowrap font-medium text-[#0B3B24] transition-colors group-hover/link:text-[#ED7D4D]">
-                        {link.label}
-                      </span>
-                      <ArrowRight className="h-4 w-4 -translate-x-2 text-[#ED7D4D] opacity-0 transition-all duration-300 group-hover/link:translate-x-0 group-hover/link:opacity-100" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <div className="border-t border-gray-100 bg-[#F4F7F0] p-4 text-center">
-          <p className="text-sm italic text-[#4A4A4A]">
-            &quot;Health is wealth, peace of mind is happiness, Yoga shows the way.&quot;
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
+const LOGO_URL =
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner-logo.png";
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeMobileSubmenu, setActiveMobileSubmenu] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [dynamicPages, setDynamicPages] = useState<any[]>([]);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -180,185 +22,777 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    setMobileMenuOpen(false);
-    setActiveMobileSubmenu(null);
+    setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  const toggleMobileSubmenu = (menuName: string) =>
-    setActiveMobileSubmenu((prev) => (prev === menuName ? null : menuName));
+  useEffect(() => {
+    const fetchPages = async () => {
+      const { data } = await supabase
+        .from("custom_pages")
+        .select("title, slug, parent_page")
+        .eq("is_published", true);
+      if (data) setDynamicPages(data);
+    };
+    fetchPages();
+  }, []);
 
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false);
-    setActiveMobileSubmenu(null);
-  };
+  const getPages = (parent: string) =>
+    dynamicPages.filter((p) => p.parent_page === parent);
+
+  const yvPages = getPages("Yoga Vacation");
+  const ttPages = getPages("Teacher Training");
+  const ayPages = getPages("Ayurveda");
+  const auPages = getPages("About Us");
+  const cuPages = getPages("Contact Us");
+  const faqPages = getPages("FAQ");
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${HEADER_BG} border-b border-white/10 ${scrolled ? "shadow-lg" : ""}`}
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
+        scrolled ? "bg-[#0B3B24] shadow-lg" : "bg-[#0B3B24]"
+      }`}
     >
-      <div className="max-w-[1400px] mx-auto w-full px-4 md:px-6 lg:px-8">
-        <div className="flex h-20 md:h-24 flex-nowrap items-center justify-between gap-4">
-          {/* Left: Image Logo Only */}
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20 md:h-24">
+          {/* Logo */}
           <Link
             href="/"
-            className="group flex shrink-0 items-center transition-transform duration-300 hover:scale-105"
+            className="flex items-center group shrink-0 mr-4"
           >
-            <img
-              src="https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/aae6b3b8-5465-4374-b8d4-7cba4c681418.png"
-              alt="Sivananda Yoga Logo"
-              className="h-12 w-auto object-contain md:h-14 lg:h-16"
-            />
+            <div className="p-1.5 transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+              <img
+                src={LOGO_URL}
+                alt="Sivananda Yoga Logo"
+                className="h-8 sm:h-10 lg:h-12 w-auto object-contain filter-none"
+              />
+            </div>
           </Link>
 
-          {/* Center: Navigation (desktop) with mega menu dropdowns */}
-          <nav
-            aria-label="Main"
-            className="hidden md:flex md:items-center md:gap-1 lg:gap-2"
-          >
-            <ul className="flex items-center gap-6 lg:gap-8">
-              {NAV_LINKS.map(({ href, label, active }) => {
-                const columns = MEGA_MENUS[label];
-                const hasDropdown = Boolean(columns?.length);
-
-                return (
-                  <li
-                    key={href}
-                    className={`relative ${hasDropdown ? "group" : ""}`}
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-6 whitespace-nowrap">
+            {/* 1. YOGA VACATION */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8">
+                Yoga Vacation{" "}
+                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
+              </button>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
+                <div
+                  className={`bg-[#FDFCF8] rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.2)] border border-gray-100 ${
+                    yvPages.length > 0 ? "w-[800px]" : "w-[550px]"
+                  } overflow-hidden text-left relative`}
+                >
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
+                  <div
+                    className={`p-8 grid ${
+                      yvPages.length > 0 ? "grid-cols-3" : "grid-cols-2"
+                    } gap-8`}
                   >
-                    <Link
-                      href={href}
-                      className={`flex items-center gap-1.5 py-2 text-xs font-medium uppercase tracking-wider transition-colors md:text-sm ${
-                        active
-                          ? `${ACTIVE_LINK} font-bold`
-                          : "text-white/90 hover:text-[#ED7D4D]"
-                      }`}
-                    >
-                      {label}
-                      {hasDropdown && (
-                        <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:rotate-180" />
-                      )}
-                    </Link>
-                    {hasDropdown && (
-                      <MegaMenuDropdown columns={columns} />
+                    <div>
+                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <span className="w-4 h-[2px] bg-[#ED7D4D]" />
+                        Programs & Stay
+                      </h4>
+                      <ul className="space-y-2 text-sm font-medium">
+                        <li>
+                          <Link
+                            href="/yoga-vacation"
+                            className="group/link flex items-center justify-between p-2.5 -ml-2.5 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D] transition-colors">
+                              Yoga Vacation Program
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/accommodations"
+                            className="group/link flex items-center justify-between p-2.5 -ml-2.5 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D] transition-colors">
+                              Accommodations & Meals
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/our-venues"
+                            className="group/link flex items-center justify-between p-2.5 -ml-2.5 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D] transition-colors">
+                              Our Venues
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <span className="w-4 h-[2px] bg-[#ED7D4D]" />
+                        Philosophy & Info
+                      </h4>
+                      <ul className="space-y-2 text-sm font-medium">
+                        <li>
+                          <Link
+                            href="/4-paths-of-yoga"
+                            className="group/link flex items-center justify-between p-2.5 -ml-2.5 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D] transition-colors">
+                              4 Paths of Yoga
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/5-points-of-yoga"
+                            className="group/link flex items-center justify-between p-2.5 -ml-2.5 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D] transition-colors">
+                              5 Points of Yoga
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/during-your-stay"
+                            className="group/link flex items-center justify-between p-2.5 -ml-2.5 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D] transition-colors">
+                              During Your Stay
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/guest-information"
+                            className="group/link flex items-center justify-between p-2.5 -ml-2.5 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D] transition-colors">
+                              Guest Information
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    {yvPages.length > 0 && (
+                      <div>
+                        <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                          <span className="w-4 h-[2px] bg-[#ED7D4D]" />
+                          Featured Pages
+                        </h4>
+                        <ul className="space-y-2 text-sm font-medium">
+                          {yvPages.map((p) => (
+                            <li key={p.slug}>
+                              <Link
+                                href={`/p/${p.slug}`}
+                                className="group/link flex items-center justify-between p-2.5 -ml-2.5 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                              >
+                                <span className="group-hover/link:text-[#ED7D4D] transition-colors">
+                                  {p.title}
+                                </span>
+                                <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
-                  </li>
-                );
-              })}
-            </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 2. TEACHER TRAINING */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8">
+                Teacher Training{" "}
+                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
+              </button>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
+                <div
+                  className={`bg-[#FDFCF8] rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.2)] border border-gray-100 ${
+                    ttPages.length > 0 ? "w-[950px]" : "w-[700px]"
+                  } overflow-hidden whitespace-normal relative`}
+                >
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
+                  <div
+                    className={`p-8 grid ${
+                      ttPages.length > 0 ? "grid-cols-3" : "grid-cols-2"
+                    } gap-10`}
+                  >
+                    <div>
+                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <span className="w-4 h-[2px] bg-[#ED7D4D]" />
+                        Certification
+                      </h4>
+                      <ul className="space-y-1">
+                        <li>
+                          <Link
+                            href="/yoga-teacher-training-course"
+                            className="group/link flex items-center justify-between p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
+                          >
+                            <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
+                              TTC Program (200 hrs)
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/advanced-yoga-teacher-training-course"
+                            className="group/link flex items-center justify-between p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
+                          >
+                            <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
+                              Advanced TTC (300 hrs)
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/sadhana-intensive"
+                            className="group/link flex items-center justify-between p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
+                          >
+                            <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
+                              Sadhana Intensive
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/vedanta-silence-meditation"
+                            className="group/link flex items-center justify-between p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
+                          >
+                            <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
+                              Vedanta Silence
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/specialty-courses"
+                            className="group/link flex items-center justify-between p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
+                          >
+                            <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
+                              Specialty Courses
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <span className="w-4 h-[2px] bg-[#ED7D4D]" />
+                        SYHET
+                      </h4>
+                      <ul className="space-y-1">
+                        <li>
+                          <Link
+                            href="/sivananda-yoga-health-educator-training"
+                            className="group/link flex items-center justify-between p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
+                          >
+                            <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
+                              About SYHET Program
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/syhet-practicuum"
+                            className="group/link flex items-center justify-between p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
+                          >
+                            <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
+                              SYHET Practicuum
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/syhet-courses"
+                            className="group/link flex items-center justify-between p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
+                          >
+                            <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
+                              Courses
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    {ttPages.length > 0 && (
+                      <div>
+                        <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                          <span className="w-4 h-[2px] bg-[#ED7D4D]" />
+                          Additional Training
+                        </h4>
+                        <ul className="space-y-1">
+                          {ttPages.map((p) => (
+                            <li key={p.slug}>
+                              <Link
+                                href={`/p/${p.slug}`}
+                                className="group/link flex items-center justify-between p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
+                              >
+                                <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
+                                  {p.title}
+                                </span>
+                                <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 3. AYURVEDA */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8">
+                Ayurveda{" "}
+                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
+              </button>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
+                <div className="bg-[#FDFCF8] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 w-[300px] p-4 flex flex-col gap-1 whitespace-normal relative">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
+                  <Link
+                    href="/100-foundation-ayurveda"
+                    className="p-3 rounded-md hover:bg-white hover:shadow-sm text-[#0B3B24] text-sm font-medium hover:text-[#ED7D4D] transition-all flex items-center justify-between group/link"
+                  >
+                    100 Foundation Ayurveda{" "}
+                    <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                  </Link>
+                  <Link
+                    href="/detoxification"
+                    className="p-3 rounded-md hover:bg-white hover:shadow-sm text-[#0B3B24] text-sm font-medium hover:text-[#ED7D4D] transition-all flex items-center justify-between group/link"
+                  >
+                    Detoxification Program{" "}
+                    <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                  </Link>
+                  {ayPages.length > 0 && (
+                    <>
+                      <div className="w-full h-px bg-gray-200 my-2" />
+                      {ayPages.map((p) => (
+                        <Link
+                          key={p.slug}
+                          href={`/p/${p.slug}`}
+                          className="p-3 rounded-md hover:bg-white hover:shadow-sm text-[#0B3B24] text-sm font-medium hover:text-[#ED7D4D] transition-all flex items-center justify-between group/link"
+                        >
+                          {p.title}{" "}
+                          <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                        </Link>
+                      ))}
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* 4. ABOUT US */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8">
+                About Us{" "}
+                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
+              </button>
+              <div className="absolute top-full right-0 pt-2 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
+                <div
+                  className={`bg-[#FDFCF8] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 ${
+                    auPages.length > 0 ? "w-[1100px]" : "w-[850px]"
+                  } overflow-hidden text-left relative`}
+                >
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
+                  <div
+                    className={`p-10 grid ${
+                      auPages.length > 0 ? "grid-cols-4" : "grid-cols-3"
+                    } gap-10`}
+                  >
+                    <div>
+                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <span className="w-4 h-[2px] bg-[#ED7D4D]" />
+                        Our Heritage
+                      </h4>
+                      <ul className="space-y-1 text-sm font-medium">
+                        <li>
+                          <Link
+                            href="/about"
+                            className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D]">
+                              Our Lineage
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/our-teachers"
+                            className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D]">
+                              Our Teachers
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/Mission-Vision"
+                            className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D]">
+                              Mission & Vision
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <span className="w-4 h-[2px] bg-[#ED7D4D]" />
+                        Locations
+                      </h4>
+                      <ul className="space-y-1 text-sm font-medium">
+                        <li>
+                          <Link
+                            href="/da-lat-ashram-health-house"
+                            className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D]">
+                              Dalat Ashram
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/ho-chi-minh-center"
+                            className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D]">
+                              HCMC Center
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/hanoi-center"
+                            className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D]">
+                              Hanoi Center
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/sivananda-yoga-dalat-center"
+                            className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D]">
+                              Dalat City Center
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <span className="w-4 h-[2px] bg-[#ED7D4D]" />
+                        Resources
+                      </h4>
+                      <ul className="space-y-1 text-sm font-medium">
+                        <li>
+                          <Link
+                            href="/blog"
+                            className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D]">
+                              Blog
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                    {auPages.length > 0 && (
+                      <div>
+                        <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                          <span className="w-4 h-[2px] bg-[#ED7D4D]" />
+                          More Information
+                        </h4>
+                        <ul className="space-y-1 text-sm font-medium">
+                          {auPages.map((p) => (
+                            <li key={p.slug}>
+                              <Link
+                                href={`/p/${p.slug}`}
+                                className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                              >
+                                <span className="group-hover/link:text-[#ED7D4D]">
+                                  {p.title}
+                                </span>
+                                <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 5. CONTACT US */}
+            <div className="relative group">
+              {cuPages.length > 0 ? (
+                <>
+                  <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8">
+                    Contact Us{" "}
+                    <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
+                  </button>
+                  <div className="absolute top-full right-0 pt-2 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
+                    <div className="bg-[#FDFCF8] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 w-[260px] p-3 flex flex-col gap-1 whitespace-normal relative">
+                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
+                      <Link
+                        href="/contact"
+                        className="p-3 rounded-md hover:bg-white hover:shadow-sm text-[#0B3B24] text-sm font-medium hover:text-[#ED7D4D] transition-all flex items-center justify-between group/link"
+                      >
+                        Contact Form{" "}
+                        <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                      </Link>
+                      <div className="w-full h-px bg-gray-200 my-2" />
+                      {cuPages.map((p) => (
+                        <Link
+                          key={p.slug}
+                          href={`/p/${p.slug}`}
+                          className="p-3 rounded-md hover:bg-white hover:shadow-sm text-[#0B3B24] text-sm font-medium hover:text-[#ED7D4D] transition-all flex items-center justify-between group/link"
+                        >
+                          {p.title}{" "}
+                          <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <Link
+                  href="/contact"
+                  className="text-white/90 hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8 block"
+                >
+                  Contact Us
+                </Link>
+              )}
+            </div>
+
+            {/* 6. FAQ */}
+            <div className="relative group">
+              {faqPages.length > 0 ? (
+                <>
+                  <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8">
+                    FAQ{" "}
+                    <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
+                  </button>
+                  <div className="absolute top-full right-0 pt-2 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
+                    <div className="bg-[#FDFCF8] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 w-[260px] p-3 flex flex-col gap-1 whitespace-normal relative">
+                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
+                      <Link
+                        href="/frequently-asked-questions"
+                        className="p-3 rounded-md hover:bg-white hover:shadow-sm text-[#0B3B24] text-sm font-medium hover:text-[#ED7D4D] transition-all flex items-center justify-between group/link"
+                      >
+                        All FAQs{" "}
+                        <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                      </Link>
+                      <div className="w-full h-px bg-gray-200 my-2" />
+                      {faqPages.map((p) => (
+                        <Link
+                          key={p.slug}
+                          href={`/p/${p.slug}`}
+                          className="p-3 rounded-md hover:bg-white hover:shadow-sm text-[#0B3B24] text-sm font-medium hover:text-[#ED7D4D] transition-all flex items-center justify-between group/link"
+                        >
+                          {p.title}{" "}
+                          <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <Link
+                  href="/frequently-asked-questions"
+                  className="text-white/90 hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8 block"
+                >
+                  FAQ
+                </Link>
+              )}
+            </div>
           </nav>
 
-          {/* Right: Language selector + Hamburger (mobile) */}
-          <div className="flex shrink-0 items-center gap-3">
-            <button
-              type="button"
-              aria-label="Language: English"
-              className="hidden items-center gap-1.5 rounded-md px-2 py-1.5 text-white/90 transition-colors hover:text-[#E5F5C8] focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-[#0B3B24] lg:flex"
-            >
-              <span className="text-base leading-none" aria-hidden>
-                🇬🇧
-              </span>
-              <span className="text-sm font-medium uppercase tracking-wide">
-                EN
-              </span>
+          {/* Right: Language Toggle */}
+          <div className="hidden lg:flex items-center gap-4 xl:gap-6 shrink-0">
+            <button className="flex items-center gap-2 text-white/90 hover:text-[#E5F5C8] transition-colors font-bold text-[10px] xl:text-xs tracking-widest uppercase">
+              <span className="text-sm">🇬🇧</span> EN
             </button>
+          </div>
 
-            {/* Hamburger (mobile only) */}
-            <button
-              type="button"
-              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileMenuOpen}
-              onClick={() => setMobileMenuOpen((o) => !o)}
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-white transition-colors hover:text-[#E5F5C8] md:hidden"
+          {/* Mobile Menu Toggle */}
+          <button
+            type="button"
+            className="lg:hidden text-white p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`lg:hidden fixed inset-0 top-[80px] bg-[#0B3B24] overflow-y-auto transition-transform duration-300 ease-in-out z-40 ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col p-6 gap-6 text-white">
+          <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
+            <Link
+              href="/yoga-vacation"
+              className="text-base font-medium uppercase tracking-widest text-[#ED7D4D]"
             >
-              {mobileMenuOpen ? (
-                <X className="h-5 w-5" aria-hidden />
-              ) : (
-                <Menu className="h-5 w-5" aria-hidden />
-              )}
+              Yoga Vacation
+            </Link>
+            {yvPages.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/p/${p.slug}`}
+                className="pl-4 text-white/80"
+              >
+                {p.title}
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
+            <span className="text-base font-medium text-[#ED7D4D] uppercase tracking-widest">
+              Teacher Training
+            </span>
+            <Link href="/yoga-teacher-training-course" className="pl-4 text-white/80">
+              TTC Program (200 hrs)
+            </Link>
+            <Link href="/advanced-yoga-teacher-training-course" className="pl-4 text-white/80">
+              Advanced TTC (300 hrs)
+            </Link>
+            <Link href="/sadhana-intensive" className="pl-4 text-white/80">
+              Sadhana Intensive
+            </Link>
+            <Link href="/vedanta-silence-meditation" className="pl-4 text-white/80">
+              Vedanta Silence Meditation
+            </Link>
+            <Link href="/syhet-practicuum" className="pl-4 text-white/80">
+              SYHET Program
+            </Link>
+            {ttPages.map((p) => (
+              <Link key={p.slug} href={`/p/${p.slug}`} className="pl-4 text-white/80">
+                {p.title}
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
+            <span className="text-base font-medium text-[#ED7D4D] uppercase tracking-widest">
+              Ayurveda
+            </span>
+            <Link href="/100-foundation-ayurveda" className="pl-4 text-white/80">
+              100 Foundation Ayurveda
+            </Link>
+            <Link href="/detoxification" className="pl-4 text-white/80">
+              Detoxification Program
+            </Link>
+            {ayPages.map((p) => (
+              <Link key={p.slug} href={`/p/${p.slug}`} className="pl-4 text-white/80">
+                {p.title}
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
+            <span className="text-base font-medium text-[#ED7D4D] uppercase tracking-widest">
+              About Us
+            </span>
+            <Link href="/about" className="pl-4 text-white/80">
+              Our Lineage
+            </Link>
+            <Link href="/our-teachers" className="pl-4 text-white/80">
+              Our Teachers
+            </Link>
+            <Link href="/da-lat-ashram-health-house" className="pl-4 text-white/80">
+              Locations
+            </Link>
+            {auPages.map((p) => (
+              <Link key={p.slug} href={`/p/${p.slug}`} className="pl-4 text-white/80">
+                {p.title}
+              </Link>
+            ))}
+          </div>
+
+          <Link
+            href="/blog"
+            className="text-base font-medium border-b border-white/10 pb-4 uppercase tracking-widest"
+          >
+            Blog
+          </Link>
+
+          <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
+            <Link
+              href="/contact"
+              className="text-base font-medium uppercase tracking-widest text-[#ED7D4D]"
+            >
+              Contact Us
+            </Link>
+            {cuPages.map((p) => (
+              <Link key={p.slug} href={`/p/${p.slug}`} className="pl-4 text-white/80">
+                {p.title}
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
+            <Link
+              href="/frequently-asked-questions"
+              className="text-base font-medium uppercase tracking-widest text-[#ED7D4D]"
+            >
+              FAQ
+            </Link>
+            {faqPages.map((p) => (
+              <Link key={p.slug} href={`/p/${p.slug}`} className="pl-4 text-white/80">
+                {p.title}
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-6 pt-4">
+            <button className="flex items-center gap-2 text-white/90 font-bold tracking-widest">
+              <span className="text-xl">🇬🇧</span> EN
             </button>
           </div>
         </div>
       </div>
-
-      {/* Mobile nav panel - expandable submenus */}
-      {mobileMenuOpen && (
-        <div
-          className={`border-t border-[#1a5226] ${HEADER_BG} px-4 py-4 md:hidden`}
-          role="dialog"
-          aria-label="Mobile navigation"
-        >
-          <nav className="flex flex-col gap-0.5">
-            <ul className="flex flex-col gap-0.5">
-              {NAV_LINKS.map(({ href, label, active }) => {
-                const columns = MEGA_MENUS[label];
-                const hasDropdown = Boolean(columns?.length);
-
-                if (hasDropdown) {
-                  const isOpen = activeMobileSubmenu === label;
-                  return (
-                    <li key={href}>
-                      <button
-                        type="button"
-                        onClick={() => toggleMobileSubmenu(label)}
-                        className={`flex w-full items-center justify-between rounded-lg px-3 py-3 text-sm font-medium uppercase tracking-wider transition-colors ${
-                          active
-                            ? `${ACTIVE_LINK} font-bold bg-white/10`
-                            : "text-white hover:bg-white/10"
-                        }`}
-                        aria-expanded={isOpen}
-                        aria-controls={`mobile-submenu-${label.replace(/\s+/g, "-")}`}
-                      >
-                        {label}
-                        <ChevronDown
-                          className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
-                            isOpen ? "rotate-180" : ""
-                          }`}
-                          aria-hidden
-                        />
-                      </button>
-                      {isOpen && (
-                        <div
-                          id={`mobile-submenu-${label.replace(/\s+/g, "-")}`}
-                          className="flex flex-col pl-4 mt-2 space-y-2 border-l-2 border-white/30"
-                        >
-                          {columns.map((col) =>
-                            col.links.map((link, index) => (
-                              <Link
-                                key={`${col.header}-${link.label}-${index}`}
-                                href={link.href}
-                                onClick={closeMobileMenu}
-                                className="block rounded-lg px-3 py-3 text-sm text-white/95 transition-colors hover:bg-white/10 hover:text-white"
-                              >
-                                {link.label}
-                              </Link>
-                            ))
-                          )}
-                        </div>
-                      )}
-                    </li>
-                  );
-                }
-
-                return (
-                  <li key={href}>
-                    <Link
-                      href={href}
-                      onClick={closeMobileMenu}
-                      className={`block rounded-lg px-3 py-3 text-sm font-medium uppercase tracking-wider transition-colors ${
-                        active
-                          ? `${ACTIVE_LINK} font-bold bg-white/10`
-                          : "text-white hover:bg-white/10"
-                      }`}
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-        </div>
-      )}
     </header>
   );
 }
