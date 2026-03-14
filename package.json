@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync-registry": "npx tsx scripts/sync-registry.ts",
+    "sync-all-schemas": "npx tsx scripts/sync-all-schemas.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.98.0",

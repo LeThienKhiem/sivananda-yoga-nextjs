@@ -8,9 +8,9 @@ import Image from "next/image";
 import { supabase } from "@/utils/supabase";
 import { Loader2 } from "lucide-react";
 
-// --- COMPONENT REGISTRY IMPORTS ---
 import UpcomingEvents from "@/components/UpcomingEvents";
 import StudentFeedback from "@/components/StudentFeedback";
+import CustomTwoColumn from "@/components/CustomTwoColumn";
 import ContactSection from "@/components/ContactSection";
 import MoreInformation from "@/components/MoreInformation";
 import AccommodationCost from "@/components/AccommodationCost";
@@ -23,21 +23,6 @@ import KarmaYogaTabs from "@/components/KarmaYogaTabs";
 
 const FALLBACK_HERO =
   "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000";
-
-// Map string names from JSON to actual React Components
-const COMPONENT_MAP: Record<string, React.FC<any>> = {
-  UpcomingEvents,
-  StudentFeedback,
-  ContactSection,
-  MoreInformation,
-  AccommodationCost,
-  CourseCurriculum,
-  SeniorTeachers,
-  AshramGallery,
-  BenefitsTTC,
-  YogaInsights,
-  KarmaYogaTabs,
-};
 
 export default function DynamicGeneratedPage() {
   const params = useParams();
@@ -123,70 +108,65 @@ export default function DynamicGeneratedPage() {
       {/* 2. DYNAMIC COMPONENT RENDERER (Reading the JSON) */}
       <div className="w-full flex-grow flex flex-col mt-12 md:mt-20">
         {pageData.components?.map((comp: any, idx: number) => {
-          // Handle the Custom Text/Image Block explicitly
-          if (comp.type === "CustomTwoColumn") {
-            const isEven = idx % 2 === 0;
-            return (
-              <section
-                key={comp.id}
-                className="max-w-7xl mx-auto py-16 md:py-24 px-6 w-full"
-              >
-                <div
-                  className={`flex flex-col md:flex-row items-center gap-12 lg:gap-20 ${isEven ? "" : "md:flex-row-reverse"}`}
-                >
-                  <div className="w-full md:w-1/2">
-                    <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-lg border border-gray-100">
-                      {comp.image_url ? (
-                        <Image
-                          src={comp.image_url}
-                          alt={comp.title || "Custom Block"}
-                          fill
-                          className="object-cover"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-gray-100 flex items-center justify-center text-gray-400">
-                          No Image
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  <div className="w-full md:w-1/2 space-y-6">
-                    {comp.title && (
-                      <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] font-bold">
-                        {comp.title}
-                      </h2>
-                    )}
-                    {comp.description && (
-                      <div
-                        className="prose prose-slate max-w-none text-[#4A4A4A] leading-relaxed
-                                   [&>h2]:text-2xl [&>h2]:font-serif [&>h2]:text-[#0B3B24] [&>h2]:mb-4
-                                   [&>p]:mb-4 [&>ul]:list-disc [&>ul]:pl-5 [&>strong]:text-[#0B3B24]"
-                        dangerouslySetInnerHTML={{
-                          __html: comp.description,
-                        }}
-                      />
-                    )}
-                  </div>
-                </div>
-              </section>
-            );
-          }
-
-          // Render Pre-built Components from Registry
-          const ComponentToRender = COMPONENT_MAP[comp.type];
-
-          if (ComponentToRender) {
-            if (comp.type === "ContactSection") {
+          switch (comp.type) {
+            case "UpcomingEvents": {
+              const data = comp.data ?? {};
+              return (
+                <UpcomingEvents
+                  key={comp.id}
+                  subtitle={data.subtitle}
+                  title={data.title}
+                  ctaText={data.ctaText}
+                  ctaLink={data.ctaLink}
+                />
+              );
+            }
+            case "StudentFeedback":
+              return <StudentFeedback key={comp.id} />;
+            case "CustomTwoColumn": {
+              const data = comp.data ?? comp;
+              return (
+                <CustomTwoColumn
+                  key={comp.id}
+                  title={data?.title}
+                  description={data?.description}
+                  imageUrl={data?.image_url}
+                  imageFirst={idx % 2 === 0}
+                />
+              );
+            }
+            case "ContactSection":
               return (
                 <div key={comp.id} className="bg-white">
                   <ContactSection />
                 </div>
               );
-            }
-            return <ComponentToRender key={comp.id} />;
+            case "MoreInformation":
+              return <MoreInformation key={comp.id} />;
+            case "AccommodationCost":
+              return <AccommodationCost key={comp.id} />;
+            case "CourseCurriculum":
+              return <CourseCurriculum key={comp.id} />;
+            case "SeniorTeachers":
+              return <SeniorTeachers key={comp.id} />;
+            case "AshramGallery":
+              return <AshramGallery key={comp.id} />;
+            case "BenefitsTTC":
+              return <BenefitsTTC key={comp.id} />;
+            case "YogaInsights":
+              return <YogaInsights key={comp.id} />;
+            case "KarmaYogaTabs":
+              return <KarmaYogaTabs key={comp.id} />;
+            default:
+              return (
+                <div
+                  key={comp.id}
+                  className="px-6 py-4 text-gray-400 text-xs"
+                >
+                  [Missing component: {comp.type}]
+                </div>
+              );
           }
-
-          return null;
         })}
       </div>
 

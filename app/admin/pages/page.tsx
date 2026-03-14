@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { supabase } from "@/utils/supabase";
-import { Plus, Edit, Trash2, Loader2, ArrowUp, ArrowDown } from "lucide-react";
+import { Plus, Edit, Trash2, Loader2, ArrowUp, ArrowDown, Blocks, X, Info } from "lucide-react";
 
 const PARENT_PAGES = [
   "Yoga Vacation",
@@ -13,30 +13,13 @@ const PARENT_PAGES = [
   "FAQ",
 ];
 
-const COMPONENT_REGISTRY = [
-  { id: "UpcomingEvents", name: "Upcoming Events", desc: "Slider sự kiện/khóa học" },
-  { id: "StudentFeedback", name: "Student Feedback", desc: "Đánh giá học viên" },
-  { id: "ContactSection", name: "Contact Form", desc: "Form liên hệ & Địa chỉ" },
-  { id: "MoreInformation", name: "More Information", desc: "Nút Contact & FAQs" },
-  { id: "AccommodationCost", name: "Accommodation", desc: "Thông tin phòng & giá" },
-  { id: "CourseCurriculum", name: "Course Curriculum", desc: "Nội dung khóa học" },
-  { id: "SeniorTeachers", name: "Senior Teachers", desc: "Danh sách giáo viên" },
-  { id: "AshramGallery", name: "Ashram Gallery", desc: "Thư viện ảnh Masonry" },
-  { id: "BenefitsTTC", name: "Benefits Matrix", desc: "Lợi ích khóa học" },
-  { id: "YogaInsights", name: "Yoga Insights", desc: "Danh sách bài viết Blog" },
-  { id: "KarmaYogaTabs", name: "Interactive Tabs", desc: "Tabs nội dung" },
-  {
-    id: "CustomTwoColumn",
-    name: "CUSTOM: 2-Column",
-    desc: "Tự viết nội dung & Ảnh",
-  },
-];
-
 export default function AdminPageBuilder() {
   const [pages, setPages] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [uploadingImage, setUploadingImage] = useState<string | null>(null);
+  const [availableComponents, setAvailableComponents] = useState<any[]>([]);
+  const [isPickerOpen, setIsPickerOpen] = useState(false);
 
   const [formData, setFormData] = useState({
     id: "",
@@ -48,10 +31,19 @@ export default function AdminPageBuilder() {
     components: [] as any[],
     is_published: true,
   });
-
   useEffect(() => {
     fetchPages();
+    fetchAvailableComponents();
   }, []);
+
+  const fetchAvailableComponents = async () => {
+    const { data } = await supabase
+      .from("component_registry")
+      .select("*")
+      .eq("is_active", true)
+      .order("name", { ascending: true });
+    setAvailableComponents(data || []);
+  };
 
   const fetchPages = async () => {
     setLoading(true);
@@ -93,28 +85,55 @@ export default function AdminPageBuilder() {
   };
 
   const addComponent = (type: string) => {
-    const newComp =
-      type === "CustomTwoColumn"
-        ? {
-            id: Date.now().toString(),
-            type,
-            title: "",
-            description: "",
-            image_url: "",
-          }
-        : { id: Date.now().toString(), type };
+    setIsPickerOpen(false);
+    let newComp: { id: string; type: string; data?: Record<string, string> };
+    if (type === "CustomTwoColumn") {
+      newComp = {
+        id: Date.now().toString(),
+        type,
+        data: { title: "", description: "", image_url: "" },
+      };
+    } else if (type === "UpcomingEvents") {
+      newComp = {
+        id: Date.now().toString(),
+        type,
+        data: {
+          subtitle: "PROGRAMS AND RETREAT",
+          title: "Upcoming Events & Courses",
+          ctaText: "View all Courses",
+          ctaLink: "/courses",
+        },
+      };
+    } else {
+      newComp = { id: Date.now().toString(), type };
+    }
     setFormData((prev) => ({
       ...prev,
       components: [...prev.components, newComp],
     }));
   };
 
-  const updateComponent = (id: string, field: string, value: string) => {
+  const updateComponent = (
+    id: string,
+    field: string,
+    value: string,
+    isNested = false
+  ) => {
     setFormData((prev) => ({
       ...prev,
-      components: prev.components.map((comp) =>
-        comp.id === id ? { ...comp, [field]: value } : comp
-      ),
+      components: prev.components.map((comp) => {
+        if (comp.id !== id) return comp;
+        if (
+          (comp.type === "CustomTwoColumn" || comp.type === "UpcomingEvents") &&
+          isNested
+        ) {
+          return {
+            ...comp,
+            data: { ...(comp.data || {}), [field]: value },
+          };
+        }
+        return { ...comp, [field]: value };
+      }),
     }));
   };
 
@@ -307,8 +326,11 @@ export default function AdminPageBuilder() {
                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#0B3B24]" />
                     <div className="flex justify-between items-center pl-2 mb-2">
                       <span className="font-bold text-sm text-[#0B3B24]">
-                        {COMPONENT_REGISTRY.find((c) => c.id === comp.type)
-                          ?.name || comp.type}
+                        {comp.type === "UpcomingEvents"
+                          ? "Upcoming Events Slider"
+                          : comp.type === "CustomTwoColumn"
+                          ? "Custom Two Column"
+                          : comp.type}
                       </span>
                       <div className="flex gap-2">
                         <button
@@ -345,9 +367,14 @@ export default function AdminPageBuilder() {
                           </label>
                           <input
                             type="text"
-                            value={comp.title ?? ""}
+                            value={(comp.data?.title ?? comp.title) ?? ""}
                             onChange={(e) =>
-                              updateComponent(comp.id, "title", e.target.value)
+                              updateComponent(
+                                comp.id,
+                                "title",
+                                e.target.value,
+                                true
+                              )
                             }
                             className="w-full p-2 border rounded outline-none"
                           />
@@ -357,12 +384,16 @@ export default function AdminPageBuilder() {
                             Description (HTML allowed)
                           </label>
                           <textarea
-                            value={comp.description ?? ""}
+                            value={
+                              (comp.data?.description ?? comp.description) ??
+                              ""
+                            }
                             onChange={(e) =>
                               updateComponent(
                                 comp.id,
                                 "description",
-                                e.target.value
+                                e.target.value,
+                                true
                               )
                             }
                             className="w-full p-2 border rounded h-full outline-none font-mono text-sm"
@@ -371,12 +402,12 @@ export default function AdminPageBuilder() {
                         </div>
                         <div>
                           <label className="block text-xs font-bold mb-1">
-                            Block Image
+                            Image URL
                           </label>
                           <div className="flex items-center gap-3">
-                            {comp.image_url && (
+                            {(comp.data?.image_url ?? comp.image_url) && (
                               <img
-                                src={comp.image_url}
+                                src={comp.data?.image_url ?? comp.image_url}
                                 className="h-16 w-16 object-cover rounded"
                                 alt="block"
                               />
@@ -389,7 +420,12 @@ export default function AdminPageBuilder() {
                                 uploadImage(
                                   e,
                                   (url) =>
-                                    updateComponent(comp.id, "image_url", url),
+                                    updateComponent(
+                                      comp.id,
+                                      "image_url",
+                                      url,
+                                      true
+                                    ),
                                   comp.id
                                 )
                               }
@@ -401,34 +437,156 @@ export default function AdminPageBuilder() {
                         </div>
                       </div>
                     )}
+
+                    {comp.type === "UpcomingEvents" && (
+                      <div className="border-t pt-4 pl-2 space-y-4">
+                        <div className="flex items-start gap-3 p-4 bg-[#E5F5C8]/50 border border-[#0B3B24]/20 rounded-lg">
+                          <Info className="w-5 h-5 text-[#0B3B24] flex-shrink-0 mt-0.5" aria-hidden />
+                          <p className="text-sm text-[#0B3B24]">
+                            Course cards are fetched automatically from the database. Configure only the section headings and CTA below.
+                          </p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-xs font-bold mb-1">
+                              Subtitle
+                            </label>
+                            <input
+                              type="text"
+                              value={(comp.data?.subtitle ?? "PROGRAMS AND RETREAT") ?? ""}
+                              onChange={(e) =>
+                                updateComponent(
+                                  comp.id,
+                                  "subtitle",
+                                  e.target.value,
+                                  true
+                                )
+                              }
+                              className="w-full p-2 border rounded outline-none"
+                              placeholder="PROGRAMS AND RETREAT"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs font-bold mb-1">
+                              Title
+                            </label>
+                            <input
+                              type="text"
+                              value={(comp.data?.title ?? "Upcoming Events & Courses") ?? ""}
+                              onChange={(e) =>
+                                updateComponent(
+                                  comp.id,
+                                  "title",
+                                  e.target.value,
+                                  true
+                                )
+                              }
+                              className="w-full p-2 border rounded outline-none"
+                              placeholder="Upcoming Events & Courses"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs font-bold mb-1">
+                              CTA Button Text
+                            </label>
+                            <input
+                              type="text"
+                              value={(comp.data?.ctaText ?? "View all Courses") ?? ""}
+                              onChange={(e) =>
+                                updateComponent(
+                                  comp.id,
+                                  "ctaText",
+                                  e.target.value,
+                                  true
+                                )
+                              }
+                              className="w-full p-2 border rounded outline-none"
+                              placeholder="View all Courses"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs font-bold mb-1">
+                              CTA Link
+                            </label>
+                            <input
+                              type="text"
+                              value={(comp.data?.ctaLink ?? "/courses") ?? ""}
+                              onChange={(e) =>
+                                updateComponent(
+                                  comp.id,
+                                  "ctaLink",
+                                  e.target.value,
+                                  true
+                                )
+                              }
+                              className="w-full p-2 border rounded outline-none"
+                              placeholder="/courses"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
 
               <div className="border-t pt-6">
-                <h3 className="font-bold text-sm mb-4">
-                  Click to add a block:
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                  {COMPONENT_REGISTRY.map((c) => (
-                    <button
-                      key={c.id}
-                      type="button"
-                      onClick={() => addComponent(c.id)}
-                      className="flex flex-col items-start p-3 border rounded-lg bg-white hover:border-[#ED7D4D] hover:shadow-md transition-all text-left group"
-                    >
-                      <span className="font-bold text-[#0B3B24] text-sm mb-1">
-                        {c.name}
-                      </span>
-                      <span className="text-xs text-gray-500 mb-3">
-                        {c.desc}
-                      </span>
-                      <div className="mt-auto flex items-center gap-1 text-[#ED7D4D] text-xs font-bold uppercase">
-                        <Plus size={14} /> Add
+                <button
+                  type="button"
+                  onClick={() => setIsPickerOpen(true)}
+                  className="flex items-center gap-2 px-6 py-3 bg-[#0B3B24] hover:bg-[#1a5438] text-white rounded-xl font-bold shadow-sm transition-all duration-300 hover:shadow-md"
+                >
+                  <Plus size={22} /> Add New Block
+                </button>
+
+                {/* Component Picker Modal */}
+                {isPickerOpen && (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
+                    <div className="bg-white rounded-2xl shadow-xl max-w-4xl w-full max-h-[85vh] overflow-hidden flex flex-col">
+                      <div className="flex justify-between items-center p-6 border-b border-gray-100">
+                        <h3 className="text-xl font-bold text-[#0B3B24]">
+                          Choose a Component
+                        </h3>
+                        <button
+                          type="button"
+                          onClick={() => setIsPickerOpen(false)}
+                          className="p-2 rounded-lg hover:bg-gray-100 text-gray-500 transition-colors"
+                          aria-label="Close"
+                        >
+                          <X size={24} />
+                        </button>
                       </div>
-                    </button>
-                  ))}
-                </div>
+                      <div className="p-6 overflow-y-auto flex-1">
+                        {availableComponents.length === 0 ? (
+                          <p className="text-gray-500 text-center py-8">
+                            No components available. Add some in Component Management.
+                          </p>
+                        ) : (
+                          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            {availableComponents.map((comp) => (
+                              <button
+                                key={comp.id}
+                                type="button"
+                                onClick={() => addComponent(comp.component_type)}
+                                className="border border-gray-200 rounded-xl p-4 bg-white cursor-pointer transition-all hover:border-[#0B3B24] hover:shadow-md flex flex-col items-center text-center group"
+                              >
+                                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-3 bg-[#E5F5C8] text-[#0B3B24] group-hover:bg-[#0B3B24] group-hover:text-white transition-colors">
+                                  <Blocks size={24} />
+                                </div>
+                                <span className="font-bold text-[#0B3B24] text-sm mb-1">
+                                  {comp.name}
+                                </span>
+                                <span className="text-sm text-gray-500 line-clamp-2">
+                                  {comp.description || "—"}
+                                </span>
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -482,10 +640,30 @@ export default function AdminPageBuilder() {
                       <button
                         type="button"
                         onClick={() => {
-                          setFormData({
-                            ...p,
-                            components: p.components ?? [],
-                          });
+                          const components = (p.components ?? []).map(
+                            (c: any) => {
+                              if (
+                                c.type === "CustomTwoColumn" &&
+                                !c.data &&
+                                (c.title != null ||
+                                  c.description != null ||
+                                  c.image_url != null)
+                              ) {
+                                const { title, description, image_url, ...rest } =
+                                  c;
+                                return {
+                                  ...rest,
+                                  data: {
+                                    title: title ?? "",
+                                    description: description ?? "",
+                                    image_url: image_url ?? "",
+                                  },
+                                };
+                              }
+                              return c;
+                            }
+                          );
+                          setFormData({ ...p, components });
                           setIsEditing(true);
                         }}
                         className="p-2 bg-blue-50 text-blue-600 rounded hover:bg-blue-100"

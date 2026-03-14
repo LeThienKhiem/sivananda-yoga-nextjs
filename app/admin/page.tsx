@@ -10,6 +10,7 @@ import {
   LayoutDashboard,
   LayoutTemplate,
   MessageSquareQuote,
+  Blocks,
 } from "lucide-react";
 
 // Define the modules here so it's easy to add more in the future
@@ -58,6 +59,15 @@ const adminModules = [
     color: "text-indigo-600",
     bgColor: "bg-indigo-50",
     borderColor: "hover:border-indigo-200",
+  },
+  {
+    title: "Component Management",
+    description: "Manage the registry of available UI components for the Page Builder.",
+    href: "/admin/components",
+    icon: Blocks,
+    color: "text-teal-600",
+    bgColor: "bg-teal-50",
+    borderColor: "hover:border-teal-200",
   },
   // Future placeholders
   /*

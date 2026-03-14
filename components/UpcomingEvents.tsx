@@ -6,7 +6,24 @@ import Link from 'next/link';
 import { Calendar, MapPin, ChevronLeft, ChevronRight, ArrowRight, Loader2 } from 'lucide-react';
 import { supabase } from '@/utils/supabase';
 
-export default function UpcomingEvents() {
+const DEFAULT_SUBTITLE = "PROGRAMS AND RETREAT";
+const DEFAULT_TITLE = "Upcoming Events & Courses";
+const DEFAULT_CTA_TEXT = "View all Courses";
+const DEFAULT_CTA_LINK = "/courses";
+
+export interface UpcomingEventsProps {
+  subtitle?: string;
+  title?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+export default function UpcomingEvents({
+  subtitle = DEFAULT_SUBTITLE,
+  title = DEFAULT_TITLE,
+  ctaText = DEFAULT_CTA_TEXT,
+  ctaLink = DEFAULT_CTA_LINK,
+}: UpcomingEventsProps = {}) {
   const [events, setEvents] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -134,10 +151,10 @@ export default function UpcomingEvents() {
       <div className="max-w-7xl mx-auto px-6 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
           <h3 className="text-[#ED7D4D] font-bold tracking-widest text-sm uppercase mb-3">
-            Programs and retreat
+            {subtitle}
           </h3>
           <h2 className="text-3xl md:text-5xl font-serif text-[#0B3B24] font-bold">
-            Upcoming Events & Courses
+            {title}
           </h2>
         </div>
       </div>
@@ -214,9 +231,9 @@ export default function UpcomingEvents() {
       </div>
 
       <div className="flex justify-center mt-12">
-        <Link href="/syhet-courses">
+        <Link href={ctaLink}>
           <button className="bg-transparent border-2 border-[#0B3B24] text-[#0B3B24] hover:bg-[#0B3B24] hover:text-white px-10 py-3 rounded-sm font-bold tracking-widest text-sm uppercase transition-all shadow-sm">
-            View All Courses
+            {ctaText}
           </button>
         </Link>
       </div>
