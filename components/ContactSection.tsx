@@ -20,7 +20,6 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
     alert("Thank you for your message. We will get back to you shortly!");
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
