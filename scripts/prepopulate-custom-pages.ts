@@ -70,7 +70,8 @@ async function main() {
   for (const page of pages) {
     const components = (page.components as unknown[]) ?? [];
     let changed = false;
-    const newComponents = components.map((comp: Record<string, unknown>) => {
+    const newComponents = components.map((item: any) => {
+      const comp = item as Record<string, any>;
       const type = comp.type as string;
       const defaults = COMPONENT_DEFAULTS[type];
       if (!defaults) return comp;
