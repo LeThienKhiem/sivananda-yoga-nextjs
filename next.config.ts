@@ -9,6 +9,9 @@ const legacyRedirects = require("./redirects-config.js") as Array<{
 }>;
 
 const nextConfig: NextConfig = {
+  env: {
+    ADMIN_PASS: process.env.ADMIN_PASS,
+  },
   async redirects() {
     // Filter out self-referential redirects (source === destination) to prevent ERR_TOO_MANY_REDIRECTS
     return legacyRedirects.filter((r) => r.source !== r.destination);
