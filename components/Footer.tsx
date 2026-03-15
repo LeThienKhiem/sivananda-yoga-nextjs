@@ -180,9 +180,6 @@ export default function Footer() {
                 <Link href="/programs" className={FOOTER_LINK}>
                   5 points 4 paths of Yoga
                 </Link>
-                <Link href="/programs" className={FOOTER_LINK}>
-                  Karma Yoga Program
-                </Link>
               </nav>
             </div>
 
@@ -192,9 +189,6 @@ export default function Footer() {
                 YOGA VACATION
               </h4>
               <nav className="flex flex-col space-y-2 lg:space-y-4 text-base lg:text-base">
-                <Link href="/guest-information" className={FOOTER_LINK}>
-                  Registration & Arrival
-                </Link>
                 <Link href="/accommodations" className={FOOTER_LINK}>
                   Accommodation
                 </Link>

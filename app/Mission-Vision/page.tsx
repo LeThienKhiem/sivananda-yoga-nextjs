@@ -448,7 +448,7 @@ export default function MissionVisionPage() {
             </p>
 
             <div className="pt-6">
-              <Link href="/da-lat-ashram-health-house">
+              <Link href="/our-venues">
                 <button className="bg-[#E5F5C8] text-[#0B3B24] hover:bg-[#d4e8aa] px-8 py-3.5 rounded-sm font-bold tracking-widest text-sm uppercase transition-colors shadow-sm">
                   Explore The Resort
                 </button>
@@ -503,9 +503,11 @@ export default function MissionVisionPage() {
               Your donation supports our mission of spreading classical yoga, health, and inner peace. Contributions help fund teacher training, community outreach, ashram maintenance, and scholarship programs. Every offering sustains a space of healing and spiritual growth, empowering more lives to access the timeless wisdom of yoga and the path to self-healing. <a href="#" className="underline font-medium hover:text-[#0B3B24] transition-colors">Learn more</a>
             </p>
 
-            <button className="bg-[#E5F5C8] text-[#0B3B24] hover:bg-[#d4e8aa] px-10 py-3.5 rounded-sm font-bold tracking-widest text-sm uppercase transition-colors shadow-sm">
-              Donate
-            </button>
+            <Link href="/donation">
+              <button className="bg-[#E5F5C8] text-[#0B3B24] hover:bg-[#d4e8aa] px-10 py-3.5 rounded-sm font-bold tracking-widest text-sm uppercase transition-colors shadow-sm">
+                Donation
+              </button>
+            </Link>
           </div>
 
         </div>

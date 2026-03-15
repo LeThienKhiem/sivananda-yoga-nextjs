@@ -48,31 +48,34 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "bg-[#0B3B24] shadow-lg" : "bg-[#0B3B24]"
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-700 ${
+        scrolled ? "bg-[#0B3B24]/50 backdrop-blur-xl shadow-lg" : "bg-[#0B3B24]"
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 md:h-24">
-          {/* Logo */}
+          {/* Logo + mobile resort name */}
           <Link
             href="/"
-            className="flex items-center group shrink-0 mr-4"
+            className="flex items-center group shrink-0 mr-4 gap-2 min-w-0"
           >
-            <div className="p-1.5 transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+            <div className="p-1.5 transition-transform duration-300 group-hover:scale-105 flex items-center justify-center shrink-0">
               <img
                 src={LOGO_URL}
                 alt="Sivananda Yoga Logo"
                 className="h-8 sm:h-10 lg:h-12 w-auto object-contain filter-none"
               />
             </div>
+            <span className="hidden sm:block lg:hidden text-white font-semibold text-lg leading-tight max-w-[140px]">
+              Sivananda Yoga Resort
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-3 xl:gap-6 whitespace-nowrap">
             {/* 1. YOGA VACATION */}
             <div className="relative group">
-              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8">
+              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-lg font-semibold tracking-wide transition-colors py-8">
                 Yoga Vacation{" "}
                 <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
               </button>
@@ -89,7 +92,7 @@ export default function Header() {
                     } gap-8`}
                   >
                     <div>
-                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                      <h4 className="text-[11px] font-bold text-gray-400 tracking-wide mb-6 flex items-center gap-2">
                         <span className="w-4 h-[2px] bg-[#ED7D4D]" />
                         Programs & Stay
                       </h4>
@@ -130,7 +133,7 @@ export default function Header() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                      <h4 className="text-[11px] font-bold text-gray-400 tracking-wide mb-6 flex items-center gap-2">
                         <span className="w-4 h-[2px] bg-[#ED7D4D]" />
                         Philosophy & Info
                       </h4>
@@ -183,7 +186,7 @@ export default function Header() {
                     </div>
                     {yvPages.length > 0 && (
                       <div>
-                        <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <h4 className="text-[11px] font-bold text-gray-400 tracking-wide mb-6 flex items-center gap-2">
                           <span className="w-4 h-[2px] bg-[#ED7D4D]" />
                           Featured Pages
                         </h4>
@@ -211,7 +214,7 @@ export default function Header() {
 
             {/* 2. TEACHER TRAINING */}
             <div className="relative group">
-              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8">
+              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-lg font-semibold tracking-wide transition-colors py-8">
                 Teacher Training{" "}
                 <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
               </button>
@@ -228,7 +231,7 @@ export default function Header() {
                     } gap-10`}
                   >
                     <div>
-                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                      <h4 className="text-[11px] font-bold text-gray-400 tracking-wide mb-6 flex items-center gap-2">
                         <span className="w-4 h-[2px] bg-[#ED7D4D]" />
                         Certification
                       </h4>
@@ -291,7 +294,7 @@ export default function Header() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                      <h4 className="text-[11px] font-bold text-gray-400 tracking-wide mb-6 flex items-center gap-2">
                         <span className="w-4 h-[2px] bg-[#ED7D4D]" />
                         SYHET
                       </h4>
@@ -333,7 +336,7 @@ export default function Header() {
                     </div>
                     {ttPages.length > 0 && (
                       <div>
-                        <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <h4 className="text-[11px] font-bold text-gray-400 tracking-wide mb-6 flex items-center gap-2">
                           <span className="w-4 h-[2px] bg-[#ED7D4D]" />
                           Additional Training
                         </h4>
@@ -361,13 +364,20 @@ export default function Header() {
 
             {/* 3. AYURVEDA */}
             <div className="relative group">
-              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8">
+              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-lg font-semibold tracking-wide transition-colors py-8">
                 Ayurveda{" "}
                 <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
               </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
                 <div className="bg-[#FDFCF8] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 w-[300px] p-4 flex flex-col gap-1 whitespace-normal relative">
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
+                  <Link
+                    href="/programs"
+                    className="p-3 rounded-md hover:bg-white hover:shadow-sm text-[#0B3B24] text-sm font-medium hover:text-[#ED7D4D] transition-all flex items-center justify-between group/link"
+                  >
+                    Ayurveda{" "}
+                    <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                  </Link>
                   <Link
                     href="/100-foundation-ayurveda"
                     className="p-3 rounded-md hover:bg-white hover:shadow-sm text-[#0B3B24] text-sm font-medium hover:text-[#ED7D4D] transition-all flex items-center justify-between group/link"
@@ -403,24 +413,24 @@ export default function Header() {
 
             {/* 4. ABOUT US */}
             <div className="relative group">
-              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8">
+              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-lg font-semibold tracking-wide transition-colors py-8">
                 About Us{" "}
                 <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
               </button>
               <div className="absolute top-full right-0 pt-2 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
                 <div
                   className={`bg-[#FDFCF8] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 ${
-                    auPages.length > 0 ? "w-[1100px]" : "w-[850px]"
+                    auPages.length > 0 ? "w-[700px]" : "w-[550px]"
                   } overflow-hidden text-left relative`}
                 >
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
                   <div
                     className={`p-10 grid ${
-                      auPages.length > 0 ? "grid-cols-4" : "grid-cols-3"
+                      auPages.length > 0 ? "grid-cols-3" : "grid-cols-2"
                     } gap-10`}
                   >
                     <div>
-                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                      <h4 className="text-[11px] font-bold text-gray-400 tracking-wide mb-6 flex items-center gap-2">
                         <span className="w-4 h-[2px] bg-[#ED7D4D]" />
                         Our Heritage
                       </h4>
@@ -461,59 +471,7 @@ export default function Header() {
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
-                        <span className="w-4 h-[2px] bg-[#ED7D4D]" />
-                        Locations
-                      </h4>
-                      <ul className="space-y-1 text-sm font-medium">
-                        <li>
-                          <Link
-                            href="/da-lat-ashram-health-house"
-                            className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
-                          >
-                            <span className="group-hover/link:text-[#ED7D4D]">
-                              Dalat Ashram
-                            </span>
-                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/ho-chi-minh-center"
-                            className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
-                          >
-                            <span className="group-hover/link:text-[#ED7D4D]">
-                              HCMC Center
-                            </span>
-                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/hanoi-center"
-                            className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
-                          >
-                            <span className="group-hover/link:text-[#ED7D4D]">
-                              Hanoi Center
-                            </span>
-                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/sivananda-yoga-dalat-center"
-                            className="group/link flex items-center justify-between p-3 -ml-3 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
-                          >
-                            <span className="group-hover/link:text-[#ED7D4D]">
-                              Dalat City Center
-                            </span>
-                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 transition-all" />
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                      <h4 className="text-[11px] font-bold text-gray-400 tracking-wide mb-6 flex items-center gap-2">
                         <span className="w-4 h-[2px] bg-[#ED7D4D]" />
                         Resources
                       </h4>
@@ -533,7 +491,7 @@ export default function Header() {
                     </div>
                     {auPages.length > 0 && (
                       <div>
-                        <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                        <h4 className="text-[11px] font-bold text-gray-400 tracking-wide mb-6 flex items-center gap-2">
                           <span className="w-4 h-[2px] bg-[#ED7D4D]" />
                           More Information
                         </h4>
@@ -559,24 +517,31 @@ export default function Header() {
               </div>
             </div>
 
-            {/* 5. CONTACT US */}
+            {/* 5. CONTACT US — Keep these 2 static links; do not remove: Contact Da Lat Ashram (/contact), International Community (/community) */}
             <div className="relative group">
-              {cuPages.length > 0 ? (
-                <>
-                  <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8">
-                    Contact Us{" "}
-                    <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
-                  </button>
-                  <div className="absolute top-full right-0 pt-2 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
-                    <div className="bg-[#FDFCF8] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 w-[260px] p-3 flex flex-col gap-1 whitespace-normal relative">
-                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
-                      <Link
-                        href="/contact"
-                        className="p-3 rounded-md hover:bg-white hover:shadow-sm text-[#0B3B24] text-sm font-medium hover:text-[#ED7D4D] transition-all flex items-center justify-between group/link"
-                      >
-                        Contact Form{" "}
-                        <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
-                      </Link>
+              <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-lg font-semibold tracking-wide transition-colors py-8">
+                Contact Us{" "}
+                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
+              </button>
+              <div className="absolute top-full right-0 pt-2 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
+                <div className="bg-[#FDFCF8] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 w-[260px] p-3 flex flex-col gap-1 whitespace-normal relative">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
+                  <Link
+                    href="/contact"
+                    className="p-3 rounded-md hover:bg-white hover:shadow-sm text-[#0B3B24] text-sm font-medium hover:text-[#ED7D4D] transition-all flex items-center justify-between group/link"
+                  >
+                    Contact Da Lat Ashram{" "}
+                    <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                  </Link>
+                  <Link
+                    href="/community"
+                    className="p-3 rounded-md hover:bg-white hover:shadow-sm text-[#0B3B24] text-sm font-medium hover:text-[#ED7D4D] transition-all flex items-center justify-between group/link"
+                  >
+                    International Community{" "}
+                    <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                  </Link>
+                  {cuPages.length > 0 && (
+                    <>
                       <div className="w-full h-px bg-gray-200 my-2" />
                       {cuPages.map((p) => (
                         <Link
@@ -588,24 +553,17 @@ export default function Header() {
                           <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
                         </Link>
                       ))}
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <Link
-                  href="/contact"
-                  className="text-white/90 hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8 block"
-                >
-                  Contact Us
-                </Link>
-              )}
+                    </>
+                  )}
+                </div>
+              </div>
             </div>
 
             {/* 6. FAQ */}
             <div className="relative group">
               {faqPages.length > 0 ? (
                 <>
-                  <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8">
+                  <button className="flex items-center gap-1 text-white/90 group-hover:text-[#ED7D4D] text-lg font-semibold tracking-wide transition-colors py-8">
                     FAQ{" "}
                     <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
                   </button>
@@ -636,7 +594,7 @@ export default function Header() {
               ) : (
                 <Link
                   href="/frequently-asked-questions"
-                  className="text-white/90 hover:text-[#ED7D4D] text-[10px] xl:text-xs font-bold tracking-widest uppercase transition-colors py-8 block"
+                  className="text-white/90 hover:text-[#ED7D4D] text-lg font-semibold tracking-wide transition-colors py-8 block"
                 >
                   FAQ
                 </Link>
@@ -644,9 +602,9 @@ export default function Header() {
             </div>
           </nav>
 
-          {/* Right: Language Toggle */}
+          {/* Right: Language Toggle (desktop only) */}
           <div className="hidden lg:flex items-center gap-4 xl:gap-6 shrink-0">
-            <button className="flex items-center gap-2 text-white/90 hover:text-[#E5F5C8] transition-colors font-bold text-[10px] xl:text-xs tracking-widest uppercase">
+            <button className="flex items-center gap-2 text-white/90 hover:text-[#E5F5C8] transition-colors font-semibold text-lg tracking-wide">
               <span className="text-sm">🇬🇧</span> EN
             </button>
           </div>
@@ -673,7 +631,7 @@ export default function Header() {
           <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
             <Link
               href="/yoga-vacation"
-              className="text-base font-medium uppercase tracking-widest text-[#ED7D4D]"
+              className="text-base font-medium tracking-wide text-[#ED7D4D]"
             >
               Yoga Vacation
             </Link>
@@ -689,7 +647,7 @@ export default function Header() {
           </div>
 
           <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
-            <span className="text-base font-medium text-[#ED7D4D] uppercase tracking-widest">
+            <span className="text-base font-medium text-[#ED7D4D] tracking-wide">
               Teacher Training
             </span>
             <Link href="/yoga-teacher-training-course" className="pl-4 text-white/80">
@@ -715,9 +673,12 @@ export default function Header() {
           </div>
 
           <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
-            <span className="text-base font-medium text-[#ED7D4D] uppercase tracking-widest">
+            <span className="text-base font-medium text-[#ED7D4D] tracking-wide">
               Ayurveda
             </span>
+            <Link href="/programs" className="pl-4 text-white/80">
+              Ayurveda
+            </Link>
             <Link href="/100-foundation-ayurveda" className="pl-4 text-white/80">
               100 Foundation Ayurveda
             </Link>
@@ -732,7 +693,7 @@ export default function Header() {
           </div>
 
           <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
-            <span className="text-base font-medium text-[#ED7D4D] uppercase tracking-widest">
+            <span className="text-base font-medium text-[#ED7D4D] tracking-wide">
               About Us
             </span>
             <Link href="/about" className="pl-4 text-white/80">
@@ -740,9 +701,6 @@ export default function Header() {
             </Link>
             <Link href="/our-teachers" className="pl-4 text-white/80">
               Our Teachers
-            </Link>
-            <Link href="/da-lat-ashram-health-house" className="pl-4 text-white/80">
-              Locations
             </Link>
             {auPages.map((p) => (
               <Link key={p.slug} href={`/p/${p.slug}`} className="pl-4 text-white/80">
@@ -753,17 +711,21 @@ export default function Header() {
 
           <Link
             href="/blog"
-            className="text-base font-medium border-b border-white/10 pb-4 uppercase tracking-widest"
+            className="text-base font-medium border-b border-white/10 pb-4 tracking-wide"
           >
             Blog
           </Link>
 
+          {/* Contact Us: keep static links Contact Da Lat Ashram + International Community */}
           <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
-            <Link
-              href="/contact"
-              className="text-base font-medium uppercase tracking-widest text-[#ED7D4D]"
-            >
+            <span className="text-base font-medium tracking-wide text-[#ED7D4D]">
               Contact Us
+            </span>
+            <Link href="/contact" className="pl-4 text-white/80">
+              Contact Da Lat Ashram
+            </Link>
+            <Link href="/community" className="pl-4 text-white/80">
+              International Community
             </Link>
             {cuPages.map((p) => (
               <Link key={p.slug} href={`/p/${p.slug}`} className="pl-4 text-white/80">
@@ -775,7 +737,7 @@ export default function Header() {
           <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
             <Link
               href="/frequently-asked-questions"
-              className="text-base font-medium uppercase tracking-widest text-[#ED7D4D]"
+              className="text-base font-medium tracking-wide text-[#ED7D4D]"
             >
               FAQ
             </Link>
@@ -784,12 +746,6 @@ export default function Header() {
                 {p.title}
               </Link>
             ))}
-          </div>
-
-          <div className="flex items-center gap-6 pt-4">
-            <button className="flex items-center gap-2 text-white/90 font-bold tracking-widest">
-              <span className="text-xl">🇬🇧</span> EN
-            </button>
           </div>
         </div>
       </div>
