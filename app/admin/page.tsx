@@ -18,7 +18,7 @@ const adminModules = [
   {
     title: "Manage Blogs",
     description: "Create, edit, and publish blog articles and news.",
-    href: "/admin/blogs",
+    href: "/admin/blog",
     icon: FileText,
     color: "text-blue-600",
     bgColor: "bg-blue-50",
