@@ -1,58 +1,57 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
+
+const SCHEDULE_IMAGE_URL =
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/daily-schedule.png";
 
 const scheduleData = [
   {
-    time: "05:30 am",
-    title: "Wake Up Bell",
-    desc: "Start your day early to sync with the natural rhythms of the sun. A gentle bell will ring across the ashram.",
+    time: "6:00am",
+    title: "Satsang – Meditation, Kirtan, Philosophy Sharing",
+    desc: "Wake up surrounded by the quiet beauty of the pine forest and start your day with meditation and inspiring spiritual practices in community.",
   },
   {
-    time: "06:00 am",
-    title: "Morning Satsang",
-    desc: "Gather for silent meditation, joyful chanting (kirtan), and an inspiring reading or lecture to elevate the mind.",
+    time: "7:30am",
+    title: "Breakfast",
+    desc: "Enjoy a light porridge, perhaps sitting outside listening to birdsong or talking with friends.",
   },
   {
-    time: "08:00 am",
-    title: "Asana & Pranayama Class",
-    desc: "A 2-hour traditional Sivananda yoga class focusing on breathing exercises (pranayama), sun salutations, and the 12 basic postures.",
+    time: "8:00am",
+    title: "Hatha Yoga and Pranayama",
+    desc: "Participate in the 2-hour morning Sivananda Yoga class of postures, breathing, and relaxation to balance and energize you for the day.",
   },
   {
-    time: "10:00 am",
+    time: "10:00am",
     title: "Vegetarian Brunch",
-    desc: "Enjoy a wholesome, sattvic (pure) vegetarian meal prepared with love to nourish your body and soul.",
+    desc: "Eat a delicious, nourishing brunch prepared with local produce in accordance with a yogic, plant-based diet, and the opportunity to sit inside or outdoors.",
   },
   {
-    time: "11:00 am",
+    time: "11:00am",
     title: "Karma Yoga",
-    desc: "Selfless service. Guests are invited to help with small ashram tasks for 1 hour, integrating the practice of yoga into daily action.",
+    desc: "Spend an hour contributing to the community through karma yoga — a powerful practice of selfless service.",
   },
   {
-    time: "02:00 pm",
-    title: "Workshop / Free Time",
-    desc: "Attend a holistic health workshop, explore the beautiful Tuyen Lam lake, or simply rest and read.",
+    time: "2:00pm",
+    title: "Yoga Vacation Workshop",
+    desc: "Learn inspiring approaches to health, well-being, and spiritual life in an afternoon workshop with resident and visiting teachers.",
   },
   {
-    time: "04:00 pm",
-    title: "Asana Class",
-    desc: "Afternoon yoga practice to stretch, strengthen, and deeply relax the body before dinner.",
+    time: "4:00pm",
+    title: "Hatha Asanas and Pranayama",
+    desc: "Take a second yoga class or take some time to relax, maybe discover beautiful spots on the property or treat yourself to a nap, a good book, or a good conversation.",
   },
   {
-    time: "06:00 pm",
+    time: "6:00pm",
     title: "Vegetarian Dinner",
-    desc: "A light, nutritious vegetarian dinner to end the day gently, aiding in good digestion and deep sleep.",
+    desc: "Nourish yourself with a delicious, nutritional dinner, then stop by the boutique for some chocolate, a gift, or a little personal shopping.",
   },
   {
-    time: "08:00 pm",
-    title: "Evening Satsang",
-    desc: "Conclude the day with evening meditation and chanting. A beautiful time to absorb the peaceful energy of the ashram.",
-  },
-  {
-    time: "10:30 pm",
-    title: "Lights Out",
-    desc: "Rest and rejuvenate in silence.",
+    time: "7:30pm",
+    title: "Satsang – Meditation, Kirtan and Sharing",
+    desc: "End your day with meditation and inspiring spiritual practices in the community.",
   },
 ];
 
@@ -64,6 +63,20 @@ export default function DailySchedule() {
       <h2 className="text-4xl md:text-5xl font-serif text-[#0B3B24] text-center mb-16">
         Daily Schedule
       </h2>
+      <div className="max-w-3xl mx-auto mb-12">
+        <div className="relative w-full aspect-[21/9] rounded-lg overflow-hidden mb-8">
+          <Image
+            src={SCHEDULE_IMAGE_URL}
+            alt="Daily Schedule"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 672px"
+          />
+        </div>
+        <p className="text-gray-600 text-base md:text-lg leading-relaxed text-center">
+          Experience a yogic lifestyle that supports natural well-being — good sleep, healthy digestion, and plenty of positive energy — with a balance of activity and rest, participation in community and time for yourself. The Daily Schedule, created by yoga master Swami Vishnudevananda, is the same for all ashram residents, guests, and students.
+        </p>
+      </div>
       <div className="max-w-3xl mx-auto">
         {scheduleData.map((item, index) => {
           const isActive = activeIndex === index;
