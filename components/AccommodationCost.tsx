@@ -13,7 +13,6 @@ const accommodations = [
     tabTitle: "Private Room",
     tabSubtitle: "Single person",
     image: "https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=1600",
-    price: "US$ 85",
     description: [
       "Whether you come on your own or with family or friends, you'll enjoy simple accommodations in villa-style buildings that have several stand-alone rooms, each with its own bathroom.",
       "All accommodations are walking distance from the dining hall, yoga hall, and the rest of the ashram property and buildings.",
@@ -25,7 +24,6 @@ const accommodations = [
     tabTitle: "Shared Room",
     tabSubtitle: "For 2 people",
     image: "https://images.unsplash.com/photo-1542718610-a1d656d1884c?q=80&w=1600",
-    price: "US$ 50",
     description: [
       "Share a peaceful space with a fellow practitioner. Our double rooms offer a harmonious balance of community and privacy, featuring comfortable beds and a shared en-suite bathroom.",
       "All accommodations are walking distance from the dining hall, yoga hall, and the rest of the ashram property and buildings.",
@@ -37,7 +35,6 @@ const accommodations = [
     tabTitle: "Shared Room",
     tabSubtitle: "For 4 people",
     image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1600",
-    price: "US$ 35",
     description: [
       "Experience authentic ashram living in our spacious 4-person shared rooms. Perfect for those who want to fully immerse themselves in the community aspect of the yoga lifestyle.",
       "All accommodations are walking distance from the dining hall, yoga hall, and the rest of the ashram property and buildings.",
@@ -108,15 +105,7 @@ export default function AccommodationCost() {
               ))}
             </div>
 
-            <div className="mt-auto flex flex-row items-center justify-between gap-4 border-t border-white/20 pt-6">
-              <div>
-                <p className="mb-1 text-base uppercase tracking-widest text-white/70">
-                  Starting From
-                </p>
-                <p className="font-serif text-2xl font-bold md:text-3xl">
-                  {activeAcc.price}
-                </p>
-              </div>
+            <div className="mt-auto flex flex-row items-center justify-end border-t border-white/20 pt-6">
               <Link
                 href={BOOK_TTC_URL}
                 target="_blank"
