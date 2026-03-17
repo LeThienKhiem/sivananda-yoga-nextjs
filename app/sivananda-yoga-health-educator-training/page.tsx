@@ -24,9 +24,9 @@ import {
 const IMG_HERO =
   "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?q=80&w=2000";
 const IMG_LOTUS =
-  "https://images.unsplash.com/photo-1550066114-1249e0cce06c?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/syhet-01.png";
 const IMG_NATURE =
-  "https://images.unsplash.com/photo-1543807535-eceef0bc6599?q=80&w=800";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-16.png";
 
 const timelineData = [
   {

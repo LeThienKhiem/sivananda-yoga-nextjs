@@ -98,7 +98,7 @@ export default function Home() {
         {/* Hero Banner */}
         <section className="relative flex h-[85vh] min-h-[400px] flex-col items-center justify-center overflow-hidden px-4">
           <div className="absolute inset-0 h-full w-full overflow-hidden">
-            <div className="h-full w-full animate-zoom-in">
+            <div className="h-full w-full animate-zoom-out">
             <Image
               src={HERO_IMAGE_URL}
               alt="Yoga retreat nature scene"

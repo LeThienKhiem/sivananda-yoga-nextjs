@@ -13,15 +13,15 @@
 }
 
 @theme {
-  /* Hero: zoom in from 100% to 120% over 5s, ease-out */
-  --animate-zoom-in: zoom-in 5s ease-out forwards;
+  /* Hero: zoom out from 120% to 100% over 5s, ease-out */
+  --animate-zoom-out: zoom-out 5s ease-out forwards;
 
-  @keyframes zoom-in {
+  @keyframes zoom-out {
     0% {
-      transform: scale(1);
+      transform: scale(1.2);
     }
     100% {
-      transform: scale(1.2);
+      transform: scale(1);
     }
   }
 }
