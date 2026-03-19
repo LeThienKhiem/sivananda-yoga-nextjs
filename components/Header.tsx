@@ -629,18 +629,17 @@ export default function Header() {
       >
         <div className="flex flex-col p-6 gap-6 text-white">
           <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
-            <Link
-              href="/yoga-vacation"
-              className="text-base font-medium tracking-wide text-[#ED7D4D]"
-            >
+            <Link href="/yoga-vacation" className="text-base font-medium tracking-wide text-[#ED7D4D]">
               Yoga Vacation
             </Link>
+            <Link href="/accommodations" className="pl-4 text-white/80">Accommodations & Meals</Link>
+            <Link href="/our-venues" className="pl-4 text-white/80">Our Venues</Link>
+            <Link href="/4-paths-of-yoga" className="pl-4 text-white/80">4 Paths of Yoga</Link>
+            <Link href="/5-points-of-yoga" className="pl-4 text-white/80">5 Points of Yoga</Link>
+            <Link href="/during-your-stay" className="pl-4 text-white/80">During Your Stay</Link>
+            <Link href="/guest-information" className="pl-4 text-white/80">Guest Information</Link>
             {yvPages.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/p/${p.slug}`}
-                className="pl-4 text-white/80"
-              >
+              <Link key={p.slug} href={`/p/${p.slug}`} className="pl-4 text-white/80">
                 {p.title}
               </Link>
             ))}

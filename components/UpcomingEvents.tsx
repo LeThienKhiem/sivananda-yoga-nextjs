@@ -9,7 +9,26 @@ import { supabase } from "@/utils/supabase";
 const DEFAULT_SUBTITLE = "PROGRAMS AND RETREAT";
 const DEFAULT_TITLE = "Upcoming Events & Courses";
 const DEFAULT_CTA_TEXT = "View all Courses";
-const DEFAULT_CTA_LINK = "/courses";
+const DEFAULT_CTA_LINK = "/syhet-courses";
+
+const YOGA_PLACEHOLDER_IMAGE =
+  "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=800";
+
+const formatCourseDate = (start?: string, end?: string) => {
+  if (!start) return "Date TBA";
+  const startDate = new Date(start).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+  });
+  if (!end || start === end)
+    return `${startDate} ${new Date(start).getFullYear()}`;
+  const endDate = new Date(end).toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+  return `${startDate} - ${endDate}`;
+};
 
 export interface UpcomingEventsProps {
   subtitle?: string;
@@ -50,10 +69,7 @@ export default function UpcomingEvents({
   };
 
   const getCourseImage = (course: any) => {
-    return (
-      course.image_url ||
-      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800"
-    );
+    return course.image_url || YOGA_PLACEHOLDER_IMAGE;
   };
 
   if (loading) {
@@ -124,13 +140,15 @@ export default function UpcomingEvents({
                     <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
                       <Calendar className="w-4 h-4 text-[#ED7D4D] flex-shrink-0" />
                       <span className="font-medium line-clamp-1">
-                        {course.date_display || "TBA"}
+                        {course.start_date
+                          ? formatCourseDate(course.start_date, course.end_date)
+                          : (course.date_display || "Date TBA")}
                       </span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-[#4A4A4A]">
                       <MapPin className="w-4 h-4 text-[#ED7D4D] flex-shrink-0" />
                       <span className="line-clamp-1">
-                        {course.location || "Sivananda Ashram"}
+                        {course.venue_name || course.location || "Sivananda Yoga Resort, Da Lat"}
                       </span>
                     </div>
                   </div>
