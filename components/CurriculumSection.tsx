@@ -99,6 +99,7 @@ export default function CurriculumSection() {
             className="object-cover"
             alt={current.title}
             sizes="(max-width: 768px) 100vw, 50vw"
+            unoptimized
           />
         </div>
 

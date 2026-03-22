@@ -64,6 +64,7 @@ export default function DuringYourStayPage() {
             fill
             className="object-cover"
             priority
+            unoptimized
             sizes="100vw"
           />
           {/* Subtle dark overlay so the white box stands out */}
@@ -101,6 +102,7 @@ export default function DuringYourStayPage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 45vw"
+                unoptimized
               />
             </div>
           </div>
@@ -125,6 +127,7 @@ export default function DuringYourStayPage() {
                           fill
                           className="object-cover"
                           sizes="192px"
+                          unoptimized
                         />
                       </div>
                     )}
@@ -170,6 +173,7 @@ export default function DuringYourStayPage() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    unoptimized
                   />
                 </div>
               </div>
@@ -213,6 +217,7 @@ export default function DuringYourStayPage() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    unoptimized
                   />
                 </div>
               </div>
@@ -247,6 +252,7 @@ export default function DuringYourStayPage() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    unoptimized
                   />
                 </div>
               </div>
@@ -278,6 +284,7 @@ export default function DuringYourStayPage() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    unoptimized
                   />
                 </div>
               </div>

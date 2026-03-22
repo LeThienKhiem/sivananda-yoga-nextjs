@@ -74,6 +74,7 @@ export default function AboutPage() {
             fill
             className="object-cover grayscale contrast-125 md:object-[70%_center]"
             priority
+            unoptimized
             sizes="100vw"
           />
         </div>
@@ -135,6 +136,7 @@ export default function AboutPage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
               />
             </div>
           </div>
@@ -151,6 +153,7 @@ export default function AboutPage() {
             fill
             className="object-cover"
             sizes="100vw"
+            unoptimized
           />
           {/* Dark Overlay */}
           <div className="absolute inset-0 bg-black/40"></div>
@@ -201,6 +204,7 @@ export default function AboutPage() {
                     fill
                     className="object-cover grayscale contrast-125"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                   />
                 </div>
               </div>
@@ -231,6 +235,7 @@ export default function AboutPage() {
                     fill
                     className="object-cover grayscale contrast-125"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                   />
                 </div>
               </div>
@@ -261,6 +266,7 @@ export default function AboutPage() {
                     fill
                     className="object-cover grayscale contrast-125"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                   />
                 </div>
               </div>
@@ -292,6 +298,7 @@ export default function AboutPage() {
                     fill
                     className="object-cover grayscale contrast-125"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                   />
                 </div>
               </div>
@@ -310,6 +317,7 @@ export default function AboutPage() {
             fill
             className="object-cover"
             sizes="100vw"
+            unoptimized
           />
           <div className="absolute inset-0 bg-white/85 backdrop-blur-[1px]"></div>
         </div>
@@ -368,6 +376,7 @@ export default function AboutPage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
               />
             </div>
           </div>
@@ -383,6 +392,7 @@ export default function AboutPage() {
             fill
             className="object-cover"
             sizes="100vw"
+            unoptimized
           />
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
@@ -463,6 +473,7 @@ export default function AboutPage() {
                     fill
                     className="object-cover grayscale contrast-125"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                   />
                 </div>
               </div>
@@ -494,6 +505,7 @@ export default function AboutPage() {
                     fill
                     className="object-cover grayscale contrast-125"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                   />
                 </div>
               </div>
@@ -522,6 +534,7 @@ export default function AboutPage() {
                     fill
                     className="object-cover grayscale contrast-125"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                   />
                 </div>
               </div>
@@ -540,6 +553,7 @@ export default function AboutPage() {
             fill
             className="object-cover"
             sizes="100vw"
+            unoptimized
           />
         </div>
 
@@ -577,6 +591,7 @@ export default function AboutPage() {
             fill
             className="object-cover md:object-[70%_center]"
             sizes="100vw"
+            unoptimized
           />
         </div>
 
@@ -662,6 +677,7 @@ export default function AboutPage() {
             fill
             className="object-cover"
             sizes="100vw"
+            unoptimized
           />
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
@@ -703,6 +719,7 @@ export default function AboutPage() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                   />
                 </div>
               </div>
@@ -785,6 +802,7 @@ export default function AboutPage() {
             fill
             className="object-cover"
             sizes="100vw"
+            unoptimized
           />
           {/* Light mist overlay */}
           <div className="absolute inset-0 bg-white/70 backdrop-blur-[1px]"></div>

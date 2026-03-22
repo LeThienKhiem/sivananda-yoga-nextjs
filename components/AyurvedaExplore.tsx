@@ -41,6 +41,7 @@ export default function AyurvedaExplore() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
+                unoptimized
               />
             </div>
           </div>
@@ -65,6 +66,7 @@ export default function AyurvedaExplore() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 33vw"
+                unoptimized
               />
             </div>
             <div className="w-full aspect-square rounded-sm p-6 md:p-8 flex flex-col justify-center bg-[#F4F7F0]">

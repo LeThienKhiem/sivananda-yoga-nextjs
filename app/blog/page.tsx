@@ -157,6 +157,7 @@ export default function BlogPage() {
                         alt={featuredPost.title} 
                         fill 
                         className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                        unoptimized
                       />
                     </div>
                   </Link>
@@ -178,6 +179,7 @@ export default function BlogPage() {
                         alt={post.title} 
                         fill 
                         className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                        unoptimized
                       />
                     </div>
                     {/* Content */}

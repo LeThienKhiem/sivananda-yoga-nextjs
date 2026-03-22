@@ -36,6 +36,7 @@ export default function OurTeachersPage() {
             fill
             className="object-cover"
             priority
+            unoptimized
             sizes="100vw"
           />
         </div>
@@ -79,6 +80,7 @@ export default function OurTeachersPage() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  unoptimized
                 />
               </div>
               <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-1">

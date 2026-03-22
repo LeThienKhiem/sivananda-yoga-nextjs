@@ -121,6 +121,7 @@ export default function UpcomingEvents({
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 85vw, 350px"
+                    unoptimized
                   />
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-[#0B3B24] tracking-widest uppercase">
                     {categoryDisplay}

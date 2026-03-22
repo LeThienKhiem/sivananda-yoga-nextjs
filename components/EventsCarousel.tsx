@@ -241,6 +241,7 @@ export default function EventsCarousel({
                       className="object-cover"
                       sizes="(max-width: 768px) 280px, 400px"
                       draggable={false}
+                      unoptimized
                     />
                     <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-base font-bold uppercase tracking-widest text-[#0B3B24] backdrop-blur-sm">
                       {event.category}

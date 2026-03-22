@@ -43,6 +43,7 @@ export default function TeachingFoundation() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                 />
               </div>
               <div className="p-10 md:p-12 flex flex-col items-center text-center flex-grow">

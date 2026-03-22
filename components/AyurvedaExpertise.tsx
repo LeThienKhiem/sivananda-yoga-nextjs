@@ -57,6 +57,7 @@ export default function AyurvedaExpertise() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
               />
             </div>
             <div className="p-8 md:p-10 flex flex-col flex-grow">

@@ -381,6 +381,7 @@ export default function CoursesPage() {
                     alt={course.title} 
                     fill 
                     className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                    unoptimized
                   />
                   {/* Favorite Icon */}
                   <button onClick={(e) => e.preventDefault()} className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 transition-colors shadow-sm z-10">

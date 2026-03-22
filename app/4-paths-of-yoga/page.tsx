@@ -71,7 +71,7 @@ export default function FourPathsOfYogaPage() {
         </div>
 
         {/* Overlapping Content Box - positioned at bottom, 50% over image / 50% over page */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-10 w-[95%] max-w-4xl mx-4 p-8 md:p-16 bg-[#FDFCF8] text-center rounded-sm">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-10 w-[95%] max-w-4xl p-8 md:p-16 bg-[#FDFCF8] text-center rounded-sm">
           <p className="text-[#0B3B24] uppercase tracking-widest text-base mb-4 font-medium">
             Ancient Wisdom for Modern Life
           </p>
@@ -111,6 +111,7 @@ export default function FourPathsOfYogaPage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 40vw"
+                unoptimized
               />
             </div>
           </div>
@@ -126,6 +127,7 @@ export default function FourPathsOfYogaPage() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  unoptimized
                 />
               </div>
               <h3 className="text-2xl font-serif font-bold text-[#0B3B24]">
@@ -148,6 +150,7 @@ export default function FourPathsOfYogaPage() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  unoptimized
                 />
               </div>
               <h3 className="text-2xl font-serif font-bold text-[#0B3B24]">
@@ -170,6 +173,7 @@ export default function FourPathsOfYogaPage() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  unoptimized
                 />
               </div>
               <h3 className="text-2xl font-serif font-bold text-[#0B3B24]">
@@ -192,6 +196,7 @@ export default function FourPathsOfYogaPage() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  unoptimized
                 />
               </div>
               <h3 className="text-2xl font-serif font-bold text-[#0B3B24]">
@@ -266,6 +271,7 @@ export default function FourPathsOfYogaPage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
               />
             </div>
           </div>
@@ -290,6 +296,7 @@ export default function FourPathsOfYogaPage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
               />
             </div>
             <div className="w-full md:w-1/2 flex flex-col justify-center order-1 md:order-2">
@@ -338,12 +345,12 @@ export default function FourPathsOfYogaPage() {
             – Swami Sivananda in &quot;Bliss Divine&quot;
           </p>
 
-          <button
-            type="button"
-            className="bg-white/40 hover:bg-white text-[#ED7D4D] border border-white/50 px-8 py-3 rounded-sm font-semibold tracking-widest text-base uppercase transition-all shadow-sm"
+          <Link
+            href="/yoga-vacation"
+            className="inline-block bg-white/40 hover:bg-white text-[#ED7D4D] border border-white/50 px-8 py-3 rounded-sm font-semibold tracking-widest text-base uppercase transition-all shadow-sm"
           >
-            Karma Yoga Path
-          </button>
+            Explore Bhakti Yoga
+          </Link>
         </div>
       </section>
 
@@ -370,6 +377,7 @@ export default function FourPathsOfYogaPage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
               />
             </div>
           </div>
@@ -383,6 +391,7 @@ export default function FourPathsOfYogaPage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
               />
             </div>
             <div className="w-full md:w-1/2 flex flex-col justify-center order-1 md:order-2">
@@ -431,6 +440,7 @@ export default function FourPathsOfYogaPage() {
             fill
             className="object-cover"
             sizes="100vw"
+            unoptimized
           />
         </div>
 
@@ -489,6 +499,7 @@ export default function FourPathsOfYogaPage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
               />
             </div>
           </div>
@@ -502,6 +513,7 @@ export default function FourPathsOfYogaPage() {
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
               />
             </div>
             <div className="w-full md:w-1/2 flex flex-col justify-center order-1 md:order-2">

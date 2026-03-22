@@ -24,6 +24,7 @@ export default function HealingHarmony() {
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 33vw"
+              unoptimized
             />
           </div>
 
@@ -35,6 +36,7 @@ export default function HealingHarmony() {
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 67vw"
+              unoptimized
             />
           </div>
 
@@ -58,6 +60,7 @@ export default function HealingHarmony() {
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 33vw"
+              unoptimized
             />
           </div>
 
@@ -69,6 +72,7 @@ export default function HealingHarmony() {
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 67vw"
+              unoptimized
             />
           </div>
         </div>

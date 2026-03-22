@@ -137,6 +137,7 @@ export default function BlogPostPage() {
               className="object-cover"
               sizes="(max-width: 896px) 100vw, 896px"
               priority={!getYoutubeVideoId(blog.youtube_link || "")}
+              unoptimized
             />
           </div>
         )}
@@ -186,6 +187,7 @@ export default function BlogPostPage() {
               fill
               className="object-cover"
               sizes="(max-width: 896px) 100vw, 896px"
+              unoptimized
             />
           </div>
         )}
@@ -214,6 +216,7 @@ export default function BlogPostPage() {
               fill
               className="object-cover"
               sizes="(max-width: 896px) 100vw, 896px"
+              unoptimized
             />
           </div>
         )}
@@ -229,6 +232,7 @@ export default function BlogPostPage() {
                   fill
                   className="object-cover"
                   sizes="80px"
+                  unoptimized
                 />
               </div>
             )}

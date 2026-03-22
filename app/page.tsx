@@ -105,6 +105,7 @@ export default function Home() {
               fill
               className="object-cover"
               priority
+              unoptimized
               sizes="100vw"
             />
             </div>
@@ -165,6 +166,7 @@ export default function Home() {
                   width={120}
                   height={120}
                   className="object-contain"
+                  unoptimized
                 />
                 <p className="text-2xl font-bold text-white mt-4 mb-3 lg:text-3xl">Mission Statement</p>
                 <div className="w-16 h-[2px] bg-white/60 mb-4" aria-hidden />
@@ -215,6 +217,7 @@ export default function Home() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/50" />
                 <div className="relative z-10 p-6 text-center text-white transition-transform duration-500 group-hover:-translate-y-2">
@@ -238,6 +241,7 @@ export default function Home() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/50" />
                 <div className="relative z-10 p-6 text-center text-white transition-transform duration-500 group-hover:-translate-y-2">
@@ -261,6 +265,7 @@ export default function Home() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/50" />
                 <div className="relative z-10 p-6 text-center text-white transition-transform duration-500 group-hover:-translate-y-2">
@@ -284,6 +289,7 @@ export default function Home() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/50" />
                 <div className="relative z-10 p-6 text-center text-white transition-transform duration-500 group-hover:-translate-y-2">
@@ -307,6 +313,7 @@ export default function Home() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/50" />
                 <div className="relative z-10 p-6 text-center text-white transition-transform duration-500 group-hover:-translate-y-2">
@@ -330,6 +337,7 @@ export default function Home() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-black/40 transition-colors duration-500 group-hover:bg-black/50" />
                 <div className="relative z-10 p-6 text-center text-white transition-transform duration-500 group-hover:-translate-y-2">
@@ -358,6 +366,7 @@ export default function Home() {
               className="object-cover"
               sizes="100vw"
               priority
+              unoptimized
             />
           </div>
           <div className="absolute inset-0 bg-slate-900/40" aria-hidden />
@@ -402,6 +411,7 @@ export default function Home() {
                   fill
                   className="object-cover grayscale"
                   sizes="(max-width: 1024px) 50vw, 30vw"
+                  unoptimized
                 />
               </div>
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-stone-100 shadow-md">
@@ -411,6 +421,7 @@ export default function Home() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 50vw, 25vw"
+                  unoptimized
                 />
               </div>
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-stone-100 shadow-md">
@@ -420,6 +431,7 @@ export default function Home() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 50vw, 25vw"
+                  unoptimized
                 />
               </div>
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-stone-100 shadow-md">
@@ -429,6 +441,7 @@ export default function Home() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 50vw, 25vw"
+                  unoptimized
                 />
               </div>
             </div>
@@ -455,6 +468,7 @@ export default function Home() {
                 fill 
                 className="object-cover transition-transform duration-1000 group-hover:scale-105" 
                 sizes="(max-width: 768px) 100vw, 33vw"
+                unoptimized
               />
               {/* White Filter Overlay */}
               <div className="absolute inset-0 bg-[#FDFCF8]/85 transition-colors duration-700 group-hover:bg-[#FDFCF8]/40" />
@@ -480,6 +494,7 @@ export default function Home() {
                 fill 
                 className="object-cover transition-transform duration-1000 group-hover:scale-105" 
                 sizes="(max-width: 768px) 100vw, 33vw"
+                unoptimized
               />
               {/* White Filter Overlay */}
               <div className="absolute inset-0 bg-[#FDFCF8]/85 transition-colors duration-700 group-hover:bg-[#FDFCF8]/40" />
@@ -505,6 +520,7 @@ export default function Home() {
                 fill 
                 className="object-cover transition-transform duration-1000 group-hover:scale-105" 
                 sizes="(max-width: 768px) 100vw, 33vw"
+                unoptimized
               />
               {/* White Filter Overlay */}
               <div className="absolute inset-0 bg-[#FDFCF8]/85 transition-colors duration-700 group-hover:bg-[#FDFCF8]/40" />

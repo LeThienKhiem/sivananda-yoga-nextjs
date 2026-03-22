@@ -102,6 +102,7 @@ export default function CourseDetailPage() {
             className="object-cover"
             sizes="(max-width: 896px) 100vw, 896px"
             priority
+            unoptimized
           />
         </div>
       </section>

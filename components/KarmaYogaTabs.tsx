@@ -144,6 +144,7 @@ export default function KarmaYogaTabs() {
               fill
               className="object-cover transition-opacity duration-500"
               sizes="(max-width: 768px) 100vw, 65vw"
+              unoptimized
             />
 
             {/* Soft Gradient Overlay for better readability just in case */}

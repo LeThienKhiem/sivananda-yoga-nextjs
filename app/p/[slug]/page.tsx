@@ -120,6 +120,7 @@ export default function DynamicGeneratedPage() {
             fill
             className="object-cover"
             priority
+            unoptimized
           />
         </div>
 

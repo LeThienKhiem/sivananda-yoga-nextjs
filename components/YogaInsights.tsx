@@ -78,6 +78,7 @@ export default function YogaInsights() {
                     alt={post.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    unoptimized
                   />
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold text-[#4F6F1F] tracking-widest uppercase">
                     {post.category}
