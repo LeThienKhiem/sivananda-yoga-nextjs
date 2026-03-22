@@ -105,7 +105,7 @@ export default function BlogPostPage() {
       <Header />
 
       {/* Back link */}
-      <div className="max-w-4xl mx-auto w-full px-6 pt-8">
+      <div className="max-w-4xl mx-auto w-full px-6 pt-24 md:pt-32">
         <Link
           href="/blog"
           className="inline-flex items-center gap-2 text-[#4F6F1F] font-medium hover:text-[#0B3B24] transition-colors"
