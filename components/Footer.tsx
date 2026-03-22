@@ -31,10 +31,18 @@ const FOOTER_LOGO_URL =
 const FOOTER_LINK =
   "text-white transition hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50";
 
+/** Google Maps short link for Sivananda Yoga Resort Vietnam */
+const MAPS_URL = "https://maps.app.goo.gl/35p4WpG6yA4Kz9h88";
+const TEL_HREF = "tel:02636501100";
+const MAILTO_HREF = "mailto:vietnamyogaresort@sivananda.org";
+
+/** Contact rows: same white/inherit as body text; underline + slight fade on hover */
+const footerContactClass = `${FOOTER_LINK} text-inherit hover:opacity-90`;
+
 export default function Footer() {
   return (
     <footer className="relative w-full">
-      {/* Mobile-only: solid green layout – keep completely untouched */}
+      {/* Mobile-only: solid green layout */}
       <div className="flex flex-col items-center gap-8 px-4 py-12 text-center text-white md:hidden bg-[#6B894E]">
         <div className="flex w-full justify-center">
           <img
@@ -45,20 +53,28 @@ export default function Footer() {
         </div>
 
         <div className="flex w-full flex-col items-start gap-4 text-left">
-          <div className="flex flex-row items-start gap-3">
+          <a
+            href={MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex flex-row items-start gap-3 ${footerContactClass}`}
+          >
             <MapPin className="mt-1 h-6 w-6 shrink-0" />
-            <p className="text-left leading-relaxed">Hoa Hong Street Ward 4, Tuyen Lam Lake Da Lat, Vietnam</p>
-          </div>
-          <div className="flex flex-row items-center gap-3">
+            <span className="text-left leading-relaxed">
+              Hoa Hong Street Ward 4, Tuyen Lam Lake Da Lat, Vietnam
+            </span>
+          </a>
+          <a
+            href={TEL_HREF}
+            className={`flex flex-row items-center gap-3 ${footerContactClass}`}
+          >
             <Phone className="h-5 w-5 shrink-0" />
-            <a href="tel:+842636501100">02636501100</a>
-          </div>
-          <div className="flex flex-row items-center gap-3">
+            <span>02636501100</span>
+          </a>
+          <a href={MAILTO_HREF} className={`flex flex-row items-center gap-3 ${footerContactClass}`}>
             <Mail className="h-5 w-5 shrink-0" />
-            <a href="mailto:vietnamyogaresort@sivananda.org">
-              vietnamyogaresort@sivananda.org
-            </a>
-          </div>
+            <span>vietnamyogaresort@sivananda.org</span>
+          </a>
         </div>
 
         <div className="flex items-center justify-center gap-6">
@@ -122,27 +138,31 @@ export default function Footer() {
                 />
               </div>
                 <div className="mt-3 space-y-2 lg:mt-6 lg:space-y-3">
-                  <div className="flex gap-2 lg:gap-3">
+                  <a
+                    href={MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex gap-2 lg:gap-3 ${footerContactClass} text-base lg:text-base`}
+                  >
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
-                    <span className="whitespace-pre-line text-base leading-relaxed text-white lg:text-base">
+                    <span className="whitespace-pre-line leading-relaxed">
                       Hoa Hong Street{"\n"}Ward 4, Tuyen Lam Lake{"\n"}Da Lat, Vietnam
                     </span>
-                  </div>
-                  <div className="flex items-center gap-2 lg:gap-3">
+                  </a>
+                  <a
+                    href={TEL_HREF}
+                    className={`flex items-center gap-2 lg:gap-3 ${footerContactClass} text-base lg:text-base`}
+                  >
                     <Phone className="h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
-                    <a href="tel:+842636501100" className={`${FOOTER_LINK} text-base lg:text-base`}>
-                      02636501100
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-2 lg:gap-3">
+                    <span>02636501100</span>
+                  </a>
+                  <a
+                    href={MAILTO_HREF}
+                    className={`flex items-center gap-2 lg:gap-3 ${footerContactClass} text-base lg:text-base`}
+                  >
                     <Mail className="h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
-                    <a
-                      href="mailto:vietnamyogaresort@sivananda.org"
-                      className={`${FOOTER_LINK} text-base lg:text-base`}
-                    >
-                      vietnamyogaresort@sivananda.org
-                    </a>
-                  </div>
+                    <span>vietnamyogaresort@sivananda.org</span>
+                  </a>
                 </div>
             </div>
 

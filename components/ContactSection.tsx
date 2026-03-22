@@ -6,6 +6,14 @@ import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 const MAP_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.1705180420518!2d108.40943882757809!3d11.893211977453623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31716b4497e28829%3A0xb444a7f1b6fbde20!2sSivananda%20Yoga%20Resort%20and%20Training%20center!5e0!3m2!1sen!2sus!4v1772846539123!5m2!1sen!2sus";
 
+const MAPS_URL = "https://maps.app.goo.gl/35p4WpG6yA4Kz9h88";
+const TEL_HREF = "tel:02636501100";
+const MAILTO_HREF = "mailto:vietnamyogaresort@sivananda.org";
+
+/** Hover/focus only — text color stays on each row via explicit text-[#4A4A4A] */
+const contactInteractiveClass =
+  "hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ED7D4D]/40 rounded-sm";
+
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
@@ -43,21 +51,36 @@ export default function ContactSection() {
                 <h3 className="text-xl font-bold text-[#0B3B24] mb-4 font-serif">
                   Sivananda Yoga Resort and Training Center - The Ashram
                 </h3>
-                <div className="flex items-start gap-4 text-[#4A4A4A] text-base md:text-lg">
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-start gap-4 text-[#4A4A4A] text-base md:text-lg ${contactInteractiveClass}`}
+                >
                   <MapPin className="w-6 h-6 text-[#ED7D4D] shrink-0 mt-1" />
-                  <p>Hoa Hong Street, Ward 4, Tuyen Lam Lake<br/>Da Lat, Vietnam</p>
-                </div>
+                  <span>
+                    Hoa Hong Street, Ward 4, Tuyen Lam Lake
+                    <br />
+                    Da Lat, Vietnam
+                  </span>
+                </a>
               </div>
               
-              <div className="flex items-center gap-4 text-[#4A4A4A] text-base md:text-lg">
+              <a
+                href={TEL_HREF}
+                className={`flex items-center gap-4 text-[#4A4A4A] text-base md:text-lg ${contactInteractiveClass}`}
+              >
                 <Phone className="w-6 h-6 text-[#ED7D4D] shrink-0" />
-                <p>(+84) 02636501100</p>
-              </div>
+                <span>(+84) 02636501100</span>
+              </a>
               
-              <div className="flex items-center gap-4 text-[#4A4A4A] text-base md:text-lg break-all">
+              <a
+                href={MAILTO_HREF}
+                className={`flex items-center gap-4 text-[#4A4A4A] text-base md:text-lg break-all ${contactInteractiveClass}`}
+              >
                 <Mail className="w-6 h-6 text-[#ED7D4D] shrink-0" />
-                <p>vietnamyogaresort@sivananda.org</p>
-              </div>
+                <span>vietnamyogaresort@sivananda.org</span>
+              </a>
 
               <div className="flex items-center gap-4 text-[#4A4A4A] text-base md:text-lg">
                 <Clock className="w-6 h-6 text-[#ED7D4D] shrink-0" />

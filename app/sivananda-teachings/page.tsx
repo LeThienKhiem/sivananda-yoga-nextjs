@@ -21,8 +21,8 @@ export default function SivanandaTeachingsPage() {
       <Header />
 
       <div className="flex-grow flex flex-col">
-        {/* Hero Banner */}
-        <section className="relative w-full h-[500px] md:h-[600px] flex items-end justify-center">
+        {/* Hero Banner — textbox 50% on image / 50% on page bg (matches TeachingsIntro bg-[#FDFCF8]) */}
+        <section className="relative w-full h-[500px] md:h-[600px]">
           <Image
             src={HERO_IMAGE_URL}
             alt="Yoga practice in pine forest overlooking lake - Sivananda teachings, Da Lat"
@@ -31,7 +31,7 @@ export default function SivanandaTeachingsPage() {
             className="object-cover object-center"
             sizes="100vw"
           />
-          <div className="relative z-10 bg-white w-[90%] max-w-5xl py-12 md:py-16 px-6 shadow-md text-center -mb-12 md:-mb-16 border-b border-gray-100">
+          <div className="absolute bottom-0 left-1/2 z-10 w-[90%] max-w-5xl -translate-x-1/2 translate-y-1/2 bg-[#FDFCF8] px-6 py-12 text-center md:py-16">
             <p className="text-[#0B3B24] text-2xl md:text-2xl mb-4 font-medium">
               Sivananda Yoga Teaching
             </p>
@@ -41,8 +41,8 @@ export default function SivanandaTeachingsPage() {
           </div>
         </section>
 
-        {/* Spacer for overlapping box */}
-        <div className="h-24 md:h-32" />
+        {/* Spacer: room for lower half of overlapping hero textbox */}
+        <div className="h-28 w-full bg-[#FDFCF8] md:h-36" aria-hidden />
 
         <TeachingsIntro />
 

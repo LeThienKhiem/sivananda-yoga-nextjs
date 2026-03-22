@@ -58,7 +58,16 @@ export default function Header() {
     dynamicPages.filter((p) => p.parent_page === parent);
 
   const yvPages = getPages("Yoga Vacation");
-  const ttPages = getPages("Teacher Training");
+  /** Exclude CMS rows that duplicate the static “Sivananda Teachings” nav link (avoids hydration / duplicate entries). */
+  const ttPages = getPages("Teacher Training").filter(
+    (p) =>
+      p.slug !== "sivananda-teachings" &&
+      String(p.title ?? "")
+        .trim()
+        .toLowerCase() !== "sivananda teachings"
+  );
+  /** Only after mount: Supabase-driven TT links & 3rd column — keeps SSR + first client paint identical. */
+  const ttMenuHasDynamic = isMounted && ttPages.length > 0;
   const ayPages = getPages("Ayurveda");
   const auPages = getPages("About Us");
   const cuPages = getPages("Contact Us");
@@ -239,13 +248,13 @@ export default function Header() {
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-4 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
                 <div
                   className={`bg-[#FDFCF8] rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.2)] border border-gray-100 ${
-                    ttPages.length > 0 ? "w-[950px]" : "w-[700px]"
+                    ttMenuHasDynamic ? "w-[950px]" : "w-[700px]"
                   } overflow-hidden whitespace-normal relative`}
                 >
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B3B24] via-[#4F6F1F] to-[#ED7D4D]" />
                   <div
                     className={`p-8 grid ${
-                      ttPages.length > 0 ? "grid-cols-3" : "grid-cols-2"
+                      ttMenuHasDynamic ? "grid-cols-3" : "grid-cols-2"
                     } gap-10`}
                   >
                     <div>
@@ -272,6 +281,18 @@ export default function Header() {
                           >
                             <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
                               Advanced TTC (300 hrs)
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/sivananda-teachings"
+                            prefetch={false}
+                            className="group/link flex items-center justify-between p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
+                          >
+                            <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
+                              Sivananda Teachings
                             </span>
                             <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
                           </Link>
@@ -352,7 +373,7 @@ export default function Header() {
                         </li>
                       </ul>
                     </div>
-                    {ttPages.length > 0 && (
+                    {ttMenuHasDynamic && (
                       <div>
                         <h4 className="text-[11px] font-bold text-gray-400 tracking-wide mb-6 flex items-center gap-2">
                           <span className="w-4 h-[2px] bg-[#ED7D4D]" />
@@ -675,6 +696,13 @@ export default function Header() {
             <Link href="/advanced-yoga-teacher-training-course" className="pl-4 text-white/80">
               Advanced TTC (300 hrs)
             </Link>
+            <Link
+              href="/sivananda-teachings"
+              prefetch={false}
+              className="pl-4 text-white/80"
+            >
+              Sivananda Teachings
+            </Link>
             <Link href="/sadhana-intensive" className="pl-4 text-white/80">
               Sadhana Intensive
             </Link>
@@ -684,11 +712,12 @@ export default function Header() {
             <Link href="/syhet-practicuum" className="pl-4 text-white/80">
               SYHET Program
             </Link>
-            {ttPages.map((p) => (
-              <Link key={p.slug} href={`/p/${p.slug}`} className="pl-4 text-white/80">
-                {p.title}
-              </Link>
-            ))}
+            {isMounted &&
+              ttPages.map((p) => (
+                <Link key={p.slug} href={`/p/${p.slug}`} className="pl-4 text-white/80">
+                  {p.title}
+                </Link>
+              ))}
           </div>
 
           <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
