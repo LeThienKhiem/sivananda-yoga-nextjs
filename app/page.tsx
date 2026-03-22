@@ -10,7 +10,7 @@ import YogaInsights from "@/components/YogaInsights";
 import Footer from "@/components/Footer";
 
 const HERO_IMAGE_URL =
-  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner_hero_04.jpg";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner_hero_06.jpg";
 
 const SEO_JSON_PATH = path.join(process.cwd(), "seo-extracted.json");
 
