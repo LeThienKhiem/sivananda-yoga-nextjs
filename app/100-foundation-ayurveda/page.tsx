@@ -12,18 +12,6 @@ import TestimonialVideoSection from "@/components/TestimonialVideoSection";
 import Footer from "@/components/Footer";
 import Image from "next/image";
 
-const schedule = [
-  { time: "5:30 am", activity: "Wake up bell" },
-  { time: "6:00 am", activity: "Satsang (Meditation, Chanting, Lecture)" },
-  { time: "8:00 am", activity: "Yoga Asana & Pranayama" },
-  { time: "10:00 am", activity: "Vegetarian Brunch" },
-  { time: "11:00 am", activity: "Karma Yoga" },
-  { time: "12:00 pm", activity: "Ayurveda Lecture / Workshop" },
-  { time: "4:00 pm", activity: "Yoga Asana & Pranayama" },
-  { time: "6:00 pm", activity: "Vegetarian Dinner" },
-  { time: "8:00 pm", activity: "Satsang (Meditation, Chanting, Lecture)" },
-];
-
 export default function AyurvedaFoundationPage() {
   return (
     <main className="flex min-h-screen flex-col bg-[#FDFCF8]">
@@ -178,139 +166,13 @@ export default function AyurvedaFoundationPage() {
       {/* 6. SENIOR TEACHERS SECTION */}
       <SeniorTeachers />
 
-      {/* 7. DAILY SCHEDULE SECTION */}
-      <section className="mx-auto w-full max-w-7xl px-6 py-24">
-        <div className="flex flex-col gap-16 lg:flex-row lg:gap-20">
-          <div className="w-full lg:w-[45%]">
-            <h2 className="mb-6 font-serif text-3xl font-bold text-[#0B3B24]">
-              Daily Schedule
-            </h2>
-            <p className="mb-10 leading-relaxed text-[#4A4A4A]">
-              The daily schedule follows the traditional ashram routine,
-              integrating Ayurveda workshops with classical Yoga practices. This
-              balanced routine of learning, practice, selfless service, and
-              meditation is designed to elevate your prana and restore inner
-              harmony.
-            </p>
-            <div className="relative aspect-square w-full overflow-hidden rounded-sm shadow-lg md:aspect-[4/3]">
-              <Image
-                src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=800"
-                alt="Daily Practice"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 45vw"
-              />
-            </div>
-          </div>
-
-          <div className="flex w-full flex-col justify-center border-t border-gray-200 pt-10 md:border-l md:border-t-0 md:pl-10 md:pt-0 lg:w-[55%] lg:pl-16">
-            <div className="space-y-6">
-              {schedule.map((item, index) => (
-                <div
-                  key={index}
-                  className="relative flex flex-col gap-2 border-b border-gray-100 pb-6 last:border-0 sm:flex-row sm:items-start sm:gap-6"
-                >
-                  <div className="w-24 shrink-0 pt-1 font-bold text-[#0B3B24]">
-                    {item.time}
-                  </div>
-                  <div className="flex-grow pt-1 text-[#4A4A4A]">
-                    {item.activity}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. WHAT INCLUDES IN THE PACKAGE SECTION */}
-      <section className="border-t border-gray-200/60 bg-[#FDFCF8] px-6 py-24">
-        <div className="mx-auto flex max-w-6xl flex-col gap-16 lg:flex-row lg:gap-24">
-          <div className="w-full lg:w-[60%]">
-            <h2 className="mb-10 font-serif text-3xl font-bold text-[#0B3B24] md:text-4xl">
-              What Includes in the Package
-            </h2>
-            <ul className="mb-12 space-y-6 text-base text-[#4A4A4A] md:text-lg">
-              <li className="flex items-center gap-4">
-                <div className="h-5 w-5 shrink-0 rounded-full border-2 border-[#0B3B24]" />
-                <span>Accommodation and Tuition</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="h-5 w-5 shrink-0 rounded-full border-2 border-[#0B3B24]" />
-                <span>2 Daily Vegetarian/Ayurvedic Meals</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="h-5 w-5 shrink-0 rounded-full border-2 border-[#0B3B24]" />
-                <span>Uniform and Study Manual</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="h-5 w-5 shrink-0 rounded-full border-2 border-[#0B3B24]" />
-                <span>Personal Ayurvedic Consultation</span>
-              </li>
-            </ul>
-
-            <div className="space-y-4">
-              <h4 className="font-medium text-gray-500">Important Note</h4>
-              <ul className="space-y-3 text-base text-[#4A4A4A] md:text-lg">
-                <li className="flex items-start gap-3">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="mt-1 h-4 w-4 shrink-0 text-[#0B3B24]"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                  <span>
-                    This course requires a commitment to the ashram schedule and a
-                    sattvic lifestyle.
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="w-full lg:w-[40%]">
-            <div className="rounded-sm border border-gray-100 bg-white p-8 shadow-[0_10px_40px_rgba(0,0,0,0.06)] md:p-10 lg:sticky lg:top-24">
-              <h3 className="mb-2 font-bold uppercase tracking-widest text-[#0B3B24] md:text-base">
-                Program Cost
-              </h3>
-              <p className="mb-8 text-gray-400 md:text-base">
-                *** incl. Deposit (due at time of registration)
-              </p>
-
-              <div className="mb-8 space-y-6 font-medium text-[#4A4A4A] md:text-lg">
-                <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-                  <span>Single Room</span>
-                  <span className="font-bold text-[#0B3B24]">US$ XXX</span>
-                </div>
-                <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-                  <span>Shared Room (2 people)</span>
-                  <span className="font-bold text-[#0B3B24]">US$ XXX</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>Shared Room (4 people)</span>
-                  <span className="font-bold text-[#0B3B24]">US$ XXX</span>
-                </div>
-              </div>
-
-              <Link
-                href="/contact"
-                className="block w-full rounded-sm bg-[#ED7D4D] px-8 py-4 text-center font-bold uppercase tracking-widest text-white shadow-md transition-colors hover:bg-orange-600"
-              >
-                Register Now
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 9. TESTIMONIAL VIDEO SECTION */}
+      {/* 7. TESTIMONIAL VIDEO SECTION */}
       <TestimonialVideoSection title="Experience the Journey" />
 
-      {/* 10. STUDENT FEEDBACK SECTION */}
+      {/* 8. STUDENT FEEDBACK SECTION */}
       <StudentFeedback />
 
-      {/* 11. ASHRAM GALLERY SECTION */}
+      {/* 9. ASHRAM GALLERY SECTION */}
       <AshramGallery />
 
       <div className="flex-grow" />

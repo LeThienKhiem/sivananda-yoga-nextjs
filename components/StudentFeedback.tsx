@@ -63,7 +63,7 @@ export default function StudentFeedback() {
   const scroll = (direction: "left" | "right") => {
     const container = scrollContainerRef.current;
     if (!container) return;
-    const scrollAmount = 350;
+    const scrollAmount = 424;
     container.scrollBy({
       left: direction === "left" ? -scrollAmount : scrollAmount,
       behavior: "smooth",
@@ -77,33 +77,36 @@ export default function StudentFeedback() {
       </h2>
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Arrows - hidden on mobile */}
-        <button
-          type="button"
-          onClick={() => scroll("left")}
-          aria-label="Previous feedback"
-          className="hidden md:flex absolute top-1/2 -translate-y-1/2 -left-6 z-20 w-12 h-12 rounded-full bg-white border border-gray-200 items-center justify-center text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-colors shadow-sm"
-        >
-          <ChevronLeft className="w-6 h-6" />
-        </button>
-        <button
-          type="button"
-          onClick={() => scroll("right")}
-          aria-label="Next feedback"
-          className="hidden md:flex absolute top-1/2 -translate-y-1/2 -right-6 z-20 w-12 h-12 rounded-full bg-[#dcfd8b] text-[#0B3B24] items-center justify-center shadow-md hover:bg-[#c9f061] transition-colors"
-        >
-          <ChevronRight className="w-6 h-6" />
-        </button>
+        {/* Carousel wrapper: arrows + track, relative for arrow positioning */}
+        <div className="relative min-h-[320px] md:min-h-[360px]">
+          {/* Arrows - inside relative container, outside scroll track, vertically centered to cards */}
+          <button
+            type="button"
+            onClick={() => scroll("left")}
+            aria-label="Previous feedback"
+            className="hidden md:flex absolute top-1/2 -translate-y-1/2 -left-4 z-20 w-12 h-12 rounded-full bg-white border border-gray-200 items-center justify-center text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-colors shadow-sm"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            type="button"
+            onClick={() => scroll("right")}
+            aria-label="Next feedback"
+            className="hidden md:flex absolute top-1/2 -translate-y-1/2 -right-4 z-20 w-12 h-12 rounded-full bg-[#dcfd8b] text-[#0B3B24] items-center justify-center shadow-md hover:bg-[#c9f061] transition-colors"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
 
-        <div
-          ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 -mx-6 px-6 md:mx-0 md:px-0 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-        >
-          {feedbacks.map((item, index) => (
-            <div
-              key={index}
-              className="snap-center shrink-0 w-[300px] md:w-[380px] bg-white border border-gray-100 p-8 md:p-10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 flex flex-col"
-            >
+          {/* Scroll track */}
+          <div
+            ref={scrollContainerRef}
+            className="flex flex-row flex-nowrap gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 pt-4 -mx-6 px-6 md:mx-0 md:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {feedbacks.map((item, index) => (
+              <div
+                key={index}
+                className="shrink-0 w-[85vw] md:w-[400px] snap-center bg-white border border-gray-100 p-8 md:p-10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 flex flex-col"
+              >
               <Quote
                 className="w-10 h-10 text-[#0B3B24] opacity-20 rotate-180 shrink-0 mb-4"
                 strokeWidth={1.5}
@@ -114,6 +117,7 @@ export default function StudentFeedback() {
               <p className="text-gray-500 font-medium">{item.author}</p>
             </div>
           ))}
+          </div>
         </div>
 
         {/* Bottom CTA */}

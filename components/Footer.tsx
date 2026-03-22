@@ -44,17 +44,17 @@ export default function Footer() {
           />
         </div>
 
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex max-w-sm items-start justify-center gap-3 text-left">
+        <div className="flex w-full flex-col items-start gap-4 text-left">
+          <div className="flex flex-row items-start gap-3">
             <MapPin className="mt-1 h-6 w-6 shrink-0" />
-            <p>Hoa Hong Street Ward 4, Tuyen Lam Lake Da Lat, Vietnam</p>
+            <p className="text-left leading-relaxed">Hoa Hong Street Ward 4, Tuyen Lam Lake Da Lat, Vietnam</p>
           </div>
-          <div className="flex items-center justify-center gap-3">
-            <Phone className="h-5 w-5" />
+          <div className="flex flex-row items-center gap-3">
+            <Phone className="h-5 w-5 shrink-0" />
             <a href="tel:+842636501100">02636501100</a>
           </div>
-          <div className="flex items-center justify-center gap-3">
-            <Mail className="h-5 w-5" />
+          <div className="flex flex-row items-center gap-3">
+            <Mail className="h-5 w-5 shrink-0" />
             <a href="mailto:vietnamyogaresort@sivananda.org">
               vietnamyogaresort@sivananda.org
             </a>
