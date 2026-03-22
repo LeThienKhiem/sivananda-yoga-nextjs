@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Gallery, { type GalleryImageItem } from "@/components/Gallery";
 import Image from "next/image";
 import Link from "next/link";
 import { Wifi, Wind, Users, Droplets, Coffee } from "lucide-react";
@@ -32,16 +33,58 @@ const MEAL_IMGS = [
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/accom-02.png",
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/accom-03.png",
 ];
-const GALLERY_LOTUS =
-  "https://images.unsplash.com/photo-1464692805480-a69dfaafdb0d?q=80&w=800";
-const GALLERY_MEDITATION =
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800";
-const GALLERY_AYURVEDA =
-  "https://images.unsplash.com/photo-1514733670139-4d87a1941d55";
-const GALLERY_FOOD =
-  "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?q=80&w=800";
-const GALLERY_TEA =
-  "https://images.unsplash.com/photo-1516715043227-1cdf27bcd09a";
+
+/** Masonry gallery above footer — resort rooms, grounds, and practice spaces */
+const ACCOMMODATION_GALLERY_IMAGES: GalleryImageItem[] = [
+  {
+    id: "ag-1",
+    src: MEAL_IMGS[0],
+    alt: "Resort accommodation and dining pavilion surrounded by trees",
+    aspect: "aspect-[4/3]",
+  },
+  {
+    id: "ag-2",
+    src: MEAL_IMGS[1],
+    alt: "Garden paths and green spaces at the yoga resort",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    id: "ag-3",
+    src: MEAL_IMGS[2],
+    alt: "Peaceful outdoor area for rest between classes",
+    aspect: "aspect-square",
+  },
+  {
+    id: "ag-4",
+    src: HERO_IMG,
+    alt: "Yoga resort nestled in the hills of Dalat",
+    aspect: "aspect-[4/5]",
+  },
+  {
+    id: "ag-5",
+    src: ROOM1_IMGS[0],
+    alt: "Bright shared room with natural light",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    id: "ag-6",
+    src: ROOM2_IMGS[0],
+    alt: "Private villa room with serene forest views",
+    aspect: "aspect-[16/9]",
+  },
+  {
+    id: "ag-7",
+    src: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800",
+    alt: "Yoga and meditation hall",
+    aspect: "aspect-[4/3]",
+  },
+  {
+    id: "ag-8",
+    src: "https://images.unsplash.com/photo-1464692805480-a69dfaafdb0d?q=80&w=800",
+    alt: "Lotus pond and tropical gardens",
+    aspect: "aspect-square",
+  },
+];
 
 // --- MOCK DATA ---
 const rooms = [
@@ -137,8 +180,8 @@ export default function AccommodationsPage() {
     <main className="min-h-screen bg-[#FDFCF8]">
       <Header />
 
-      {/* 1. HERO SECTION */}
-      <section className="relative h-[60vh] min-h-[500px] flex flex-col items-center justify-center text-center">
+      {/* 1. HERO — textbox 50% on image / 50% on page bg (matches main bg-[#FDFCF8]) */}
+      <section className="relative h-[60vh] min-h-[500px] w-full text-center">
         <Image
           src={HERO_IMG}
           alt="Yoga Resort Dalat"
@@ -149,7 +192,7 @@ export default function AccommodationsPage() {
         />
         <div className="absolute inset-0 bg-white/40 backdrop-blur-[1px]" />
 
-        <div className="relative z-10 max-w-3xl px-6 py-12 bg-white/90 shadow-xl rounded-sm mt-20 backdrop-blur-sm">
+        <div className="absolute bottom-0 left-1/2 z-10 w-[90%] max-w-3xl -translate-x-1/2 translate-y-1/2 px-6 py-12 bg-[#FDFCF8] rounded-sm">
           <p className="text-base md:text-lg text-gray-600 tracking-widest uppercase mb-4 font-medium">
             Enjoy a relaxing stay at our Yoga Resort in Dalat
           </p>
@@ -163,6 +206,9 @@ export default function AccommodationsPage() {
           </p>
         </div>
       </section>
+
+      {/* Spacer: room for lower half of overlapping hero textbox */}
+      <div className="h-28 w-full bg-[#FDFCF8] md:h-40" aria-hidden />
 
       {/* 2. ACCOMMODATION LIST */}
       <section className="py-24 px-6 max-w-7xl mx-auto space-y-32">
@@ -287,76 +333,13 @@ export default function AccommodationsPage() {
         })}
       </section>
 
-      {/* 5. BOTTOM GALLERY & AYURVEDA */}
-      <section className="max-w-7xl mx-auto px-6 pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="flex flex-col gap-4">
-            <div className="relative aspect-square shadow-sm rounded-sm overflow-hidden">
-              <Image
-                src={GALLERY_LOTUS}
-                alt="Lotus"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
-            <div className="relative aspect-[4/3] shadow-sm rounded-sm overflow-hidden">
-              <Image
-                src={GALLERY_MEDITATION}
-                alt="Meditation"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-4 justify-center">
-            <div className="bg-[#FEF5E7] p-8 text-center flex flex-col justify-center h-full shadow-sm rounded-sm">
-              <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-4">
-                Ayurveda
-              </h3>
-              <p className="text-gray-600 text-base leading-relaxed mb-6">
-                The ancient science of life. We offer basic Ayurvedic
-                consultations and integrate its principles into our daily meals
-                to ensure optimal digestion and health according to your dosha.
-              </p>
-              <span className="text-[#ED7D4D] text-base font-bold uppercase tracking-widest cursor-pointer hover:underline">
-                Learn More
-              </span>
-            </div>
-            <div className="relative aspect-video md:aspect-square shadow-sm rounded-sm overflow-hidden">
-              <Image
-                src={GALLERY_AYURVEDA}
-                alt="Ayurveda Herbs"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <div className="relative aspect-[4/3] shadow-sm rounded-sm overflow-hidden">
-              <Image
-                src={GALLERY_FOOD}
-                alt="Healthy Food"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
-            <div className="relative aspect-square shadow-sm rounded-sm overflow-hidden">
-              <Image
-                src={GALLERY_TEA}
-                alt="Tea preparation"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
-          </div>
-        </div>
+      {/* 5. GALLERY */}
+      <section className="py-16 md:py-20 w-full">
+        <Gallery
+          title="Resort Gallery"
+          subtitle="Rooms, gardens, and spaces for practice at our Dalat yoga resort."
+          images={ACCOMMODATION_GALLERY_IMAGES}
+        />
       </section>
 
       <Footer />

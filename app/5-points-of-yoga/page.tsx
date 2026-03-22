@@ -55,8 +55,8 @@ export default function FivePointsOfYogaPage() {
     <div className="flex min-h-screen flex-col w-full">
       <Header />
       <main className="flex-grow flex flex-col w-full">
-        {/* Hero Banner — The Foundation */}
-        <section className="relative w-full h-[500px] md:h-[600px] flex items-end justify-center">
+        {/* Hero Banner — The Foundation (textbox: 50% overlap image / 50% below via translate-y-1/2) */}
+        <section className="relative w-full h-[500px] md:h-[600px]">
           <Image
             src={HERO_IMAGE}
             alt="Pine forest and lake at sunrise — 5 Points of Yoga"
@@ -65,7 +65,7 @@ export default function FivePointsOfYogaPage() {
             className="object-cover object-center"
             sizes="100vw"
           />
-          <div className="relative z-10 bg-white w-[90%] max-w-5xl py-12 md:py-16 px-6 shadow-md text-center -mb-12 md:-mb-16 border-b border-gray-100">
+          <div className="absolute bottom-0 left-1/2 z-10 w-[90%] max-w-5xl -translate-x-1/2 translate-y-1/2 bg-white px-6 py-12 text-center md:py-16">
             <p className="text-[#0B3B24] text-xl md:text-2xl font-sans font-medium mb-4">
               The Foundation of Health, Happiness, and Peace
             </p>
@@ -75,8 +75,8 @@ export default function FivePointsOfYogaPage() {
           </div>
         </section>
 
-        {/* Spacer for overlapping box */}
-        <div className="h-24 md:h-32 bg-transparent w-full" />
+        {/* Spacer: room for lower half of overlapping hero textbox (matches bg-white section below) */}
+        <div className="h-28 w-full bg-white md:h-36" aria-hidden />
 
         {/* Yoga Wisdom for the Modern World */}
         <section className="bg-white py-24 px-6">
@@ -498,7 +498,7 @@ export default function FivePointsOfYogaPage() {
         </section>
 
         {/* Thought Section (Part of Point 5) */}
-        <section className="bg-[#FDFCF8] py-24 px-6">
+        <section className="bg-[#FDFCF8] pt-24 px-6 pb-0">
           <div className="max-w-7xl mx-auto space-y-24">
             {/* Item 1: What Is Thought? — Text Left / Image Right */}
             <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
@@ -571,10 +571,10 @@ export default function FivePointsOfYogaPage() {
           </div>
         </section>
 
-        {/* Upcoming Events */}
-        <section className="py-24" aria-label="Upcoming events">
-          <UpcomingEvents />
-        </section>
+        <UpcomingEvents
+          aria-label="Upcoming events"
+          sectionPaddingClass="pt-12 pb-24"
+        />
       </main>
       <Footer />
     </div>
