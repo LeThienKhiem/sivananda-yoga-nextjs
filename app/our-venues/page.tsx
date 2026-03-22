@@ -4,6 +4,8 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AccommodationCost from "@/components/AccommodationCost";
+import TestimonialsCarousel2 from "@/components/TestimonialsCarousel2";
+import Gallery, { type GalleryImageItem } from "@/components/Gallery";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -35,6 +37,18 @@ const VENUE_IMGS = [
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/venue-03.png",
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/venue-04.png",
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/venue-05.png",
+];
+
+/** Masonry gallery — ashram venues & spaces (reuses page imagery) */
+const VENUES_GALLERY_IMAGES: GalleryImageItem[] = [
+  { id: "g1", src: VENUE_IMGS[0], alt: "Lake and tranquil waters at the ashram", aspect: "aspect-[4/3]" },
+  { id: "g2", src: VENUE_IMGS[1], alt: "Pine forest and outdoor practice area", aspect: "aspect-[3/4]" },
+  { id: "g3", src: VENUE_IMGS[2], alt: "Meditation labyrinth path", aspect: "aspect-square" },
+  { id: "g4", src: VENUE_IMGS[3], alt: "Bonfire and community gathering space", aspect: "aspect-[4/5]" },
+  { id: "g5", src: VENUE_IMGS[4], alt: "Forest walking trails", aspect: "aspect-[3/4]" },
+  { id: "g6", src: COLLAGE_LEFT, alt: "Sacred nature at the retreat center", aspect: "aspect-[4/3]" },
+  { id: "g7", src: COLLAGE_MID1, alt: "Light through the trees", aspect: "aspect-[16/9]" },
+  { id: "g8", src: COLLAGE_MID2, alt: "Sunset and valley views", aspect: "aspect-square" },
 ];
 
 const venues = [
@@ -332,17 +346,17 @@ export default function OurVenuesPage() {
         <AccommodationCost />
       </section>
 
-      {/* 8. TESTIMONIAL QUOTE */}
-      <section className="bg-white py-20 px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-2xl md:text-2xl text-[#0B3B24] font-serif italic leading-relaxed mb-8">
-            &quot;This place is a slice of heaven. The energy of the forest, the pure food, and the profound teachings have completely transformed my perspective on life.&quot;
-          </p>
-          <p className="text-[#4A4A4A] font-bold uppercase tracking-wider text-base">
-            — Sarah M., Retreat Guest
-          </p>
+      {/* 8. VENUE GALLERY + STUDENT TESTIMONIALS (shared components) */}
+      <div className="py-16 md:py-20">
+        <div className="flex flex-col gap-16 md:gap-20">
+          <Gallery
+            title="Ashram Gallery"
+            subtitle="Sacred spaces, nature, and gathering places across our retreat center."
+            images={VENUES_GALLERY_IMAGES}
+          />
+          <TestimonialsCarousel2 />
         </div>
-      </section>
+      </div>
 
       <Footer />
     </main>
