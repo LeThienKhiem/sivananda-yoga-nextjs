@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { supabase } from '@/utils/supabase';
+import { getCourseImageUrl } from '@/utils/course-images';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
@@ -10,11 +11,31 @@ import Link from 'next/link';
 
 const HERO_IMAGE = "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=2000";
 
+const CATEGORY_OPTIONS = ['All', 'Upcoming', 'Yoga Vacation', 'Ayurveda', 'Workshop', 'Short Courses', 'Holistic Health', 'Teacher Training'];
+const PRICING_OPTIONS = ['Free', 'Paid'];
+const TYPE_OPTIONS = ['Online', 'Offline', 'Offline and Online'];
+const LANGUAGE_OPTIONS = ['English', 'Chinese', 'Japanese', 'Vietnamese'];
+
 export default function CoursesPage() {
   const [courses, setCourses] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Simple state to toggle filter sections (UI only)
+  // Draft states (updated when checkboxes are toggled)
+  const [draftCategories, setDraftCategories] = useState<string[]>(['All']);
+  const [draftPricing, setDraftPricing] = useState<string[]>([]);
+  const [draftTypes, setDraftTypes] = useState<string[]>([]);
+  const [draftLanguages, setDraftLanguages] = useState<string[]>([]);
+
+  // Applied states (updated only when Apply is clicked)
+  const [appliedCategories, setAppliedCategories] = useState<string[]>(['All']);
+  const [appliedPricing, setAppliedPricing] = useState<string[]>([]);
+  const [appliedTypes, setAppliedTypes] = useState<string[]>([]);
+  const [appliedLanguages, setAppliedLanguages] = useState<string[]>([]);
+
+  // Pagination: number of courses to display
+  const [visibleCount, setVisibleCount] = useState(10);
+
+  // UI: toggle filter sections
   const [filtersOpen, setFiltersOpen] = useState({
     category: true,
     pricing: true,
@@ -31,7 +52,7 @@ export default function CoursesPage() {
     const { data, error } = await supabase
       .from('courses')
       .select('*')
-      .eq('is_active', true) // Only fetch active courses
+      .eq('is_active', true)
       .order('created_at', { ascending: false });
     
     if (error) {
@@ -45,6 +66,127 @@ export default function CoursesPage() {
   const toggleFilter = (section: keyof typeof filtersOpen) => {
     setFiltersOpen(prev => ({ ...prev, [section]: !prev[section] }));
   };
+
+  // Toggle draft state for a single option
+  const toggleDraft = (
+    key: 'categories' | 'pricing' | 'types' | 'languages',
+    value: string
+  ) => {
+    const setters = {
+      categories: setDraftCategories,
+      pricing: setDraftPricing,
+      types: setDraftTypes,
+      languages: setDraftLanguages,
+    };
+    const getters = {
+      categories: draftCategories,
+      pricing: draftPricing,
+      types: draftTypes,
+      languages: draftLanguages,
+    };
+    const current = getters[key];
+    const setter = setters[key];
+
+    if (key === 'categories' && value === 'All') {
+      setter(current.includes('All') ? [] : ['All']);
+      return;
+    }
+    if (key === 'categories' && current.includes('All')) {
+      setter([value]);
+      return;
+    }
+    if (key === 'categories' && value !== 'All') {
+      if (current.includes(value)) {
+        const next = current.filter((x) => x !== value);
+        setter(next.length === 0 ? ['All'] : next);
+      } else {
+        setter([...current, value]);
+      }
+      return;
+    }
+
+    if (current.includes(value)) {
+      setter(current.filter((x) => x !== value));
+    } else {
+      setter([...current, value]);
+    }
+  };
+
+  const handleApply = () => {
+    setAppliedCategories([...draftCategories]);
+    setAppliedPricing([...draftPricing]);
+    setAppliedTypes([...draftTypes]);
+    setAppliedLanguages([...draftLanguages]);
+    setVisibleCount(10);
+  };
+
+  const handleClearAll = () => {
+    setDraftCategories(['All']);
+    setDraftPricing([]);
+    setDraftTypes([]);
+    setDraftLanguages([]);
+    setAppliedCategories(['All']);
+    setAppliedPricing([]);
+    setAppliedTypes([]);
+    setAppliedLanguages([]);
+    setVisibleCount(10);
+  };
+
+  // Filter logic: applied to courses based on applied states
+  const filteredCourses = useMemo(() => {
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+
+    return courses.filter((course) => {
+      // Category filter
+      const hasCategoryFilter = appliedCategories.length > 0 && !appliedCategories.every((c) => c === 'All');
+      if (hasCategoryFilter) {
+        const hasUpcoming = appliedCategories.includes('Upcoming');
+        const otherCats = appliedCategories.filter((c) => c !== 'All' && c !== 'Upcoming');
+
+        if (hasUpcoming) {
+          const startDate = course.start_date ? new Date(course.start_date) : null;
+          if (!startDate || startDate < now) return false;
+        }
+        if (otherCats.length > 0) {
+          const courseCats = Array.isArray(course.category) ? course.category : [];
+          const intersects = otherCats.some((c) => courseCats.includes(c));
+          if (!intersects) return false;
+        }
+      }
+
+      // Pricing filter
+      if (appliedPricing.length > 0) {
+        const pricing = (course.pricing || '').toString().toLowerCase();
+        const matches = appliedPricing.some((p) =>
+          pricing.includes(p.toLowerCase())
+        );
+        if (!matches) return false;
+      }
+
+      // Type filter
+      if (appliedTypes.length > 0) {
+        const courseType = (course.course_type || '').toString();
+        const matches = appliedTypes.some((t) =>
+          courseType.toLowerCase().includes(t.toLowerCase())
+        );
+        if (!matches) return false;
+      }
+
+      // Language filter (gracefully ignore if property doesn't exist)
+      if (appliedLanguages.length > 0 && course.language != null) {
+        const courseLang = (course.language || '').toString();
+        const matches = appliedLanguages.some((l) =>
+          courseLang.toLowerCase().includes(l.toLowerCase())
+        );
+        if (!matches) return false;
+      }
+
+      return true;
+    });
+  }, [courses, appliedCategories, appliedPricing, appliedTypes, appliedLanguages]);
+
+  const displayedCourses = filteredCourses.slice(0, visibleCount);
 
   return (
     <main className="min-h-screen bg-[#FDFCF8] flex flex-col">
@@ -80,6 +222,17 @@ export default function CoursesPage() {
         <aside className="w-full lg:w-[280px] shrink-0">
           <h2 className="text-xl font-bold text-[#4A4A4A] mb-8">Filter</h2>
 
+          {/* Filter Actions - top */}
+          <div className="flex items-center gap-4 mb-8">
+            <button onClick={handleClearAll} className="flex-1 py-3 text-sm font-bold text-[#A3B827] hover:text-[#8e9f22] transition-colors">
+              Clear all
+            </button>
+            <button onClick={handleApply} className="flex-1 py-3 bg-[#A3B827] hover:bg-[#8e9f22] text-white rounded text-sm font-bold transition-colors">
+              Apply
+            </button>
+          </div>
+          <div className="w-full h-px bg-gray-100 my-6" />
+
           <div className="space-y-6">
             {/* CATEGORY */}
             <div className="border-b border-gray-200 pb-6">
@@ -89,14 +242,23 @@ export default function CoursesPage() {
               </button>
               {filtersOpen.category && (
                 <div className="space-y-3">
-                  {['All', 'Upcoming', 'Yoga Vacation', 'Ayurveda', 'Workshop', 'Short Courses', 'Holistic Health', 'Teacher Training'].map((item, idx) => (
-                    <label key={item} className="flex items-center gap-3 cursor-pointer group">
-                      <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${idx === 0 || idx === 1 ? 'bg-[#A3B827] border-[#A3B827]' : 'border-gray-300 group-hover:border-[#A3B827]'}`}>
-                        {(idx === 0 || idx === 1) && <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>}
-                      </div>
-                      <span className="text-sm text-[#4A4A4A]">{item}</span>
-                    </label>
-                  ))}
+                  {CATEGORY_OPTIONS.map((item) => {
+                    const checked = draftCategories.includes(item) || (draftCategories.length === 0 && item === 'All');
+                    return (
+                      <label key={item} className="flex items-center gap-3 cursor-pointer group">
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() => toggleDraft('categories', item)}
+                          className="sr-only"
+                        />
+                        <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${checked ? 'bg-[#A3B827] border-[#A3B827]' : 'border-gray-300 group-hover:border-[#A3B827]'}`}>
+                          {checked && <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>}
+                        </div>
+                        <span className="text-sm text-[#4A4A4A]">{item}</span>
+                      </label>
+                    );
+                  })}
                   <button className="text-xs text-gray-500 hover:text-[#0B3B24] pt-2">Show more</button>
                 </div>
               )}
@@ -110,12 +272,23 @@ export default function CoursesPage() {
               </button>
               {filtersOpen.pricing && (
                 <div className="flex gap-6">
-                  {['Free', 'Paid'].map((item) => (
-                    <label key={item} className="flex items-center gap-3 cursor-pointer group">
-                      <div className="w-5 h-5 rounded border border-gray-300 group-hover:border-[#A3B827]"></div>
-                      <span className="text-sm text-[#4A4A4A]">{item}</span>
-                    </label>
-                  ))}
+                  {PRICING_OPTIONS.map((item) => {
+                    const checked = draftPricing.includes(item);
+                    return (
+                      <label key={item} className="flex items-center gap-3 cursor-pointer group">
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() => toggleDraft('pricing', item)}
+                          className="sr-only"
+                        />
+                        <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${checked ? 'bg-[#A3B827] border-[#A3B827]' : 'border-gray-300 group-hover:border-[#A3B827]'}`}>
+                          {checked && <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>}
+                        </div>
+                        <span className="text-sm text-[#4A4A4A]">{item}</span>
+                      </label>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -128,14 +301,23 @@ export default function CoursesPage() {
               </button>
               {filtersOpen.type && (
                 <div className="space-y-3">
-                  {['Online', 'Offline', 'Offline and Online'].map((item, idx) => (
-                    <label key={item} className="flex items-center gap-3 cursor-pointer group">
-                      <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${idx === 2 ? 'bg-[#A3B827] border-[#A3B827]' : 'border-gray-300 group-hover:border-[#A3B827]'}`}>
-                        {idx === 2 && <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>}
-                      </div>
-                      <span className="text-sm text-[#4A4A4A]">{item}</span>
-                    </label>
-                  ))}
+                  {TYPE_OPTIONS.map((item) => {
+                    const checked = draftTypes.includes(item);
+                    return (
+                      <label key={item} className="flex items-center gap-3 cursor-pointer group">
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() => toggleDraft('types', item)}
+                          className="sr-only"
+                        />
+                        <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${checked ? 'bg-[#A3B827] border-[#A3B827]' : 'border-gray-300 group-hover:border-[#A3B827]'}`}>
+                          {checked && <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>}
+                        </div>
+                        <span className="text-sm text-[#4A4A4A]">{item}</span>
+                      </label>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -148,27 +330,26 @@ export default function CoursesPage() {
               </button>
               {filtersOpen.language && (
                 <div className="space-y-3">
-                  {['English', 'Chinese', 'Japanese', 'Vietnamese'].map((item, idx) => (
-                    <label key={item} className="flex items-center gap-3 cursor-pointer group">
-                      <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${idx === 0 ? 'bg-[#A3B827] border-[#A3B827]' : 'border-gray-300 group-hover:border-[#A3B827]'}`}>
-                        {idx === 0 && <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>}
-                      </div>
-                      <span className="text-sm text-[#4A4A4A]">{item}</span>
-                    </label>
-                  ))}
+                  {LANGUAGE_OPTIONS.map((item) => {
+                    const checked = draftLanguages.includes(item);
+                    return (
+                      <label key={item} className="flex items-center gap-3 cursor-pointer group">
+                        <input
+                          type="checkbox"
+                          checked={checked}
+                          onChange={() => toggleDraft('languages', item)}
+                          className="sr-only"
+                        />
+                        <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${checked ? 'bg-[#A3B827] border-[#A3B827]' : 'border-gray-300 group-hover:border-[#A3B827]'}`}>
+                          {checked && <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"/></svg>}
+                        </div>
+                        <span className="text-sm text-[#4A4A4A]">{item}</span>
+                      </label>
+                    );
+                  })}
                   <button className="text-xs text-gray-500 hover:text-[#0B3B24] pt-2">Show more</button>
                 </div>
               )}
-            </div>
-
-            {/* Filter Actions */}
-            <div className="flex items-center gap-4 pt-4">
-              <button className="flex-1 py-3 text-sm font-bold text-gray-500 hover:text-[#0B3B24] transition-colors">
-                Clear all
-              </button>
-              <button className="flex-1 py-3 bg-[#A3B827] hover:bg-[#8e9f22] text-white rounded text-sm font-bold transition-colors">
-                Apply
-              </button>
             </div>
           </div>
         </aside>
@@ -182,24 +363,25 @@ export default function CoursesPage() {
               <div className="py-20 flex justify-center">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#ED7D4D]"></div>
               </div>
-            ) : courses.length === 0 ? (
+            ) : filteredCourses.length === 0 ? (
               <div className="py-20 text-center text-gray-500 bg-white rounded-xl border border-gray-100">
-                No courses available at the moment.
+                {courses.length === 0
+                  ? 'No courses available at the moment.'
+                  : 'No courses match your filters. Try adjusting your selection.'}
               </div>
             ) : (
-              courses.map((course) => (
+              <>
+              {displayedCourses.map((course) => (
               <div key={course.id} className="bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row overflow-hidden group hover:shadow-md transition-shadow">
                 
                 {/* Course Image (Clickable to detail) */}
                 <Link href={`/syhet-courses/${course.slug || course.id}`} className="relative w-full md:w-[35%] lg:w-[40%] aspect-video md:aspect-auto min-h-[220px] overflow-hidden bg-gray-100 block shrink-0">
-                  {course.image_url && (
-                    <Image 
-                      src={course.image_url} 
-                      alt={course.title} 
-                      fill 
-                      className="object-cover group-hover:scale-105 transition-transform duration-700" 
-                    />
-                  )}
+                  <Image 
+                    src={getCourseImageUrl(course.image_url, course.title)} 
+                    alt={course.title} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                  />
                   {/* Favorite Icon */}
                   <button onClick={(e) => e.preventDefault()} className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 transition-colors shadow-sm z-10">
                     <Heart size={16} />
@@ -249,7 +431,18 @@ export default function CoursesPage() {
                 </div>
 
               </div>
-              ))
+              ))}
+              {visibleCount < filteredCourses.length && (
+                <div className="flex justify-center mt-8">
+                  <button
+                    onClick={() => setVisibleCount((prev) => prev + 10)}
+                    className="px-6 py-2 border border-[#8BAA36] text-[#8BAA36] hover:bg-[#8BAA36] hover:text-white rounded-md transition-colors font-medium"
+                  >
+                    See more
+                  </button>
+                </div>
+              )}
+              </>
             )}
           </div>
         </div>

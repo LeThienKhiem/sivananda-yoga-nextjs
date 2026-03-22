@@ -7,10 +7,8 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { supabase } from "@/utils/supabase";
+import { getCourseImageUrl } from "@/utils/course-images";
 import { ArrowLeft, Calendar, MapPin, Mail, Phone } from "lucide-react";
-
-const PLACEHOLDER_IMAGE =
-  "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?q=80&w=2000";
 
 const PROSE_CLASS =
   "prose prose-slate max-w-none text-[#4A4A4A] [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-[#0B3B24] [&>h2]:mt-8 [&>h2]:mb-4 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-[#0B3B24] [&>h3]:mt-6 [&>h3]:mb-3 [&>p]:mb-4 [&>p]:leading-relaxed [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:mb-4 [&>ul>li]:mb-1 [&>strong]:font-bold [&>strong]:text-[#0B3B24]";
@@ -98,7 +96,7 @@ export default function CourseDetailPage() {
       <section className="max-w-4xl mx-auto w-full px-6 mt-6">
         <div className="relative w-full aspect-[21/9] rounded-xl overflow-hidden shadow-lg bg-gray-100">
           <Image
-            src={course.image_url || PLACEHOLDER_IMAGE}
+            src={getCourseImageUrl(course.image_url, course.title)}
             alt={course.title}
             fill
             className="object-cover"

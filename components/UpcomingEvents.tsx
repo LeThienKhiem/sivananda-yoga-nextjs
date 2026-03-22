@@ -5,14 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Calendar, MapPin, ArrowRight, Loader2 } from "lucide-react";
 import { supabase } from "@/utils/supabase";
+import { getCourseImageUrl } from "@/utils/course-images";
 
 const DEFAULT_SUBTITLE = "PROGRAMS AND RETREAT";
 const DEFAULT_TITLE = "Upcoming Events & Courses";
 const DEFAULT_CTA_TEXT = "View all Courses";
 const DEFAULT_CTA_LINK = "/syhet-courses";
-
-const YOGA_PLACEHOLDER_IMAGE =
-  "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&q=80&w=800";
 
 const formatCourseDate = (start?: string, end?: string) => {
   if (!start) return "Date TBA";
@@ -68,9 +66,8 @@ export default function UpcomingEvents({
     setLoading(false);
   };
 
-  const getCourseImage = (course: any) => {
-    return course.image_url || YOGA_PLACEHOLDER_IMAGE;
-  };
+  const getCourseImage = (course: any) =>
+    getCourseImageUrl(course.image_url, course.title);
 
   if (loading) {
     return (

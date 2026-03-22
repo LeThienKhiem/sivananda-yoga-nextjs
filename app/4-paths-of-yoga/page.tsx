@@ -55,7 +55,7 @@ export default function FourPathsOfYogaPage() {
       <Header />
 
       {/* Hero Banner Section */}
-      <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center">
+      <section className="relative h-[60vh] md:h-[70vh]">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -70,8 +70,8 @@ export default function FourPathsOfYogaPage() {
           <div className="absolute inset-0 bg-black/30" />
         </div>
 
-        {/* Overlapping Content Box */}
-        <div className="relative z-10 bg-white p-8 md:p-16 shadow-2xl max-w-4xl text-center rounded-sm -mb-24 md:-mb-32 mx-4">
+        {/* Overlapping Content Box - positioned at bottom, 50% over image / 50% over page */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-10 w-[95%] max-w-4xl mx-4 p-8 md:p-16 bg-[#FDFCF8] text-center rounded-sm">
           <p className="text-[#0B3B24] uppercase tracking-widest text-base mb-4 font-medium">
             Ancient Wisdom for Modern Life
           </p>
@@ -340,7 +340,7 @@ export default function FourPathsOfYogaPage() {
 
           <button
             type="button"
-            className="bg-white/80 hover:bg-white text-[#ED7D4D] border border-white/50 px-8 py-3 rounded-sm font-semibold tracking-widest text-base uppercase transition-all shadow-sm"
+            className="bg-white/40 hover:bg-white text-[#ED7D4D] border border-white/50 px-8 py-3 rounded-sm font-semibold tracking-widest text-base uppercase transition-all shadow-sm"
           >
             Karma Yoga Path
           </button>
@@ -578,12 +578,12 @@ export default function FourPathsOfYogaPage() {
             – Swami Sivananda in &quot;Sivananda Upanishad&quot;
           </p>
 
-          <button
-            type="button"
-            className="bg-white/95 hover:bg-white text-[#ED7D4D] border border-[#ED7D4D]/20 px-10 py-4 rounded-sm font-semibold tracking-widest text-base uppercase transition-all shadow-[0_4px_14px_0_rgba(237,125,77,0.1)] hover:shadow-[0_6px_20px_rgba(237,125,77,0.15)]"
+          <Link
+            href="/yoga-vacation"
+            className="inline-block bg-white/95 hover:bg-white text-[#ED7D4D] border border-[#ED7D4D]/20 px-10 py-4 rounded-sm font-semibold tracking-widest text-base uppercase transition-all shadow-[0_4px_14px_0_rgba(237,125,77,0.1)] hover:shadow-[0_6px_20px_rgba(237,125,77,0.15)]"
           >
             EXPLORE YOGA PROGRAM
-          </button>
+          </Link>
         </div>
       </section>
 

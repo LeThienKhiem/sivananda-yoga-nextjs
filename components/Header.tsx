@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
@@ -11,9 +12,14 @@ const LOGO_URL =
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dynamicPages, setDynamicPages] = useState<any[]>([]);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -24,6 +30,18 @@ export default function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     const fetchPages = async () => {
@@ -621,13 +639,15 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`lg:hidden fixed inset-0 top-[80px] bg-[#0B3B24] overflow-y-auto transition-transform duration-300 ease-in-out z-40 ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-      >
-        <div className="flex flex-col p-6 gap-6 text-white">
+      {/* Mobile Menu Overlay - use portal to escape header's filter/stacking context */}
+      {isMounted &&
+        createPortal(
+          <div
+            className={`lg:hidden fixed top-[5rem] left-0 right-0 bottom-0 w-full min-h-[100dvh] bg-[#0B3B24] overflow-y-auto transition-transform duration-300 ease-in-out z-40 ${
+              isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+          >
+            <div className="flex flex-col p-6 pb-20 gap-6 text-white">
           <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
             <Link href="/yoga-vacation" className="text-base font-medium tracking-wide text-[#ED7D4D]">
               Yoga Vacation
@@ -747,7 +767,9 @@ export default function Header() {
             ))}
           </div>
         </div>
-      </div>
+      </div>,
+          document.body
+        )}
     </header>
   );
 }

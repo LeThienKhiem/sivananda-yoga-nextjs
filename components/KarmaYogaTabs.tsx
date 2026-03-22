@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const tabsData = [
   {
@@ -72,6 +73,14 @@ const tabsData = [
 
 export default function KarmaYogaTabs() {
   const [activeTab, setActiveTab] = useState(tabsData[0]);
+  const tabsScrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollTabs = (direction: "left" | "right") => {
+    const el = tabsScrollRef.current;
+    if (!el) return;
+    const scrollAmount = 180;
+    el.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
+  };
 
   return (
     <section className="bg-[#FDFCF8] py-24 px-6">
@@ -82,28 +91,49 @@ export default function KarmaYogaTabs() {
 
         {/* Elegant Container */}
         <div className="flex flex-col md:flex-row shadow-[0_8px_30px_rgb(0,0,0,0.06)] rounded-3xl overflow-hidden min-h-[550px] bg-white border border-gray-100">
-          {/* Left Side: Modern Tabs List */}
-          <div className="w-full md:w-[35%] flex flex-col bg-gray-50/50">
+          {/* Left Side: Modern Tabs List — horizontal scroll on mobile, vertical on desktop */}
+          <div className="w-full md:w-[35%] bg-gray-50/50">
+            <div className="relative md:h-full">
+              {/* Mobile scroll arrows — inside relative wrapper, outside scrollable area */}
+              <button
+                type="button"
+                onClick={() => scrollTabs("left")}
+                aria-label="Scroll tabs left"
+                className="absolute left-0 top-0 bottom-0 z-20 w-8 flex items-center justify-center bg-gradient-to-r from-white via-white/80 to-transparent hover:bg-white text-[#4F6F1F] md:hidden"
+              >
+                <ChevronLeft className="h-5 w-5" strokeWidth={2.5} />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollTabs("right")}
+                aria-label="Scroll tabs right"
+                className="absolute right-0 top-0 bottom-0 z-20 w-8 flex items-center justify-center bg-gradient-to-l from-white via-white/80 to-transparent hover:bg-white text-[#4F6F1F] md:hidden"
+              >
+                <ChevronRight className="h-5 w-5" strokeWidth={2.5} />
+              </button>
+
+              <div
+                ref={tabsScrollRef}
+                className="flex flex-row overflow-x-auto flex-nowrap md:flex-col md:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              >
             {tabsData.map((tab) => {
               const isActive = activeTab.id === tab.id;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab)}
-                  className={`text-left px-8 py-5 transition-all duration-300 border-b border-gray-100 last:border-none relative ${
+                  className={`shrink-0 whitespace-nowrap text-left px-6 py-5 md:px-8 transition-all duration-300 relative ${
                     isActive
-                      ? "bg-white text-[#0B3B24] font-semibold shadow-sm z-10"
-                      : "text-gray-500 hover:bg-white hover:text-[#0B3B24]"
+                      ? "bg-white text-[#0B3B24] font-semibold shadow-sm z-10 border-b-2 border-[#4F6F1F] md:border-b-0 md:border-l-4 md:border-l-[#4F6F1F]"
+                      : "text-gray-500 hover:bg-white hover:text-[#0B3B24] border-b-2 border-transparent md:border-b md:border-b-gray-100 md:last:border-none md:border-l-4 md:border-l-transparent"
                   }`}
                 >
-                  {/* Active Indicator Line */}
-                  {isActive && (
-                    <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-[#4F6F1F] rounded-r-md" />
-                  )}
                   {tab.title}
                 </button>
               );
             })}
+              </div>
+            </div>
           </div>
 
           {/* Right Side: Image with Glassmorphism Content Card */}
@@ -119,12 +149,12 @@ export default function KarmaYogaTabs() {
             {/* Soft Gradient Overlay for better readability just in case */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
 
-            {/* Elegant Glass Card */}
-            <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 bg-white/85 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-xl border border-white/40 transform transition-all duration-500">
+            {/* Elegant Glass Card — glassmorphism effect */}
+            <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 bg-white/60 backdrop-blur-md border border-white/40 shadow-lg rounded-xl p-8 md:p-10 transform transition-all duration-500">
               <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-4">
                 {activeTab.title}
               </h3>
-              <p className="text-[#4A4A4A] leading-relaxed text-base md:text-lg">
+              <p className="text-gray-900 leading-relaxed text-base md:text-lg">
                 {activeTab.content}
               </p>
             </div>
