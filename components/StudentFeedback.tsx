@@ -1,8 +1,18 @@
 "use client";
 
-import { useRef } from "react";
+/**
+ * Horizontal testimonial strip.
+ *
+ * Used on: /detoxification, TTC pages, CMS pages with StudentFeedback, etc.
+ * NOT used on the homepage — app/page.tsx uses TestimonialsCarousel2 (fade + dots).
+ */
+
+import { useCallback } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { useDragScroll } from "@/hooks/useDragScroll";
+
+const SCROLL_STEP_PX = 424; /* ~400px card + gap-6; arrows still work if off by a few px */
 
 const feedbacks = [
   {
@@ -58,86 +68,84 @@ const feedbacks = [
 ];
 
 export default function StudentFeedback() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const { ref, events, isDragging } = useDragScroll<HTMLDivElement>();
 
-  const scroll = (direction: "left" | "right") => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-    const scrollAmount = 424;
-    container.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  const scrollByStep = useCallback((delta: number) => {
+    ref.current?.scrollBy({ left: delta, behavior: "smooth" });
+  }, [ref]);
 
   return (
-    <section className="bg-white py-24 px-6 overflow-hidden">
-      <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] text-center mb-16">
-        What our students are saying
-      </h2>
-
-      <div className="relative max-w-7xl mx-auto">
-        {/* Carousel wrapper: arrows + track, relative for arrow positioning */}
-        <div className="relative min-h-[320px] md:min-h-[360px]">
-          {/* Arrows - inside relative container, outside scroll track, vertically centered to cards */}
+    <section className="w-full min-w-0 bg-white py-24">
+      {/* Same idea as UpcomingEvents: heading + arrows in a row; track is full-width below (not flex-squeezed between arrows). */}
+      <div className="mx-auto mb-12 flex w-full min-w-0 max-w-7xl flex-col gap-4 px-6 md:flex-row md:items-end md:justify-between">
+        <h2 className="text-center font-serif text-3xl text-[#0B3B24] md:text-left md:text-4xl">
+          What our students are saying
+        </h2>
+        <div className="flex shrink-0 items-center justify-center gap-2 md:justify-end">
           <button
             type="button"
-            onClick={() => scroll("left")}
             aria-label="Previous feedback"
-            className="hidden md:flex absolute top-1/2 -translate-y-1/2 -left-4 z-20 w-12 h-12 rounded-full bg-white border border-gray-200 items-center justify-center text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-colors shadow-sm"
+            onClick={() => scrollByStep(-SCROLL_STEP_PX)}
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition-colors hover:border-gray-300 hover:bg-gray-50"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="h-6 w-6" />
           </button>
           <button
             type="button"
-            onClick={() => scroll("right")}
             aria-label="Next feedback"
-            className="hidden md:flex absolute top-1/2 -translate-y-1/2 -right-4 z-20 w-12 h-12 rounded-full bg-[#dcfd8b] text-[#0B3B24] items-center justify-center shadow-md hover:bg-[#c9f061] transition-colors"
+            onClick={() => scrollByStep(SCROLL_STEP_PX)}
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#dcfd8b] text-[#0B3B24] shadow-md transition-colors hover:bg-[#c9f061]"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="h-6 w-6" />
           </button>
+        </div>
+      </div>
 
-          {/* Scroll track */}
+      {/* Full-bleed horizontal strip: matches UpcomingEvents (flex + overflow-x on one full-width row). */}
+      <div
+        ref={ref}
+        {...events}
+        className={`scrollbar-hide flex w-full min-w-0 flex-row flex-nowrap gap-6 overflow-x-auto overflow-y-hidden scroll-smooth pb-8 px-[max(0.5rem,calc(50%-42.5vw))] [scrollbar-width:none] md:px-[calc(50%-200px)] [&::-webkit-scrollbar]:hidden ${
+          isDragging ? "cursor-grabbing scroll-auto select-none" : "cursor-grab select-none"
+        }`}
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        {feedbacks.map((item, index) => (
           <div
-            ref={scrollContainerRef}
-            className="flex flex-row flex-nowrap gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 pt-4 -mx-6 px-6 md:mx-0 md:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            key={index}
+            data-feedback-card
+            className="w-[85vw] max-w-[400px] shrink-0 md:w-[400px]"
           >
-            {feedbacks.map((item, index) => (
-              <div
-                key={index}
-                className="shrink-0 w-[85vw] md:w-[400px] snap-center bg-white border border-gray-100 p-8 md:p-10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300 flex flex-col"
-              >
+            <div className="flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-8 shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-shadow duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] md:p-10">
               <Quote
-                className="w-10 h-10 text-[#0B3B24] opacity-20 rotate-180 shrink-0 mb-4"
+                className="mb-4 h-10 w-10 shrink-0 rotate-180 text-[#0B3B24] opacity-20"
                 strokeWidth={1.5}
               />
-              <p className="text-gray-600 leading-relaxed mb-8 flex-grow">
+              <p className="mb-8 flex-grow leading-relaxed text-gray-600">
                 {item.quote}
               </p>
-              <p className="text-gray-500 font-medium">{item.author}</p>
+              <p className="font-medium text-gray-500">{item.author}</p>
             </div>
-          ))}
           </div>
-        </div>
+        ))}
+      </div>
 
-        {/* Bottom CTA */}
-        <div className="flex flex-col items-center mt-12">
+      <div className="mx-auto mt-12 flex max-w-7xl flex-col items-center px-6">
+        <Link
+          href="/accommodations"
+          className="inline-block rounded-sm bg-[#ED7D4D] px-12 py-4 font-bold uppercase text-white shadow-lg transition-colors hover:bg-orange-600"
+        >
+          ENROLL NOW
+        </Link>
+        <p className="mt-6 text-gray-600">
+          Have Questions?{" "}
           <Link
-            href="/accommodations"
-            className="bg-[#ED7D4D] text-white uppercase px-12 py-4 font-bold shadow-lg rounded-sm hover:bg-orange-600 transition-colors inline-block"
+            href="mailto:vietnamyogaresort@sivananda.org"
+            className="font-medium underline hover:text-[#0B3B24]"
           >
-            ENROLL NOW
+            Email us.
           </Link>
-          <p className="mt-6 text-gray-600">
-            Have Questions?{" "}
-            <Link
-              href="mailto:vietnamyogaresort@sivananda.org"
-              className="underline font-medium hover:text-[#0B3B24]"
-            >
-              Email us.
-            </Link>
-          </p>
-        </div>
+        </p>
       </div>
     </section>
   );

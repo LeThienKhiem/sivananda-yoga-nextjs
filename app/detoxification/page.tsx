@@ -5,10 +5,7 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import VideoTestimonials from "@/components/VideoTestimonials";
-import DailySchedule from "@/components/DailySchedule";
 import StudentFeedback from "@/components/StudentFeedback";
-import CoursePackageSection from "@/components/CoursePackageSection";
-import AccommodationCost from "@/components/AccommodationCost";
 import MoreInformation from "@/components/MoreInformation";
 import AshramGallery from "@/components/AshramGallery";
 import Image from "next/image";
@@ -291,26 +288,14 @@ export default function DetoxificationPage() {
       {/* 5. VIDEO TESTIMONIALS */}
       <VideoTestimonials />
 
-      {/* 6. DAILY SCHEDULE */}
-      <DailySchedule />
-
-      {/* 7. STUDENT FEEDBACK */}
+      {/* 6. STUDENT FEEDBACK */}
       <StudentFeedback />
 
-      {/* 8. PACKAGE */}
-      <CoursePackageSection />
-
-      {/* 9. ACCOMMODATION & COST */}
-      <AccommodationCost />
-
-      {/* 10. MORE INFORMATION */}
+      {/* 7. MORE INFORMATION */}
       <MoreInformation />
 
-      {/* 11. GALLERY */}
+      {/* 8. GALLERY */}
       <AshramGallery />
-
-      {/* Future sections will go here */}
-      <div className="flex-grow" />
 
       <Footer />
     </main>
