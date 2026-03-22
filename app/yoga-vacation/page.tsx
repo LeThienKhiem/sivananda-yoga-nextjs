@@ -105,30 +105,34 @@ export default function YogaVacationPage() {
               </div>
             </div>
 
-            {/* Block Two: The Lineage - Overlapping */}
-            <div className="relative mb-32">
-              <div className="relative z-20 -mb-20 ml-auto mr-20 max-w-lg bg-[#4F6F1F] text-white p-10">
-                <h2 className="text-2xl md:text-3xl font-serif mb-6">
-                  Rooted in an authentic <em>Yoga Lineage</em>
-                </h2>
-                <div className="border-l-2 border-white/50 pl-6">
-                  <p className="leading-relaxed">
-                    The Sivananda Yoga Vacation was designed in the 1960s by Swami
-                    Vishnudevananda of India, following in the footsteps of his Guru,
-                    Swami Sivananda. It was brought to Vietnam in 2009 by his disciple
-                    Swami Sitaramananda, who is originally from Da Lat.
-                  </p>
+            {/* Block Two: The Lineage — stacked on mobile, side-by-side from md */}
+            <div className="mb-32 flex w-full flex-col gap-6 md:flex-row md:items-stretch md:gap-8">
+              {/* Image first (DOM order): full width mobile, left 50% desktop */}
+              <div className="relative w-full shrink-0 overflow-hidden rounded-2xl md:w-1/2">
+                <div className="relative aspect-[4/3] w-full md:aspect-auto md:h-full md:min-h-[400px]">
+                  <Image
+                    src={IMG_LINEAGE}
+                    alt="Historical image of the Gurus"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
               </div>
-              <div className="relative z-10 flex justify-end">
-                <Image
-                  src={IMG_LINEAGE}
-                  alt="Historical image of the Gurus"
-                  width={1000}
-                  height={600}
-                  className="max-w-2xl w-full h-auto object-cover rounded-lg"
-                  sizes="(max-width: 768px) 100vw, 672px"
-                />
+              {/* Text block second: peers with image, not overlaid */}
+              <div className="flex w-full flex-col justify-center rounded-2xl bg-[#4C662B] p-8 text-white md:w-1/2 md:p-10 lg:p-12">
+                <h2 className="mb-6 font-serif text-2xl font-bold text-white md:text-3xl">
+                  Rooted in an authentic <em>Yoga</em> Lineage
+                </h2>
+                <div className="border-l-2 border-white pl-6">
+                  <p className="font-sans text-base leading-relaxed text-white md:text-lg">
+                    The Sivananda <em>Yoga</em> Vacation was designed in
+                    the 1960s by Swami Vishnudevananda of India, following in the
+                    footsteps of his Guru, Swami Sivananda. It was brought to Vietnam in
+                    2009 by his disciple Swami Sitaramananda, who is originally from Da
+                    Lat.
+                  </p>
+                </div>
               </div>
             </div>
 

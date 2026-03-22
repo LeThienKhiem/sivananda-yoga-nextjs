@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   MapPin,
@@ -26,8 +25,8 @@ function SpotifyIcon({ className }: { className?: string }) {
 
 const BANNER_URL =
   "https://zjffxjmsumxcdmqslmhw.supabase.co/storage/v1/object/public/Icon/banner-footer-yoga-course.png";
-const LOGO_URL =
-  "https://zjffxjmsumxcdmqslmhw.supabase.co/storage/v1/object/public/Icon/True-World-Order-logo-transparent-300x278.png";
+const FOOTER_LOGO_URL =
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/footer_logo.png";
 
 const FOOTER_LINK =
   "text-white transition hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50";
@@ -37,19 +36,12 @@ export default function Footer() {
     <footer className="relative w-full">
       {/* Mobile-only: solid green layout – keep completely untouched */}
       <div className="flex flex-col items-center gap-8 px-4 py-12 text-center text-white md:hidden bg-[#6B894E]">
-        <div className="flex items-center justify-center gap-4">
-          <Image
-            src={LOGO_URL}
-            alt="True World Order logo"
-            width={64}
-            height={59}
-            className="h-16 w-16 shrink-0 object-contain brightness-0 invert"
+        <div className="flex w-full justify-center">
+          <img
+            src={FOOTER_LOGO_URL}
+            alt="Sivananda Yoga Footer Logo"
+            className="mx-auto block h-28 w-auto max-w-48 object-contain"
           />
-          <h2 className="text-left font-serif text-2xl font-bold leading-snug">
-            Sivananda Yoga Resort and
-            <br />
-            Training Center
-          </h2>
         </div>
 
         <div className="flex flex-col items-center gap-4">
@@ -122,18 +114,13 @@ export default function Footer() {
             <div className="grid grid-cols-1 gap-x-6 gap-y-4 lg:gap-x-8 lg:gap-y-8 md:grid-cols-4">
             {/* Column 1: Brand & Contact */}
             <div className="flex flex-col">
-              <div className="flex items-center gap-2 lg:gap-3">
-                <Image
-                  src={LOGO_URL}
-                  alt="True World Order logo"
-                  width={64}
-                  height={59}
-                  className="w-12 h-12 shrink-0 object-contain brightness-0 invert lg:w-16 lg:h-16"
+              <div className="mb-1 flex w-full justify-center lg:mb-2">
+                <img
+                  src={FOOTER_LOGO_URL}
+                  alt="Sivananda Yoga Footer Logo"
+                  className="mx-auto block h-28 w-auto max-w-48 object-contain"
                 />
-                  <h3 className="whitespace-pre-line font-serif text-base leading-tight text-white lg:text-2xl xl:text-2xl">
-                    Sivananda Yoga Resort{"\n"}and Training Center
-                  </h3>
-                </div>
+              </div>
                 <div className="mt-3 space-y-2 lg:mt-6 lg:space-y-3">
                   <div className="flex gap-2 lg:gap-3">
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
@@ -165,10 +152,7 @@ export default function Footer() {
                 YOGA TEACHING
               </h4>
               <nav className="flex flex-col space-y-2 lg:space-y-4 text-base lg:text-base">
-                <Link
-                  href="/yoga-vacation"
-                  className={`${FOOTER_LINK} inline-block w-max rounded-sm border border-white/40 px-2 py-1 lg:px-3 lg:py-1.5`}
-                >
+                <Link href="/yoga-vacation" className={FOOTER_LINK}>
                   Explore Yoga Vacation
                 </Link>
                 <Link href="/sivananda-teachings" className={FOOTER_LINK}>
@@ -207,28 +191,16 @@ export default function Footer() {
             {/* Column 4: Links & Socials */}
             <div>
               <nav className="mb-4 flex flex-col space-y-2 lg:mb-8 lg:space-y-4 text-base lg:text-base">
-                <Link
-                  href="/frequently-asked-questions"
-                  className={`${FOOTER_LINK} font-semibold text-white`}
-                >
+                <Link href="/frequently-asked-questions" className={FOOTER_LINK}>
                   FAQs
                 </Link>
-                <Link
-                  href="/misconduct-policy"
-                  className={`${FOOTER_LINK} font-semibold text-white`}
-                >
+                <Link href="/misconduct-policy" className={FOOTER_LINK}>
                   Misconduct Policy
                 </Link>
-                <Link
-                  href="/privacy-policy"
-                  className={`${FOOTER_LINK} font-semibold text-white`}
-                >
+                <Link href="/privacy-policy" className={FOOTER_LINK}>
                   Privacy Policy
                 </Link>
-                <Link
-                  href="/donation"
-                  className={`${FOOTER_LINK} font-semibold text-white`}
-                >
+                <Link href="/donation" className={FOOTER_LINK}>
                   Donation
                 </Link>
               </nav>
