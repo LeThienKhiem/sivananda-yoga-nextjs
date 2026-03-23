@@ -63,29 +63,30 @@ export default function AboutPage() {
     <main className="min-h-screen bg-[#FDFCF8] flex flex-col">
       <Header />
 
-      {/* 1. OUR LINEAGE SECTION */}
-      <section className="relative w-full min-h-[600px] md:min-h-[85vh] flex">
-        
-        {/* Full-width Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={IMG_GURUS}
-            alt="Swami Sivananda and Swami Vishnudevananda"
-            fill
-            className="object-cover grayscale contrast-125 md:object-[70%_center]"
-            priority
-            unoptimized
-            sizes="100vw"
-          />
-        </div>
+      {/* FULL WIDTH IMAGE WRAPPER - NO PADDING, NO FIXED HEIGHT */}
+      <section className="w-full m-0 p-0 leading-none">
+        <Image
+          src={IMG_GURUS}
+          alt="Sivananda Yoga Hero"
+          width={2000}
+          height={1125}
+          className="w-full h-auto block"
+          priority
+          sizes="100vw"
+        />
+      </section>
 
-        {/* Left Content Overlay (Glassmorphism / Blur Effect) */}
-        <div className="relative z-10 w-full md:w-[45%] lg:w-[40%] xl:w-[35%] bg-[#43525B]/90 backdrop-blur-sm p-8 md:p-12 lg:p-16 flex flex-col justify-center text-white shadow-2xl border-r border-white/10">
+      {/* 2. OUR LINEAGE INTRO TEXT */}
+      <section className="w-full bg-[#FDFCF8] py-20 md:py-32">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <h1 className="mb-4 font-serif text-4xl text-[#0B3B24] md:text-6xl">
+            Our Lineage
+          </h1>
+          <h2 className="mb-12 font-serif text-xl italic text-gray-500 md:text-2xl">
+            From India to Vietnam
+          </h2>
 
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 drop-shadow-sm">Our Lineage</h2>
-          <h3 className="text-xl md:text-2xl font-bold mb-8 text-white/90 drop-shadow-sm">From India to Vietnam</h3>
-
-          <div className="space-y-6 text-white/90 leading-relaxed text-sm md:text-base font-light">
+          <div className="space-y-6 text-base font-light leading-relaxed text-[#4A4A4A] md:text-lg">
             <p>
               The International Sivananda Yoga Vedanta Centres, founded by Swami Vishnudevananda under the guidance of Swami Sivananda, has grown since 1959 to nearly 60 global locations. Recognized for authentic yoga teachings, it has trained over 50,000 teachers and offers diverse programs, including personal growth through Karma Yoga service.
             </p>
@@ -94,10 +95,6 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-        
-        {/* Right side is intentionally left empty to let the background image shine through */}
-        <div className="hidden md:block flex-grow relative z-10 pointer-events-none"></div>
-
       </section>
 
       {/* 2. SWAMI SIVANANDA BIO SECTION */}

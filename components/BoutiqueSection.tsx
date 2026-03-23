@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const IMG_BOUTIQUE_SHELF =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/vacation-02.png";
@@ -7,44 +8,53 @@ const IMG_CLOTHES_BROWSING =
 
 export default function BoutiqueSection() {
   return (
-    <section className="bg-[#FDFCF8]">
-      <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Text */}
-          <div>
-            <h2 className="text-4xl md:text-5xl font-serif text-[#0B3B24] mb-2">
+    <section className="w-full bg-[#FDFCF8] py-24 overflow-hidden">
+      <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-10">
+        {/* Desktop / tablet editorial split panel */}
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-20 items-center">
+          <div className="text-left">
+            <div className="mb-8 h-px w-24 bg-[#0B3B24]/25" />
+            <p className="mb-4 text-sm font-bold uppercase tracking-widest text-[#0B3B24] md:text-base">
+              WE&apos;VE GOT YOU COVERED!
+            </p>
+            <h2 className="mb-8 font-serif text-4xl font-light text-[#0B3B24] md:text-5xl">
               The Boutique
             </h2>
-            <p className="text-2xl md:text-3xl font-serif text-[#0B3B24] mb-8">
-              — We&apos;ve got you covered!
-            </p>
-            <p className="text-gray-600 leading-relaxed text-xl max-w-md">
-              Located in the Main Hall, our small, well-stocked boutique offers an
-              array of products — snacks (chocolate, ice cream, nuts, and more),
-              books (yoga books, notebooks), clothes (socks, pants, hoodies, tee
-              shirts), and sundries like clothing detergent. Its limited hours make
-              it a popular destination after meals!
-            </p>
+            <div className="border-l-2 border-orange-200 pl-6">
+              <p className="text-lg leading-loose text-[#666666]">
+                From authentic Sivananda texts and meditation cushions to yoga mats,
+                sustainable clothing, and locally sourced gifts, our carefully curated
+                boutique has everything you need to support your practice. We believe in
+                providing quality, ethically sourced products that enhance your
+                well-being. Come explore and find the perfect item to take home a piece
+                of your retreat experience.
+              </p>
+            </div>
+            <Link
+              href="/accommodations"
+              className="mt-8 inline-block text-sm font-bold uppercase tracking-wider text-[#ED7D4D] transition-colors hover:text-orange-600"
+            >
+              COME EXPLORE AND FIND THE PERFECT ITEM -&gt;
+            </Link>
           </div>
 
-          {/* Right - Overlapping images */}
-          <div className="relative w-full min-h-[320px] lg:min-h-[400px]">
-            <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl z-10 ml-auto">
+          <div className="grid grid-cols-12 gap-6 items-center">
+            <div className="relative col-span-9 col-start-4 aspect-[4/5] overflow-hidden rounded-sm shadow-md">
               <Image
                 src={IMG_BOUTIQUE_SHELF}
                 alt="Boutique shelf with snacks and books"
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 100vw, 45vw"
               />
             </div>
-            <div className="absolute -bottom-12 -left-12 md:-left-24 lg:-left-32 z-20 w-2/3 aspect-video rounded-xl overflow-hidden shadow-2xl border-[12px] border-white">
+            <div className="relative col-span-7 col-start-1 aspect-square overflow-hidden rounded-sm shadow-lg">
               <Image
                 src={IMG_CLOTHES_BROWSING}
                 alt="Guests browsing clothes at the boutique"
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 66vw, 33vw"
+                sizes="(max-width: 1024px) 80vw, 30vw"
               />
             </div>
           </div>

@@ -17,53 +17,63 @@ const SCROLL_STEP_PX = 424; /* ~400px card + gap-6; arrows still work if off by 
 const feedbacks = [
   {
     quote:
-      "Escape from the hustle city and spend few nights here, you would find a serenity for yourself. 3 vegan delightful meals per day are provided, plus practicing yoga 2 times per day...",
-    author: "Peter - 35",
+      "Before joining SYHET, I struggled with anxiety and irregular sleep. Through the structured practice of asana, pranayama, and meditation, I learned how to regulate my mind and energy. Now, I not only sleep deeply, but I also guide my students to reconnect with their own healing capacity.",
+    name: "Linh Tran, 32",
+    role: "Yoga Teacher (Vietnam)",
   },
   {
     quote:
-      "A truly life-changing experience. The teachers are incredibly knowledgeable and supportive. The discipline was challenging at first, but exactly what I needed...",
-    author: "AnnaGrace - 29",
+      "This program completely shifted my understanding of health. It’s not just about fixing symptoms—it’s about addressing the root cause. Today, I work with clients dealing with chronic stress and burnout, helping them rebuild their lives through simple, consistent yoga practices.",
+    name: "David Miller, 45",
+    role: "Corporate Consultant (USA)",
   },
   {
     quote:
-      "The ashram environment provided the perfect setting for deep introspection and physical growth. Waking up to the sound of the bell and practicing surrounded by pine forests is pure magic.",
-    author: "David Chen - 42",
+      "SYHET gave me tools to understand my emotions and long-standing patterns. The integration of Yoga psychology and Ayurveda was life-changing. I now support individuals dealing with depression and anxiety with much more confidence and compassion.",
+    name: "Marie Dubois, 38",
+    role: "Psychologist (France)",
   },
   {
     quote:
-      "Not just a physical training, but a spiritual journey. The philosophy classes opened my eyes to a completely new way of living and thinking. Highly recommended for anyone seeking truth.",
-    author: "Elena R. - 31",
+      "I came to this course to improve my own health, especially digestive issues and stress. But I gained so much more. I now help my family and community adopt healthier routines, from conscious breathing to mindful eating.",
+    name: "Nguyen Hoang Anh, 29",
+    role: "Marketing Executive (Vietnam)",
   },
   {
     quote:
-      "I came to deepen my physical practice, but I left with a global family. The community and connections you build here are beautiful, welcoming, and long-lasting.",
-    author: "Michael S. - 28",
+      "What I appreciate most is the depth of the training. It’s not superficial wellness—it’s real transformation. I now work with people recovering from addiction, and the teachings on the root causes of behavior have been incredibly powerful.",
+    name: "Carlos Ramirez, 41",
+    role: "Recovery Coach (Mexico)",
   },
   {
     quote:
-      "Excellent curriculum. The anatomy and teaching methodology classes were thorough, practical, and very easy to understand even if you don't have a medical background.",
-    author: "Lisa M. - 36",
+      "I used to feel disconnected from my purpose. Through this training, I found clarity and direction. The practicum gave me real experience, and today I confidently guide clients through personalized yoga therapy programs.",
+    name: "Anna Schmidt, 36",
+    role: "Wellness Coach (Germany)",
   },
   {
     quote:
-      "I've practiced yoga for over 5 years, but this TTC took my understanding of alignment, breath, and energy to a completely different level. Extremely grateful to the Swamis.",
-    author: "Maya K. - 45",
+      "This course helped me heal from chronic stress and emotional imbalance. More importantly, it taught me how to hold space for others. I now run small group sessions focused on mental health and stress resilience.",
+    name: "Mai Phuong, 34",
+    role: "HR Manager (Vietnam)",
   },
   {
     quote:
-      "An authentic, traditional approach to yoga. If you want the real deal—no modern gimmicks, just pure classical teachings—this is definitely the place to be.",
-    author: "Johannes B. - 33",
+      "The combination of ancient wisdom and modern understanding is unique. I’ve integrated these teachings into my work with corporate clients, helping them manage stress and improve productivity through simple daily practices.",
+    name: "James Patel, 42",
+    role: "Business Owner (UK)",
   },
   {
     quote:
-      "The food is amazing! I was worried about the vegetarian diet, but the meals were so nutritious, varied, and full of prana. It really supported my intensive practice.",
-    author: "Sarah T. - 27",
+      "I joined SYHET during a difficult period in my life. The teachings on karma, mind, and healing helped me transform deeply. Now, I support individuals with chronic pain and psychosomatic conditions with a holistic approach.",
+    name: "Sofia Rossi, 39",
+    role: "Physiotherapist (Italy)",
   },
   {
     quote:
-      "Completing this TTC was the hardest and most rewarding month of my life. I walked out stronger physically, clearer mentally, and with a renewed sense of purpose.",
-    author: "Daniel V. - 39",
+      "Before the training, I lacked discipline and direction. SYHET gave me a structured lifestyle and deeper understanding of myself. Today, I guide others in building sustainable self-care habits and finding meaning in their daily lives.",
+    name: "Thao Le, 27",
+    role: "Freelancer / Content Creator (Vietnam)",
   },
 ];
 
@@ -124,7 +134,10 @@ export default function StudentFeedback() {
               <p className="mb-8 flex-grow leading-relaxed text-gray-600">
                 {item.quote}
               </p>
-              <p className="font-medium text-gray-500">{item.author}</p>
+              <div className="space-y-1">
+                <p className="font-medium text-gray-700">{item.name}</p>
+                <p className="text-sm text-gray-500">{item.role}</p>
+              </div>
             </div>
           </div>
         ))}

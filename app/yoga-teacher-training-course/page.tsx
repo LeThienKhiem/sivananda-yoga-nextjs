@@ -10,7 +10,7 @@ import CurriculumSection from "@/components/CurriculumSection";
 import DailySchedule from "@/components/DailySchedule";
 import TTCTestimonials from "@/components/TTCTestimonials";
 import StudentFeedback from "@/components/StudentFeedback";
-import MainTeachers from "@/components/MainTeachers";
+import SeniorTeachers from "@/components/SeniorTeachers";
 import MessageFromTeachers from "@/components/MessageFromTeachers";
 import AshramGallery from "@/components/AshramGallery";
 
@@ -190,7 +190,7 @@ export default function TeacherTrainingPage() {
 
         <StudentFeedback />
 
-        <MainTeachers />
+        <SeniorTeachers />
 
         <MessageFromTeachers />
 

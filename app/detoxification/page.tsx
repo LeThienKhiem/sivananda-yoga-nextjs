@@ -44,27 +44,27 @@ export default function DetoxificationPage() {
       {/* Spacer to prevent overlap with the next section due to the translate-y */}
       <div className="h-24 bg-transparent md:h-32" />
 
-      {/* 2. INTRO OVERLAP SECTION */}
-      <section className="mx-auto w-full max-w-6xl px-6 py-24">
-        {/* Top Row: Text Left, Image Right */}
-        <div className="flex flex-col items-center gap-12 md:flex-row lg:gap-20">
-          <div className="w-full space-y-4 md:w-1/2">
-            <h3 className="mb-4 font-serif text-2xl text-[#4A4A4A]">
-              Ancient Practices, Lasting Renewal
-            </h3>
-            <p className="text-sm leading-relaxed text-[#4A4A4A] md:text-base">
-              Experience traditional Ayurveda treatments, a special detox diet
-              with herbal teas to support the healing and cleansing process, and
-              rejuvenate your body and mind through the ancient techniques of
-              Yoga. Gentle daily practices—including Yoga Nidra and
-              Pranayama—foster deep relaxation and renewal, while meditation and
-              chanting help detoxify the mind and emotions. This holistic
-              approach restores balance, eases stress, awakens inner vitality,
-              and nurtures lasting well-being.
-            </p>
-          </div>
-          <div className="w-full md:w-1/2">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm shadow-xl md:aspect-[3/4]">
+      {/* 2. INTRO Z-PATTERN SECTION */}
+      <section className="w-full bg-[#FDFCF8] py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* Row 1: Ancient Practices */}
+          <div className="mb-24 grid grid-cols-1 items-center gap-16 md:grid-cols-2">
+            <div className="order-2 md:order-1">
+              <h2 className="mb-6 font-serif text-3xl text-[#0B3B24] md:text-4xl">
+                Ancient Practices, Lasting Renewal
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-600">
+                Experience traditional Ayurveda treatments, a special detox diet
+                with herbal teas to support the healing and cleansing process,
+                and rejuvenate your body and mind through the ancient techniques
+                of Yoga. Gentle daily practices—including Yoga Nidra and
+                Pranayama—foster deep relaxation and renewal, while meditation
+                and chanting help detoxify the mind and emotions. This holistic
+                approach restores balance, eases stress, awakens inner vitality,
+                and nurtures lasting well-being.
+              </p>
+            </div>
+            <div className="order-1 relative h-[400px] overflow-hidden rounded-2xl shadow-lg md:order-2 md:h-[500px]">
               <Image
                 src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800"
                 alt="Ayurveda Treatment"
@@ -74,42 +74,25 @@ export default function DetoxificationPage() {
               />
             </div>
           </div>
-        </div>
 
-        {/* Middle Overlap: Green Box */}
-        <div className="relative z-20 mx-auto mb-12 mt-12 w-[90%] rounded-sm bg-[#4F6F1F] p-8 text-white shadow-2xl md:ml-20 md:-mb-24 md:-mt-24 md:max-w-xl md:p-12 lg:p-16">
-          <h3 className="mb-4 font-serif text-xl text-white">
-            Personalized Guidance, Lifelong Wisdom
-          </h3>
-          <p className="text-sm font-medium leading-relaxed text-white/95 md:text-base">
-            Deepen your healing journey with personalized Ayurvedic health
-            consultations and enriching workshops on Yoga, Ayurveda, and
-            nutrition. Gain practical tools and insights to support your
-            well-being. Surrounded by an uplifting community, you&apos;ll feel
-            supported, inspired, and empowered to integrate ancient wisdom into
-            your modern lifestyle—both during the retreat and beyond.
-          </p>
-        </div>
-
-        {/* Bottom Row: Image Left, Text Right */}
-        <div className="flex flex-col items-center gap-12 md:flex-row-reverse lg:gap-20">
-          <div className="w-full space-y-4 md:w-1/2">
-            <h3 className="mb-4 font-serif text-2xl text-[#4A4A4A]">
-              Nature&apos;s Embrace for Your Detox Journey
+          {/* Row 2: Full-width Green Highlight */}
+          <div className="mx-auto mb-24 w-full max-w-4xl rounded-2xl bg-[#4C662B] p-10 text-center shadow-xl md:p-16">
+            <h3 className="mb-6 font-serif text-2xl text-white md:text-3xl">
+              Personalized Guidance, Lifelong Wisdom
             </h3>
-            <p className="text-sm leading-relaxed text-[#4A4A4A] md:text-base">
-              Set amidst the serene pine forests and overlooking the peaceful
-              Tuyen Lam Lake, the Ayurveda House at Sivananda Yoga Dalat Ashram
-              offers a tranquil haven for healing and renewal. Surrounded by
-              nature&apos;s calming energy, this sacred space supports deep rest
-              and inner reflection. Our compassionate and experienced therapists
-              provide personalized care, creating a nurturing environment where
-              every guest feels supported on their unique journey of
-              detoxification and rejuvenation.
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-white/90">
+              Deepen your healing journey with personalized Ayurvedic health
+              consultations and enriching workshops on Yoga, Ayurveda, and
+              nutrition. Gain practical tools and insights to support your
+              well-being. Surrounded by an uplifting community, you&apos;ll feel
+              supported, inspired, and empowered to integrate ancient wisdom
+              into your modern lifestyle—both during the retreat and beyond.
             </p>
           </div>
-          <div className="w-full md:w-1/2">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm shadow-xl md:aspect-[3/4]">
+
+          {/* Row 3: Nature's Embrace */}
+          <div className="grid grid-cols-1 items-center gap-16 md:grid-cols-2">
+            <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-lg md:h-[500px]">
               <Image
                 src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?q=80&w=800"
                 alt="Detox in Nature"
@@ -117,6 +100,21 @@ export default function DetoxificationPage() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
+            </div>
+            <div>
+              <h2 className="mb-6 font-serif text-3xl text-[#0B3B24] md:text-4xl">
+                Nature&apos;s Embrace for Your Detox Journey
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-600">
+                Set amidst the serene pine forests and overlooking the peaceful
+                Tuyen Lam Lake, the Ayurveda House at Sivananda Yoga Dalat
+                Ashram offers a tranquil haven for healing and renewal.
+                Surrounded by nature&apos;s calming energy, this sacred space
+                supports deep rest and inner reflection. Our compassionate and
+                experienced therapists provide personalized care, creating a
+                nurturing environment where every guest feels supported on their
+                unique journey of detoxification and rejuvenation.
+              </p>
             </div>
           </div>
         </div>

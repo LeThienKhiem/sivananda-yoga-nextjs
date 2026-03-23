@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 const BANNER_IMAGE_URL =
   "https://images.unsplash.com/photo-1542385151-efd9000785a0";
@@ -10,7 +9,7 @@ export default function TestimonialSection() {
   return (
     <section className="relative w-full flex flex-col min-h-[500px] bg-[#FDFCF8] overflow-hidden">
       {/* Top Banner - Image & Program Info */}
-      <div className="relative w-full h-[50vh] min-h-[400px] text-white px-6 lg:px-24 py-16 flex flex-col justify-start z-0">
+      <div className="relative w-full h-[50vh] min-h-[400px] text-white px-6 lg:px-24 pt-16 pb-20 flex flex-col justify-start z-0">
         <Image
           src={BANNER_IMAGE_URL}
           fill
@@ -31,11 +30,6 @@ export default function TestimonialSection() {
             yoga lifestyle. In addition to accommodations at the Resort, you
             participate in all programs and classes…
           </div>
-        </div>
-      </div>
-
-      {/* CTA (Bottom Section) */}
-      <div className="flex flex-col items-center lg:items-end w-full px-6 lg:px-24 xl:px-32 pt-12 pb-16 z-10 flex-1">
           <a
             href="https://sivanandayogavietnam.secure.retreat.guru/program/vacation/?form=1&lang=en"
             target="_blank"
@@ -43,20 +37,16 @@ export default function TestimonialSection() {
           >
             <button
               type="button"
-              className="border border-[#ED7D4D] text-[#ED7D4D] bg-white px-10 py-4 font-bold tracking-widest uppercase hover:bg-[#ED7D4D] hover:text-white transition-colors mb-4 inline-block text-center"
+              className="border border-[#ED7D4D] text-[#ED7D4D] bg-white px-10 py-4 font-bold tracking-widest uppercase hover:bg-[#ED7D4D] hover:text-white transition-colors mb-4 inline-block text-center mt-10"
             >
               REGISTER NOW
             </button>
           </a>
-          <p className="text-gray-700 text-xl">
-            Have Questions?{" "}
-            <Link
-              href="/contact"
-              className="underline font-bold hover:text-[#0B3B24]"
-            >
-              Contact us.
-            </Link>
-          </p>
+        </div>
+      </div>
+
+      {/* CTA (Bottom Section) */}
+      <div className="flex flex-col items-center lg:items-end w-full px-6 lg:px-24 xl:px-32 pt-12 pb-16 z-10 flex-1">
       </div>
     </section>
   );

@@ -128,39 +128,33 @@ export default function BlogPage() {
           {/* 4. FEATURED POST */}
           {featuredPost && (
             <section className="max-w-6xl mx-auto px-6 mb-24">
-              <div className="flex flex-col md:flex-row items-center gap-10 lg:gap-16">
-                {/* Left: Text */}
-                <div className="w-full md:w-1/2 space-y-6">
-                  <h3 className="text-3xl md:text-4xl font-serif text-[#0B3B24] leading-tight">
+              <div className="overflow-hidden rounded-xl bg-white shadow-md">
+                <Link href={`/blog/${featuredPost.slug || featuredPost.id}`}>
+                  <div className="group relative w-full aspect-[16/9] cursor-pointer overflow-hidden">
+                    <Image
+                      src={getPostImage(featuredPost)}
+                      alt={featuredPost.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      unoptimized
+                    />
+                  </div>
+                </Link>
+
+                <div className="p-6 md:p-8">
+                  <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#84cc16]">
+                    {featuredPost.category}
+                  </div>
+                  <h3 className="mb-4 font-serif text-3xl leading-tight text-[#A66A44] md:text-4xl">
                     {featuredPost.title}
                   </h3>
-                  {/* Clean text excerpt */}
-                  <p className="text-[#4A4A4A] leading-relaxed text-sm md:text-base line-clamp-4">
+                  <p className="mb-8 text-sm leading-relaxed text-[#4A4A4A] md:text-base line-clamp-4">
                     {stripHtml(featuredPost.content_1)}
                   </p>
-                  <div className="flex items-center gap-6 text-xs font-medium text-gray-500">
-                    <span className="text-[#84cc16] font-semibold">{featuredPost.category}</span>
+                  <div className="mt-auto flex items-center justify-between border-t border-gray-100 pt-4 text-xs font-medium text-gray-500">
                     <span>{new Date(featuredPost.created_at).toLocaleDateString('vi-VN')}</span>
+                    <span>{featuredPost.author_name ? `By ${featuredPost.author_name}` : 'By Sivananda Yoga Farm Podcast'}</span>
                   </div>
-                  <Link href={`/blog/${featuredPost.slug || featuredPost.id}`}>
-                    <button className="bg-[#ED7D4D] text-white px-8 py-3 rounded-sm font-bold tracking-widest text-xs uppercase hover:bg-orange-600 transition-colors shadow-sm mt-4">
-                      Read More
-                    </button>
-                  </Link>
-                </div>
-                {/* Right: Image */}
-                <div className="w-full md:w-1/2">
-                  <Link href={`/blog/${featuredPost.slug || featuredPost.id}`}>
-                    <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-lg cursor-pointer group">
-                      <Image 
-                        src={getPostImage(featuredPost)} 
-                        alt={featuredPost.title} 
-                        fill 
-                        className="object-cover group-hover:scale-105 transition-transform duration-700" 
-                        unoptimized
-                      />
-                    </div>
-                  </Link>
                 </div>
               </div>
             </section>

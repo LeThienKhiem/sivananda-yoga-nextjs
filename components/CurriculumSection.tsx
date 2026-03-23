@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -62,8 +62,11 @@ export default function CurriculumSection() {
   const [selectedTabForModal, setSelectedTabForModal] = useState(0);
   const current = curriculumData[activeTab];
   const modalItem = curriculumData[selectedTabForModal];
+  const touchStartXRef = useRef<number | null>(null);
+  const didSwipeRef = useRef(false);
 
   const openModal = (index: number) => {
+    if (didSwipeRef.current) return;
     setSelectedTabForModal(index);
     setIsModalOpen(true);
   };
@@ -90,6 +93,30 @@ export default function CurriculumSection() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartXRef.current = e.touches[0]?.clientX ?? null;
+    didSwipeRef.current = false;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartXRef.current == null) return;
+    const x = e.touches[0]?.clientX ?? touchStartXRef.current;
+    if (Math.abs(x - touchStartXRef.current) > 10) {
+      didSwipeRef.current = true;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    // Keep swipe flag briefly so onClick can be suppressed.
+    const hadSwipe = didSwipeRef.current;
+    touchStartXRef.current = null;
+    if (hadSwipe) {
+      window.setTimeout(() => {
+        didSwipeRef.current = false;
+      }, 0);
+    }
+  };
 
   return (
     <section className="py-24 px-6 bg-[#FDFCF8]">
@@ -152,22 +179,30 @@ export default function CurriculumSection() {
       {/* Mobile Layout - Horizontal carousel + CTA (visible only on mobile) */}
       <div className="md:hidden w-full max-w-7xl mx-auto px-2">
         <div
-          className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-2 scrollbar-hide"
+          className="-mx-2 scrollbar-hide flex w-[calc(100%+1rem)] flex-nowrap overflow-x-auto overflow-y-hidden overscroll-x-contain snap-x snap-mandatory gap-5 px-2 pb-2 touch-pan-x"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {curriculumData.map((item, index) => (
-            <button
+            <div
               key={item.id}
-              type="button"
               onClick={() => openModal(index)}
-              className="snap-center shrink-0 w-[78vw] flex flex-col rounded-xl overflow-hidden border-2 border-[#4F6F1F] bg-[#4F6F1F] shadow-lg active:scale-[0.98] transition-transform"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onKeyDown={(e) =>
+                (e.key === "Enter" || e.key === " ") && openModal(index)
+              }
+              role="button"
+              tabIndex={0}
+              className="snap-start shrink-0 min-w-[85%] w-[85%] cursor-pointer select-none flex flex-col rounded-xl overflow-hidden border-2 border-[#4F6F1F] bg-[#4F6F1F] shadow-lg active:scale-[0.98] transition-transform"
             >
               <div className="relative aspect-[4/3] w-full bg-gray-200">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover"
+                  draggable={false}
+                  className="pointer-events-none object-cover"
                   sizes="78vw"
                   unoptimized
                 />
@@ -177,7 +212,7 @@ export default function CurriculumSection() {
                   {item.title}
                 </span>
               </div>
-            </button>
+            </div>
           ))}
         </div>
 

@@ -93,16 +93,16 @@ export default function SadhanaIntensivePage() {
       </section>
 
       {/* Spacer to separate Intro and Curriculum */}
-      <div className="py-12 md:py-20" />
+      <div className="py-1 md:py-8" />
 
       {/* 3. CURRICULUM & COST SECTION */}
       <CourseCurriculum />
 
       {/* Spacer to separate Curriculum and Upcoming Course Banner */}
-      <div className="py-12 md:py-20" />
+      <div className="py-4 md:py-8" />
 
       {/* 4. UPCOMING COURSE BANNER */}
-      <section className="relative flex min-h-[500px] w-full items-start justify-center overflow-hidden px-6 pt-24 pb-12 text-center">
+      <section className="relative flex min-h-[500px] w-full items-start justify-center overflow-hidden px-6 pt-12 pb-12 md:pt-16 text-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -116,7 +116,7 @@ export default function SadhanaIntensivePage() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 mx-auto mt-8 flex max-w-4xl flex-col items-center">
+        <div className="relative z-10 mx-auto mt-0 flex max-w-4xl flex-col items-center">
           <h2 className="mb-4 font-serif text-3xl text-[#0B3B24] md:text-4xl">
             The Upcoming Course in Dalat, Vietnam
           </h2>

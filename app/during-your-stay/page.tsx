@@ -22,6 +22,10 @@ const IMG_SATSANG =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-05.png";
 const IMG_MEALS =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-10.png";
+const IMG_RELAX_BACK =
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-07.png";
+const IMG_RELAX_FACE =
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-08.png";
 
 const schedule = [
   { time: "5:30 am", activity: "Wake up bell" },
@@ -85,7 +89,244 @@ export default function DuringYourStayPage() {
       {/* Spacer to prevent overlap with the next section due to the translate-y */}
       <div className="h-32 md:h-48 bg-transparent"></div>
 
-      {/* 2. DAILY SCHEDULE */}
+      {/* 2. WHAT TO EXPECT SECTION */}
+      <section className="w-full bg-[#FDFCF8] py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="mb-20 text-center font-serif text-4xl text-[#0B3B24] md:text-5xl">
+            What to Expect
+          </h2>
+
+          {/* Row 1: In Yoga Class */}
+          <div className="mb-24 grid grid-cols-1 items-center gap-16 md:grid-cols-2">
+            <div className="order-2 md:order-1">
+              <h3 className="mb-6 font-serif text-2xl text-[#0B3B24]">
+                In Yoga Class
+              </h3>
+              <div className="space-y-4 leading-relaxed text-gray-600">
+                <p>
+                  Sivananda Yoga is a classical, holistic approach to Hatha Yoga
+                  that stretches and tones the whole body.
+                </p>
+                <p>
+                  Classes are 2 hours long. Both the morning and afternoon
+                  classes follow the same sequence of breathing exercises
+                  (Pranayama), warm-ups (Sun Salutation), and 12 basic postures
+                  (Asanas) with relaxation in between.
+                </p>
+                <p>
+                  The sequence is designed to move the energy through the
+                  chakras, keeping the spine flexible and the mind focused.
+                  Classes are suitable for all levels, as modifications are
+                  always provided.
+                </p>
+              </div>
+            </div>
+            <div className="order-1 md:order-2 relative h-[400px] overflow-hidden rounded-xl shadow-lg">
+              <Image
+                src={IMG_YOGA_CLASS}
+                alt="Yoga Class"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
+              />
+            </div>
+          </div>
+
+          {/* Row 2: Full-width Green Highlight */}
+          <div className="mx-auto mb-24 w-full max-w-4xl rounded-2xl bg-[#4C662B] p-10 text-center text-white shadow-xl md:p-16">
+            <h3 className="mb-6 font-serif text-2xl text-white md:text-3xl">
+              Rooted in an authentic <em>Yoga Lineage</em>
+            </h3>
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
+              The general philosophy of this system of teaching is promoting
+              self awareness, gentleness, and balance between effort and
+              relaxation.
+            </p>
+          </div>
+
+          {/* Row 3: Respect Your Body Limitations */}
+          <div className="mb-24 grid grid-cols-1 items-center gap-16 md:grid-cols-2">
+            <div className="relative h-[400px] overflow-hidden rounded-xl shadow-lg">
+              <Image
+                src={IMG_SAVASANA}
+                alt="Savasana"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
+              />
+            </div>
+            <div>
+              <h3 className="mb-6 font-serif text-2xl text-[#0B3B24]">
+                Respect Your Body Limitations
+              </h3>
+              <div className="space-y-4 leading-relaxed text-gray-600">
+                <p>
+                  Yoga is not a competition. Listen to your body and respect
+                  its limits. Do not force or push yourself into any posture.
+                </p>
+                <p>
+                  Pain is a signal to stop. If you have any injuries or medical
+                  conditions, please inform the teacher before the class begins
+                  so they can offer alternatives.
+                </p>
+                <p>
+                  The goal is steady, mindful practice, not physical
+                  perfection. Relax and breathe.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 4: Satsang */}
+          <div className="mb-24 grid grid-cols-1 items-center gap-16 md:grid-cols-2">
+            <div className="order-2 md:order-1">
+              <h3 className="mb-6 font-serif text-2xl text-[#0B3B24]">
+                Satsang
+              </h3>
+              <p className="mb-4 font-serif italic text-gray-500">
+                Association with the wise
+              </p>
+              <div className="space-y-4 leading-relaxed text-gray-600">
+                <p>
+                  Satsang is the heart of the ashram experience. It means
+                  &quot;association with the truth&quot; or &quot;company of the
+                  wise.&quot;
+                </p>
+                <p>
+                  Held twice daily, satsang consists of 30 minutes of silent
+                  meditation, 30 minutes of joyous mantra chanting (Kirtan), and
+                  a reading or lecture on yoga philosophy.
+                </p>
+                <p>
+                  It is a time to come together as a community, elevate the
+                  mind, and recharge spiritually. Attendance is required for all
+                  guests.
+                </p>
+              </div>
+            </div>
+            <div className="order-1 md:order-2 relative h-[400px] overflow-hidden rounded-xl shadow-lg">
+              <Image
+                src={IMG_SATSANG}
+                alt="Satsang Gathering"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
+              />
+            </div>
+          </div>
+
+          {/* Row 5: Organic Vegetarian Meals */}
+          <div className="grid grid-cols-1 items-center gap-16 md:grid-cols-2">
+            <div className="relative h-[400px] overflow-hidden rounded-xl shadow-lg">
+              <Image
+                src={IMG_MEALS}
+                alt="Vegetarian Meal"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
+              />
+            </div>
+            <div>
+              <h3 className="mb-6 font-serif text-2xl text-[#0B3B24]">
+                Organic Vegetarian Meals
+              </h3>
+              <div className="space-y-4 leading-relaxed text-gray-600">
+                <p>
+                  We serve two delicious, wholesome vegetarian meals daily at
+                  10:00 am and 6:00 pm. The diet is based on Ayurvedic
+                  principles, designed to be easily digestible and highly
+                  nutritious.
+                </p>
+                <p>
+                  Meals are prepared with love and care (Karma Yoga) using
+                  fresh, locally sourced, and often organic ingredients. The
+                  diet excludes meat, fish, eggs, garlic, and onions to keep
+                  the mind calm (Sattvic).
+                </p>
+                <p>
+                  Herbal tea is available throughout the day. Please inform us
+                  in advance if you have severe food allergies.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. 5 POINTS / RELAXATION EDITORIAL SECTION */}
+      <section className="w-full bg-[#FDFCF8] py-24">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+          <div>
+            <p className="mb-4 text-sm font-bold uppercase tracking-widest text-[#0B3B24]">
+              WE&apos;VE GOT YOU COVERED!
+            </p>
+            <h2 className="mb-6 text-5xl font-serif text-[#0B3B24]">
+              5 Points of Yoga
+            </h2>
+            <p className="mb-8 text-[#4A4A4A] leading-relaxed">
+              Swami Vishnudevananda summarizes the five points of yoga and their
+              power to transform our lives:
+            </p>
+
+            <div className="relative pl-6">
+              <span
+                className="absolute -left-1 -top-6 font-serif text-6xl text-orange-500"
+                aria-hidden
+              >
+                &ldquo;
+              </span>
+              <div className="space-y-5 border-l-2 border-orange-200 pl-6">
+                <p className="font-serif text-lg leading-relaxed text-[#1f2937]">
+                  Yoga is a life of self discipline built upon the tenets of
+                  simple living and high thinking. If you follow these five
+                  points, which compose a true holistic approach to our whole
+                  system of body, mind and soul, you will gain strength and
+                  balance in this demanding, stressful world.
+                </p>
+                <p className="font-serif text-lg leading-relaxed text-[#1f2937]">
+                  Obstacles become stepping stones to success, and life is a
+                  school for the development of character and compassion.
+                </p>
+              </div>
+              <Link
+                href="/sivananda-teachings"
+                className="mt-4 block font-semibold text-orange-500 transition-colors hover:text-orange-600"
+              >
+                — Swami Vishnudevananda — →
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative h-[500px] w-full md:h-[600px]">
+            <div className="absolute right-0 top-0 h-[75%] w-[85%] overflow-hidden rounded-2xl shadow-sm">
+              <Image
+                src={IMG_RELAX_BACK}
+                alt="Back massage for deep relaxation"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
+              />
+            </div>
+            <div className="absolute bottom-0 left-0 z-10 h-[65%] w-[60%] overflow-hidden rounded-2xl border-[12px] border-[#FDFCF8] shadow-2xl">
+              <Image
+                src={IMG_RELAX_FACE}
+                alt="Face massage relaxation treatment"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. DAILY SCHEDULE */}
       <section className="max-w-7xl mx-auto py-24 px-6 w-full">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-20">
           <div className="w-full lg:w-[45%]">
@@ -134,160 +375,6 @@ export default function DuringYourStayPage() {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. WHAT TO EXPECT SECTION */}
-      <section className="py-24 px-6 w-full relative">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-serif text-[#0B3B24] font-bold text-center mb-20">
-            What to Expect
-          </h2>
-
-          <div className="space-y-32 relative">
-            {/* Block 1: In Yoga Class */}
-            <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20 relative z-10">
-              <div className="w-full md:w-1/2">
-                <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-6">
-                  In Yoga Class
-                </h3>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
-                  <p>
-                    Sivananda Yoga is a classical, holistic approach to Hatha Yoga that stretches and tones the whole body.
-                  </p>
-                  <p>
-                    Classes are 2 hours long. Both the morning and afternoon classes follow the same sequence of breathing exercises (Pranayama), warm-ups (Sun Salutation), and 12 basic postures (Asanas) with relaxation in between.
-                  </p>
-                  <p>
-                    The sequence is designed to move the energy through the chakras, keeping the spine flexible and the mind focused. Classes are suitable for all levels, as modifications are always provided.
-                  </p>
-                </div>
-              </div>
-              <div className="w-full md:w-1/2">
-                <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-lg">
-                  <Image
-                    src={IMG_YOGA_CLASS}
-                    alt="Yoga Class"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Overlapping Green Box */}
-            <div className="absolute top-[22%] md:top-[25%] left-1/2 z-20 w-[90%] md:w-[420px] bg-[#4F6F1F] text-white p-8 md:p-10 shadow-2xl rounded-sm transform -translate-x-1/2 -translate-y-1/2 hidden md:block">
-              <h4 className="font-bold text-2xl mb-4">
-                Rooted in an authentic <span className="italic">Yoga Lineage</span>,
-              </h4>
-              <div className="border-l-[3px] border-white/60 pl-5">
-                <p className="text-white/90 text-base md:text-lg leading-relaxed">
-                  The general philosophy of this system of teaching is promoting self awareness, gentleness, and balance between effort and relaxation.
-                </p>
-              </div>
-            </div>
-
-            {/* Block 2: Respect Limitations */}
-            <div className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-20 relative z-10 mt-32 md:mt-40 lg:mt-48">
-              <div className="w-full md:w-1/2">
-                <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-6">
-                  Respect Your Body Limitations
-                </h3>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
-                  <p>
-                    Yoga is not a competition. Listen to your body and respect its limits. Do not force or push yourself into any posture.
-                  </p>
-                  <p>
-                    Pain is a signal to stop. If you have any injuries or medical conditions, please inform the teacher before the class begins so they can offer alternatives.
-                  </p>
-                  <p>
-                    The goal is steady, mindful practice, not physical perfection. Relax and breathe.
-                  </p>
-                </div>
-              </div>
-              <div className="w-full md:w-1/2">
-                <div className="relative w-full aspect-square md:aspect-[4/3] rounded-sm overflow-hidden shadow-lg">
-                  <Image
-                    src={IMG_SAVASANA}
-                    alt="Savasana"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Block 3: Satsang */}
-            <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
-              <div className="w-full md:w-1/2">
-                <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-6">
-                  Satsang
-                </h3>
-                <p className="italic text-gray-500 mb-4 font-serif">
-                  Association with the wise
-                </p>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
-                  <p>
-                    Satsang is the heart of the ashram experience. It means &quot;association with the truth&quot; or &quot;company of the wise.&quot;
-                  </p>
-                  <p>
-                    Held twice daily, satsang consists of 30 minutes of silent meditation, 30 minutes of joyous mantra chanting (Kirtan), and a reading or lecture on yoga philosophy.
-                  </p>
-                  <p>
-                    It is a time to come together as a community, elevate the mind, and recharge spiritually. Attendance is required for all guests.
-                  </p>
-                </div>
-              </div>
-              <div className="w-full md:w-1/2">
-                <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-lg">
-                  <Image
-                    src={IMG_SATSANG}
-                    alt="Satsang Gathering"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Block 4: Meals */}
-            <div className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-20">
-              <div className="w-full md:w-1/2">
-                <h3 className="text-2xl font-serif text-[#0B3B24] font-bold mb-6">
-                  Organic Vegetarian Meals
-                </h3>
-                <div className="space-y-4 text-[#4A4A4A] leading-relaxed text-base md:text-lg">
-                  <p>
-                    We serve two delicious, wholesome vegetarian meals daily at 10:00 am and 6:00 pm. The diet is based on Ayurvedic principles, designed to be easily digestible and highly nutritious.
-                  </p>
-                  <p>
-                    Meals are prepared with love and care (Karma Yoga) using fresh, locally sourced, and often organic ingredients. The diet excludes meat, fish, eggs, garlic, and onions to keep the mind calm (Sattvic).
-                  </p>
-                  <p>
-                    Herbal tea is available throughout the day. Please inform us in advance if you have severe food allergies.
-                  </p>
-                </div>
-              </div>
-              <div className="w-full md:w-1/2">
-                <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden shadow-lg">
-                  <Image
-                    src={IMG_MEALS}
-                    alt="Vegetarian Meal"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    unoptimized
-                  />
-                </div>
-              </div>
             </div>
           </div>
         </div>

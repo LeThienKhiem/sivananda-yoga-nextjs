@@ -34,7 +34,7 @@ const BENEFITS = [
 
 export default function BenefitsTTC() {
   return (
-    <section className="w-full bg-white px-6 py-24">
+    <section className="w-full bg-white px-6 pt-12 pb-14 md:pt-16 md:pb-32">
       <div className="mx-auto max-w-5xl">
         <div className="mb-16 text-center">
           <h2 className="mb-4 font-serif text-3xl font-bold text-[#0B3B24] md:text-5xl">
