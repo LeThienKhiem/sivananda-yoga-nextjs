@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import Footer from "@/components/Footer";
@@ -7,8 +8,6 @@ const HERO_IMAGE =
   "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1400&auto=format&fit=crop";
 const IMG_SWAMI_TEACHING =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-01.png";
-const IMG_VALLEY_OVERLOOK =
-  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/yoga-vacation-06.png";
 const IMG_ASANA =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-02.png";
 const IMG_CONSCIOUS =
@@ -104,27 +103,46 @@ export default function FivePointsOfYogaPage() {
           </div>
         </section>
 
-        {/* Spiritual Inspiration */}
-        <section className="relative w-full min-h-[600px] flex items-center justify-end overflow-hidden">
-          <Image
-            src={IMG_VALLEY_OVERLOOK}
-            alt="Practitioner in nature overlooking valley — spiritual inspiration"
-            fill
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-          <div className="relative z-10 w-full md:w-auto md:max-w-xl flex justify-end px-4 py-16 md:px-8 md:py-24 lg:px-12">
-            <div className="bg-[#0B3B24]/60 backdrop-blur-sm p-10 md:p-16 max-w-xl w-full text-white rounded-lg md:rounded-none">
-              <p className="text-white text-xl md:text-2xl leading-relaxed">
-                &quot;Yoga is a life of self discipline built upon the tenets of simple living and high thinking. If you follow these five points, which compose a true holistic approach to our whole system of body, mind and soul, you will gain strength and balance in this demanding, stressful world.&quot;
-              </p>
-              <p className="text-white text-xl md:text-2xl leading-relaxed mt-6">
-                &quot;Obstacles become stepping stones to success, and life is a school for the development of character and compassion.&quot;
-              </p>
-              <p className="text-white text-lg md:text-xl mt-8 text-center italic">
+        {/* Hero Quote — Swami Vishnudevananda */}
+        <section className="relative w-full overflow-hidden bg-white py-16 md:py-20 flex flex-col items-center justify-center border-t border-gray-100">
+          <div className="w-full max-w-6xl mx-auto px-6 md:px-12 text-center">
+            
+            {/* Intro Text */}
+            <p className="text-gray-600 text-[18px] font-medium mb-10 max-w-4xl mx-auto">
+              Swami Vishnudevananda summarizes the five points of yoga and their power to transform our lives:
+            </p>
+
+            {/* Quote Block */}
+            <blockquote className="relative max-w-5xl mx-auto mt-4">
+              
+              {/* Opening Quote */}
+              <div className="text-orange-500 text-6xl md:text-7xl font-serif leading-none text-left h-6 opacity-80" aria-hidden>
+                &ldquo;
+              </div>
+              
+              {/* Quote Body */}
+              <div className="flex flex-col space-y-5 px-4 md:px-12 mt-4 mb-2">
+                <p className="text-gray-900 text-[18px] font-serif font-light leading-loose">
+                  Yoga is a life of self discipline built upon the tenets of simple living and high thinking. If you follow these five points, which compose a true holistic approach to our whole system of body, mind and soul, you will gain strength and balance in this demanding, stressful world.
+                </p>
+                <p className="text-gray-900 text-[18px] font-serif font-light leading-loose">
+                  Obstacles become stepping stones to success, and life is a school for the development of character and compassion.
+                </p>
+              </div>
+
+              {/* Closing Quote */}
+              <div className="text-orange-500 text-6xl md:text-7xl font-serif leading-none text-right h-6 opacity-80" aria-hidden>
+                &rdquo;
+              </div>
+
+              {/* Attribution Link */}
+              <Link
+                href="/sivananda-teachings"
+                className="text-orange-500 text-[18px] font-semibold tracking-widest uppercase block hover:underline transition mt-10"
+              >
                 — Swami Vishnudevananda —
-              </p>
-            </div>
+              </Link>
+            </blockquote>
           </div>
         </section>
 
