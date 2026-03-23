@@ -96,40 +96,41 @@ export default function Home() {
       <Header />
       <main className="min-h-screen bg-[#faf9f7] mb-0">
         {/* Hero Banner */}
-        <section className="relative flex h-[85vh] min-h-[400px] flex-col items-center justify-center overflow-hidden px-4">
-          <div className="absolute inset-0 h-full w-full overflow-hidden">
-            <div className="h-full w-full animate-zoom-out">
+        <section className="relative w-full h-auto overflow-hidden pt-24">
+          <div className="relative w-full overflow-hidden">
             <Image
               src={HERO_IMAGE_URL}
               alt="Yoga retreat nature scene"
-              fill
-              className="object-cover"
+              width={1920}
+              height={1080}
+              className="w-full h-auto block animate-zoom-out-8s"
               priority
               unoptimized
               sizes="100vw"
             />
+            <div
+              className="absolute inset-0 z-10 bg-black/40"
+              aria-hidden
+            />
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+              <div className="max-w-4xl">
+                <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
+                  Health is Wealth, Peace of Mind is Happiness. Yoga shows the way
+                </h1>
+                <p className="mt-4 text-xl text-white/95 italic md:text-2xl">
+                  —Swami Vishnudevananda
+                </p>
+                <p className="mt-8 text-lg font-medium text-white md:text-xl">
+                  New to our resort and program?
+                </p>
+                <Link
+                  href="/yoga-vacation"
+                  className="mt-6 inline-block rounded-lg border border-orange-400/50 bg-white/10 px-8 py-4 font-bold uppercase tracking-wider text-white shadow-[0_0_25px_rgba(249,115,22,0.5)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#ED7D4D] hover:border-[#ED7D4D] hover:text-white hover:shadow-[0_0_35px_rgba(249,115,22,0.7)]"
+                >
+                  EXPLORE YOGA VACATION
+                </Link>
+              </div>
             </div>
-          </div>
-          <div
-            className="absolute inset-0 z-10 bg-black/40"
-            aria-hidden
-          />
-          <div className="relative z-20 flex max-w-4xl flex-col items-center justify-center text-center">
-            <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
-              Health is Wealth, Peace of Mind is Happiness. Yoga shows the way
-          </h1>
-            <p className="mt-4 text-xl text-white/95 italic md:text-2xl">
-              —Swami Vishnudevananda
-            </p>
-            <p className="mt-8 text-lg font-medium text-white md:text-xl">
-              New to our resort and program?
-            </p>
-            <Link
-              href="/yoga-vacation"
-              className="mt-6 inline-block rounded-lg border border-orange-400/50 bg-white/10 px-8 py-4 font-bold uppercase tracking-wider text-white shadow-[0_0_25px_rgba(249,115,22,0.5)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#ED7D4D] hover:border-[#ED7D4D] hover:text-white hover:shadow-[0_0_35px_rgba(249,115,22,0.7)]"
-            >
-              EXPLORE YOGA VACATION
-            </Link>
           </div>
         </section>
 

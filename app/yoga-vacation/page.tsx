@@ -35,37 +35,40 @@ export default function YogaVacationPage() {
       <Header />
       <main className="flex-grow flex flex-col w-full">
         {/* 1. HERO BANNER (Exact clone of Home Page structure) */}
-        <section className="relative flex h-[85vh] min-h-[400px] flex-col items-center justify-center overflow-hidden px-4 mt-16 md:mt-0">
-          <div className="absolute inset-0 h-full w-full animate-zoom-out">
+        <section className="relative w-full h-auto overflow-hidden pt-24">
+          <div className="relative w-full overflow-hidden">
             <Image
               src={HERO_IMAGE_URL}
               alt="Yoga Vacation in Da Lat"
-              fill
-              className="object-cover"
+              width={1920}
+              height={1080}
+              className="w-full h-auto block animate-zoom-out-8s"
               priority
               sizes="100vw"
             />
-          </div>
-          <div
-            className="absolute inset-0 z-10 bg-black/40"
-            aria-hidden
-          />
-          <div className="relative z-20 flex max-w-4xl flex-col items-center justify-center text-center">
-            <p className="text-sm md:text-base font-bold tracking-widest uppercase text-white/95 mb-4">
-              A Journey of Self-Discovery
-            </p>
-            <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
-              Yoga Vacation
-            </h1>
-            <p className="mt-6 text-lg font-medium text-white md:text-xl max-w-2xl leading-relaxed">
-              Take a break from daily stress and immerse yourself in a holistic yoga lifestyle. Rejuvenate your body, mind, and spirit in the serene pine forests of Da Lat.
-            </p>
-            <Link
-              href="/accommodations"
-              className="mt-6 inline-block rounded-lg border-2 border-white bg-transparent px-8 py-4 font-bold uppercase tracking-widest text-sm text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#ED7D4D] hover:border-[#ED7D4D] hover:text-white hover:shadow-[0_0_20px_rgba(237,125,77,0.6)]"
-            >
-              Book Your Stay
-            </Link>
+            <div
+              className="absolute inset-0 z-10 bg-black/40"
+              aria-hidden
+            />
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+              <div className="max-w-4xl">
+                <p className="text-sm md:text-base font-bold tracking-widest uppercase text-white/95 mb-4">
+                  A Journey of Self-Discovery
+                </p>
+                <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
+                  Yoga Vacation
+                </h1>
+                <p className="mt-6 text-lg font-medium text-white md:text-xl max-w-2xl leading-relaxed">
+                  Take a break from daily stress and immerse yourself in a holistic yoga lifestyle. Rejuvenate your body, mind, and spirit in the serene pine forests of Da Lat.
+                </p>
+                <Link
+                  href="/accommodations"
+                  className="mt-6 inline-block rounded-lg border-2 border-white bg-transparent px-8 py-4 font-bold uppercase tracking-widest text-sm text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#ED7D4D] hover:border-[#ED7D4D] hover:text-white hover:shadow-[0_0_20px_rgba(237,125,77,0.6)]"
+                >
+                  Book Your Stay
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 

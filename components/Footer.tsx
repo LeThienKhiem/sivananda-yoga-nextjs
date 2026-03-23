@@ -26,7 +26,7 @@ function SpotifyIcon({ className }: { className?: string }) {
 const BANNER_URL =
   "https://zjffxjmsumxcdmqslmhw.supabase.co/storage/v1/object/public/Icon/banner-footer-yoga-course.png";
 const FOOTER_LOGO_URL =
-  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/footer_logo.png";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner-logo-01.png";
 
 const FOOTER_LINK =
   "text-white transition hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50";
@@ -210,6 +210,9 @@ export default function Footer() {
 
             {/* Column 4: Links & Socials */}
             <div>
+              <h4 className="mb-3 font-sans text-base font-bold uppercase tracking-wide text-white lg:mb-6 lg:text-base invisible select-none hidden md:block">
+                &nbsp;
+              </h4>
               <nav className="mb-4 flex flex-col space-y-2 lg:mb-8 lg:space-y-4 text-base lg:text-base">
                 <Link href="/frequently-asked-questions" className={FOOTER_LINK}>
                   FAQs

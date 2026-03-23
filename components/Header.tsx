@@ -157,6 +157,28 @@ export default function Header() {
                             <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
                           </Link>
                         </li>
+                        <li>
+                          <Link
+                            href="/during-your-stay"
+                            className="group/link flex items-center justify-between p-2.5 -ml-2.5 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D] transition-colors">
+                              During Your Stay
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            href="/guest-information"
+                            className="group/link flex items-center justify-between p-2.5 -ml-2.5 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
+                          >
+                            <span className="group-hover/link:text-[#ED7D4D] transition-colors">
+                              Guest Information
+                            </span>
+                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
+                          </Link>
+                        </li>
                       </ul>
                     </div>
                     <div>
@@ -189,22 +211,12 @@ export default function Header() {
                         </li>
                         <li>
                           <Link
-                            href="/during-your-stay"
+                            href="/sivananda-teachings"
+                            prefetch={false}
                             className="group/link flex items-center justify-between p-2.5 -ml-2.5 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
                           >
                             <span className="group-hover/link:text-[#ED7D4D] transition-colors">
-                              During Your Stay
-                            </span>
-                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/guest-information"
-                            className="group/link flex items-center justify-between p-2.5 -ml-2.5 rounded-lg hover:bg-white hover:shadow-sm text-[#0B3B24] transition-all"
-                          >
-                            <span className="group-hover/link:text-[#ED7D4D] transition-colors">
-                              Guest Information
+                              Sivananda Teachings
                             </span>
                             <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
                           </Link>
@@ -281,18 +293,6 @@ export default function Header() {
                           >
                             <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
                               Advanced TTC (300 hrs)
-                            </span>
-                            <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/sivananda-teachings"
-                            prefetch={false}
-                            className="group/link flex items-center justify-between p-3 rounded-lg hover:bg-white hover:shadow-sm transition-all"
-                          >
-                            <span className="text-[#0B3B24] text-sm font-medium group-hover/link:text-[#ED7D4D]">
-                              Sivananda Teachings
                             </span>
                             <ArrowRight className="w-4 h-4 text-[#ED7D4D] opacity-0 -translate-x-2 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all" />
                           </Link>
@@ -670,15 +670,25 @@ export default function Header() {
           >
             <div className="flex flex-col p-6 pb-20 gap-6 text-white">
           <div className="flex flex-col gap-4 border-b border-white/10 pb-4">
-            <Link href="/yoga-vacation" className="text-base font-medium tracking-wide text-[#ED7D4D]">
+            <span className="text-base font-medium tracking-wide text-[#ED7D4D]">
               Yoga Vacation
+            </span>
+            <Link href="/yoga-vacation" className="pl-4 text-white/80">
+              Yoga Vacation Program
             </Link>
             <Link href="/accommodations" className="pl-4 text-white/80">Accommodations & Meals</Link>
             <Link href="/our-venues" className="pl-4 text-white/80">Our Venues</Link>
-            <Link href="/4-paths-of-yoga" className="pl-4 text-white/80">4 Paths of Yoga</Link>
-            <Link href="/5-points-of-yoga" className="pl-4 text-white/80">5 Points of Yoga</Link>
             <Link href="/during-your-stay" className="pl-4 text-white/80">During Your Stay</Link>
             <Link href="/guest-information" className="pl-4 text-white/80">Guest Information</Link>
+            <Link href="/4-paths-of-yoga" className="pl-4 text-white/80">4 Paths of Yoga</Link>
+            <Link href="/5-points-of-yoga" className="pl-4 text-white/80">5 Points of Yoga</Link>
+            <Link
+              href="/sivananda-teachings"
+              prefetch={false}
+              className="pl-4 text-white/80"
+            >
+              Sivananda Teachings
+            </Link>
             {yvPages.map((p) => (
               <Link key={p.slug} href={`/p/${p.slug}`} className="pl-4 text-white/80">
                 {p.title}
@@ -695,13 +705,6 @@ export default function Header() {
             </Link>
             <Link href="/advanced-yoga-teacher-training-course" className="pl-4 text-white/80">
               Advanced TTC (300 hrs)
-            </Link>
-            <Link
-              href="/sivananda-teachings"
-              prefetch={false}
-              className="pl-4 text-white/80"
-            >
-              Sivananda Teachings
             </Link>
             <Link href="/sadhana-intensive" className="pl-4 text-white/80">
               Sadhana Intensive
