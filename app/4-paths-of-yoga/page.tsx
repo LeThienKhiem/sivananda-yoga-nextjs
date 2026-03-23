@@ -600,7 +600,7 @@ export default function FourPathsOfYogaPage() {
       </section>
 
       {/* Jnana Yoga Content Section */}
-      <section className="bg-[#FDFCF8] py-24 px-6">
+      <section className="bg-[#FDFCF8] pt-24 pb-6 md:pb-24 px-6">
         <div className="max-w-6xl mx-auto space-y-24">
           {/* Block 1: The Most Challenging Path of All — Text left, Image right */}
           <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
@@ -658,8 +658,8 @@ export default function FourPathsOfYogaPage() {
       </section>
 
       {/* Upcoming Events */}
-      <section className="py-24" aria-label="Upcoming events">
-        <UpcomingEvents />
+      <section className="pt-6 md:pt-24 pb-0" aria-label="Upcoming events">
+        <UpcomingEvents sectionPaddingClass="pt-10 md:pt-24 pb-24" />
       </section>
 
       <Footer />

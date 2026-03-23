@@ -280,7 +280,7 @@ export default function Footer() {
         <img
           src={FOOTER_LOGO_URL}
           alt="Sivananda Yoga Footer Logo"
-          className="w-full max-w-[1000px] h-auto opacity-[0.15] grayscale brightness-200 pointer-events-none"
+          className="w-full max-w-[1000px] h-auto opacity-[0.45] grayscale brightness-200 pointer-events-none"
         />
       </div>
     </footer>

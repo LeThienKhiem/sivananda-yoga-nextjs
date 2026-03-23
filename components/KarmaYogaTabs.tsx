@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const tabsData = [
   {
@@ -74,6 +74,37 @@ const tabsData = [
 export default function KarmaYogaTabs() {
   const [activeTab, setActiveTab] = useState(tabsData[0]);
   const tabsScrollRef = useRef<HTMLDivElement>(null);
+  const [selectedMobileTab, setSelectedMobileTab] = useState<typeof tabsData[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (tab: typeof tabsData[0]) => {
+    setSelectedMobileTab(tab);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedMobileTab(null);
+  };
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isModalOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setIsModalOpen(false);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const scrollTabs = (direction: "left" | "right") => {
     const el = tabsScrollRef.current;
@@ -89,8 +120,8 @@ export default function KarmaYogaTabs() {
           How to practice Karma Yoga?
         </h2>
 
-        {/* Elegant Container */}
-        <div className="flex flex-col md:flex-row shadow-[0_8px_30px_rgb(0,0,0,0.06)] rounded-3xl overflow-hidden min-h-[550px] bg-white border border-gray-100">
+        {/* Desktop Layout - hidden on mobile */}
+        <div className="hidden md:flex flex-col md:flex-row shadow-[0_8px_30px_rgb(0,0,0,0.06)] rounded-3xl overflow-hidden min-h-[550px] bg-white border border-gray-100">
           {/* Left Side: Modern Tabs List — horizontal scroll on mobile, vertical on desktop */}
           <div className="w-full md:w-[35%] bg-gray-50/50">
             <div className="relative md:h-full">
@@ -161,6 +192,95 @@ export default function KarmaYogaTabs() {
             </div>
           </div>
         </div>
+
+        {/* Mobile Layout - horizontal carousel + modal (visible only on mobile) */}
+        <div className="md:hidden w-full mt-8">
+          <div
+            className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 px-4 scrollbar-hide"
+            style={{ WebkitOverflowScrolling: "touch" } as React.CSSProperties}
+          >
+            {tabsData.map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => openModal(tab)}
+                className="snap-center shrink-0 w-[80vw] sm:w-[300px] min-h-[200px] flex flex-col rounded-xl overflow-hidden border border-gray-200 bg-white shadow-none active:scale-[0.98] transition-transform"
+              >
+                <div className="relative aspect-[4/3] w-full bg-gray-100">
+                  <Image
+                    src={tab.image}
+                    alt={tab.title}
+                    fill
+                    className="object-cover"
+                    sizes="80vw"
+                    unoptimized
+                  />
+                </div>
+                <div className="p-4 flex flex-col items-center justify-center min-h-[80px]">
+                  <span className="text-[#0B3B24] font-bold text-base leading-snug text-center">
+                    {tab.title}
+                  </span>
+                  <span className="text-gray-500 text-sm mt-1 line-clamp-2 text-center">
+                    {tab.content}
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile Modal - tap overlay to close, X button to close */}
+        {isModalOpen && selectedMobileTab && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 md:hidden"
+            onClick={closeModal}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === "Escape" && closeModal()}
+            aria-modal="true"
+            aria-label="Close modal"
+          >
+            <div className="absolute inset-0 bg-black/70" aria-hidden />
+            <div
+              className="relative bg-white rounded-xl shadow-none border border-gray-200 max-h-[80vh] w-full max-w-md overflow-hidden flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-labelledby="modal-title"
+            >
+              <button
+                type="button"
+                onClick={closeModal}
+                className="absolute top-3 right-3 z-10 p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <div className="overflow-y-auto max-h-[80vh] overscroll-contain">
+                <div className="relative aspect-[4/3] w-full bg-gray-100">
+                  <Image
+                    src={selectedMobileTab.image}
+                    alt={selectedMobileTab.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    unoptimized
+                  />
+                </div>
+                <div className="p-6">
+                  <h3
+                    id="modal-title"
+                    className="text-xl font-serif font-bold text-[#0B3B24] mb-4 pr-10"
+                  >
+                    {selectedMobileTab.title}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-base whitespace-pre-line">
+                    {selectedMobileTab.content}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
