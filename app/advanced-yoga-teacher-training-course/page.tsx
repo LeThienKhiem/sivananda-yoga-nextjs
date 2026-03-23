@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SeniorTeachers from "@/components/SeniorTeachers";
 import AshramGallery from "@/components/AshramGallery";
+import PackageInclusion from "@/components/PackageInclusion";
 import { GraduationCap, Globe } from "lucide-react";
 
 const HERO_IMAGE_URL =
@@ -48,7 +49,7 @@ export default function AdvancedTeacherTrainingPage() {
               sizes="100vw"
             />
           </div>
-          <div className="relative z-10 bg-white w-[90%] max-w-5xl py-12 md:py-16 px-6 shadow-xl text-center -mb-20">
+          <div className="relative z-10 bg-white w-[90%] max-w-5xl py-12 md:py-16 px-6 text-center -mb-20">
             <p className="text-gray-500 uppercase tracking-[0.2em] text-base md:text-xl mb-4 font-light">
               Deepen Your Teaching
             </p>
@@ -258,76 +259,7 @@ export default function AdvancedTeacherTrainingPage() {
         </section>
 
         {/* 6. WHAT INCLUDES IN THE PACKAGE SECTION */}
-        <section className="bg-[#FDFCF8] py-24 px-6">
-          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24">
-            {/* Left Column: Details */}
-            <div className="w-full lg:w-[60%]">
-              <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] font-bold mb-10">
-                What Includes in the Package
-              </h2>
-
-              <ul className="space-y-6 mb-12 text-[#4A4A4A] text-lg md:text-xl">
-                <li className="flex items-center gap-4">
-                  <div className="w-5 h-5 rounded-full border-2 border-[#0B3B24] flex-shrink-0" />
-                  <span>Accommodation for [28] nights and Tuition</span>
-                </li>
-                <li className="flex items-center gap-4">
-                  <div className="w-5 h-5 rounded-full border-2 border-[#0B3B24] flex-shrink-0" />
-                  <span>3 Daily Vegetarian Meals</span>
-                </li>
-                <li className="flex items-center gap-4">
-                  <div className="w-5 h-5 rounded-full border-2 border-[#0B3B24] flex-shrink-0" />
-                  <span>2 uniform sets (yoga pant, t-shirt)</span>
-                </li>
-                <li className="flex items-center gap-4">
-                  <div className="w-5 h-5 rounded-full border-2 border-[#0B3B24] flex-shrink-0" />
-                  <span>ATTC Manual</span>
-                </li>
-              </ul>
-
-              <div className="space-y-4">
-                <h4 className="text-gray-500 font-medium">Important Note</h4>
-                <ul className="space-y-3 text-[#4A4A4A] text-base md:text-lg">
-                  <li className="flex items-start gap-3">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#0B3B24] mt-1 flex-shrink-0">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                    <span>Successful completion of the Sivananda Yoga Teachers&apos; Training Course is a prerequisite for all participants</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 text-[#0B3B24] mt-1 flex-shrink-0">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                    <span>This course is intensive and sound physical and mental health is required.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Right Column: Pricing Card */}
-            <div className="w-full lg:w-[40%]">
-              <div className="bg-white p-8 md:p-10 rounded-sm shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-gray-100 lg:sticky lg:top-24">
-                <h3 className="text-base md:text-base font-bold text-[#0B3B24] uppercase tracking-widest mb-2">Program Cost</h3>
-                <p className="text-base md:text-base text-gray-400 mb-8">*** incl. Deposit US$ 250 (due at time of registration)</p>
-
-                <div className="space-y-6 text-[#4A4A4A] font-medium text-base md:text-lg">
-                  <div className="flex justify-between items-center border-b border-gray-100 pb-4">
-                    <span>Single Room</span>
-                    <span className="text-[#0B3B24] font-bold">US$ 3,850</span>
-                  </div>
-                  <div className="flex justify-between items-center border-b border-gray-100 pb-4">
-                    <span>Shared Room (2 people)</span>
-                    <span className="text-[#0B3B24] font-bold">US$ 3,400</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Shared Room (4 people)</span>
-                    <span className="text-[#0B3B24] font-bold">US$ 2,400</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PackageInclusion />
 
         {/* 7. UPCOMING COURSE BANNER */}
         <section className="relative w-full min-h-[500px] flex items-center justify-center text-center px-6 py-24">
