@@ -24,9 +24,9 @@ function SpotifyIcon({ className }: { className?: string }) {
 }
 
 const BANNER_URL =
-  "https://zjffxjmsumxcdmqslmhw.supabase.co/storage/v1/object/public/Icon/banner-footer-yoga-course.png";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner_footer_02.jpg  ";
 const FOOTER_LOGO_URL =
-  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner-logo-01.png";
+  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner_footer-03.png";
 
 const FOOTER_LINK =
   "text-white transition hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50";
@@ -41,7 +41,7 @@ const footerContactClass = `${FOOTER_LINK} text-inherit hover:opacity-90`;
 
 export default function Footer() {
   return (
-    <footer className="relative w-full">
+    <footer className="relative w-full overflow-hidden bg-[#072212]">
       {/* Mobile-only: solid green layout */}
       <div className="flex flex-col items-center gap-8 px-4 py-12 text-center text-white md:hidden bg-[#6B894E]">
         <div className="flex w-full justify-center">
@@ -126,157 +126,162 @@ export default function Footer() {
           alt="Footer Background"
         />
         <div className="absolute inset-0 w-full h-full flex flex-col justify-end z-10 pointer-events-none">
-          <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 pb-4 lg:pb-8 pointer-events-auto">
-            <div className="grid grid-cols-1 gap-x-6 gap-y-4 lg:gap-x-8 lg:gap-y-8 md:grid-cols-4">
-            {/* Column 1: Brand & Contact */}
-            <div className="flex flex-col">
-              <div className="mb-1 flex w-full justify-center lg:mb-2">
-                <img
-                  src={FOOTER_LOGO_URL}
-                  alt="Sivananda Yoga Footer Logo"
-                  className="mx-auto block h-28 w-auto max-w-48 object-contain"
-                />
-              </div>
-                <div className="mt-3 space-y-2 lg:mt-6 lg:space-y-3">
+          <div className="w-full max-w-7xl mx-auto pt-32 pb-20 px-8 md:px-16 pointer-events-auto">
+            {/* Asymmetric 12-Column Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-20 items-start">
+              {/* Column 1: Identity Block (Contact) */}
+              <div className="lg:col-span-5">
+                <h5 className="text-[10px] tracking-[0.5em] text-orange-500 mb-6 uppercase">
+                  CONNECT
+                </h5>
+                <div className="flex flex-col space-y-8 text-white text-lg leading-relaxed tracking-wide">
                   <a
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex gap-2 lg:gap-3 ${footerContactClass} text-base lg:text-base`}
+                    className="flex items-start gap-3 hover:opacity-90 transition-opacity"
                   >
-                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
-                    <span className="whitespace-pre-line leading-relaxed">
+                    <MapPin className="mt-0.5 w-4 h-4 shrink-0 text-orange-500" />
+                    <span className="whitespace-pre-line">
                       Hoa Hong Street{"\n"}Ward 4, Tuyen Lam Lake{"\n"}Da Lat, Vietnam
                     </span>
                   </a>
                   <a
                     href={TEL_HREF}
-                    className={`flex items-center gap-2 lg:gap-3 ${footerContactClass} text-base lg:text-base`}
+                    className="flex items-center gap-3 hover:opacity-90 transition-opacity"
                   >
-                    <Phone className="h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
+                    <Phone className="w-4 h-4 shrink-0 text-orange-500" />
                     <span>02636501100</span>
                   </a>
                   <a
                     href={MAILTO_HREF}
-                    className={`flex items-center gap-2 lg:gap-3 ${footerContactClass} text-base lg:text-base`}
+                    className="flex items-center gap-3 hover:opacity-90 transition-opacity"
                   >
-                    <Mail className="h-4 w-4 shrink-0 text-white lg:h-5 lg:w-5" />
+                    <Mail className="w-4 h-4 shrink-0 text-orange-500" />
                     <span>vietnamyogaresort@sivananda.org</span>
                   </a>
                 </div>
+              </div>
+
+              {/* Column 2: Navigation Cluster */}
+              <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
+                {/* Yoga Teaching */}
+                <div className="border-t border-white/20 pt-4">
+                  <h4 className="text-orange-500 text-xs font-light tracking-[0.3em] uppercase mb-10">
+                    Yoga Teaching
+                  </h4>
+                  <nav className="flex flex-col space-y-4">
+                    <Link href="/yoga-vacation" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                      Explore Yoga Vacation
+                    </Link>
+                    <Link href="/sivananda-teachings" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                      Classical Yoga Teaching
+                    </Link>
+                    <Link href="/programs" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                      Ancient Yoga Foundation
+                    </Link>
+                    <Link href="/programs" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                      5 points 4 paths of Yoga
+                    </Link>
+                  </nav>
+                </div>
+
+                {/* Yoga Vacation */}
+                <div className="border-t border-white/20 pt-4">
+                  <h4 className="text-orange-500 text-xs font-light tracking-[0.3em] uppercase mb-10">
+                    Yoga Vacation
+                  </h4>
+                  <nav className="flex flex-col space-y-4">
+                    <Link href="/accommodations" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                      Accommodation
+                    </Link>
+                    <Link href="/guest-information" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                      Transportation & Arrival
+                    </Link>
+                    <Link href="/guest-information" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                      Planning Your Stay
+                    </Link>
+                    <Link href="/accommodations" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                      Dining & Boutique
+                    </Link>
+                  </nav>
+                </div>
+
+                {/* Information */}
+                <div className="border-t border-white/20 pt-4">
+                  <h4 className="text-orange-500 text-xs font-light tracking-[0.3em] uppercase mb-10">
+                    Information
+                  </h4>
+                  <nav className="flex flex-col space-y-4">
+                    <Link href="/frequently-asked-questions" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                      FAQs
+                    </Link>
+                    <Link href="/misconduct-policy" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                      Misconduct Policy
+                    </Link>
+                    <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                      Privacy Policy
+                    </Link>
+                    <Link href="/donation" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                      Donation
+                    </Link>
+                  </nav>
+                </div>
+              </div>
             </div>
 
-            {/* Column 2: YOGA TEACHING */}
-            <div>
-              <h4 className="mb-3 font-sans text-base font-bold uppercase tracking-wide text-white lg:mb-6 lg:text-base">
-                YOGA TEACHING
-              </h4>
-              <nav className="flex flex-col space-y-2 lg:space-y-4 text-base lg:text-base">
-                <Link href="/yoga-vacation" className={FOOTER_LINK}>
-                  Explore Yoga Vacation
-                </Link>
-                <Link href="/sivananda-teachings" className={FOOTER_LINK}>
-                  Classical Yoga Teaching
-                </Link>
-                <Link href="/programs" className={FOOTER_LINK}>
-                  Ancient Yoga Foundation
-                </Link>
-                <Link href="/programs" className={FOOTER_LINK}>
-                  5 points 4 paths of Yoga
-                </Link>
-              </nav>
-            </div>
-
-            {/* Column 3: YOGA VACATION */}
-            <div>
-              <h4 className="mb-3 font-sans text-base font-bold uppercase tracking-wide text-white lg:mb-6 lg:text-base">
-                YOGA VACATION
-              </h4>
-              <nav className="flex flex-col space-y-2 lg:space-y-4 text-base lg:text-base">
-                <Link href="/accommodations" className={FOOTER_LINK}>
-                  Accommodation
-                </Link>
-                <Link href="/guest-information" className={FOOTER_LINK}>
-                  Transportation & Arrival
-                </Link>
-                <Link href="/guest-information" className={FOOTER_LINK}>
-                  Planning Your Stay
-                </Link>
-                <Link href="/accommodations" className={FOOTER_LINK}>
-                  Dining & Boutique
-                </Link>
-              </nav>
-            </div>
-
-            {/* Column 4: Links & Socials */}
-            <div>
-              <h4 className="mb-3 font-sans text-base font-bold uppercase tracking-wide text-white lg:mb-6 lg:text-base invisible select-none hidden md:block">
-                &nbsp;
-              </h4>
-              <nav className="mb-4 flex flex-col space-y-2 lg:mb-8 lg:space-y-4 text-base lg:text-base">
-                <Link href="/frequently-asked-questions" className={FOOTER_LINK}>
-                  FAQs
-                </Link>
-                <Link href="/misconduct-policy" className={FOOTER_LINK}>
-                  Misconduct Policy
-                </Link>
-                <Link href="/privacy-policy" className={FOOTER_LINK}>
-                  Privacy Policy
-                </Link>
-                <Link href="/donation" className={FOOTER_LINK}>
-                  Donation
-                </Link>
-              </nav>
-              <div className="flex gap-2 lg:gap-4">
+            {/* Bottom Bar: The Horizon */}
+            <div className="border-t border-white/5 pt-12 mt-10 flex flex-col md:flex-row justify-end items-center gap-6">
+              <div className="flex gap-8 text-gray-500">
                 <a
                   href="https://www.facebook.com/vietnamyogaresort"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/40 p-1.5 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:p-2"
+                  className="hover:text-white transition-all text-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   aria-label="Facebook"
                 >
-                  <Facebook className="h-4 w-4 lg:h-5 lg:w-5" />
+                  <Facebook className="w-5 h-5" />
                 </a>
                 <a
                   href="https://www.instagram.com/sivanandayoga_dalatashram/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/40 p-1.5 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:p-2"
+                  className="hover:text-white transition-all text-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   aria-label="Instagram"
                 >
-                  <Instagram className="h-4 w-4 lg:h-5 lg:w-5" />
+                  <Instagram className="w-5 h-5" />
                 </a>
                 <a
                   href="https://www.youtube.com/@SivanandaYogaVietnam"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/40 p-1.5 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:p-2"
+                  className="hover:text-white transition-all text-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   aria-label="YouTube"
                 >
-                  <Youtube className="h-4 w-4 lg:h-5 lg:w-5" />
+                  <Youtube className="w-5 h-5" />
                 </a>
                 <a
                   href="https://open.spotify.com/show/36HOTjwBmIAK3kXt0jaYPC?si=62a0c9901f104891"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-full border border-white/40 p-1.5 text-white transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:p-2"
+                  className="hover:text-white transition-all text-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   aria-label="Spotify"
                 >
-                  <SpotifyIcon className="h-4 w-4 lg:h-5 lg:w-5" />
+                  <SpotifyIcon className="w-5 h-5" />
                 </a>
               </div>
             </div>
           </div>
-
-            {/* Copyright bar */}
-            <div className="mt-4 border-t border-white/10 pt-4 lg:mt-8 lg:pt-8">
-              <p className="text-center text-base text-white lg:text-base">
-                © Copyright 2025 Sivananda Yoga Resort and Training Center, Da Lat,
-                Vietnam
-              </p>
-            </div>
-          </div>
         </div>
+      </div>
+
+      {/* Sivananda Logo - majestic watermark at base */}
+      <div className="hidden md:flex w-full justify-center mt-0 relative z-10 bg-[#072212] pb-20">
+        <img
+          src={FOOTER_LOGO_URL}
+          alt="Sivananda Yoga Footer Logo"
+          className="w-full max-w-[1000px] h-auto opacity-[0.15] grayscale brightness-200 pointer-events-none"
+        />
       </div>
     </footer>
   );
