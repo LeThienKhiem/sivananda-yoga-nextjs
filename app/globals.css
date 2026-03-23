@@ -25,6 +25,34 @@
   animation: zoomOutHero 8s ease-out forwards;
 }
 
+@keyframes curriculumModalIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-curriculum-modal-in {
+  animation: curriculumModalIn 0.25s ease-out forwards;
+}
+
+@keyframes curriculumModalOverlayIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-curriculum-modal-overlay-in {
+  animation: curriculumModalOverlayIn 0.2s ease-out forwards;
+}
+
 /* Site is light-themed; use explicit background to prevent black gaps from dark mode */
 html,
 body {

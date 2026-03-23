@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -8,8 +8,6 @@ import {
   MapPin,
   ArrowRight,
   Loader2,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 import { supabase } from "@/utils/supabase";
 import { getCourseImageUrl } from "@/utils/course-images";
@@ -19,8 +17,6 @@ const DEFAULT_SUBTITLE = "PROGRAMS AND RETREAT";
 const DEFAULT_TITLE = "Upcoming Events & Courses";
 const DEFAULT_CTA_TEXT = "View all Courses";
 const DEFAULT_CTA_LINK = "/syhet-courses";
-
-const SCROLL_STEP_PX = 350;
 
 const formatCourseDate = (start?: string, end?: string) => {
   if (!start) return "Date TBA";
@@ -87,10 +83,6 @@ export default function UpcomingEvents({
   const getCourseImage = (course: any) =>
     getCourseImageUrl(course.image_url, course.title);
 
-  const scrollByStep = useCallback((delta: number) => {
-    ref.current?.scrollBy({ left: delta, behavior: "smooth" });
-  }, [ref]);
-
   if (loading) {
     return (
       <section
@@ -109,8 +101,8 @@ export default function UpcomingEvents({
       aria-label={ariaLabel}
       className={`bg-[#FDFCF8] ${sectionPaddingClass} w-full overflow-hidden`}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div className="min-w-0">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="mb-12">
           <h3 className="text-[#ED7D4D] font-bold tracking-widest text-sm uppercase mb-3">
             {subtitle}
           </h3>
@@ -118,35 +110,15 @@ export default function UpcomingEvents({
             {title}
           </h2>
         </div>
-        <div className="flex items-center gap-2 shrink-0 self-end md:self-auto">
-          <button
-            type="button"
-            aria-label="Scroll carousel left"
-            onClick={() => scrollByStep(-SCROLL_STEP_PX)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#0B3B24] text-[#0B3B24] transition-colors hover:bg-[#0B3B24] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0B3B24]"
-          >
-            <ChevronLeft className="h-6 w-6" strokeWidth={2} />
-          </button>
-          <button
-            type="button"
-            aria-label="Scroll carousel right"
-            onClick={() => scrollByStep(SCROLL_STEP_PX)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-[#0B3B24] text-[#0B3B24] transition-colors hover:bg-[#0B3B24] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0B3B24]"
-          >
-            <ChevronRight className="h-6 w-6" strokeWidth={2} />
-          </button>
-        </div>
-      </div>
 
-      {/* Hook ref + events must stay on this single scroll track (overflow-x-auto + flex-nowrap). */}
-      <div
-        ref={ref}
-        {...dragEvents}
-        className={`scrollbar-hide flex flex-row flex-nowrap gap-6 overflow-x-auto overflow-y-hidden pb-8 px-[max(0.5rem,calc(50%-42.5vw))] md:px-[calc(50%-175px)] select-none ${
-          isDragging ? "cursor-grabbing scroll-auto" : "cursor-grab"
-        }`}
-        style={{ WebkitOverflowScrolling: "touch" }}
-      >
+        <div
+          ref={ref}
+          {...dragEvents}
+          className={`scrollbar-hide flex flex-row flex-nowrap gap-6 overflow-x-auto overflow-y-hidden pb-8 select-none ${
+            isDragging ? "cursor-grabbing scroll-auto" : "cursor-grab"
+          }`}
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
         {events.map((course) => {
           const categoryDisplay =
             course.category && course.category.length > 0
@@ -156,7 +128,7 @@ export default function UpcomingEvents({
           return (
             <div
               key={course.id}
-              className="w-[85vw] shrink-0 md:w-[350px]"
+              className="w-[85vw] shrink-0 md:w-[400px]"
             >
               <Link
                 href={`/syhet-courses/${course.slug || course.id}`}
@@ -170,7 +142,7 @@ export default function UpcomingEvents({
                     fill
                     draggable={false}
                     className="pointer-events-none object-cover"
-                    sizes="(max-width: 768px) 85vw, 350px"
+                    sizes="(max-width: 768px) 85vw, 400px"
                     unoptimized
                   />
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-[#0B3B24] tracking-widest uppercase">
@@ -212,14 +184,15 @@ export default function UpcomingEvents({
             </div>
           );
         })}
-      </div>
+        </div>
 
-      <div className="flex justify-center mt-12 px-4 md:px-6">
-        <Link href={ctaLink} draggable={false}>
-          <button className="bg-transparent border-2 border-[#0B3B24] text-[#0B3B24] hover:bg-[#0B3B24] hover:text-white px-10 py-3 rounded-sm font-bold tracking-widest text-sm uppercase transition-all shadow-sm">
-            {ctaText}
-          </button>
-        </Link>
+        <div className="flex justify-center mt-12">
+          <Link href={ctaLink} draggable={false}>
+            <button className="bg-transparent border-2 border-[#0B3B24] text-[#0B3B24] hover:bg-[#0B3B24] hover:text-white px-10 py-3 rounded-sm font-bold tracking-widest text-sm uppercase transition-all shadow-sm">
+              {ctaText}
+            </button>
+          </Link>
+        </div>
       </div>
     </section>
   );

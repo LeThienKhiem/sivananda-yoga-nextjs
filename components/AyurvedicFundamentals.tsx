@@ -4,9 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, useMotionValue, animate, type PanInfo } from "framer-motion";
 
-const CARD_WIDTH = 420;
+const CARD_WIDTH_DESKTOP = 420;
 const CARD_GAP = 28;
-const CARD_SPACING = CARD_WIDTH + CARD_GAP;
 
 const fundamentalData = [
   {
@@ -47,16 +46,24 @@ export default function AyurvedicFundamentals() {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerCenter, setContainerCenter] = useState(0);
+  const [cardWidth, setCardWidth] = useState(CARD_WIDTH_DESKTOP);
   const dragOffset = useMotionValue(0);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-    const ro = new ResizeObserver(() => {
-      setContainerCenter(el.offsetWidth / 2);
-    });
+    const updateDimensions = () => {
+      const w = el.offsetWidth;
+      setContainerCenter(w / 2);
+      // On mobile: use ~85% of container width, leaving padding; on desktop use fixed 420px
+      const effectiveWidth = w < 768
+        ? Math.min(CARD_WIDTH_DESKTOP, w - 48)
+        : CARD_WIDTH_DESKTOP;
+      setCardWidth(effectiveWidth);
+    };
+    const ro = new ResizeObserver(updateDimensions);
     ro.observe(el);
-    setContainerCenter(el.offsetWidth / 2);
+    updateDimensions();
     return () => ro.disconnect();
   }, []);
 
@@ -74,10 +81,11 @@ export default function AyurvedicFundamentals() {
     animate(dragOffset, 0, { type: "spring", stiffness: 350, damping: 35 });
   };
 
-  const stripX = containerCenter - CARD_WIDTH / 2 - activeIndex * CARD_SPACING;
+  const cardSpacing = cardWidth + CARD_GAP;
+  const stripX = containerCenter - cardWidth / 2 - activeIndex * cardSpacing;
 
   return (
-    <section className="bg-white py-24 px-6 overflow-hidden">
+    <section className="bg-white py-24 px-4 md:px-8 overflow-hidden">
       <div className="max-w-6xl mx-auto mb-10">
         <h2 className="text-3xl md:text-4xl font-serif text-[#0B3B24] font-bold">
           Ayurvedic Fundamentals
@@ -91,7 +99,7 @@ export default function AyurvedicFundamentals() {
         <motion.div
           className="relative h-full flex items-center"
           style={{
-            width: fundamentalData.length * CARD_SPACING - CARD_GAP,
+            width: fundamentalData.length * cardSpacing - CARD_GAP,
             left: stripX,
             x: dragOffset,
           }}
@@ -111,8 +119,8 @@ export default function AyurvedicFundamentals() {
                 key={item.id}
                 className="absolute top-0 flex flex-col shrink-0 cursor-grab active:cursor-grabbing"
                 style={{
-                  left: index * CARD_SPACING,
-                  width: CARD_WIDTH,
+                  left: index * cardSpacing,
+                  width: cardWidth,
                   scale: isCenter ? 1 : 0.8,
                   opacity: isCenter ? 1 : 0.5,
                   zIndex: isCenter ? 10 : 1,
@@ -134,14 +142,14 @@ export default function AyurvedicFundamentals() {
                       alt={item.title}
                       fill
                       className="object-cover"
-                      sizes="420px"
+                      sizes="(max-width: 768px) 85vw, 420px"
                     />
                   </div>
-                  <div className="p-6 flex-grow">
-                    <h3 className="text-2xl font-serif text-[#0B3B24] mb-4">
+                  <div className="p-4 md:p-6 flex-grow min-w-0">
+                    <h3 className="text-xl md:text-2xl font-serif text-[#0B3B24] mb-4 break-words">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 text-base leading-relaxed">
+                    <p className="text-gray-600 text-base leading-relaxed break-words">
                       {item.description}
                     </p>
                   </div>
