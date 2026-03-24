@@ -681,7 +681,7 @@ export default function AboutPage() {
 
         <div className="relative z-10 max-w-4xl mx-auto text-white">
           <h2 className="text-2xl md:text-3xl font-serif mb-4 leading-tight drop-shadow-md">
-            &quot;Placeholder quote&quot;
+            &quot;Everything is a test of faith.&quot;
           </h2>
           <p className="text-base md:text-lg tracking-widest font-medium opacity-90 drop-shadow-sm">
             — Swami Sitaramananda
