@@ -95,24 +95,24 @@ export default function Home() {
       />
       <Header />
       <main className="min-h-screen bg-[#faf9f7] mb-0">
-        {/* Hero Banner */}
-        <section className="relative w-full h-auto overflow-hidden pt-24">
-          <div className="relative w-full overflow-hidden">
+        {/* Hero Banner — mobile: full-viewport height + text clears fixed header; desktop unchanged */}
+        <section className="relative w-full h-auto overflow-hidden pt-0 md:pt-24 max-md:min-h-[100dvh]">
+          <div className="relative w-full min-h-[100dvh] md:min-h-0 overflow-hidden md:-mt-[96px]">
             <Image
               src={HERO_IMAGE_URL}
               alt="Yoga retreat nature scene"
               width={1920}
               height={1080}
-              className="w-full h-auto block animate-zoom-out-8s"
+              className="w-full h-auto block animate-zoom-out-8s max-md:h-[100dvh] max-md:min-h-[100dvh] max-md:object-cover max-md:object-center"
               priority
               unoptimized
               sizes="100vw"
             />
             <div
-              className="absolute inset-0 z-10 bg-black/40"
+              className="absolute inset-0 z-10 bg-black/50 md:bg-black/40"
               aria-hidden
             />
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4">
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-start pb-12 text-center px-4 max-md:pt-[calc(5rem+env(safe-area-inset-top,0px)+3.5rem)] md:justify-center md:pt-0 md:pb-0">
               <div className="max-w-4xl">
                 <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
                   Health is Wealth, Peace of Mind is Happiness. Yoga shows the way

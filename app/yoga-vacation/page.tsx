@@ -36,7 +36,7 @@ export default function YogaVacationPage() {
       <Header />
       <main className="flex-grow flex flex-col w-full">
         {/* 1. HERO BANNER (Exact clone of Home Page structure) */}
-        <section className="relative w-full overflow-hidden pt-20 md:pt-24">
+        <section className="relative w-full overflow-hidden">
           <div className="relative h-[78vh] min-h-[560px] w-full overflow-hidden md:h-[80vh] md:min-h-[640px]">
             <Image
               src={HERO_IMAGE_URL}

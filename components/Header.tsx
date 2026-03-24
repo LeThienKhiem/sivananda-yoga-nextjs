@@ -75,22 +75,22 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-700 ${
-        scrolled ? "bg-[#0B3B24]/50 backdrop-blur-xl shadow-lg" : "bg-[#0B3B24]"
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-700 bg-gradient-to-b from-[#093C0C]/80 via-[#093C0C]/40 to-transparent ${
+        scrolled ? "backdrop-blur-xl shadow-lg" : ""
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-20 md:h-20">
           {/* Logo + mobile resort name */}
           <Link
             href="/"
-            className="flex items-center group shrink-0 mr-4 gap-2 min-w-0"
+            className="flex items-center group shrink-0 mr-4 gap-2 min-w-0 text-white"
           >
             <div className="p-1.5 transition-transform duration-300 group-hover:scale-105 flex items-center justify-center shrink-0">
               <img
                 src={LOGO_URL}
                 alt="Sivananda Yoga Logo"
-                className="h-8 sm:h-10 lg:h-12 w-auto object-contain filter-none"
+                className="h-8 sm:h-10 lg:h-12 w-auto object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.85)]"
               />
             </div>
             <span className="hidden sm:block lg:hidden text-white font-semibold text-lg leading-tight max-w-[140px]">
