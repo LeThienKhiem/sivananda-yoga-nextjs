@@ -706,7 +706,11 @@ export default function Header() {
             <Link href="/advanced-yoga-teacher-training-course" className="pl-4 text-white/80">
               Advanced TTC (300 hrs)
             </Link>
-            <Link href="/sadhana-intensive" className="pl-4 text-white/80">
+            <Link
+              href="/sadhana-intensive"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="pl-4 text-white/80"
+            >
               Sadhana Intensive
             </Link>
             <Link href="/vedanta-silence-meditation" className="pl-4 text-white/80">

@@ -128,9 +128,12 @@ export default function BlogPage() {
           {/* 4. FEATURED POST */}
           {featuredPost && (
             <section className="max-w-6xl mx-auto px-6 mb-24">
-              <div className="overflow-hidden rounded-xl bg-white shadow-md">
-                <Link href={`/blog/${featuredPost.slug || featuredPost.id}`}>
-                  <div className="group relative w-full aspect-[16/9] cursor-pointer overflow-hidden">
+              <Link
+                href={`/blog/${featuredPost.slug || featuredPost.id}`}
+                className="block cursor-pointer group rounded-xl hover:shadow-lg transition-all duration-300"
+              >
+                <div className="overflow-hidden rounded-xl bg-white shadow-md">
+                  <div className="relative w-full aspect-[16/9] overflow-hidden">
                     <Image
                       src={getPostImage(featuredPost)}
                       alt={featuredPost.title}
@@ -139,24 +142,24 @@ export default function BlogPage() {
                       unoptimized
                     />
                   </div>
-                </Link>
 
-                <div className="p-6 md:p-8">
-                  <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#84cc16]">
-                    {featuredPost.category}
-                  </div>
-                  <h3 className="mb-4 font-serif text-3xl leading-tight text-[#A66A44] md:text-4xl">
-                    {featuredPost.title}
-                  </h3>
-                  <p className="mb-8 text-sm leading-relaxed text-[#4A4A4A] md:text-base line-clamp-4">
-                    {stripHtml(featuredPost.content_1)}
-                  </p>
-                  <div className="mt-auto flex items-center justify-between border-t border-gray-100 pt-4 text-xs font-medium text-gray-500">
-                    <span>{new Date(featuredPost.created_at).toLocaleDateString('vi-VN')}</span>
-                    <span>{featuredPost.author_name ? `By ${featuredPost.author_name}` : 'By Sivananda Yoga Farm Podcast'}</span>
+                  <div className="p-6 md:p-8">
+                    <div className="mb-3 text-xs font-semibold uppercase tracking-wider text-[#84cc16]">
+                      {featuredPost.category}
+                    </div>
+                    <h3 className="mb-4 font-serif text-3xl leading-tight text-[#A66A44] group-hover:text-[#093C0C] transition-colors md:text-4xl">
+                      {featuredPost.title}
+                    </h3>
+                    <p className="mb-8 text-sm leading-relaxed text-[#4A4A4A] md:text-base line-clamp-4">
+                      {stripHtml(featuredPost.content_1)}
+                    </p>
+                    <div className="mt-auto flex items-center justify-between border-t border-gray-100 pt-4 text-xs font-medium text-gray-500">
+                      <span>{new Date(featuredPost.created_at).toLocaleDateString('vi-VN')}</span>
+                      <span>{featuredPost.author_name ? `By ${featuredPost.author_name}` : 'By Sivananda Yoga Farm Podcast'}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </section>
           )}
 

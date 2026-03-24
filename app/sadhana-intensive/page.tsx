@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AccommodationCost from "@/components/AccommodationCost";
@@ -11,6 +11,10 @@ import StudentFeedback from "@/components/StudentFeedback";
 import Image from "next/image";
 
 export default function SadhanaIntensivePage() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, []);
+
   return (
     <main className="flex min-h-screen flex-col bg-[#FDFCF8]">
       <Header />
