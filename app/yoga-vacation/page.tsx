@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import DailySchedule from "@/components/DailySchedule";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import AccommodationCost from "@/components/AccommodationCost";
-import BoutiqueSection from "@/components/BoutiqueSection";
+import TheBoutique from "@/components/TheBoutique";
 import TestimonialSection from "@/components/TestimonialSection";
 import YogaVacationBreathSections from "@/components/YogaVacationBreathSections";
 
@@ -108,7 +108,7 @@ export default function YogaVacationPage() {
         <DailySchedule />
         <UpcomingEvents />
         <AccommodationCost />
-        <BoutiqueSection />
+        <TheBoutique />
         <TestimonialSection />
       </main>
       <Footer />

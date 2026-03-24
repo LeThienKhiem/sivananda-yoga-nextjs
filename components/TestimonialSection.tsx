@@ -26,9 +26,7 @@ export default function TestimonialSection() {
             Yoga Lifestyle Immersion
           </p>
           <div className="max-w-3xl border-l-2 border-white/50 pl-6 text-lg lg:text-xl leading-relaxed italic">
-            The residential program provides you with a full immersion in the
-            yoga lifestyle. In addition to accommodations at the Resort, you
-            participate in all programs and classes…
+            The residential program provides you with a full immersion in the yoga lifestyle. In addition to accommodations at the Resort, you participate in all programs and classes. This includes a daily schedule of yoga asana classes, morning and evening meditation and devotional practices, daily workshops, and selfless service/Karma Yoga for one hour per day. During your stay, you are exposed to classical Vedic philosophy and teachings. Previous experience with yoga or Sivananda Yoga is not required, simply a willingness to learn and fully participate.
           </div>
           <a
             href="https://sivanandayogavietnam.secure.retreat.guru/program/vacation/?form=1&lang=en"
