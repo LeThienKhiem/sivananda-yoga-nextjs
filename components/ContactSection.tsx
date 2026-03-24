@@ -6,7 +6,7 @@ import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 const MAP_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.1705180420518!2d108.40943882757809!3d11.893211977453623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31716b4497e28829%3A0xb444a7f1b6fbde20!2sSivananda%20Yoga%20Resort%20and%20Training%20center!5e0!3m2!1sen!2sus!4v1772846539123!5m2!1sen!2sus";
 
-const MAPS_URL = "https://maps.app.goo.gl/35p4WpG6yA4Kz9h88";
+const MAPS_URL = "https://maps.app.goo.gl/8xq1fn4onFMc6DJHA";
 const TEL_HREF = "tel:02636501100";
 const MAILTO_HREF = "mailto:vietnamyogaresort@sivananda.org";
 

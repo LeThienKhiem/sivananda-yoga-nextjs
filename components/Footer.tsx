@@ -32,7 +32,7 @@ const FOOTER_LINK =
   "text-white transition hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50";
 
 /** Google Maps short link for Sivananda Yoga Resort Vietnam */
-const MAPS_URL = "https://maps.app.goo.gl/35p4WpG6yA4Kz9h88";
+const MAPS_URL = "https://maps.app.goo.gl/8xq1fn4onFMc6DJHA";
 const TEL_HREF = "tel:02636501100";
 const MAILTO_HREF = "mailto:vietnamyogaresort@sivananda.org";
 

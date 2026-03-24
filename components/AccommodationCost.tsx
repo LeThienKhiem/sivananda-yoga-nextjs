@@ -44,12 +44,38 @@ const accommodations = [
 ];
 
 export default function AccommodationCost() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeAcc = accommodations[activeIndex];
+  const [activeTab, setActiveTab] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
+  const activeAcc = accommodations[activeTab];
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      setActiveTab((prev) => (prev < accommodations.length - 1 ? prev + 1 : prev));
+    }
+    if (isRightSwipe) {
+      setActiveTab((prev) => (prev > 0 ? prev - 1 : prev));
+    }
+  };
+
   useEffect(() => {
-    const el = tabRefs.current[activeIndex];
+    const el = tabRefs.current[activeTab];
     if (!el) return;
     const mq = window.matchMedia("(max-width: 767px)");
     if (!mq.matches) return;
@@ -58,7 +84,7 @@ export default function AccommodationCost() {
       block: "nearest",
       behavior: "smooth",
     });
-  }, [activeIndex]);
+  }, [activeTab]);
 
   return (
     <section className="w-full min-w-0 overflow-x-visible bg-[#FDFCF8] px-6 py-24">
@@ -87,7 +113,7 @@ export default function AccommodationCost() {
             className="inline-flex flex-nowrap gap-2 md:flex md:w-full md:min-w-0 md:gap-4"
           >
             {accommodations.map((acc, index) => {
-              const isActive = activeIndex === index;
+              const isActive = activeTab === index;
               return (
                 <button
                   key={acc.id}
@@ -97,7 +123,7 @@ export default function AccommodationCost() {
                   type="button"
                   role="tab"
                   aria-selected={isActive}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => setActiveTab(index)}
                   className={`min-w-[140px] shrink-0 rounded-t-sm border-b-4 px-5 py-4 text-center transition-all duration-300 sm:min-w-[160px] md:min-w-0 md:flex-1 md:px-6
                   ${isActive
                     ? "border-[#0B3B24] bg-[#F4F7F0] text-[#0B3B24]"
@@ -116,7 +142,12 @@ export default function AccommodationCost() {
         </div>
 
         {/* Content Area */}
-        <div className="flex min-h-[500px] flex-col overflow-hidden rounded-sm bg-[#4F6F1F] shadow-2xl md:flex-row">
+        <div
+          className="flex min-h-[500px] flex-col overflow-hidden rounded-sm bg-[#4F6F1F] shadow-2xl md:flex-row"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           {/* Left: Image (Top on mobile) */}
           <div className="relative aspect-[4/3] w-full md:w-[60%] md:aspect-auto">
             <Image

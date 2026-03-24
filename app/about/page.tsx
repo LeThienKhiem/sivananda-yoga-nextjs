@@ -560,9 +560,9 @@ export default function AboutPage() {
             {/* Title */}
             <div className="w-full md:w-1/3 lg:w-1/4">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[#0B3B24] font-bold leading-tight">
-                Mission<br className="hidden md:block" />
-                Beyond<br className="hidden md:block" />
-                Borders
+                Mission <br className="hidden md:block" />
+                Beyond <br className="hidden md:block" />
+                Borders 
               </h2>
             </div>
             {/* Description */}

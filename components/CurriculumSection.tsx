@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { X } from "lucide-react";
 
 const curriculumData = [
   {
@@ -247,6 +248,14 @@ export default function CurriculumSection() {
             role="dialog"
             aria-labelledby="modal-title"
           >
+            <button
+              type="button"
+              onClick={closeModal}
+              className="absolute top-3 right-3 md:top-4 md:right-4 p-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-full z-50 transition-colors"
+              aria-label="Close"
+            >
+              <X className="h-5 w-5" />
+            </button>
             <div className="overflow-y-auto overscroll-contain flex-1 min-h-0">
               <div className="relative aspect-[4/3] w-full bg-gray-200">
                 <Image
