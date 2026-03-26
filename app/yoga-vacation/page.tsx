@@ -37,12 +37,12 @@ export default function YogaVacationPage() {
       <main className="flex-grow flex flex-col w-full">
         {/* 1. HERO BANNER (Exact clone of Home Page structure) */}
         <section className="relative w-full overflow-hidden">
-          <div className="relative h-[78vh] min-h-[560px] w-full overflow-hidden md:h-[80vh] md:min-h-[640px]">
+          <div className="relative min-h-[100dvh] w-screen overflow-hidden">
             <Image
               src={HERO_IMAGE_URL}
               alt="Yoga Vacation in Da Lat"
               fill
-              className="block h-full w-full object-cover animate-zoom-out-8s"
+              className="absolute inset-0 z-0 h-full w-full object-cover animate-zoom-out-8s"
               priority
               sizes="100vw"
             />
