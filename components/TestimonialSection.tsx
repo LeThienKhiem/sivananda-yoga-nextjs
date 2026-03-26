@@ -9,7 +9,7 @@ export default function TestimonialSection() {
   return (
     <section className="relative w-full flex flex-col min-h-[500px] bg-[#FDFCF8] overflow-hidden">
       {/* Top Banner - Image & Program Info */}
-      <div className="relative w-full h-[50vh] min-h-[400px] text-white px-6 lg:px-24 pt-16 pb-20 flex flex-col justify-start z-0">
+      <div className="relative z-0 flex min-h-[600px] h-[70vh] w-full flex-col justify-start px-6 pb-12 pt-16 text-white lg:px-24">
         <Image
           src={BANNER_IMAGE_URL}
           fill
@@ -32,19 +32,16 @@ export default function TestimonialSection() {
             href="https://sivanandayogavietnam.secure.retreat.guru/program/vacation/?form=1&lang=en"
             target="_blank"
             rel="noopener noreferrer"
+            className="mt-12 inline-block text-center"
           >
             <button
               type="button"
-              className="border border-[#ED7D4D] text-[#ED7D4D] bg-white px-10 py-4 font-bold tracking-widest uppercase hover:bg-[#ED7D4D] hover:text-white transition-colors mb-4 inline-block text-center mt-10"
+              className="inline-block bg-[#ED7D4D] px-10 py-4 font-bold uppercase tracking-widest text-white transition-colors hover:bg-orange-600"
             >
               REGISTER NOW
             </button>
           </a>
         </div>
-      </div>
-
-      {/* CTA (Bottom Section) */}
-      <div className="flex flex-col items-center lg:items-end w-full px-6 lg:px-24 xl:px-32 pt-12 pb-16 z-10 flex-1">
       </div>
     </section>
   );

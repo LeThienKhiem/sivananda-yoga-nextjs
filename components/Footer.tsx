@@ -6,7 +6,6 @@ import {
   Facebook,
   Instagram,
   Youtube,
-  Music,
 } from "lucide-react";
 
 /** Spotify logo - three curved bars in a circle */
@@ -77,38 +76,42 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="flex items-center justify-center gap-6">
+        <div className="flex items-center justify-center gap-6 text-white">
           <a
             href="https://www.facebook.com/vietnamyogaresort"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
+            className="transition-transform hover:scale-110 hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           >
-            <Facebook className="h-6 w-6" />
+            <Facebook className="h-9 w-9 text-white" />
           </a>
           <a
             href="https://www.instagram.com/sivanandayoga_dalatashram/?hl=en"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
+            className="transition-transform hover:scale-110 hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           >
-            <Instagram className="h-6 w-6" />
+            <Instagram className="h-9 w-9 text-white" />
           </a>
           <a
             href="https://www.youtube.com/@SivanandaYogaVietnam"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="YouTube"
+            className="transition-transform hover:scale-110 hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           >
-            <Youtube className="h-6 w-6" />
+            <Youtube className="h-9 w-9 text-white" />
           </a>
           <a
             href="https://open.spotify.com/show/36HOTjwBmIAK3kXt0jaYPC?si=62a0c9901f104891"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Spotify"
+            className="transition-transform hover:scale-110 hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           >
-            <SpotifyIcon className="h-6 w-6" />
+            <SpotifyIcon className="h-9 w-9 text-white" />
           </a>
         </div>
 
@@ -232,42 +235,42 @@ export default function Footer() {
 
             {/* Bottom Bar: The Horizon */}
             <div className="border-t border-white/5 pt-12 mt-10 flex flex-col md:flex-row justify-end items-center gap-6">
-              <div className="flex gap-8 text-gray-500">
+              <div className="flex gap-8 text-white">
                 <a
                   href="https://www.facebook.com/vietnamyogaresort"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-all text-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="text-white transition-transform hover:scale-110 hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   aria-label="Facebook"
                 >
-                  <Facebook className="w-5 h-5" />
+                  <Facebook className="h-[30px] w-[30px] text-white" />
                 </a>
                 <a
                   href="https://www.instagram.com/sivanandayoga_dalatashram/?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-all text-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="text-white transition-transform hover:scale-110 hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   aria-label="Instagram"
                 >
-                  <Instagram className="w-5 h-5" />
+                  <Instagram className="h-[30px] w-[30px] text-white" />
                 </a>
                 <a
                   href="https://www.youtube.com/@SivanandaYogaVietnam"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-all text-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="text-white transition-transform hover:scale-110 hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   aria-label="YouTube"
                 >
-                  <Youtube className="w-5 h-5" />
+                  <Youtube className="h-[30px] w-[30px] text-white" />
                 </a>
                 <a
                   href="https://open.spotify.com/show/36HOTjwBmIAK3kXt0jaYPC?si=62a0c9901f104891"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-all text-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  className="text-white transition-transform hover:scale-110 hover:text-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   aria-label="Spotify"
                 >
-                  <SpotifyIcon className="w-5 h-5" />
+                  <SpotifyIcon className="h-[30px] w-[30px] text-white" />
                 </a>
               </div>
             </div>
