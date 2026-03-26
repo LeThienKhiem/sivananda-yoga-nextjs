@@ -54,6 +54,17 @@ export default function OurTeachersPage() {
         <p className="text-[#4A4A4A] leading-relaxed text-base md:text-lg">
           Our team of international teachers and dedicated staff at Sivananda Yoga Dalat Resort & Training Center, as well as our centers across Vietnam, is committed to carrying forward the authentic lineage of classical yoga. With deep knowledge, compassion, and a spirit of selfless service, they are here to guide your journey of self-discovery, healing, and transformation.
         </p>
+
+        <div className="mx-auto mt-12 flex max-w-2xl flex-col items-center px-4 text-center">
+          <p className="text-lg italic leading-relaxed text-[#0B3B24] md:text-xl">
+            &quot;I have given you all I have with all my heart and love.
+            <br />
+            It is up to you to give to others&quot;
+          </p>
+          <p className="mt-4 text-sm font-medium uppercase tracking-[0.2em] text-gray-600">
+            — Swami Vishnudevananda —
+          </p>
+        </div>
       </section>
 
       {/* 3. SENIOR TEACHERS SECTION */}
