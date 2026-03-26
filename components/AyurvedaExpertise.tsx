@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const expertiseCards = [
@@ -11,7 +12,7 @@ const expertiseCards = [
       "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ayurveda-05.png",
     description:
       "This 7-day detox retreat is a harmonious blend of Yoga – Ayurveda – Meditation – Nutrition – Natural Therapy, designed to help your body rest, cleanse, and restore inner balance.\n\nThis is your opportunity to gift yourself a week of rejuvenation in the peaceful pine forests of Da Lat.",
-    link: "/syhet-courses",
+    link: "/detoxification",
   },
   {
     id: 2,
@@ -20,7 +21,7 @@ const expertiseCards = [
       "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/ayurveda-06.png",
     description:
       "An intensive training course with a 100-hour certification issued by Vaidyagrama Ayurveda Healing Village (India) in collaboration with Sivananda Yoga. This course is open to anyone wishing to experience the classical Yoga & Ayurveda lifestyle. It offers foundational Ayurvedic knowledge to enhance physical and mental well-being, and equips participants to apply and share these teachings to benefit their communities.",
-    link: "/syhet-courses",
+    link: "/100-foundation-ayurveda",
   },
 ];
 
@@ -67,13 +68,13 @@ export default function AyurvedaExpertise() {
               <div className="text-gray-600 text-base leading-relaxed whitespace-pre-line mb-8 flex-grow">
                 {card.description}
               </div>
-              <a
+              <Link
                 href={card.link}
                 className="mx-auto flex items-center justify-center w-12 h-12 bg-[#ED7D4D] text-white rounded-full hover:bg-orange-600 transition-colors"
                 aria-label={`Learn more about ${card.title}`}
               >
                 <ArrowRight className="w-5 h-5" />
-              </a>
+              </Link>
             </div>
           </div>
         ))}

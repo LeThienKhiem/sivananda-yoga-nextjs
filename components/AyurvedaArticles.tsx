@@ -84,16 +84,10 @@ export default function AyurvedaArticles() {
     <section className="bg-[#FDFCF8] py-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
+        <div className="mb-10">
           <h2 className="text-3xl font-serif text-[#0B3B24] font-bold">
             Ayurveda Articles
           </h2>
-          <Link
-            href="#"
-            className="bg-[#FDF9EB] text-[#8C9A5B] px-6 py-2 rounded-md text-base font-medium border border-[#E5DFCC] hover:bg-[#F2ECD8] transition-colors shrink-0"
-          >
-            View All
-          </Link>
         </div>
 
         {/* Masonry grid: 1 col mobile, 2 tablet, 3 desktop — pure Tailwind columns + break-inside-avoid */}
@@ -133,6 +127,15 @@ export default function AyurvedaArticles() {
               </article>
             </Link>
           ))}
+        </div>
+
+        <div className="w-full flex justify-center mt-10 md:mt-12">
+          <Link
+            href="/syhet-courses"
+            className="bg-[#FDF9EB] text-[#8C9A5B] px-6 py-2 rounded-md text-base font-medium border border-[#E5DFCC] hover:bg-[#F2ECD8] transition-colors shrink-0"
+          >
+            View All
+          </Link>
         </div>
       </div>
     </section>
