@@ -40,9 +40,9 @@ const footerContactClass = `${FOOTER_LINK} text-inherit hover:opacity-90`;
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden bg-[#072212]">
+    <footer className="relative w-full overflow-hidden bg-[#022402]">
       {/* Mobile-only: solid green layout */}
-      <div className="flex flex-col items-center gap-8 px-4 py-12 text-center text-white md:hidden bg-[#6B894E]">
+      <div className="flex flex-col items-center gap-8 px-4 py-12 text-center text-white md:hidden bg-[#022402]">
         <div className="flex w-full justify-center">
           <img
             src={FOOTER_LOGO_URL}
@@ -121,111 +121,112 @@ export default function Footer() {
         </p>
       </div>
 
-      {/* Desktop: natural full-size image, content overlay; no crop, no phantom line */}
-      <div className="hidden md:block relative w-full mt-auto">
+      {/* Tablet + Desktop: scenic band (md: 75/25 split), green fill below */}
+      <div className="relative z-0 mt-auto hidden w-full overflow-hidden md:min-h-[600px] md:block">
         <img
           src={BANNER_URL}
-          className="w-full h-auto block m-0 p-0 align-bottom"
+          className="pointer-events-none absolute left-0 top-0 z-0 h-[500px] w-full object-cover object-top md:h-[600px] lg:relative lg:left-auto lg:top-auto lg:z-0 lg:h-auto lg:w-full"
           alt="Footer Background"
         />
-        <div className="absolute inset-0 w-full h-full flex flex-col justify-end z-10 pointer-events-none">
-          <div className="w-full max-w-7xl mx-auto pt-32 pb-20 px-8 md:px-16 pointer-events-auto">
-            {/* Asymmetric 12-Column Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-20 items-start">
+        {/* md: unified centered column + 75% offset; lg: unchanged overlay bottom alignment */}
+        <div className="relative z-10 flex w-full flex-col items-center pb-12 pt-10 md:pt-[450px] lg:pointer-events-none lg:absolute lg:inset-0 lg:flex lg:flex-col lg:items-stretch lg:justify-end lg:pb-0 lg:pt-0">
+          <div className="pointer-events-auto mx-auto flex w-full max-w-7xl flex-col items-center gap-y-6 px-4 pb-12 md:gap-y-8 md:px-8 md:pb-20 lg:items-stretch lg:px-16 lg:pb-20 lg:pt-32">
+            {/* Asymmetric 12-Column Grid — md: single centered column; lg: two-column desktop */}
+            <div className="grid w-full grid-cols-1 items-center gap-y-20 md:items-center lg:grid-cols-12 lg:items-start">
               {/* Column 1: Identity Block (Contact) */}
-              <div className="lg:col-span-5">
-                <h5 className="text-[10px] tracking-[0.5em] text-orange-500 mb-6 uppercase">
+              <div className="flex w-full flex-col items-center text-center md:items-center md:text-center lg:col-span-5 lg:block lg:items-start lg:text-left">
+                <h5 className="mb-6 text-[10px] uppercase tracking-[0.5em] text-orange-500">
                   CONNECT
                 </h5>
-                <div className="flex flex-col space-y-8 text-white text-lg leading-relaxed tracking-wide">
+                <div className="flex w-full flex-col items-center space-y-8 text-center text-lg leading-relaxed tracking-wide text-white md:items-center md:text-center lg:items-start lg:text-left">
                   <a
                     href={MAPS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-3 hover:opacity-90 transition-opacity"
+                    className="flex items-start gap-3 transition-opacity hover:opacity-90 md:flex-col md:items-center md:text-center lg:flex-row lg:items-start lg:text-left"
                   >
-                    <MapPin className="mt-0.5 w-4 h-4 shrink-0 text-orange-500" />
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-orange-500 lg:mt-0.5" />
                     <span className="whitespace-pre-line">
                       Hoa Hong Street{"\n"}Ward 4, Tuyen Lam Lake{"\n"}Da Lat, Vietnam
                     </span>
                   </a>
                   <a
                     href={TEL_HREF}
-                    className="flex items-center gap-3 hover:opacity-90 transition-opacity"
+                    className="flex items-center gap-3 transition-opacity hover:opacity-90 md:flex-col md:items-center lg:flex-row"
                   >
-                    <Phone className="w-4 h-4 shrink-0 text-orange-500" />
+                    <Phone className="h-4 w-4 shrink-0 text-orange-500" />
                     <span>02636501100</span>
                   </a>
                   <a
                     href={MAILTO_HREF}
-                    className="flex items-center gap-3 hover:opacity-90 transition-opacity"
+                    className="flex items-center gap-3 transition-opacity hover:opacity-90 md:flex-col md:items-center lg:flex-row"
                   >
-                    <Mail className="w-4 h-4 shrink-0 text-orange-500" />
+                    <Mail className="h-4 w-4 shrink-0 text-orange-500" />
                     <span>vietnamyogaresort@sivananda.org</span>
                   </a>
                 </div>
               </div>
 
               {/* Column 2: Navigation Cluster */}
-              <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
+              <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-y-12 px-4 md:grid-cols-1 lg:col-span-7 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0 lg:px-0">
                 {/* Yoga Teaching */}
-                <div className="border-t border-white/20 pt-4">
-                  <h4 className="text-orange-500 text-xs font-light tracking-[0.3em] uppercase mb-10">
+                <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+                  <h4 className="mb-10 text-xs font-light uppercase tracking-[0.3em] text-orange-500 md:text-white lg:text-orange-500">
                     Yoga Teaching
                   </h4>
-                  <nav className="flex flex-col space-y-4">
-                    <Link href="/yoga-vacation" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                  <nav className="flex flex-col space-y-4 md:items-center lg:items-start">
+                    <Link href="/yoga-vacation" className="text-center text-sm text-gray-400 transition-all duration-500 hover:translate-x-1 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-left">
                       Explore Yoga Vacation
                     </Link>
-                    <Link href="/sivananda-teachings" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                    <Link href="/sivananda-teachings" className="text-center text-sm text-gray-400 transition-all duration-500 hover:translate-x-1 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-left">
                       Classical Yoga Teaching
                     </Link>
-                    <Link href="/programs" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                    <Link href="/programs" className="text-center text-sm text-gray-400 transition-all duration-500 hover:translate-x-1 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-left">
                       Ancient Yoga Foundation
                     </Link>
-                    <Link href="/programs" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                    <Link href="/programs" className="text-center text-sm text-gray-400 transition-all duration-500 hover:translate-x-1 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-left">
                       5 points 4 paths of Yoga
                     </Link>
                   </nav>
                 </div>
 
                 {/* Yoga Vacation */}
-                <div className="border-t border-white/20 pt-4">
-                  <h4 className="text-orange-500 text-xs font-light tracking-[0.3em] uppercase mb-10">
+                <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+                  <h4 className="mb-10 text-xs font-light uppercase tracking-[0.3em] text-orange-500 md:text-white lg:text-orange-500">
                     Yoga Vacation
                   </h4>
-                  <nav className="flex flex-col space-y-4">
-                    <Link href="/accommodations" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                  <nav className="flex flex-col space-y-4 md:items-center lg:items-start">
+                    <Link href="/accommodations" className="text-center text-sm text-gray-400 transition-all duration-500 hover:translate-x-1 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-left">
                       Accommodation
                     </Link>
-                    <Link href="/guest-information" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                    <Link href="/guest-information" className="text-center text-sm text-gray-400 transition-all duration-500 hover:translate-x-1 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-left">
                       Transportation & Arrival
                     </Link>
-                    <Link href="/guest-information" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                    <Link href="/guest-information" className="text-center text-sm text-gray-400 transition-all duration-500 hover:translate-x-1 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-left">
                       Planning Your Stay
                     </Link>
-                    <Link href="/accommodations" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                    <Link href="/accommodations" className="text-center text-sm text-gray-400 transition-all duration-500 hover:translate-x-1 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-left">
                       Dining & Boutique
                     </Link>
                   </nav>
                 </div>
 
                 {/* Information */}
-                <div className="border-t border-white/20 pt-4">
-                  <h4 className="text-orange-500 text-xs font-light tracking-[0.3em] uppercase mb-10">
+                <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+                  <h4 className="mb-10 text-xs font-light uppercase tracking-[0.3em] text-orange-500 md:text-white lg:text-orange-500">
                     Information
                   </h4>
-                  <nav className="flex flex-col space-y-4">
-                    <Link href="/frequently-asked-questions" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                  <nav className="flex flex-col space-y-4 md:items-center lg:items-start">
+                    <Link href="/frequently-asked-questions" className="text-center text-sm text-gray-400 transition-all duration-500 hover:translate-x-1 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-left">
                       FAQs
                     </Link>
-                    <Link href="/misconduct-policy" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                    <Link href="/misconduct-policy" className="text-center text-sm text-gray-400 transition-all duration-500 hover:translate-x-1 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-left">
                       Misconduct Policy
                     </Link>
-                    <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                    <Link href="/privacy-policy" className="text-center text-sm text-gray-400 transition-all duration-500 hover:translate-x-1 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-left">
                       Privacy Policy
                     </Link>
-                    <Link href="/donation" className="text-gray-400 hover:text-white transition-all duration-500 text-sm hover:translate-x-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50">
+                    <Link href="/donation" className="text-center text-sm text-gray-400 transition-all duration-500 hover:translate-x-1 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50 lg:text-left">
                       Donation
                     </Link>
                   </nav>
@@ -234,7 +235,7 @@ export default function Footer() {
             </div>
 
             {/* Bottom Bar: The Horizon */}
-            <div className="border-t border-white/5 pt-12 mt-10 flex flex-col md:flex-row justify-end items-center gap-6">
+            <div className="flex flex-col items-center justify-center gap-6 border-t border-white/5 pt-12 md:flex-row lg:justify-end">
               <div className="flex gap-8 text-white">
                 <a
                   href="https://www.facebook.com/vietnamyogaresort"
@@ -279,11 +280,11 @@ export default function Footer() {
       </div>
 
       {/* Sivananda Logo - majestic watermark at base */}
-      <div className="hidden md:flex w-full justify-center mt-0 relative z-10 bg-[#072212] pb-20">
+      <div className="relative z-10 mt-12 hidden w-full flex-col items-center justify-center bg-[#022402] px-8 pb-24 pt-10 md:mt-20 md:flex md:px-12 md:pb-28 md:pt-12 lg:mt-10 lg:px-16 lg:pb-20 lg:pt-8">
         <img
           src={FOOTER_LOGO_URL}
           alt="Sivananda Yoga Footer Logo"
-          className="w-full max-w-[1000px] h-auto opacity-[0.45] grayscale brightness-200 pointer-events-none"
+          className="mx-auto h-auto w-full max-w-[1000px] opacity-[0.45] grayscale brightness-200 pointer-events-none"
         />
       </div>
     </footer>
