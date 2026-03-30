@@ -11,7 +11,7 @@ export default function PackageInclusion() {
           <ul className="space-y-6 text-[#4A4A4A] text-lg md:text-xl">
             <li className="flex items-center gap-4">
               <div className="w-5 h-5 rounded-full border-2 border-[#0B3B24] flex-shrink-0" />
-              <span>Accommodation for [28] nights and Tuition</span>
+              <span>Accommodation for 28 nights and Tuition</span>
             </li>
             <li className="flex items-center gap-4">
               <div className="w-5 h-5 rounded-full border-2 border-[#0B3B24] flex-shrink-0" />

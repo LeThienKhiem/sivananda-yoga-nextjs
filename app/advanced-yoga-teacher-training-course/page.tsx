@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import SeniorTeachers from "@/components/SeniorTeachers";
 import AshramGallery from "@/components/AshramGallery";
 import PackageInclusion from "@/components/PackageInclusion";
+import StudentFeedback from "@/components/StudentFeedback";
 import { GraduationCap, Globe } from "lucide-react";
 
 const HERO_IMAGE_URL =
@@ -279,11 +280,11 @@ export default function AdvancedTeacherTrainingPage() {
               The Upcoming [Course] in Dalat, Vietnam
             </h2>
             <p className="text-xl md:text-2xl text-[#0B3B24] font-bold mb-10">
-              Date Month Year
+              
             </p>
 
             <p className="text-[#4A4A4A] italic mb-2 font-medium">
-              &quot;Quote&quot;
+              
             </p>
             <p className="text-base md:text-base text-[#4A4A4A] mb-12">
               – Swami Sivananda in &quot;Sivananda Upanishad&quot;
@@ -473,6 +474,8 @@ export default function AdvancedTeacherTrainingPage() {
         </section>
 
         <SeniorTeachers />
+
+        <StudentFeedback />
 
         <AshramGallery />
       </main>
