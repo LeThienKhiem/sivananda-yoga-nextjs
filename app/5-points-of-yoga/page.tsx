@@ -146,33 +146,32 @@ export default function FivePointsOfYogaPage() {
           </div>
         </section>
 
-        {/* Point 1: Proper Exercise (Asana) */}
+        {/* Point 1a: Proper Exercise – Asana (full-bleed; matches Proper Diet–style layout, textbox right) */}
+        <section className="relative w-full h-[909px] flex items-center justify-end px-4 md:px-16 lg:px-24 overflow-hidden">
+          <Image
+            src={IMG_ASANA}
+            alt="Yoga asana — proper exercise, release tension and flexibility"
+            fill
+            className="absolute inset-0 z-0 h-full w-full object-cover"
+            sizes="100vw"
+            priority={false}
+          />
+          <div className="relative z-10 w-full bg-[#1a3824]/90 p-8 text-white md:w-[500px] md:p-12 lg:w-[600px]">
+            <h2 className="mb-2 font-serif text-3xl font-bold text-white">
+              Proper Exercise – Asana
+            </h2>
+            <p className="mb-6 italic text-gray-200">
+              Release Tension and Build Flexibility Without Fatigue
+            </p>
+            <p className="text-lg leading-relaxed text-white">
+              Proper exercise acts as a lubricating mechanism for the joints, muscles, ligaments, tendons, and other parts of the body, by increasing circulation and flexibility. The fundamental difference between Yogic exercises and ordinary physical exercise is that physical exercise emphasizes violent movements of the muscles, while Yogic exercises promote slow and conscious movements of the body, thus avoiding the build-up of lactic acid in the muscle fibers, avoiding fatigue.
+            </p>
+          </div>
+        </section>
+
+        {/* Point 1: remaining subsections */}
         <section className="bg-[#FDFCF8] py-24 px-6">
           <div className="max-w-7xl mx-auto flex flex-col gap-24 md:gap-32">
-            {/* 1. Proper Exercise – Asana (Text left, Image right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <h2 className="text-[#0B3B24] font-serif text-3xl font-bold mb-2">
-                  Proper Exercise – Asana
-                </h2>
-                <p className="text-gray-500 italic mb-6">
-                  Release Tension and Build Flexibility Without Fatigue
-                </p>
-                <p className="text-[#4A4A4A] text-lg leading-relaxed max-w-xl">
-                  Proper exercise acts as a lubricating mechanism for the joints, muscles, ligaments, tendons, and other parts of the body, by increasing circulation and flexibility. The fundamental difference between Yogic exercises and ordinary physical exercise is that physical exercise emphasizes violent movements of the muscles, while Yogic exercises promote slow and conscious movements of the body, thus avoiding the build-up of lactic acid in the muscle fibers, avoiding fatigue.
-                </p>
-              </div>
-              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
-                <Image
-                  src={IMG_ASANA}
-                  alt="Yoga asana — proper exercise, release tension and flexibility"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-
             {/* 2. Conscious Movements (Image left, Text right) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md order-2 lg:order-1">
@@ -247,34 +246,33 @@ export default function FivePointsOfYogaPage() {
           </div>
         </section>
 
-        {/* Point 2: Proper Breathing (Pranayama) */}
+        {/* Point 2a: Proper Breathing – Pranayama (full-bleed; textbox left) */}
+        <section className="relative w-full h-[909px] flex items-center justify-start px-4 md:px-16 lg:px-24 overflow-hidden">
+          <Image
+            src={IMG_PRANAYAMA}
+            alt="Woman practicing alternate nostril breathing — pranayama, full yogic breath"
+            fill
+            className="absolute inset-0 z-0 h-full w-full object-cover"
+            sizes="100vw"
+            priority={false}
+          />
+          <div className="relative z-10 w-full bg-[#1a3824]/90 p-8 text-white md:w-[500px] md:p-12 lg:w-[600px]">
+            <h2 className="mb-2 font-serif text-3xl font-bold text-white">
+              Proper Breathing – Pranayama
+            </h2>
+            <p className="mb-6 italic text-gray-200">
+              Recharging the Body&apos;s Battery through the Full Yogic Breath
+            </p>
+            <p className="text-lg leading-relaxed text-white">
+              Yoga emphasizes breathing correctly (the Yogic full breath using the diaphragm). We substantially increase the intake of oxygen through deep inhalation and release the toxins appropriately through our deep exhalation. Yoga teaches us to be constantly aware of our breathing patterns, and to breathe consciously in our daily life. Specific breathing techniques (pranayama) are devised to further purify the nadis, balance the breath and the energy in our system, and to store and channel the subtle energy (prana) for higher purposes.
+            </p>
+          </div>
+        </section>
+
+        {/* Point 2: remaining subsection — Balancing Ha-Tha */}
         <section className="bg-[#FDFCF8] py-24 px-6 border-t border-gray-100">
           <div className="max-w-7xl mx-auto flex flex-col gap-24 md:gap-32">
-            {/* 1. Proper Breathing – Pranayama (Text left, Image right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <h2 className="text-[#0B3B24] font-serif text-3xl font-bold mb-2">
-                  Proper Breathing – Pranayama
-                </h2>
-                <p className="text-gray-500 italic mb-6">
-                  Recharging the Body&apos;s Battery through the Full Yogic Breath
-                </p>
-                <p className="text-[#4A4A4A] text-lg leading-relaxed max-w-xl">
-                  Yoga emphasizes breathing correctly (the Yogic full breath using the diaphragm). We substantially increase the intake of oxygen through deep inhalation and release the toxins appropriately through our deep exhalation. Yoga teaches us to be constantly aware of our breathing patterns, and to breathe consciously in our daily life. Specific breathing techniques (pranayama) are devised to further purify the nadis, balance the breath and the energy in our system, and to store and channel the subtle energy (prana) for higher purposes.
-                </p>
-              </div>
-              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
-                <Image
-                  src={IMG_PRANAYAMA}
-                  alt="Woman practicing alternate nostril breathing — pranayama, full yogic breath"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-
-            {/* 2. Balancing Ha-Tha Vital Energy (Image left, Text right) */}
+            {/* Balancing Ha-Tha Vital Energy (Image left, Text right) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md order-2 lg:order-1">
                 <Image
@@ -297,34 +295,33 @@ export default function FivePointsOfYogaPage() {
           </div>
         </section>
 
-        {/* Point 3: Proper Relaxation (Savasana) */}
+        {/* Point 3a: Proper Relaxation – Savasana (full-bleed; textbox right) */}
+        <section className="relative w-full h-[909px] flex items-center justify-end px-4 md:px-16 lg:px-24 overflow-hidden">
+          <Image
+            src={IMG_SAVASANA}
+            alt="Savasana — proper relaxation, recharging body and mind"
+            fill
+            className="absolute inset-0 z-0 h-full w-full object-cover"
+            sizes="100vw"
+            priority={false}
+          />
+          <div className="relative z-10 w-full bg-[#1a3824]/90 p-8 text-white md:w-[500px] md:p-12 lg:w-[600px]">
+            <h2 className="mb-2 font-serif text-3xl font-bold text-white">
+              Proper Relaxation – Savasana
+            </h2>
+            <p className="mb-6 italic text-gray-200">
+              Recharging Body and Mind for Lasting Calm and Clarity
+            </p>
+            <p className="text-lg leading-relaxed text-white">
+              Relaxation techniques, such as Savasana, cool down the system like the radiator of a car. When the body and mind are constantly overworked, their efficiency diminishes. Relaxation is nature&apos;s way of recharging the body. The state of our mind and the state of our body are intimately linked. If your muscles are relaxed, then your mind must be relaxed. If the mind is anxious, then the body suffers too.
+            </p>
+          </div>
+        </section>
+
+        {/* Point 3: remaining subsection — 3 Levels of Relaxation */}
         <section className="bg-[#FDFCF8] py-24 px-6 border-t border-gray-100">
           <div className="max-w-7xl mx-auto flex flex-col gap-24 md:gap-32">
-            {/* 1. Proper Relaxation – Savasana (Text left, Image right) */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <div>
-                <h2 className="text-[#0B3B24] font-serif text-3xl font-bold mb-2">
-                  Proper Relaxation – Savasana
-                </h2>
-                <p className="text-gray-500 italic mb-6">
-                  Recharging Body and Mind for Lasting Calm and Clarity
-                </p>
-                <p className="text-[#4A4A4A] text-lg leading-relaxed max-w-xl">
-                  Relaxation techniques, such as Savasana, cool down the system like the radiator of a car. When the body and mind are constantly overworked, their efficiency diminishes. Relaxation is nature&apos;s way of recharging the body. The state of our mind and the state of our body are intimately linked. If your muscles are relaxed, then your mind must be relaxed. If the mind is anxious, then the body suffers too.
-                </p>
-              </div>
-              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md">
-                <Image
-                  src={IMG_SAVASANA}
-                  alt="Savasana — proper relaxation, recharging body and mind"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-
-            {/* 2. 3 Levels of Relaxation (Image left, Text right) */}
+            {/* 3 Levels of Relaxation (Image left, Text right) */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md order-2 lg:order-1">
                 <Image
