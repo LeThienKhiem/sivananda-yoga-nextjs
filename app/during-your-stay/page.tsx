@@ -6,14 +6,13 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { Check } from "lucide-react";
+import DailySchedule from "@/components/DailySchedule";
 
 // Image URLs
 const HERO_IMG =
   "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2000";
 const IMG_DAILY =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/during-stay-01.png";
-const IMG_SCHEDULE_INLINE =
-  "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/during-stay-02.png";
 const IMG_YOGA_CLASS =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/during-stay-03.png";
 const IMG_SAVASANA =
@@ -26,18 +25,6 @@ const IMG_RELAX_BACK =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-07.png";
 const IMG_RELAX_FACE =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/5-points-of-yoga-08.png";
-
-const schedule = [
-  { time: "5:30 am", activity: "Wake up bell" },
-  { time: "6:00 am", activity: "Satsang (Meditation, Chanting, Lecture)" },
-  { time: "8:00 am", activity: "Asana and Pranayama", hasImage: true },
-  { time: "10:00 am", activity: "Vegetarian Brunch" },
-  { time: "11:00 am", activity: "Karma Yoga" },
-  { time: "12:30 pm", activity: "Mandatory Coaching / Workshop" },
-  { time: "4:00 pm", activity: "Asana and Pranayama" },
-  { time: "6:00 pm", activity: "Vegetarian Dinner" },
-  { time: "8:00 pm", activity: "Satsang (Meditation, Chanting, Lecture)" },
-];
 
 const guidelines = [
   "Attendance at all satsangs and classes is mandatory.",
@@ -292,11 +279,14 @@ export default function DuringYourStayPage() {
                   school for the development of character and compassion.
                 </p>
               </div>
+              <p className="mt-4 font-semibold text-[#ED7D4D]">
+                — Swami Vishnudevananda —
+              </p>
               <Link
-                href="/sivananda-teachings"
-                className="mt-4 block font-semibold text-orange-500 transition-colors hover:text-orange-600"
+                href="/5-points-of-yoga"
+                className="inline-block mt-8 px-8 py-3 bg-[#ED7D4D] text-white font-semibold rounded hover:bg-[#d86b3c] transition-colors w-fit"
               >
-                — Swami Vishnudevananda — →
+                Read More
               </Link>
             </div>
           </div>
@@ -327,58 +317,11 @@ export default function DuringYourStayPage() {
       </section>
 
       {/* 4. DAILY SCHEDULE */}
-      <section className="max-w-7xl mx-auto py-24 px-6 w-full">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-20">
-          <div className="w-full lg:w-[45%]">
-            <h2 className="text-3xl font-serif text-[#0B3B24] font-bold mb-6">
-              Daily Schedule
-            </h2>
-            <p className="text-[#4A4A4A] leading-relaxed mb-10">
-              Our ashram daily schedule is based on the traditional gurukula system, providing a structured environment that supports your spiritual growth. The balanced daily routine of exercise, breathing, relaxation, diet, and meditation helps to calm the mind and energize the body.
-            </p>
-            <div className="relative w-full aspect-square md:aspect-[4/3] rounded-sm overflow-hidden shadow-lg">
-              <Image
-                src={IMG_DAILY}
-                alt="Daily Yoga Practice"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                unoptimized
-              />
-            </div>
-          </div>
-
-          <div className="w-full lg:w-[55%] flex flex-col justify-center border-t md:border-t-0 md:border-l border-gray-200 pt-10 md:pt-0 md:pl-10 lg:pl-16">
-            <div className="space-y-6">
-              {schedule.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6 pb-6 border-b border-gray-100 last:border-0 relative"
-                >
-                  <div className="w-24 flex-shrink-0 font-bold text-[#0B3B24] pt-1">
-                    {item.time}
-                  </div>
-                  <div className="flex-grow text-[#4A4A4A] pt-1">
-                    {item.activity}
-                    {item.hasImage && (
-                      <div className="mt-4 relative w-48 h-24 rounded-sm overflow-hidden shadow-sm hidden md:block">
-                        <Image
-                          src={IMG_SCHEDULE_INLINE}
-                          alt="Yoga Class"
-                          fill
-                          className="object-cover"
-                          sizes="192px"
-                          unoptimized
-                        />
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <DailySchedule
+        variant="split"
+        splitSideImageUrl={IMG_DAILY}
+        splitSideImageAlt="Daily Yoga Practice"
+      />
 
       {/* 4. GUIDELINES & PAYMENT POLICY */}
       <section className="bg-[#F4F7F0] py-24 px-6 w-full">

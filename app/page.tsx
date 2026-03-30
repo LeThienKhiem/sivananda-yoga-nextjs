@@ -8,6 +8,7 @@ import UpcomingEvents from "@/components/UpcomingEvents";
 import TestimonialsCarousel2 from "@/components/TestimonialsCarousel2";
 import YogaInsights from "@/components/YogaInsights";
 import Footer from "@/components/Footer";
+import HomepageCentersReveal from "@/components/HomepageCentersReveal";
 
 const HERO_IMAGE_URL =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/banner_hero_06.jpg";
@@ -94,7 +95,8 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Header />
-      <main className="min-h-screen bg-[#faf9f7] mb-0">
+      <main className="relative w-full bg-transparent">
+        <div className="relative z-10 bg-[#FDFCF8] rounded-b-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] mb-0">
         {/* Hero Banner — mobile: full-viewport height + text clears fixed header; desktop unchanged */}
         <section className="relative w-full h-auto overflow-hidden pt-0 md:pt-24 max-md:min-h-[100dvh]">
           <div className="relative w-full min-h-[100dvh] md:min-h-0 overflow-hidden md:-mt-[96px]">
@@ -550,6 +552,8 @@ export default function Home() {
         <YogaInsights />
 
         <Footer />
+        </div>
+        <HomepageCentersReveal />
       </main>
     </>
   );
