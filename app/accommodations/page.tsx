@@ -8,8 +8,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Wifi, Wind, Users, Droplets, Coffee } from "lucide-react";
 
-const BOOK_TTC_URL =
-  "https://sivanandayogavietnam.secure.retreat.guru/program/yoga-teachers-training-course-march-2026-2027/?form=1&lang=en";
+const BOOK_YOGA_VACATION_URL =
+  "https://sivanandayogavietnam.secure.retreat.guru/program/vacation/?lang=en";
 
 // --- IMAGE URLS (plain) ---
 const HERO_IMG =
@@ -241,7 +241,7 @@ export default function AccommodationsPage() {
 
               <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-gray-200 gap-4">
                 <p className="text-xl font-serif font-bold text-[#0B3B24]">{rooms[0].price}</p>
-                <Link href={BOOK_TTC_URL} target="_blank" rel="noopener noreferrer" className="bg-[#ED7D4D] text-white px-8 py-3 font-bold text-base tracking-widest uppercase rounded-sm hover:bg-orange-600 transition-colors w-full sm:w-auto text-center shadow-md inline-block">
+                <Link href={BOOK_YOGA_VACATION_URL} target="_blank" rel="noopener noreferrer" className="bg-[#ED7D4D] text-white px-8 py-3 font-bold text-base tracking-widest uppercase rounded-sm hover:bg-orange-600 transition-colors w-full sm:w-auto text-center shadow-md inline-block">
                   Book Now
                 </Link>
               </div>
@@ -275,7 +275,7 @@ export default function AccommodationsPage() {
 
               <div className="flex flex-col sm:flex-row items-center justify-between pt-6 border-t border-gray-200 gap-4">
                 <p className="text-xl font-serif font-bold text-[#0B3B24]">{rooms[1].price}</p>
-                <Link href={BOOK_TTC_URL} target="_blank" rel="noopener noreferrer" className="bg-[#ED7D4D] text-white px-8 py-3 font-bold text-base tracking-widest uppercase rounded-sm hover:bg-orange-600 transition-colors w-full sm:w-auto text-center shadow-md inline-block">
+                <Link href={BOOK_YOGA_VACATION_URL} target="_blank" rel="noopener noreferrer" className="bg-[#ED7D4D] text-white px-8 py-3 font-bold text-base tracking-widest uppercase rounded-sm hover:bg-orange-600 transition-colors w-full sm:w-auto text-center shadow-md inline-block">
                   Book Now
                 </Link>
               </div>
