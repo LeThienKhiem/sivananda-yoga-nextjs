@@ -3,12 +3,15 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 
-const MAP_EMBED_SRC =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.1705180420518!2d108.40943882757809!3d11.893211977453623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31716b4497e28829%3A0xb444a7f1b6fbde20!2sSivananda%20Yoga%20Resort%20and%20Training%20center!5e0!3m2!1sen!2sus!4v1772846539123!5m2!1sen!2sus";
+import {
+  CONTACT_INFO,
+  CONTACT_MAILTO_HREF,
+  CONTACT_MAP_EMBED_SRC,
+  CONTACT_TEL_HREF,
+  getContactAddressLines,
+} from "@/lib/contactInfo";
 
-const MAPS_URL = "https://maps.app.goo.gl/8xq1fn4onFMc6DJHA";
-const TEL_HREF = "tel:02636501100";
-const MAILTO_HREF = "mailto:vietnamyogaresort@sivananda.org";
+const [contactAddressLine1, contactAddressLine2] = getContactAddressLines();
 
 /** Hover/focus only — text color stays on each row via explicit text-[#4A4A4A] */
 const contactInteractiveClass =
@@ -49,42 +52,42 @@ export default function ContactSection() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-xl font-bold text-[#0B3B24] mb-4 font-serif">
-                  Sivananda Yoga Resort and Training Center - The Ashram
+                  {CONTACT_INFO.venueTitle}
                 </h3>
                 <a
-                  href={MAPS_URL}
+                  href={CONTACT_INFO.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex items-start gap-4 text-[#4A4A4A] text-base md:text-lg ${contactInteractiveClass}`}
                 >
                   <MapPin className="w-6 h-6 text-[#ED7D4D] shrink-0 mt-1" />
                   <span>
-                    Hoa Hong Street, Ward 4, Tuyen Lam Lake
+                    {contactAddressLine1}
                     <br />
-                    Da Lat, Vietnam
+                    {contactAddressLine2}
                   </span>
                 </a>
               </div>
               
               <a
-                href={TEL_HREF}
+                href={CONTACT_TEL_HREF}
                 className={`flex items-center gap-4 text-[#4A4A4A] text-base md:text-lg ${contactInteractiveClass}`}
               >
                 <Phone className="w-6 h-6 text-[#ED7D4D] shrink-0" />
-                <span>(+84) 02636501100</span>
+                <span>{CONTACT_INFO.phoneDisplay}</span>
               </a>
               
               <a
-                href={MAILTO_HREF}
+                href={CONTACT_MAILTO_HREF}
                 className={`flex items-center gap-4 text-[#4A4A4A] text-base md:text-lg break-all ${contactInteractiveClass}`}
               >
                 <Mail className="w-6 h-6 text-[#ED7D4D] shrink-0" />
-                <span>vietnamyogaresort@sivananda.org</span>
+                <span>{CONTACT_INFO.email}</span>
               </a>
 
               <div className="flex items-center gap-4 text-[#4A4A4A] text-base md:text-lg">
                 <Clock className="w-6 h-6 text-[#ED7D4D] shrink-0" />
-                <p>Opening hours: 7:30am - 7:30pm</p>
+                <p>{CONTACT_INFO.openingHoursDisplay}</p>
               </div>
             </div>
           </div>
@@ -92,7 +95,7 @@ export default function ContactSection() {
           {/* Embedded Map */}
           <div className="mt-16 w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden shadow-inner border border-white/50 hidden md:block relative">
             <iframe
-              src={MAP_EMBED_SRC}
+              src={CONTACT_MAP_EMBED_SRC}
               className="absolute inset-0 w-full h-full"
               style={{ border: 0 }}
               allowFullScreen

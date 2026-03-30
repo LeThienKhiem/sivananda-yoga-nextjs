@@ -6,6 +6,12 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Phone, Mail, Clock, Plus, Navigation } from "lucide-react";
+import {
+  CONTACT_INFO,
+  CONTACT_MAILTO_HREF,
+  CONTACT_MAP_EMBED_SRC,
+  CONTACT_TEL_HREF,
+} from "@/lib/contactInfo";
 
 const HERO_IMG =
   "https://images.unsplash.com/photo-1522383225653-ed111181a951?q=80&w=2000";
@@ -13,6 +19,9 @@ const IMG_REMINDER =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-15.png";
 const IMG_MINDFUL =
   "https://znmazjqhyjxacqjjzsuh.supabase.co/storage/v1/object/public/Images/4way-yoga-16.png";
+
+const guestContactLinkClass =
+  "text-[#4A4A4A] hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ED7D4D]/40 rounded-sm";
 
 export default function GuestInformationPage() {
   return (
@@ -40,48 +49,51 @@ export default function GuestInformationPage() {
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           {/* Left Column - Contact Info */}
           <div className="w-full lg:w-1/2 space-y-6">
-            <h3 className="text-2xl font-bold text-[#0B3B24]">
-              Sivananda Yoga Resort and Training Center – The Ashram
+            <h3 className="font-serif text-2xl font-bold text-[#0B3B24]">
+              {CONTACT_INFO.venueTitle}
             </h3>
 
             <div className="space-y-4 text-[#4A4A4A]">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#0B3B24] mt-1 flex-shrink-0" />
-                <p>
-                  K&apos;lan Resort, Hoa Hong Street, Ward 4, Tuyen Lam Lake
-                  <br />
-                  Dalat, Vietnam
-                </p>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-[#0B3B24] flex-shrink-0" />
-                <p>(+84) 263 650 1100</p>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-[#0B3B24] flex-shrink-0" />
-                <p>vietnamyoga@sivananda.org</p>
-              </div>
+              <a
+                href={CONTACT_INFO.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-start gap-3 ${guestContactLinkClass}`}
+              >
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-[#ED7D4D]" />
+                <span className="leading-relaxed">{CONTACT_INFO.address}</span>
+              </a>
+              <a
+                href={CONTACT_TEL_HREF}
+                className={`flex items-center gap-3 underline ${guestContactLinkClass}`}
+              >
+                <Phone className="h-5 w-5 shrink-0 text-[#ED7D4D]" />
+                <span>{CONTACT_INFO.phoneDisplay}</span>
+              </a>
+              <a
+                href={CONTACT_MAILTO_HREF}
+                className={`flex items-center gap-3 break-all underline ${guestContactLinkClass}`}
+              >
+                <Mail className="h-5 w-5 shrink-0 text-[#ED7D4D]" />
+                <span>{CONTACT_INFO.email}</span>
+              </a>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="w-full h-48 bg-[#EAEAEA] rounded-md relative flex items-center justify-center border border-gray-200 my-6 shadow-inner">
-              <div
-                className="absolute inset-0 opacity-20"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(45deg, #ccc 25%, transparent 25%, transparent 75%, #ccc 75%, #ccc), repeating-linear-gradient(45deg, #ccc 25%, #e0e0e0 25%, #e0e0e0 75%, #ccc 75%, #ccc)",
-                  backgroundPosition: "0 0, 10px 10px",
-                  backgroundSize: "20px 20px",
-                }}
+            <div className="relative my-6 aspect-video w-full overflow-hidden rounded-2xl border border-gray-100 shadow-inner md:aspect-[21/9]">
+              <iframe
+                src={CONTACT_MAP_EMBED_SRC}
+                className="absolute inset-0 h-full w-full"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Sivananda Yoga Resort and Training Center - Map"
               />
-              <div className="bg-[#E5F5C8] p-3 rounded-full shadow-md z-10 relative">
-                <MapPin className="w-6 h-6 text-[#0B3B24]" />
-              </div>
             </div>
 
-            <div className="flex items-center gap-3 text-[#4A4A4A] font-medium">
-              <Clock className="w-5 h-5 text-[#0B3B24]" />
-              <p>Check-in from 2:00 pm – 7:00 pm</p>
+            <div className="flex items-center gap-3 text-base text-[#4A4A4A]">
+              <Clock className="h-5 w-5 shrink-0 text-[#ED7D4D]" />
+              <p>{CONTACT_INFO.openingHoursDisplay}</p>
             </div>
           </div>
 

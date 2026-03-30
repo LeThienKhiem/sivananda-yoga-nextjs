@@ -7,6 +7,13 @@ import {
   Instagram,
   Youtube,
 } from "lucide-react";
+import {
+  CONTACT_ADDRESS_MOBILE_FOOTER,
+  CONTACT_ADDRESS_MULTILINE,
+  CONTACT_INFO,
+  CONTACT_MAILTO_HREF,
+  CONTACT_TEL_HREF,
+} from "@/lib/contactInfo";
 
 /** Spotify logo - three curved bars in a circle */
 function SpotifyIcon({ className }: { className?: string }) {
@@ -30,11 +37,6 @@ const FOOTER_LOGO_URL =
 const FOOTER_LINK =
   "text-white transition hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50";
 
-/** Google Maps short link for Sivananda Yoga Resort Vietnam */
-const MAPS_URL = "https://maps.app.goo.gl/8xq1fn4onFMc6DJHA";
-const TEL_HREF = "tel:02636501100";
-const MAILTO_HREF = "mailto:vietnamyogaresort@sivananda.org";
-
 /** Contact rows: same white/inherit as body text; underline + slight fade on hover */
 const footerContactClass = `${FOOTER_LINK} text-inherit hover:opacity-90`;
 
@@ -53,26 +55,26 @@ export default function Footer() {
 
         <div className="flex w-full flex-col items-start gap-4 text-left">
           <a
-            href={MAPS_URL}
+            href={CONTACT_INFO.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className={`flex flex-row items-start gap-3 ${footerContactClass}`}
           >
             <MapPin className="mt-1 h-6 w-6 shrink-0" />
             <span className="text-left leading-relaxed">
-              Hoa Hong Street Ward 4, Tuyen Lam Lake Da Lat, Vietnam
+              {CONTACT_ADDRESS_MOBILE_FOOTER}
             </span>
           </a>
           <a
-            href={TEL_HREF}
+            href={CONTACT_TEL_HREF}
             className={`flex flex-row items-center gap-3 ${footerContactClass}`}
           >
             <Phone className="h-5 w-5 shrink-0" />
-            <span>02636501100</span>
+            <span>{CONTACT_INFO.phone}</span>
           </a>
-          <a href={MAILTO_HREF} className={`flex flex-row items-center gap-3 ${footerContactClass}`}>
+          <a href={CONTACT_MAILTO_HREF} className={`flex flex-row items-center gap-3 ${footerContactClass}`}>
             <Mail className="h-5 w-5 shrink-0" />
-            <span>vietnamyogaresort@sivananda.org</span>
+            <span>{CONTACT_INFO.email}</span>
           </a>
         </div>
 
@@ -140,29 +142,29 @@ export default function Footer() {
                 </h5>
                 <div className="flex w-full flex-col items-center space-y-8 text-center text-lg leading-relaxed tracking-wide text-white md:items-center md:text-center lg:items-start lg:text-left">
                   <a
-                    href={MAPS_URL}
+                    href={CONTACT_INFO.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-3 transition-opacity hover:opacity-90 md:flex-col md:items-center md:text-center lg:flex-row lg:items-start lg:text-left"
                   >
                     <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-orange-500 lg:mt-0.5" />
                     <span className="whitespace-pre-line">
-                      Hoa Hong Street{"\n"}Ward 4, Tuyen Lam Lake{"\n"}Da Lat, Vietnam
+                      {CONTACT_ADDRESS_MULTILINE}
                     </span>
                   </a>
                   <a
-                    href={TEL_HREF}
+                    href={CONTACT_TEL_HREF}
                     className="flex items-center gap-3 transition-opacity hover:opacity-90 md:flex-col md:items-center lg:flex-row"
                   >
                     <Phone className="h-4 w-4 shrink-0 text-orange-500" />
-                    <span>02636501100</span>
+                    <span>{CONTACT_INFO.phone}</span>
                   </a>
                   <a
-                    href={MAILTO_HREF}
+                    href={CONTACT_MAILTO_HREF}
                     className="flex items-center gap-3 transition-opacity hover:opacity-90 md:flex-col md:items-center lg:flex-row"
                   >
                     <Mail className="h-4 w-4 shrink-0 text-orange-500" />
-                    <span>vietnamyogaresort@sivananda.org</span>
+                    <span>{CONTACT_INFO.email}</span>
                   </a>
                 </div>
               </div>
